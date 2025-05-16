@@ -1,7 +1,7 @@
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from keyboards.admin_kb import admin_menu
-from utils.database import get_all_categories, update_product_quantity
+from database.mongo import get_all_categories, update_product_quantity
 
 ADMIN_ID = 123456789  # Не забудь заменить на своего администратора
 
