@@ -5,8 +5,7 @@ def main_menu() -> ReplyKeyboardMarkup:
     kb = ReplyKeyboardMarkup(
         keyboard=[
             [KeyboardButton(text="🛍 Каталог")],
-            [KeyboardButton(text="🛒 Корзина")],
-            [KeyboardButton(text="📱 Мои заказы"), KeyboardButton(text="ℹ️ Помощь")]
+            [KeyboardButton(text="🛒 Корзина"), KeyboardButton(text="ℹ️ Помощь")]
         ],
         resize_keyboard=True
     )
@@ -27,12 +26,7 @@ def product_actions_kb(product_id: str, in_cart: bool = False) -> InlineKeyboard
             callback_data=f"add_to_cart_{product_id}"
         )])
     
-    buttons.extend([
-        [
-            InlineKeyboardButton(text="📝 Подробнее", callback_data=f"product_info_{product_id}"),
-            InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_catalog")
-        ]
-    ])
+    buttons.append([InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_catalog")])
     
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
@@ -58,4 +52,12 @@ def confirm_order_kb() -> InlineKeyboardMarkup:
             InlineKeyboardButton(text="✅ Подтвердить", callback_data="confirm_order"),
             InlineKeyboardButton(text="❌ Отменить", callback_data="cancel_order")
         ]
+    ])
+
+def help_menu() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📞 Контакты", callback_data="help_contacts")],
+        [InlineKeyboardButton(text="❓ Как сделать заказ", callback_data="help_how_to_order")],
+        [InlineKeyboardButton(text="💳 Оплата", callback_data="help_payment")],
+        [InlineKeyboardButton(text="🚚 Доставка", callback_data="help_delivery")]
     ])

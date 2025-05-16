@@ -10,12 +10,16 @@ class MongoDB:
 
     async def connect(self):
         try:
+            logging.info("Attempting to connect to MongoDB at %s", MONGODB_URI)
             self.client = AsyncIOMotorClient(MONGODB_URI)
             self.db = self.client[DB_NAME]
             await self.client.admin.command('ping')
-            logging.info("Successfully connected to MongoDB")
-        except ServerSelectionTimeoutError:
-            logging.error("Failed to connect to MongoDB")
+            logging.info("Successfully connected to MongoDB database: %s", DB_NAME)
+        except ServerSelectionTimeoutError as e:
+            logging.error("Failed to connect to MongoDB: %s", str(e))
+            raise
+        except Exception as e:
+            logging.error("Unexpected error connecting to MongoDB: %s", str(e))
             raise
 
     async def close(self):
@@ -47,7 +51,13 @@ class MongoDB:
 
     # Users
     async def get_user(self, user_id):
-        return await self.db.users.find_one({"user_id": user_id})
+        try:
+            user = await self.db.users.find_one({"user_id": user_id})
+            logging.info("Retrieved user %s: %s", user_id, "Found" if user else "Not found")
+            return user
+        except Exception as e:
+            logging.error("Error retrieving user %s: %s", user_id, str(e))
+            return None
 
     async def get_all_users(self):
         return await self.db.users.find().to_list(length=None)
@@ -56,7 +66,8 @@ class MongoDB:
         # Only create if user doesn't exist
         existing_user = await self.get_user(user_data["user_id"])
         if not existing_user:
-            return await self.db.users.insert_one(user_data)
+            await self.db.users.insert_one(user_data)
+            return await self.get_user(user_data["user_id"])
         return existing_user
 
     async def update_user(self, user_id, update_data):
