@@ -1,7 +1,33 @@
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
+# Bot Configuration
 BOT_TOKEN: str = os.getenv("BOT_TOKEN")
-ADMIN_ID: int = int(os.getenv("ADMIN_ID", "0"))  # добавлен fallback на случай отсутствия
-DB_PATH: str = "data/database.db"
+ADMIN_ID: int = int(os.getenv("ADMIN_ID", "0"))
+
+# MongoDB Configuration
+MONGODB_URI: str = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
+DB_NAME: str = os.getenv("DB_NAME", "vapeshop_db")
+
+# Shop Configuration
+SHOP_NAME: str = os.getenv("SHOP_NAME", "VapeShop")
+CURRENCY: str = os.getenv("CURRENCY", "RUB")
+
+# Product Categories
+CATEGORIES = [
+    "Одноразовые устройства",
+    "Многоразовые устройства",
+    "Жидкости",
+    "Расходники",
+    "Аксессуары"
+]
+
+# Order Statuses
+ORDER_STATUSES = {
+    "pending": "🕒 Ожидает обработки",
+    "confirmed": "✅ Подтвержден",
+    "cancelled": "❌ Отменен",
+    "completed": "🎉 Выполнен"
+}
