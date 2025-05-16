@@ -5,7 +5,7 @@ load_dotenv()
 
 # Bot Configuration
 BOT_TOKEN: str = os.getenv("BOT_TOKEN")
-ADMIN_ID: int = int(os.getenv("ADMIN_ID", "0"))
+ADMIN_ID: int = int(os.getenv("ADMIN_ID", "1088067370"))
 
 # MongoDB Configuration
 MONGODB_URI: str = os.getenv("MONGODB_URI", "mongodb://localhost:27017")

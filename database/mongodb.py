@@ -1,5 +1,5 @@
 from motor.motor_asyncio import AsyncIOMotorClient
-from pymongo.errors import ConnectionError
+from pymongo.errors import ServerSelectionTimeoutError
 import logging
 from config import MONGODB_URI, DB_NAME
 
@@ -14,7 +14,7 @@ class MongoDB:
             self.db = self.client[DB_NAME]
             await self.client.admin.command('ping')
             logging.info("Successfully connected to MongoDB")
-        except ConnectionError:
+        except ServerSelectionTimeoutError:
             logging.error("Failed to connect to MongoDB")
             raise
 
@@ -33,6 +33,9 @@ class MongoDB:
     async def get_product(self, product_id):
         return await self.db.products.find_one({"_id": product_id})
 
+    async def get_products_by_category(self, category):
+        return await self.db.products.find({"category": category}).to_list(length=None)
+
     async def update_product(self, product_id, update_data):
         return await self.db.products.update_one(
             {"_id": product_id},
@@ -46,8 +49,15 @@ class MongoDB:
     async def get_user(self, user_id):
         return await self.db.users.find_one({"user_id": user_id})
 
+    async def get_all_users(self):
+        return await self.db.users.find().to_list(length=None)
+
     async def create_user(self, user_data):
-        return await self.db.users.insert_one(user_data)
+        # Only create if user doesn't exist
+        existing_user = await self.get_user(user_data["user_id"])
+        if not existing_user:
+            return await self.db.users.insert_one(user_data)
+        return existing_user
 
     async def update_user(self, user_id, update_data):
         return await self.db.users.update_one(

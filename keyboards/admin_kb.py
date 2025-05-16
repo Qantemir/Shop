@@ -2,46 +2,56 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeybo
 from config import CATEGORIES, ORDER_STATUSES
 
 def admin_main_menu() -> ReplyKeyboardMarkup:
-    kb = ReplyKeyboardMarkup(resize_keyboard=True)
-    kb.add(KeyboardButton("📦 Управление товарами"))
-    kb.add(KeyboardButton("📊 Заказы"))
-    kb.add(KeyboardButton("📈 Статистика"))
-    kb.add(KeyboardButton("📢 Рассылка"))
+    kb = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="📦 Управление товарами")],
+            [KeyboardButton(text="📊 Заказы")],
+            [KeyboardButton(text="📈 Статистика")],
+            [KeyboardButton(text="📢 Рассылка")]
+        ],
+        resize_keyboard=True
+    )
     return kb
 
 def product_management_kb() -> InlineKeyboardMarkup:
-    kb = InlineKeyboardMarkup(row_width=2)
-    kb.add(
-        InlineKeyboardButton("➕ Добавить товар", callback_data="add_product"),
-        InlineKeyboardButton("📝 Редактировать", callback_data="edit_products"),
-        InlineKeyboardButton("❌ Удалить товар", callback_data="delete_product"),
-        InlineKeyboardButton("📋 Список товаров", callback_data="list_products"),
-        InlineKeyboardButton("🔙 Назад", callback_data="back_to_admin_menu")
-    )
-    return kb
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="➕ Добавить товар", callback_data="add_product"),
+            InlineKeyboardButton(text="📝 Редактировать", callback_data="edit_products")
+        ],
+        [
+            InlineKeyboardButton(text="❌ Удалить товар", callback_data="delete_product"),
+            InlineKeyboardButton(text="📋 Список товаров", callback_data="list_products")
+        ],
+        [InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_admin_menu")]
+    ])
 
 def categories_kb(for_adding: bool = True) -> InlineKeyboardMarkup:
-    kb = InlineKeyboardMarkup(row_width=2)
-    for category in CATEGORIES:
-        callback_data = f"add_to_{category}" if for_adding else f"view_{category}"
-        kb.add(InlineKeyboardButton(category, callback_data=callback_data))
-    kb.add(InlineKeyboardButton("🔙 Назад", callback_data="back_to_product_management"))
-    return kb
+    buttons = [
+        [InlineKeyboardButton(
+            text=category,
+            callback_data=f"add_to_{category}" if for_adding else f"view_{category}"
+        )]
+        for category in CATEGORIES
+    ]
+    buttons.append([InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_product_management")])
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def order_management_kb(order_id: str) -> InlineKeyboardMarkup:
-    kb = InlineKeyboardMarkup(row_width=2)
-    for status_key, status_text in ORDER_STATUSES.items():
-        kb.add(InlineKeyboardButton(
-            status_text,
+    buttons = [
+        [InlineKeyboardButton(
+            text=status_text,
             callback_data=f"order_status_{order_id}_{status_key}"
-        ))
-    kb.add(InlineKeyboardButton("🔙 Назад", callback_data="back_to_orders"))
-    return kb
+        )]
+        for status_key, status_text in ORDER_STATUSES.items()
+    ]
+    buttons.append([InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_orders")])
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def confirm_action_kb(action: str, item_id: str) -> InlineKeyboardMarkup:
-    kb = InlineKeyboardMarkup(row_width=2)
-    kb.add(
-        InlineKeyboardButton("✅ Да", callback_data=f"confirm_{action}_{item_id}"),
-        InlineKeyboardButton("❌ Нет", callback_data=f"cancel_{action}")
-    )
-    return kb
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="✅ Да", callback_data=f"confirm_{action}_{item_id}"),
+            InlineKeyboardButton(text="❌ Нет", callback_data=f"cancel_{action}")
+        ]
+    ])
