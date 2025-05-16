@@ -21,6 +21,7 @@ class AdminStates(StatesGroup):
     waiting_password = State()
     adding_product = State()
     editing_product = State()
+    setting_name = State()
     setting_price = State()
     setting_description = State()
     setting_image = State()
@@ -30,14 +31,18 @@ class AdminStates(StatesGroup):
 @router.message(Command("admin"))
 async def admin_start(message: Message, state: FSMContext):
     user_id = message.from_user.id
+    print(f"[DEBUG] admin_start - User ID: {user_id}")
+    print(f"[DEBUG] admin_start - ADMIN_ID: {ADMIN_ID}")
     
     # Проверяем, является ли пользователь администратором
     if user_id != ADMIN_ID:
+        print("[DEBUG] admin_start - Not an admin")
         await message.answer("У вас нет прав администратора.")
         return
 
     # Проверяем, не заблокирован ли пользователь
     if not security_manager.check_failed_attempts(user_id):
+        print("[DEBUG] admin_start - User is blocked")
         remaining_time = security_manager.get_block_time_remaining(user_id)
         await message.answer(
             f"Слишком много неудачных попыток. Попробуйте снова через {remaining_time.seconds // 60} минут."
@@ -46,27 +51,34 @@ async def admin_start(message: Message, state: FSMContext):
 
     # Если сессия уже активна, показываем меню админа
     if security_manager.is_admin_session_valid(user_id):
+        print("[DEBUG] admin_start - Session is valid, showing menu")
         await message.answer("Панель администратора", reply_markup=admin_main_menu())
         return
 
     # Запрашиваем пароль
+    print("[DEBUG] admin_start - Requesting password")
     await message.answer("Введите пароль администратора:")
     await state.set_state(AdminStates.waiting_password)
 
 @router.message(AdminStates.waiting_password)
 async def check_admin_password(message: Message, state: FSMContext):
     user_id = message.from_user.id
+    print(f"[DEBUG] check_admin_password - User ID: {user_id}")
     
     if user_id != ADMIN_ID:
+        print("[DEBUG] check_admin_password - Not an admin")
         return
 
     # Проверяем пароль
+    print("[DEBUG] check_admin_password - Verifying password")
     if security_manager.verify_password(message.text):
+        print("[DEBUG] check_admin_password - Password correct")
         security_manager.create_admin_session(user_id)
         security_manager.reset_attempts(user_id)
         await message.answer("Доступ разрешен.", reply_markup=admin_main_menu())
         await state.clear()
     else:
+        print("[DEBUG] check_admin_password - Password incorrect")
         security_manager.add_failed_attempt(user_id)
         attempts_left = security_manager.max_attempts - security_manager.failed_attempts.get(user_id, 0)
         
@@ -86,24 +98,56 @@ async def admin_logout(message: Message):
 
 # Защищаем все админские функции проверкой сессии
 def check_admin_session(func):
-    async def wrapper(event, *args, **kwargs):
+    from functools import wraps
+    
+    @wraps(func)
+    async def wrapper(*args, **kwargs):
+        # Получаем event из первого аргумента (Message или CallbackQuery)
+        event = args[0] if args else None
+        if not event:
+            print("[DEBUG] check_admin_session - No event object found")
+            return
+        
         user_id = event.from_user.id
+        print(f"[DEBUG] check_admin_session - User ID: {user_id}")
+        print(f"[DEBUG] check_admin_session - Is admin: {user_id == ADMIN_ID}")
+        print(f"[DEBUG] check_admin_session - Session valid: {security_manager.is_admin_session_valid(user_id)}")
+        
         if user_id != ADMIN_ID or not security_manager.is_admin_session_valid(user_id):
+            print("[DEBUG] check_admin_session - Access denied")
             if isinstance(event, Message):
                 await event.answer("Необходима авторизация. Используйте /admin")
             elif isinstance(event, CallbackQuery):
                 await event.answer("Необходима авторизация", show_alert=True)
             return
-        return await func(event, *args, **kwargs)
+        print("[DEBUG] check_admin_session - Access granted")
+        
+        # Удаляем dispatcher из kwargs если он есть
+        kwargs.pop('dispatcher', None)
+        return await func(*args, **kwargs)
     return wrapper
 
 @router.message(F.text == "📦 Управление товарами")
-@check_admin_session
-async def product_management(message: Message):
-    await message.answer(
-        "Выберите действие для управления товарами:",
-        reply_markup=product_management_kb()
-    )
+async def product_management(message: Message, **kwargs):
+    print("[DEBUG] Entering product_management handler")
+    print(f"[DEBUG] User ID: {message.from_user.id}")
+    print(f"[DEBUG] kwargs: {kwargs}")
+    
+    # Проверка прав администратора
+    user_id = message.from_user.id
+    if user_id != ADMIN_ID or not security_manager.is_admin_session_valid(user_id):
+        print("[DEBUG] Access denied")
+        await message.answer("Необходима авторизация. Используйте /admin")
+        return
+    
+    try:
+        await message.answer(
+            "Выберите действие для управления товарами:",
+            reply_markup=product_management_kb()
+        )
+        print("[DEBUG] Successfully sent product management menu")
+    except Exception as e:
+        print(f"[ERROR] Error in product_management: {str(e)}")
 
 @router.callback_query(F.data == "back_to_admin_menu")
 @check_admin_session
@@ -142,7 +186,7 @@ async def list_products(callback: CallbackQuery):
     text = "Список товаров:\n\n"
     for product in products:
         text += f"📦 {product['name']}\n"
-        text += f"💰 {product['price']} RUB\n"
+        text += f"💰 {product['price']} Tg\n"
         text += f"📝 {product['description']}\n"
         text += "➖➖➖➖➖➖➖➖\n"
     
@@ -155,12 +199,25 @@ async def list_products(callback: CallbackQuery):
 @router.callback_query(F.data == "add_product")
 @check_admin_session
 async def add_product_start(callback: CallbackQuery, state: FSMContext):
-    await callback.message.edit_text(
-        "Выберите категорию товара:",
-        reply_markup=categories_kb(True)
-    )
-    await state.set_state(AdminStates.adding_product)
-    await callback.answer()
+    print("[DEBUG] Entering add_product_start handler")
+    print(f"[DEBUG] User ID: {callback.from_user.id}")
+    try:
+        # Очищаем предыдущее состояние, если оно было
+        await state.clear()
+        await callback.message.edit_text(
+            "Выберите категорию товара:",
+            reply_markup=categories_kb(True)
+        )
+        await state.set_state(AdminStates.adding_product)
+        print(f"[DEBUG] State set to: {AdminStates.adding_product}")
+        await callback.answer()
+        print("[DEBUG] Successfully showed categories menu")
+    except Exception as e:
+        print(f"[ERROR] Error in add_product_start: {str(e)}")
+        await callback.message.edit_text(
+            "Произошла ошибка. Попробуйте снова.",
+            reply_markup=product_management_kb()
+        )
 
 @router.callback_query(F.data == "edit_products")
 @check_admin_session
@@ -422,54 +479,185 @@ async def confirm_broadcast(message: Message, state: FSMContext):
 @router.callback_query(F.data.startswith("add_to_"))
 @check_admin_session
 async def add_product_category(callback: CallbackQuery, state: FSMContext):
-    category = callback.data.replace("add_to_", "")
-    await state.update_data(category=category)
-    await callback.message.edit_text("Введите название товара:")
-    await state.set_state(AdminStates.setting_price)
-    await callback.answer()
+    print("[DEBUG] Entering add_product_category handler")
+    print(f"[DEBUG] Callback data: {callback.data}")
+    try:
+        current_state = await state.get_state()
+        print(f"[DEBUG] Current state: {current_state}")
+        
+        if current_state != AdminStates.adding_product:
+            print("[DEBUG] Invalid state transition")
+            await callback.message.edit_text(
+                "Ошибка состояния. Начните сначала.",
+                reply_markup=product_management_kb()
+            )
+            await callback.answer()
+            return
+
+        category = callback.data.replace("add_to_", "")
+        print(f"[DEBUG] Selected category: {category}")
+        
+        # Сохраняем категорию и переходим к вводу названия
+        await state.update_data(category=category)
+        await callback.message.edit_text(
+            "Введите название товара:",
+            reply_markup=None  # Убираем клавиатуру для ввода текста
+        )
+        await state.set_state(AdminStates.setting_name)
+        print(f"[DEBUG] State set to: {AdminStates.setting_name}")
+        await callback.answer()
+    except Exception as e:
+        print(f"[ERROR] Error in add_product_category: {str(e)}")
+        await callback.message.edit_text(
+            "Произошла ошибка. Попробуйте снова.",
+            reply_markup=product_management_kb()
+        )
+
+@router.message(AdminStates.setting_name)
+@check_admin_session
+async def add_product_name(message: Message, state: FSMContext):
+    print("[DEBUG] Entering add_product_name handler")
+    print(f"[DEBUG] Received name: {message.text}")
+    try:
+        data = await state.get_data()
+        if 'category' not in data:
+            print("[ERROR] No category in state data")
+            await message.answer(
+                "Ошибка: категория не выбрана. Начните сначала.",
+                reply_markup=product_management_kb()
+            )
+            await state.clear()
+            return
+
+        await state.update_data(name=message.text)
+        await message.answer("Введите цену товара (только число):")
+        await state.set_state(AdminStates.setting_price)
+        print(f"[DEBUG] State set to: {AdminStates.setting_price}")
+    except Exception as e:
+        print(f"[ERROR] Error in add_product_name: {str(e)}")
+        await message.answer(
+            "Произошла ошибка. Попробуйте снова.",
+            reply_markup=product_management_kb()
+        )
+        await state.clear()
 
 @router.message(AdminStates.setting_price)
 @check_admin_session
 async def add_product_price(message: Message, state: FSMContext):
-    await state.update_data(name=message.text)
-    await message.answer("Введите цену товара (только число):")
-    await state.set_state(AdminStates.setting_description)
+    print("[DEBUG] Entering add_product_price handler")
+    print(f"[DEBUG] Received price: {message.text}")
+    try:
+        if not message.text.isdigit():
+            await message.answer("Пожалуйста, введите только число для цены:")
+            print("[DEBUG] Invalid price format")
+            return
+
+        data = await state.get_data()
+        if 'name' not in data or 'category' not in data:
+            print("[ERROR] Missing required state data")
+            await message.answer(
+                "Ошибка: недостаточно данных. Начните сначала.",
+                reply_markup=product_management_kb()
+            )
+            await state.clear()
+            return
+
+        await state.update_data(price=int(message.text))
+        await message.answer("Введите описание товара:")
+        await state.set_state(AdminStates.setting_description)
+        print(f"[DEBUG] State set to: {AdminStates.setting_description}")
+    except Exception as e:
+        print(f"[ERROR] Error in add_product_price: {str(e)}")
+        await message.answer(
+            "Произошла ошибка. Попробуйте снова.",
+            reply_markup=product_management_kb()
+        )
+        await state.clear()
 
 @router.message(AdminStates.setting_description)
 @check_admin_session
 async def add_product_description(message: Message, state: FSMContext):
-    if not message.text.isdigit():
-        await message.answer("Пожалуйста, введите только число для цены:")
-        return
-    
-    await state.update_data(price=int(message.text))
-    await message.answer("Введите описание товара:")
-    await state.set_state(AdminStates.setting_image)
+    print("[DEBUG] Entering add_product_description handler")
+    try:
+        data = await state.get_data()
+        if not all(key in data for key in ['name', 'category', 'price']):
+            print("[ERROR] Missing required state data")
+            await message.answer(
+                "Ошибка: недостаточно данных. Начните сначала.",
+                reply_markup=product_management_kb()
+            )
+            await state.clear()
+            return
 
-@router.message(AdminStates.setting_image)
-@check_admin_session
-async def add_product_image(message: Message, state: FSMContext):
-    await state.update_data(description=message.text)
-    await message.answer("Отправьте фотографию товара:")
+        await state.update_data(description=message.text)
+        await message.answer("Отправьте фотографию товара:")
+        await state.set_state(AdminStates.setting_image)
+        print(f"[DEBUG] State set to: {AdminStates.setting_image}")
+    except Exception as e:
+        print(f"[ERROR] Error in add_product_description: {str(e)}")
+        await message.answer(
+            "Произошла ошибка. Попробуйте снова.",
+            reply_markup=product_management_kb()
+        )
+        await state.clear()
 
 @router.message(AdminStates.setting_image, F.photo)
 @check_admin_session
 async def finish_adding_product(message: Message, state: FSMContext):
-    data = await state.get_data()
-    photo_id = message.photo[-1].file_id
-    
-    product_data = {
-        "name": data["name"],
-        "category": data["category"],
-        "price": data["price"],
-        "description": data["description"],
-        "photo": photo_id,
-        "available": True
-    }
-    
-    await db.add_product(product_data)
-    await message.answer(
-        "Товар успешно добавлен!",
-        reply_markup=product_management_kb()
-    )
-    await state.clear()
+    print("[DEBUG] Entering finish_adding_product handler")
+    try:
+        data = await state.get_data()
+        print(f"[DEBUG] State data: {data}")
+        
+        # Проверяем наличие всех необходимых данных
+        required_fields = ['name', 'category', 'price', 'description']
+        if not all(field in data for field in required_fields):
+            print("[ERROR] Missing required state data")
+            await message.answer(
+                "Ошибка: недостаточно данных. Начните сначала.",
+                reply_markup=product_management_kb()
+            )
+            await state.clear()
+            return
+
+        photo_id = message.photo[-1].file_id
+        print(f"[DEBUG] Received photo_id: {photo_id}")
+        
+        product_data = {
+            "name": data["name"],
+            "category": data["category"],
+            "price": data["price"],
+            "description": data["description"],
+            "photo": photo_id,
+            "available": True
+        }
+        print(f"[DEBUG] Product data prepared: {product_data}")
+        
+        await db.add_product(product_data)
+        print("[DEBUG] Product added to database")
+        
+        await message.answer(
+            "Товар успешно добавлен!",
+            reply_markup=product_management_kb()
+        )
+        await state.clear()
+        print("[DEBUG] State cleared, product addition completed")
+    except Exception as e:
+        print(f"[ERROR] Error in finish_adding_product: {str(e)}")
+        await message.answer(
+            "Произошла ошибка при добавлении товара. Попробуйте снова.",
+            reply_markup=product_management_kb()
+        )
+        await state.clear()
+
+# Добавляем обработчик для отмены операции
+@router.message(Command("cancel"))
+@check_admin_session
+async def cancel_operation(message: Message, state: FSMContext):
+    current_state = await state.get_state()
+    if current_state is not None:
+        await state.clear()
+        await message.answer(
+            "Операция отменена. Возвращаемся в меню управления товарами.",
+            reply_markup=product_management_kb()
+        )
