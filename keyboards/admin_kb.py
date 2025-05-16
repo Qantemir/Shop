@@ -1,8 +1,11 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-def admin_menu():
+def admin_menu() -> ReplyKeyboardMarkup:
     """Создает клавиатуру с админ-функциями."""
-    kb = ReplyKeyboardMarkup(resize_keyboard=True)
-    kb.add(KeyboardButton("Просмотр базы данных"))
-    kb.add(KeyboardButton("Обработка заказов"))
-    return kb
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="Просмотр базы данных")],
+            [KeyboardButton(text="Обработка заказов")]
+        ],
+        resize_keyboard=True
+    )
