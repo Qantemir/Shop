@@ -40,14 +40,8 @@ def categories_kb(for_adding: bool = True) -> InlineKeyboardMarkup:
 def order_management_kb(order_id: str) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
         [
-            InlineKeyboardButton(text="✅ Подтвердить оплату", callback_data=f"order_status_{order_id}_paid")
-        ],
-        [
-            InlineKeyboardButton(text="📦 Подтвердить заказ", callback_data=f"order_status_{order_id}_confirmed"),
-            InlineKeyboardButton(text="❌ Отменить", callback_data=f"order_status_{order_id}_cancelled")
-        ],
-        [
-            InlineKeyboardButton(text="🎉 Завершить", callback_data=f"order_status_{order_id}_completed")
+            InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"admin_confirm_{order_id}"),
+            InlineKeyboardButton(text="❌ Отменить", callback_data=f"admin_cancel_{order_id}")
         ]
     ])
 

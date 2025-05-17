@@ -26,6 +26,9 @@ class OrderStates(StatesGroup):
     waiting_for_address = State()
     waiting_for_payment = State()
 
+class CancellationStates(StatesGroup):
+    waiting_for_reason = State()
+
 @router.message(Command("start"))
 async def cmd_start(message: Message):
     try:
@@ -267,41 +270,84 @@ async def remove_item(callback: CallbackQuery):
         print(f"[ERROR] Error in remove_item: {str(e)}")
         await callback.answer("Произошла ошибка")
 
+@router.callback_query(F.data == "back_to_catalog")
+async def back_to_catalog_handler(callback: CallbackQuery):
+    try:
+        # Delete the previous message with cart
+        await callback.message.delete()
+        
+        # Show catalog menu
+        await callback.message.answer(
+            "Выберите категорию:",
+            reply_markup=catalog_menu()
+        )
+        await callback.answer()
+    except Exception as e:
+        print(f"[ERROR] Error in back_to_catalog: {str(e)}")
+        await callback.answer("Произошла ошибка при возврате к каталогу")
+
 @router.callback_query(F.data == "confirm_clear_cart")
 async def confirm_clear_cart(callback: CallbackQuery):
-    await callback.message.edit_text(
-        "Вы уверены, что хотите очистить корзину?",
-        reply_markup=confirm_clear_cart_kb()
-    )
-    await callback.answer()
+    try:
+        await callback.message.edit_text(
+            "Вы уверены, что хотите очистить корзину?",
+            reply_markup=confirm_clear_cart_kb()
+        )
+        await callback.answer()
+    except Exception as e:
+        print(f"[ERROR] Error in confirm_clear_cart: {str(e)}")
+        await callback.answer("Произошла ошибка")
 
 @router.callback_query(F.data == "clear_cart")
 async def clear_cart(callback: CallbackQuery):
     try:
+        # Clear user's cart in database
         await db.update_user(callback.from_user.id, {'cart': []})
-        await callback.message.edit_text(
-            "Корзина очищена!",
+        
+        # Delete all previous cart item messages
+        message_id = callback.message.message_id
+        chat_id = callback.message.chat.id
+        
+        # Try to delete recent messages that might be cart items
+        for i in range(message_id - 10, message_id + 1):
+            try:
+                await callback.bot.delete_message(chat_id, i)
+            except:
+                continue
+        
+        # Show empty cart message
+        await callback.message.answer(
+            "Корзина очищена! Вы можете продолжить покупки.",
             reply_markup=main_menu()
         )
-        await callback.answer()
+        await callback.answer("Корзина успешно очищена")
+        
     except Exception as e:
         print(f"[ERROR] Error in clear_cart: {str(e)}")
         await callback.answer("Произошла ошибка при очистке корзины")
 
 @router.callback_query(F.data == "cancel_clear_cart")
 async def cancel_clear_cart(callback: CallbackQuery):
-    user = await db.get_user(callback.from_user.id)
-    cart = user.get('cart', [])
-    
-    if not cart:
-        await callback.message.edit_text("Ваша корзина пуста", reply_markup=main_menu())
-    else:
-        total = sum(item['price'] * item['quantity'] for item in cart)
-        await callback.message.edit_text(
-            f"💵 Итого: {total} Tg",
-            reply_markup=cart_actions_kb()
-        )
-    await callback.answer("Операция отменена")
+    try:
+        user = await db.get_user(callback.from_user.id)
+        cart = user.get('cart', [])
+        
+        if not cart:
+            await callback.message.edit_text(
+                "Ваша корзина пуста",
+                reply_markup=main_menu()
+            )
+        else:
+            total = sum(item['price'] * item['quantity'] for item in cart)
+            await callback.message.edit_text(
+                f"💵 Итого: {total} Tg",
+                reply_markup=cart_actions_kb()
+            )
+        await callback.answer("Очистка корзины отменена")
+        
+    except Exception as e:
+        print(f"[ERROR] Error in cancel_clear_cart: {str(e)}")
+        await callback.answer("Произошла ошибка")
 
 @router.callback_query(F.data == "checkout")
 async def start_checkout(callback: CallbackQuery, state: FSMContext):
@@ -509,27 +555,162 @@ async def handle_order_status_update(callback: CallbackQuery):
         
         # Notify user about status change
         status_messages = {
-            "confirmed": "✅ Ваш заказ подтвержден и готовится к отправке!",
-            "cancelled": "❌ Ваш заказ был отменен. Свяжитесь с администратором для уточнения деталей.",
-            "completed": "🎉 Ваш заказ выполнен! Спасибо за покупку!",
-            "paid": "💰 Оплата подтверждена! Ваш заказ готовится к отправке."
+            "paid": (
+                "💰 Оплата подтверждена!\n\n"
+                "Ваш заказ передан в обработку. "
+                "Ожидайте подтверждения от администратора."
+            ),
+            "confirmed": (
+                "✅ Ваш заказ подтвержден и будет отправлен в течение 1-2 часов!\n\n"
+                "Спасибо за ваш заказ. Мы отправим вам уведомление, "
+                "как только заказ будет передан в доставку."
+            ),
+            "cancelled": (
+                "❌ К сожалению, ваш заказ был отменен.\n"
+                "Пожалуйста, свяжитесь с администратором для уточнения деталей."
+            ),
+            "completed": (
+                "🎉 Ваш заказ выполнен и передан в доставку!\n"
+                "Спасибо за покупку в нашем магазине!"
+            )
         }
         
         if new_status in status_messages:
             try:
+                # Send status update to user
                 await callback.bot.send_message(
                     chat_id=order['user_id'],
                     text=f"📦 Обновление статуса заказа #{order_id}:\n\n{status_messages[new_status]}"
                 )
+                
+                # If order is confirmed, send additional delivery info
+                if new_status == "confirmed":
+                    delivery_info = (
+                        "🚚 Информация о доставке:\n\n"
+                        "• Доставка осуществляется в течение 1-2 часов\n"
+                        "• Курьер свяжется с вами перед доставкой\n"
+                        "• Пожалуйста, подготовьте документ, удостоверяющий личность\n\n"
+                        "По всем вопросам обращайтесь к администратору."
+                    )
+                    await callback.bot.send_message(
+                        chat_id=order['user_id'],
+                        text=delivery_info
+                    )
             except Exception as e:
                 print(f"[ERROR] Failed to notify user about order status: {str(e)}")
         
+        # Update admin's message
+        status_text = ORDER_STATUSES.get(new_status, "Статус неизвестен")
         await callback.message.edit_text(
-            f"{callback.message.text}\n\nСтатус обновлен: {ORDER_STATUSES[new_status]}",
+            f"{callback.message.text.split('Статус:')[0]}\nСтатус: {status_text}",
             reply_markup=order_management_kb(order_id)
         )
-        await callback.answer("Статус заказа обновлен")
+        await callback.answer(f"Статус заказа обновлен: {status_text}")
         
     except Exception as e:
         print(f"[ERROR] Error in handle_order_status_update: {str(e)}")
         await callback.answer("Произошла ошибка при обновлении статуса")
+
+@router.callback_query(F.data.startswith("admin_confirm_"))
+async def admin_confirm_order(callback: CallbackQuery):
+    try:
+        order_id = callback.data.replace("admin_confirm_", "")
+        order = await db.get_order(order_id)
+        
+        if not order:
+            await callback.answer("Заказ не найден")
+            return
+            
+        # Update order status
+        await db.update_order_status(order_id, "confirmed")
+        
+        # Notify user about confirmation
+        user_notification = (
+            "✅ Ваш заказ подтвержден!\n\n"
+            "🚚 Доставка будет осуществляться Яндекс.Доставкой в течение часа.\n"
+            "📱 Курьер свяжется с вами перед доставкой.\n\n"
+            "Спасибо за ваш заказ! 🙏"
+        )
+        
+        try:
+            await callback.bot.send_message(
+                chat_id=order['user_id'],
+                text=user_notification
+            )
+        except Exception as e:
+            print(f"[ERROR] Failed to notify user about order confirmation: {str(e)}")
+        
+        # Update admin's message
+        await callback.message.edit_text(
+            f"{callback.message.text.split('Статус:')[0]}\nСтатус: ✅ Подтвержден и передан в доставку",
+            reply_markup=None  # Remove buttons after confirmation
+        )
+        await callback.answer("Заказ подтвержден и передан в доставку")
+        
+    except Exception as e:
+        print(f"[ERROR] Error in admin_confirm_order: {str(e)}")
+        await callback.answer("Произошла ошибка при подтверждении заказа")
+
+@router.callback_query(F.data.startswith("admin_cancel_"))
+async def admin_start_cancel_order(callback: CallbackQuery, state: FSMContext):
+    try:
+        order_id = callback.data.replace("admin_cancel_", "")
+        await state.update_data(order_id=order_id)
+        
+        await callback.message.reply(
+            "Пожалуйста, укажите причину отмены заказа:\n"
+            "Это сообщение будет отправлено клиенту."
+        )
+        await state.set_state(CancellationStates.waiting_for_reason)
+        await callback.answer()
+        
+    except Exception as e:
+        print(f"[ERROR] Error in admin_start_cancel_order: {str(e)}")
+        await callback.answer("Произошла ошибка при отмене заказа")
+
+@router.message(CancellationStates.waiting_for_reason)
+async def admin_finish_cancel_order(message: Message, state: FSMContext):
+    try:
+        data = await state.get_data()
+        order_id = data.get('order_id')
+        
+        if not order_id:
+            await message.answer("Ошибка: не найден ID заказа")
+            await state.clear()
+            return
+            
+        order = await db.get_order(order_id)
+        if not order:
+            await message.answer("Ошибка: заказ не найден")
+            await state.clear()
+            return
+        
+        # Update order status and save cancellation reason
+        await db.update_order(order_id, {
+            'status': 'cancelled',
+            'cancellation_reason': message.text
+        })
+        
+        # Notify user about cancellation
+        user_notification = (
+            "❌ К сожалению, ваш заказ был отменен.\n\n"
+            f"Причина: {message.text}\n\n"
+            "Если у вас есть вопросы, пожалуйста, свяжитесь с нами."
+        )
+        
+        try:
+            await message.bot.send_message(
+                chat_id=order['user_id'],
+                text=user_notification
+            )
+        except Exception as e:
+            print(f"[ERROR] Failed to notify user about order cancellation: {str(e)}")
+        
+        # Confirm to admin
+        await message.answer(f"Заказ #{order_id} отменен. Клиент уведомлен о причине отмены.")
+        await state.clear()
+        
+    except Exception as e:
+        print(f"[ERROR] Error in admin_finish_cancel_order: {str(e)}")
+        await message.answer("Произошла ошибка при отмене заказа")
+        await state.clear()

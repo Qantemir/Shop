@@ -117,11 +117,34 @@ class MongoDB:
     async def get_all_orders(self):
         return await self.db.orders.find().to_list(length=None)
 
-    async def update_order_status(self, order_id, status):
-        return await self.db.orders.update_one(
-            {"_id": order_id},
-            {"$set": {"status": status}}
-        )
+    async def update_order_status(self, order_id: str, status: str):
+        try:
+            result = await self.db.orders.update_one(
+                {'_id': ObjectId(order_id)},
+                {'$set': {'status': status}}
+            )
+            return result.modified_count > 0
+        except Exception as e:
+            print(f"[ERROR] Failed to update order status: {str(e)}")
+            return False
+
+    async def get_order(self, order_id: str):
+        try:
+            return await self.db.orders.find_one({'_id': ObjectId(order_id)})
+        except Exception as e:
+            print(f"[ERROR] Failed to get order: {str(e)}")
+            return None
+
+    async def update_order(self, order_id: str, update_data: dict):
+        try:
+            result = await self.db.orders.update_one(
+                {'_id': ObjectId(order_id)},
+                {'$set': update_data}
+            )
+            return result.modified_count > 0
+        except Exception as e:
+            print(f"[ERROR] Failed to update order: {str(e)}")
+            return False
 
 # Create a global instance
 db = MongoDB() 
