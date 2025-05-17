@@ -6,8 +6,8 @@ def admin_main_menu() -> ReplyKeyboardMarkup:
         keyboard=[
             [KeyboardButton(text="📦 Управление товарами")],
             [KeyboardButton(text="📊 Заказы")],
-            [KeyboardButton(text="📈 Статистика")],
-            [KeyboardButton(text="📢 Рассылка")]
+            [KeyboardButton(text="📢 Рассылка")],
+            [KeyboardButton(text="❓ Помощь админа")]
         ],
         resize_keyboard=True
     )
@@ -37,13 +37,21 @@ def categories_kb(for_adding: bool = True) -> InlineKeyboardMarkup:
     buttons.append([InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_product_management")])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
-def order_management_kb(order_id: str) -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [
+def order_management_kb(order_id: str, status: str = "pending") -> InlineKeyboardMarkup:
+    keyboard = []
+    
+    if status == "pending":
+        keyboard.append([
             InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"admin_confirm_{order_id}"),
             InlineKeyboardButton(text="❌ Отменить", callback_data=f"admin_cancel_{order_id}")
-        ]
-    ])
+        ])
+    else:
+        # For completed, cancelled, or confirmed orders
+        keyboard.append([
+            InlineKeyboardButton(text="🗑 Удалить", callback_data=f"delete_order_{order_id}")
+        ])
+    
+    return InlineKeyboardMarkup(inline_keyboard=keyboard)
 
 def confirm_action_kb(action: str, item_id: str) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[

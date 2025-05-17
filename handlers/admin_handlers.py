@@ -3,8 +3,9 @@ from aiogram.filters import Command, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
+from datetime import datetime, timedelta
 
-from config import ADMIN_ID
+from config import ADMIN_ID, ORDER_STATUSES
 from database.mongodb import db
 from keyboards.admin_kb import (
     admin_main_menu,
@@ -237,7 +238,7 @@ async def edit_products_list(callback: CallbackQuery):
     text = "Выберите товар для редактирования:\n\n"
     keyboard = []
     for product in products:
-        text += f"📦 {product['name']} - {product['price']} RUB\n"
+        text += f"📦 {product['name']} - {product['price']} Tg\n"
         keyboard.append([InlineKeyboardButton(
             text=f"✏️ {product['name']}",
             callback_data=f"edit_product_{product['_id']}"
@@ -265,7 +266,7 @@ async def delete_product_list(callback: CallbackQuery):
     text = "Выберите товар для удаления:\n\n"
     keyboard = []
     for product in products:
-        text += f"📦 {product['name']} - {product['price']} RUB\n"
+        text += f"📦 {product['name']} - {product['price']} Tg\n"
         keyboard.append([InlineKeyboardButton(
             text=f"❌ {product['name']}",
             callback_data=f"confirm_delete_{product['_id']}"
@@ -310,7 +311,7 @@ async def edit_product_menu(callback: CallbackQuery, state: FSMContext):
     
     text = f"Редактирование товара:\n\n"
     text += f"📦 Название: {product['name']}\n"
-    text += f"💰 Цена: {product['price']} RUB\n"
+    text += f"💰 Цена: {product['price']} Tg\n"
     text += f"📝 Описание: {product['description']}\n"
     
     await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=keyboard))
@@ -359,24 +360,109 @@ async def show_orders(message: Message):
     if message.from_user.id != ADMIN_ID:
         return
     
+    # Clean up old orders first
+    await cleanup_old_orders()
+    
     orders = await db.get_all_orders()
     if not orders:
         await message.answer("Заказы отсутствуют")
         return
     
     for order in orders:
+        status = order.get('status', 'pending')
+        status_text = ORDER_STATUSES.get(status, "Статус неизвестен")
+        
         text = f"Заказ #{order['_id']}\n"
-        text += f"От: {order['user_id']}\n"
-        text += f"Статус: {order['status']}\n"
+        text += f"От: {order.get('username', 'Неизвестно')} ({order['user_id']})\n"
+        if order.get('phone'):
+            text += f"📱 Телефон: {order['phone']}\n"
+        if order.get('address'):
+            text += f"📍 Адрес: {order['address']}\n"
+        text += f"Статус: {status_text}\n\n"
         text += "Товары:\n"
         
         total = 0
         for item in order['items']:
-            text += f"- {item['name']} x{item['quantity']} = {item['price'] * item['quantity']} RUB\n"
-            total += item['price'] * item['quantity']
+            subtotal = item['price'] * item['quantity']
+            text += f"- {item['name']} x{item['quantity']} = {subtotal} Tg\n"
+            total += subtotal
         
-        text += f"\nИтого: {total} RUB"
-        await message.answer(text, reply_markup=order_management_kb(str(order['_id'])))
+        text += f"\nИтого: {total} Tg"
+        
+        # If order has cancellation reason, show it
+        if status == 'cancelled' and order.get('cancellation_reason'):
+            text += f"\n\nПричина отмены: {order['cancellation_reason']}"
+        
+        await message.answer(
+            text,
+            reply_markup=order_management_kb(str(order['_id']), status)
+        )
+
+async def cleanup_old_orders():
+    """Удаляет завершенные и отмененные заказы старше 24 часов"""
+    try:
+        # Calculate the cutoff time (24 hours ago)
+        cutoff_time = datetime.now() - timedelta(days=1)
+        
+        # Find and delete old completed/cancelled orders
+        result = await db.delete_old_orders(cutoff_time)
+        
+        if result > 0:
+            print(f"[INFO] Deleted {result} old orders")
+            
+    except Exception as e:
+        print(f"[ERROR] Error in cleanup_old_orders: {str(e)}")
+
+@router.callback_query(F.data.startswith("admin_confirm_"))
+async def admin_confirm_order(callback: CallbackQuery):
+    if callback.from_user.id != ADMIN_ID:
+        await callback.answer("У вас нет прав администратора")
+        return
+        
+    try:
+        order_id = callback.data.replace("admin_confirm_", "")
+        order = await db.get_order(order_id)
+        
+        if not order:
+            await callback.answer("Заказ не найден")
+            return
+            
+        # Update order status
+        await db.update_order_status(order_id, "confirmed")
+        
+        # Update message with new status
+        status_text = ORDER_STATUSES["confirmed"]
+        await callback.message.edit_text(
+            f"{callback.message.text.split('Статус:')[0]}\nСтатус: {status_text}",
+            reply_markup=order_management_kb(order_id, "confirmed")
+        )
+        
+        await callback.answer("Заказ подтвержден")
+        
+    except Exception as e:
+        print(f"[ERROR] Error in admin_confirm_order: {str(e)}")
+        await callback.answer("Произошла ошибка при подтверждении заказа")
+
+@router.callback_query(F.data.startswith("delete_order_"))
+async def delete_order(callback: CallbackQuery):
+    if callback.from_user.id != ADMIN_ID:
+        await callback.answer("У вас нет прав администратора")
+        return
+        
+    try:
+        order_id = callback.data.replace("delete_order_", "")
+        
+        # Delete the order from database
+        await db.delete_order(order_id)
+        
+        # Delete the message with the order
+        await callback.message.delete()
+        
+        await callback.answer("Заказ удален")
+        
+    except Exception as e:
+        print(f"[ERROR] Error in delete_order: {str(e)}")
+        await callback.answer("Произошла ошибка при удалении заказа")
 
 @router.callback_query(F.data.startswith("order_status_"))
 async def update_order_status(callback: CallbackQuery):
@@ -390,36 +476,6 @@ async def update_order_status(callback: CallbackQuery):
         reply_markup=order_management_kb(order_id)
     )
     await callback.answer()
-
-@router.message(F.text == "📈 Статистика")
-@check_admin_session
-async def show_statistics(message: Message):
-    # Получаем статистику
-    products = await db.get_all_products()
-    orders = await db.get_all_orders()
-    users = await db.get_all_users()
-    
-    # Считаем общую сумму заказов
-    total_revenue = sum(order.get('total', 0) for order in orders)
-    
-    # Считаем статистику по статусам заказов
-    status_counts = {}
-    for order in orders:
-        status = order.get('status', 'unknown')
-        status_counts[status] = status_counts.get(status, 0) + 1
-    
-    # Формируем текст статистики
-    stats_text = "📊 Статистика магазина:\n\n"
-    stats_text += f"📦 Всего товаров: {len(products)}\n"
-    stats_text += f"👥 Всего пользователей: {len(users)}\n"
-    stats_text += f"🛍 Всего заказов: {len(orders)}\n"
-    stats_text += f"💰 Общая сумма заказов: {total_revenue} RUB\n\n"
-    
-    stats_text += "📋 Статусы заказов:\n"
-    for status, count in status_counts.items():
-        stats_text += f"- {status}: {count}\n"
-    
-    await message.answer(stats_text)
 
 @router.message(F.text == "📢 Рассылка")
 @check_admin_session
@@ -664,3 +720,44 @@ async def cancel_operation(message: Message, state: FSMContext):
             "Операция отменена. Возвращаемся в меню управления товарами.",
             reply_markup=product_management_kb()
         )
+
+@router.message(F.text == "❓ Помощь")
+@check_admin_session
+async def show_admin_help(message: Message):
+    help_text = """
+📚 <b>Команды администратора:</b>
+
+🔐 <b>Основные команды:</b>
+/admin - Войти в панель администратора
+/logout - Выйти из панели администратора
+
+📦 <b>Управление товарами:</b>
+• Добавить товар
+• Редактировать товар
+• Удалить товар
+• Просмотр всех товаров
+
+📊 <b>Управление заказами:</b>
+• Просмотр всех заказов
+• Подтверждение заказов
+• Отмена заказов с указанием причины
+• Удаление заказов
+
+📢 <b>Рассылка:</b>
+• Отправка сообщений всем пользователям
+• Возможность отмены рассылки
+
+ℹ️ <b>Дополнительная информация:</b>
+• Заказы автоматически удаляются через 24 часа после выполнения или отмены
+• Для отмены любой операции используйте команду /cancel
+• При подтверждении заказа клиент получает уведомление о доставке
+• При отмене заказа требуется указать причину
+
+❗️ <b>Важные заметки:</b>
+• Все цены указываются в Tg
+• Перед удалением товаров/заказов требуется подтверждение
+• Сессия администратора активна до выхода или перезапуска бота
+• При закрытой сессии администратора, заказы не будут приходить
+"""
+    
+    await message.answer(help_text, parse_mode="HTML")

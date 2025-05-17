@@ -72,7 +72,7 @@ async def show_category(callback: CallbackQuery):
     
     for product in products:
         caption = f"📦 {product['name']}\n"
-        caption += f"💰 {product['price']} RUB\n"
+        caption += f"💰 {product['price']} Tg\n"
         caption += f"📝 {product['description']}"
         
         await callback.message.answer_photo(
@@ -640,11 +640,14 @@ async def admin_confirm_order(callback: CallbackQuery):
         except Exception as e:
             print(f"[ERROR] Failed to notify user about order confirmation: {str(e)}")
         
-        # Update admin's message
-        await callback.message.edit_text(
-            f"{callback.message.text.split('Статус:')[0]}\nСтатус: ✅ Подтвержден и передан в доставку",
-            reply_markup=None  # Remove buttons after confirmation
+        # Delete the original message
+        await callback.message.delete()
+        
+        # Send confirmation to admin
+        await callback.message.answer(
+            f"✅ Заказ #{order_id} подтвержден и передан в доставку"
         )
+        
         await callback.answer("Заказ подтвержден и передан в доставку")
         
     except Exception as e:
@@ -655,7 +658,13 @@ async def admin_confirm_order(callback: CallbackQuery):
 async def admin_start_cancel_order(callback: CallbackQuery, state: FSMContext):
     try:
         order_id = callback.data.replace("admin_cancel_", "")
-        await state.update_data(order_id=order_id)
+        
+        # Store message_id and order_id in state
+        await state.update_data(
+            order_id=order_id,
+            message_id=callback.message.message_id,
+            chat_id=callback.message.chat.id
+        )
         
         await callback.message.reply(
             "Пожалуйста, укажите причину отмены заказа:\n"
@@ -673,6 +682,8 @@ async def admin_finish_cancel_order(message: Message, state: FSMContext):
     try:
         data = await state.get_data()
         order_id = data.get('order_id')
+        original_message_id = data.get('message_id')
+        chat_id = data.get('chat_id')
         
         if not order_id:
             await message.answer("Ошибка: не найден ID заказа")
@@ -706,8 +717,14 @@ async def admin_finish_cancel_order(message: Message, state: FSMContext):
         except Exception as e:
             print(f"[ERROR] Failed to notify user about order cancellation: {str(e)}")
         
+        # Delete the original order message
+        try:
+            await message.bot.delete_message(chat_id, original_message_id)
+        except Exception as e:
+            print(f"[ERROR] Failed to delete original message: {str(e)}")
+        
         # Confirm to admin
-        await message.answer(f"Заказ #{order_id} отменен. Клиент уведомлен о причине отмены.")
+        await message.answer(f"❌ Заказ #{order_id} отменен. Клиент уведомлен о причине отмены.")
         await state.clear()
         
     except Exception as e:

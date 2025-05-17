@@ -146,5 +146,25 @@ class MongoDB:
             print(f"[ERROR] Failed to update order: {str(e)}")
             return False
 
+    async def delete_order(self, order_id: str):
+        try:
+            result = await self.db.orders.delete_one({'_id': ObjectId(order_id)})
+            return result.deleted_count > 0
+        except Exception as e:
+            print(f"[ERROR] Failed to delete order: {str(e)}")
+            return False
+
+    async def delete_old_orders(self, cutoff_time):
+        """Удаляет заказы со статусом 'completed' или 'cancelled', созданные до указанного времени"""
+        try:
+            result = await self.db.orders.delete_many({
+                'status': {'$in': ['completed', 'cancelled']},
+                'created_at': {'$lt': cutoff_time}
+            })
+            return result.deleted_count
+        except Exception as e:
+            print(f"[ERROR] Failed to delete old orders: {str(e)}")
+            return 0
+
 # Create a global instance
 db = MongoDB() 
