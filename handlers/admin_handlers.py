@@ -109,6 +109,11 @@ def check_admin_session(func):
             return
         
         user_id = event.from_user.id
+        
+        # Only check admin authentication for admin routes
+        if not any(route in func.__name__ for route in ['admin', 'product_management', 'broadcast', 'order']):
+            return await func(*args, **kwargs)
+        
         print(f"[DEBUG] check_admin_session - User ID: {user_id}")
         print(f"[DEBUG] check_admin_session - Is admin: {user_id == ADMIN_ID}")
         print(f"[DEBUG] check_admin_session - Session valid: {security_manager.is_admin_session_valid(user_id)}")
@@ -116,14 +121,12 @@ def check_admin_session(func):
         if user_id != ADMIN_ID or not security_manager.is_admin_session_valid(user_id):
             print("[DEBUG] check_admin_session - Access denied")
             if isinstance(event, Message):
-                await event.answer("Необходима авторизация. Используйте /admin")
+                await event.answer("У вас нет прав администратора")
             elif isinstance(event, CallbackQuery):
-                await event.answer("Необходима авторизация", show_alert=True)
+                await event.answer("У вас нет прав администратора", show_alert=True)
             return
-        print("[DEBUG] check_admin_session - Access granted")
         
-        # Удаляем dispatcher из kwargs если он есть
-        kwargs.pop('dispatcher', None)
+        print("[DEBUG] check_admin_session - Access granted")
         return await func(*args, **kwargs)
     return wrapper
 

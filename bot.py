@@ -28,8 +28,8 @@ async def main():
         return
 
     # Register handlers
-    dp.include_router(admin_handlers.router)
-    dp.include_router(user_handlers.router)
+    dp.include_router(user_handlers.router)  # Register user handlers first
+    dp.include_router(admin_handlers.router)  # Register admin handlers second
 
     try:
         logger.info("Starting bot...")

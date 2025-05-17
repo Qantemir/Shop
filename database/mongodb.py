@@ -1,5 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo.errors import ServerSelectionTimeoutError
+from bson import ObjectId
 import logging
 from config import MONGODB_URI, DB_NAME
 
@@ -29,25 +30,55 @@ class MongoDB:
 
     # Products
     async def add_product(self, product_data):
-        return await self.db.products.insert_one(product_data)
+        result = await self.db.products.insert_one(product_data)
+        return str(result.inserted_id)
 
     async def get_all_products(self):
-        return await self.db.products.find().to_list(length=None)
+        cursor = self.db.products.find()
+        products = await cursor.to_list(length=None)
+        # Convert ObjectId to string
+        for product in products:
+            product['_id'] = str(product['_id'])
+        return products
 
     async def get_product(self, product_id):
-        return await self.db.products.find_one({"_id": product_id})
+        try:
+            # Convert string ID to ObjectId
+            obj_id = ObjectId(product_id)
+            product = await self.db.products.find_one({"_id": obj_id})
+            if product:
+                product['_id'] = str(product['_id'])
+            return product
+        except Exception as e:
+            logging.error(f"Error getting product {product_id}: {str(e)}")
+            return None
 
     async def get_products_by_category(self, category):
-        return await self.db.products.find({"category": category}).to_list(length=None)
+        cursor = self.db.products.find({"category": category})
+        products = await cursor.to_list(length=None)
+        # Convert ObjectId to string
+        for product in products:
+            product['_id'] = str(product['_id'])
+        return products
 
     async def update_product(self, product_id, update_data):
-        return await self.db.products.update_one(
-            {"_id": product_id},
-            {"$set": update_data}
-        )
+        try:
+            obj_id = ObjectId(product_id)
+            return await self.db.products.update_one(
+                {"_id": obj_id},
+                {"$set": update_data}
+            )
+        except Exception as e:
+            logging.error(f"Error updating product {product_id}: {str(e)}")
+            return None
 
     async def delete_product(self, product_id):
-        return await self.db.products.delete_one({"_id": product_id})
+        try:
+            obj_id = ObjectId(product_id)
+            return await self.db.products.delete_one({"_id": obj_id})
+        except Exception as e:
+            logging.error(f"Error deleting product {product_id}: {str(e)}")
+            return None
 
     # Users
     async def get_user(self, user_id):

@@ -6,6 +6,7 @@ load_dotenv()
 # Bot Configuration
 BOT_TOKEN: str = os.getenv("BOT_TOKEN")
 ADMIN_ID: int = int(os.getenv("ADMIN_ID", "1088067370"))
+ADMIN_CARD: str = os.getenv("ADMIN_CARD", "")  # Card number for payments
 
 # MongoDB Configuration
 MONGODB_URI: str = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
@@ -26,7 +27,8 @@ CATEGORIES = [
 
 # Order Statuses
 ORDER_STATUSES = {
-    "pending": "🕒 Ожидает обработки",
+    "pending": "🕒 Ожидает оплаты",
+    "paid": "💰 Оплачен",
     "confirmed": "✅ Подтвержден",
     "cancelled": "❌ Отменен",
     "completed": "🎉 Выполнен"

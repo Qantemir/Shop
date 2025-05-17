@@ -34,9 +34,19 @@ def cart_actions_kb() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
         [
             InlineKeyboardButton(text="✅ Оформить заказ", callback_data="checkout"),
-            InlineKeyboardButton(text="🗑 Очистить корзину", callback_data="clear_cart")
         ],
-        [InlineKeyboardButton(text="🔙 Вернуться в каталог", callback_data="back_to_catalog")]
+        [
+            InlineKeyboardButton(text="🗑 Очистить корзину", callback_data="confirm_clear_cart"),
+            InlineKeyboardButton(text="🛍 Продолжить покупки", callback_data="back_to_catalog")
+        ]
+    ])
+
+def confirm_clear_cart_kb() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="✅ Да, очистить", callback_data="clear_cart"),
+            InlineKeyboardButton(text="❌ Нет, оставить", callback_data="cancel_clear_cart")
+        ]
     ])
 
 def cart_item_kb(item_id: str) -> InlineKeyboardMarkup:
