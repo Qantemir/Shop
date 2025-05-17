@@ -7,7 +7,7 @@ def admin_main_menu() -> ReplyKeyboardMarkup:
             [KeyboardButton(text="📦 Управление товарами")],
             [KeyboardButton(text="📊 Заказы")],
             [KeyboardButton(text="📢 Рассылка")],
-            [KeyboardButton(text="❓ Помощь админа")]
+            [KeyboardButton(text="❓ Помощь")]
         ],
         resize_keyboard=True
     )
@@ -21,9 +21,12 @@ def product_management_kb() -> InlineKeyboardMarkup:
         ],
         [
             InlineKeyboardButton(text="❌ Удалить товар", callback_data="delete_product"),
-            InlineKeyboardButton(text="📋 Список товаров", callback_data="list_products")
+            InlineKeyboardButton(text="🌈 Вкусы", callback_data="manage_flavors")
         ],
-        [InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_admin_menu")]
+        [
+            InlineKeyboardButton(text="📋 Список товаров", callback_data="list_products"),
+            InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_admin_menu")
+        ]
     ])
 
 def categories_kb(for_adding: bool = True) -> InlineKeyboardMarkup:

@@ -28,33 +28,101 @@ class MongoDB:
             self.client.close()
             logging.info("MongoDB connection closed")
 
+    # User operations
+    async def create_user(self, user_data):
+        try:
+            result = await self.db.users.insert_one(user_data)
+            user_data['_id'] = str(result.inserted_id)
+            return user_data
+        except Exception as e:
+            logging.error(f"Error creating user: {str(e)}")
+            return None
+
+    async def get_user(self, user_id):
+        try:
+            user = await self.db.users.find_one({"user_id": user_id})
+            if user:
+                user['_id'] = str(user['_id'])
+            return user
+        except Exception as e:
+            logging.error(f"Error getting user {user_id}: {str(e)}")
+            return None
+
+    async def update_user(self, user_id, update_data):
+        try:
+            result = await self.db.users.update_one(
+                {"user_id": user_id},
+                {"$set": update_data}
+            )
+            return result.modified_count > 0
+        except Exception as e:
+            logging.error(f"Error updating user {user_id}: {str(e)}")
+            return False
+
+    async def get_all_users(self):
+        """Get all users from the database"""
+        try:
+            cursor = self.db.users.find()
+            users = await cursor.to_list(length=None)
+            # Convert ObjectId to string for each user
+            for user in users:
+                user['_id'] = str(user['_id'])
+            return users
+        except Exception as e:
+            logging.error(f"Error getting all users: {str(e)}")
+            return []
+
     # Products
     async def add_product(self, product_data):
-        result = await self.db.products.insert_one(product_data)
-        return str(result.inserted_id)
-
-    async def get_all_products(self):
-        cursor = self.db.products.find()
-        products = await cursor.to_list(length=None)
-        # Convert ObjectId to string
-        for product in products:
-            product['_id'] = str(product['_id'])
-        return products
+        try:
+            result = await self.db.products.insert_one(product_data)
+            return str(result.inserted_id)
+        except Exception as e:
+            logging.error(f"Error adding product: {str(e)}")
+            return None
 
     async def get_product(self, product_id):
         try:
-            # Convert string ID to ObjectId
-            obj_id = ObjectId(product_id)
+            print(f"[DEBUG] Attempting to get product with ID: {product_id}")
+            # Try to convert string ID to ObjectId
+            try:
+                obj_id = ObjectId(product_id)
+            except Exception as e:
+                print(f"[DEBUG] Invalid ObjectId format: {product_id}, error: {str(e)}")
+                return None
+            
+            # Find product in database
             product = await self.db.products.find_one({"_id": obj_id})
+            print(f"[DEBUG] Found product in database: {product}")
+            
             if product:
+                # Convert ObjectId to string for JSON serialization
                 product['_id'] = str(product['_id'])
+                print(f"[DEBUG] Converted product ID to string: {product['_id']}")
+            
             return product
         except Exception as e:
-            logging.error(f"Error getting product {product_id}: {str(e)}")
+            print(f"[ERROR] Error getting product {product_id}: {str(e)}")
             return None
 
     async def get_products_by_category(self, category):
-        cursor = self.db.products.find({"category": category})
+        try:
+            print(f"[DEBUG] Getting products for category: {category}")
+            cursor = self.db.products.find({"category": category})
+            products = await cursor.to_list(length=None)
+            
+            # Convert ObjectId to string for each product
+            for product in products:
+                product['_id'] = str(product['_id'])
+            
+            print(f"[DEBUG] Found {len(products)} products in category {category}")
+            return products
+        except Exception as e:
+            print(f"[ERROR] Error getting products for category {category}: {str(e)}")
+            return []
+
+    async def get_all_products(self):
+        cursor = self.db.products.find()
         products = await cursor.to_list(length=None)
         # Convert ObjectId to string
         for product in products:
@@ -79,33 +147,6 @@ class MongoDB:
         except Exception as e:
             logging.error(f"Error deleting product {product_id}: {str(e)}")
             return None
-
-    # Users
-    async def get_user(self, user_id):
-        try:
-            user = await self.db.users.find_one({"user_id": user_id})
-            logging.info("Retrieved user %s: %s", user_id, "Found" if user else "Not found")
-            return user
-        except Exception as e:
-            logging.error("Error retrieving user %s: %s", user_id, str(e))
-            return None
-
-    async def get_all_users(self):
-        return await self.db.users.find().to_list(length=None)
-
-    async def create_user(self, user_data):
-        # Only create if user doesn't exist
-        existing_user = await self.get_user(user_data["user_id"])
-        if not existing_user:
-            await self.db.users.insert_one(user_data)
-            return await self.get_user(user_data["user_id"])
-        return existing_user
-
-    async def update_user(self, user_id, update_data):
-        return await self.db.users.update_one(
-            {"user_id": user_id},
-            {"$set": update_data}
-        )
 
     # Orders
     async def create_order(self, order_data):

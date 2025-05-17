@@ -19,9 +19,8 @@ CURRENCY: str = os.getenv("CURRENCY", "RUB")
 # Product Categories
 CATEGORIES = [
     "Одноразовые устройства",
-    "Многоразовые устройства",
     "Жидкости",
-    "Расходники",
+    "Снюс",
     "Аксессуары"
 ]
 

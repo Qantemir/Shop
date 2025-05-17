@@ -18,14 +18,40 @@ def catalog_menu() -> InlineKeyboardMarkup:
     ])
     return kb
 
-def product_actions_kb(product_id: str, in_cart: bool = False) -> InlineKeyboardMarkup:
+def product_actions_kb(product_id: str, in_cart: bool = False, flavors: list = None) -> InlineKeyboardMarkup:
     buttons = []
-    if not in_cart:
-        buttons.append([InlineKeyboardButton(
-            text="🛒 В корзину",
-            callback_data=f"add_to_cart_{product_id}"
-        )])
+    print(f"[DEBUG] Creating keyboard for product {product_id} with flavors: {flavors}")
     
+    if flavors and not in_cart:
+        # Add flavor selection buttons in rows of 3
+        row = []
+        for i, flavor in enumerate(flavors, 1):
+            callback_data = f"select_flavor_{product_id}_{flavor}"
+            print(f"[DEBUG] Creating flavor button with callback_data: {callback_data}")
+            row.append(InlineKeyboardButton(
+                text=f"{i}. {flavor}",
+                callback_data=callback_data
+            ))
+            
+            # Create new row after every 3 buttons
+            if len(row) == 3:
+                buttons.append(row)
+                row = []
+        
+        # Add remaining buttons if any
+        if row:
+            buttons.append(row)
+    elif not in_cart:
+        callback_data = f"add_to_cart_{product_id}"
+        print(f"[DEBUG] Creating add to cart button with callback_data: {callback_data}")
+        buttons.append([
+            InlineKeyboardButton(
+                text="🛒 В корзину",
+                callback_data=callback_data
+            )
+        ])
+    
+    # Always add back button at the bottom
     buttons.append([InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_catalog")])
     
     return InlineKeyboardMarkup(inline_keyboard=buttons)
