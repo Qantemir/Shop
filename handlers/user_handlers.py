@@ -36,6 +36,22 @@ def format_price(price):
 
 @router.message(Command("start"))
 async def cmd_start(message: Message):
+    # Проверяем режим сна
+    sleep_data = await db.get_sleep_mode()
+    if sleep_data["enabled"]:
+        end_time = sleep_data.get("end_time", "Не указано")
+        # Create help button
+        help_button = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="ℹ️ Помощь", callback_data="show_help")]
+        ])
+        await message.answer(
+            f"😴 Магазин временно не работает.\n"
+            f"Работа возобновится в {end_time}.\n"
+            f"Пожалуйста, используйте /start когда время придет.",
+            reply_markup=help_button
+        )
+        return
+        
     try:
         # Check if user already exists
         existing_user = await db.get_user(message.from_user.id)
@@ -72,6 +88,21 @@ async def cmd_start(message: Message):
 
 @router.message(F.text == "🛍 Каталог")
 async def show_catalog(message: Message):
+    # Проверяем режим сна
+    sleep_data = await db.get_sleep_mode()
+    if sleep_data["enabled"]:
+        end_time = sleep_data.get("end_time", "Не указано")
+        help_button = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="ℹ️ Помощь", callback_data="show_help")]
+        ])
+        await message.answer(
+            f"😴 Магазин временно не работает.\n"
+            f"Работа возобновится в {end_time}.\n"
+            f"Пожалуйста, используйте /start когда время придет.",
+            reply_markup=help_button
+        )
+        return
+
     await message.answer(
         "Выберите категорию:",
         reply_markup=catalog_menu()
@@ -408,6 +439,21 @@ async def show_cart_message(message, user):
 
 @router.message(F.text == "🛒 Корзина")
 async def show_cart(message: Message):
+    # Проверяем режим сна
+    sleep_data = await db.get_sleep_mode()
+    if sleep_data["enabled"]:
+        end_time = sleep_data.get("end_time", "Не указано")
+        help_button = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="ℹ️ Помощь", callback_data="show_help")]
+        ])
+        await message.answer(
+            f"😴 Магазин временно не работает.\n"
+            f"Работа возобновится в {end_time}.\n"
+            f"Пожалуйста, используйте /start когда время придет.",
+            reply_markup=help_button
+        )
+        return
+
     user = await db.get_user(message.from_user.id)
     await show_cart_message(message, user)
 
@@ -587,6 +633,18 @@ async def cancel_clear_cart(callback: CallbackQuery):
 
 @router.callback_query(F.data == "checkout")
 async def start_checkout(callback: CallbackQuery, state: FSMContext):
+    # Проверяем режим сна
+    sleep_data = await db.get_sleep_mode()
+    if sleep_data["enabled"]:
+        end_time = sleep_data.get("end_time", "Не указано")
+        await callback.message.answer(
+            f"😴 Магазин временно не работает.\n"
+            f"Работа возобновится в {end_time}.\n"
+            f"Пожалуйста, используйте /start когда время придет."
+        )
+        await callback.answer()
+        return
+    
     user = await db.get_user(callback.from_user.id)
     if not user or not user.get('cart'):
         await callback.message.answer("Ваша корзина пуста")
@@ -1050,3 +1108,19 @@ async def show_help_from_button(callback: CallbackQuery):
         reply_markup=help_menu()
     )
     await callback.answer()
+
+@router.callback_query(F.data == "create_order")
+async def start_order(callback: CallbackQuery, state: FSMContext):
+    # Проверяем режим сна
+    sleep_data = await db.get_sleep_mode()
+    if sleep_data["enabled"]:
+        end_time = sleep_data.get("end_time", "Не указано")
+        await callback.message.answer(
+            f"😴 Магазин временно не работает.\n"
+            f"Работа возобновится в {end_time}.\n"
+            f"Пожалуйста, используйте /start когда время придет."
+        )
+        await callback.answer()
+        return
+        
+    # ... остальной код функции ...

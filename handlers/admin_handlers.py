@@ -13,7 +13,8 @@ from keyboards.admin_kb import (
     product_management_kb,
     categories_kb,
     order_management_kb,
-    confirm_action_kb
+    confirm_action_kb,
+    sleep_mode_kb
 )
 from keyboards.user_kb import main_menu
 from utils.security import security_manager
@@ -32,6 +33,7 @@ class AdminStates(StatesGroup):
     confirm_broadcast = State()
     adding_flavor = State()
     editing_flavors = State()
+    setting_sleep_time = State()  # Новое состояние для времени сна
 
 # Helper function to format price with decimal points
 def format_price(price):
@@ -1420,6 +1422,109 @@ async def admin_help_callback(callback: CallbackQuery):
     await callback.message.edit_text(
         help_text,
         parse_mode="HTML",
+        reply_markup=admin_main_menu()
+    )
+    await callback.answer()
+
+@router.message(F.text == "😴 Режим сна")
+@check_admin_session
+async def sleep_mode_menu(message: Message):
+    try:
+        # Получаем текущий статус режима сна
+        sleep_data = await db.get_sleep_mode()
+        status = "✅ Включен" if sleep_data["enabled"] else "❌ Выключен"
+        end_time = sleep_data.get("end_time", "Не указано")
+        
+        text = f"🌙 Режим сна магазина\n\n"
+        text += f"Текущий статус: {status}\n"
+        if sleep_data["enabled"] and end_time:
+            text += f"Время работы возобновится: {end_time}\n"
+        text += f"\nВ режиме сна пользователи не смогут делать заказы."
+        
+        await message.answer(
+            text,
+            reply_markup=sleep_mode_kb(sleep_data["enabled"])
+        )
+    except Exception as e:
+        print(f"[ERROR] Error in sleep_mode_menu: {str(e)}")
+        await message.answer("Произошла ошибка при получении статуса режима сна")
+
+@router.callback_query(F.data == "toggle_sleep_mode")
+@check_admin_session
+async def toggle_sleep_mode(callback: CallbackQuery, state: FSMContext):
+    try:
+        # Получаем текущий статус
+        sleep_data = await db.get_sleep_mode()
+        current_mode = sleep_data["enabled"]
+        
+        if not current_mode:  # Если включаем режим сна
+            await callback.message.edit_text(
+                "🕒 Введите время, до которого магазин будет закрыт\n"
+                "Формат: ЧЧ:ММ (например, 10:00)",
+                reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
+                    InlineKeyboardButton(text="🔙 Отмена", callback_data="back_to_admin_menu")
+                ]])
+            )
+            await state.set_state(AdminStates.setting_sleep_time)
+        else:  # Если выключаем режим сна
+            await db.set_sleep_mode(False, None)
+            await callback.message.edit_text(
+                "🌙 Режим сна магазина\n\n"
+                "Текущий статус: ❌ Выключен\n\n"
+                "В режиме сна пользователи не смогут делать заказы.",
+                reply_markup=sleep_mode_kb(False)
+            )
+        
+        await callback.answer()
+        
+    except Exception as e:
+        print(f"[ERROR] Error in toggle_sleep_mode: {str(e)}")
+        await callback.answer("Произошла ошибка при изменении режима сна")
+
+@router.message(AdminStates.setting_sleep_time)
+@check_admin_session
+async def process_sleep_time(message: Message, state: FSMContext):
+    try:
+        # Проверяем формат времени
+        time_text = message.text.strip()
+        if not time_text or len(time_text.split(':')) != 2:
+            await message.answer(
+                "❌ Неверный формат времени. Пожалуйста, используйте формат ЧЧ:ММ (например, 10:00)"
+            )
+            return
+            
+        hours, minutes = map(int, time_text.split(':'))
+        if not (0 <= hours <= 23 and 0 <= minutes <= 59):
+            await message.answer(
+                "❌ Неверное время. Часы должны быть от 0 до 23, минуты от 0 до 59"
+            )
+            return
+            
+        # Включаем режим сна с указанным временем
+        await db.set_sleep_mode(True, time_text)
+        
+        await message.answer(
+            f"🌙 Режим сна включен!\n\n"
+            f"Магазин будет закрыт до {time_text}\n"
+            f"Текущий статус: ✅ Включен",
+            reply_markup=sleep_mode_kb(True)
+        )
+        await state.clear()
+        
+    except ValueError:
+        await message.answer(
+            "❌ Неверный формат времени. Пожалуйста, используйте формат ЧЧ:ММ (например, 10:00)"
+        )
+    except Exception as e:
+        print(f"[ERROR] Error in process_sleep_time: {str(e)}")
+        await message.answer("Произошла ошибка при установке времени")
+        await state.clear()
+
+@router.callback_query(F.data == "back_to_admin_menu")
+@check_admin_session
+async def back_to_admin_menu_from_sleep(callback: CallbackQuery):
+    await callback.message.edit_text(
+        "Панель администратора",
         reply_markup=admin_main_menu()
     )
     await callback.answer()

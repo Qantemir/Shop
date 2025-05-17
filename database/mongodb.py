@@ -8,12 +8,26 @@ class MongoDB:
     def __init__(self):
         self.client = None
         self.db = None
+        self.products = None
+        self.orders = None
+        self.users = None
+        self.settings = None  # Новая коллекция для настроек
 
     async def connect(self):
         try:
             logging.info("Attempting to connect to MongoDB at %s", MONGODB_URI)
             self.client = AsyncIOMotorClient(MONGODB_URI)
             self.db = self.client[DB_NAME]
+            self.products = self.db.products
+            self.orders = self.db.orders
+            self.users = self.db.users
+            self.settings = self.db.settings  # Инициализация коллекции настроек
+            
+            # Создаем индексы если их нет
+            await self.products.create_index("name")
+            await self.orders.create_index("user_id")
+            await self.users.create_index("user_id", unique=True)
+            
             await self.client.admin.command('ping')
             logging.info("Successfully connected to MongoDB database: %s", DB_NAME)
         except ServerSelectionTimeoutError as e:
@@ -206,6 +220,27 @@ class MongoDB:
         except Exception as e:
             print(f"[ERROR] Failed to delete old orders: {str(e)}")
             return 0
+
+    async def get_sleep_mode(self) -> dict:
+        """Получить статус режима сна и время окончания"""
+        settings = await self.settings.find_one({"setting": "sleep_mode"})
+        if not settings:
+            return {"enabled": False, "end_time": None}
+        return {
+            "enabled": settings.get("enabled", False),
+            "end_time": settings.get("end_time")
+        }
+
+    async def set_sleep_mode(self, enabled: bool, end_time: str = None) -> None:
+        """Установить статус режима сна и время окончания"""
+        await self.settings.update_one(
+            {"setting": "sleep_mode"},
+            {"$set": {
+                "enabled": enabled,
+                "end_time": end_time
+            }},
+            upsert=True
+        )
 
 # Create a global instance
 db = MongoDB() 
