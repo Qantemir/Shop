@@ -228,8 +228,8 @@ async def add_product_start(callback: CallbackQuery, state: FSMContext):
             "Выберите категорию товара:",
             reply_markup=categories_kb(True)
         )
-        await state.set_state(AdminStates.adding_product)
-        print(f"[DEBUG] State set to: {AdminStates.adding_product}")
+        await state.set_state(AdminStates.setting_name)
+        print(f"[DEBUG] State set to: {AdminStates.setting_name}")
         await callback.answer()
         print("[DEBUG] Successfully showed categories menu")
     except Exception as e:
@@ -347,8 +347,17 @@ async def edit_product_menu(callback: CallbackQuery, state: FSMContext):
 async def process_edit_name(message: Message, state: FSMContext):
     try:
         data = await state.get_data()
-        product_id = data.get('editing_product_id')
         
+        # Проверяем, добавляем ли мы новый товар
+        if data.get('is_adding_product'):
+            print("[DEBUG] Processing new product name")
+            await state.update_data(name=message.text)
+            await message.answer("Введите цену товара (только число):")
+            await state.set_state(AdminStates.setting_price)
+            return
+            
+        # Если это редактирование существующего товара
+        product_id = data.get('editing_product_id')
         if not product_id:
             await message.answer("Ошибка: товар не найден")
             await state.clear()
@@ -392,17 +401,55 @@ async def process_edit_name(message: Message, state: FSMContext):
         await message.answer("Произошла ошибка при обновлении названия")
         await state.clear()
 
+@router.message(AdminStates.adding_product)
+@check_admin_session
+async def add_product_name(message: Message, state: FSMContext):
+    print("[DEBUG] Entering add_product_name handler")
+    print(f"[DEBUG] Received name: {message.text}")
+    try:
+        data = await state.get_data()
+        if 'category' not in data:
+            print("[ERROR] No category in state data")
+            await message.answer(
+                "Ошибка: категория не выбрана. Начните сначала.",
+                reply_markup=product_management_kb()
+            )
+            await state.clear()
+            return
+
+        await state.update_data(name=message.text)
+        await message.answer("Введите цену товара (только число):")
+        await state.set_state(AdminStates.setting_price)
+        print(f"[DEBUG] State set to: {AdminStates.setting_price}")
+    except Exception as e:
+        print(f"[ERROR] Error in add_product_name: {str(e)}")
+        await message.answer(
+            "Произошла ошибка. Попробуйте снова.",
+            reply_markup=product_management_kb()
+        )
+        await state.clear()
+
 @router.message(AdminStates.setting_price)
 @check_admin_session
 async def process_edit_price(message: Message, state: FSMContext):
     try:
         if not message.text.isdigit():
             await message.answer("Пожалуйста, введите только число для цены:")
+            print("[DEBUG] Invalid price format")
             return
             
         data = await state.get_data()
-        product_id = data.get('editing_product_id')
         
+        # Проверяем, добавляем ли мы новый товар
+        if data.get('is_adding_product'):
+            print("[DEBUG] Processing new product price")
+            await state.update_data(price=int(message.text))
+            await message.answer("Введите описание товара:")
+            await state.set_state(AdminStates.setting_description)
+            return
+            
+        # Если это редактирование существующего товара
+        product_id = data.get('editing_product_id')
         if not product_id:
             await message.answer("Ошибка: товар не найден")
             await state.clear()
@@ -451,8 +498,17 @@ async def process_edit_price(message: Message, state: FSMContext):
 async def process_edit_description(message: Message, state: FSMContext):
     try:
         data = await state.get_data()
-        product_id = data.get('editing_product_id')
         
+        # Проверяем, добавляем ли мы новый товар
+        if data.get('is_adding_product'):
+            print("[DEBUG] Processing new product description")
+            await state.update_data(description=message.text)
+            await message.answer("Отправьте фотографию товара:")
+            await state.set_state(AdminStates.setting_image)
+            return
+            
+        # Если это редактирование существующего товара
+        product_id = data.get('editing_product_id')
         if not product_id:
             await message.answer("Ошибка: товар не найден")
             await state.clear()
@@ -501,8 +557,34 @@ async def process_edit_description(message: Message, state: FSMContext):
 async def process_edit_photo(message: Message, state: FSMContext):
     try:
         data = await state.get_data()
-        product_id = data.get('editing_product_id')
         
+        # Проверяем, добавляем ли мы новый товар
+        if data.get('is_adding_product'):
+            print("[DEBUG] Processing new product photo")
+            photo_id = message.photo[-1].file_id
+            
+            # Собираем все данные для нового товара
+            product_data = {
+                "name": data["name"],
+                "category": data["category"],
+                "price": data["price"],
+                "description": data["description"],
+                "photo": photo_id,
+                "available": True
+            }
+            
+            # Добавляем новый товар в базу данных
+            await db.add_product(product_data)
+            
+            await message.answer(
+                "✅ Товар успешно добавлен!",
+                reply_markup=product_management_kb()
+            )
+            await state.clear()
+            return
+            
+        # Если это редактирование существующего товара
+        product_id = data.get('editing_product_id')
         if not product_id:
             await message.answer("Ошибка: товар не найден")
             await state.clear()
@@ -736,23 +818,13 @@ async def add_product_category(callback: CallbackQuery, state: FSMContext):
     print("[DEBUG] Entering add_product_category handler")
     print(f"[DEBUG] Callback data: {callback.data}")
     try:
-        current_state = await state.get_state()
-        print(f"[DEBUG] Current state: {current_state}")
-        
-        if current_state != AdminStates.adding_product:
-            print("[DEBUG] Invalid state transition")
-            await callback.message.edit_text(
-                "Ошибка состояния. Начните сначала.",
-                reply_markup=product_management_kb()
-            )
-            await callback.answer()
-            return
-
+        await state.clear()  # Очищаем состояние перед началом
         category = callback.data.replace("add_to_", "")
+
         print(f"[DEBUG] Selected category: {category}")
         
         # Сохраняем категорию и переходим к вводу названия
-        await state.update_data(category=category)
+        await state.update_data(category=category, is_adding_product=True)  # Добавляем флаг
         await callback.message.edit_text(
             "Введите название товара:",
             reply_markup=None  # Убираем клавиатуру для ввода текста
@@ -766,34 +838,6 @@ async def add_product_category(callback: CallbackQuery, state: FSMContext):
             "Произошла ошибка. Попробуйте снова.",
             reply_markup=product_management_kb()
         )
-
-@router.message(AdminStates.setting_name)
-@check_admin_session
-async def add_product_name(message: Message, state: FSMContext):
-    print("[DEBUG] Entering add_product_name handler")
-    print(f"[DEBUG] Received name: {message.text}")
-    try:
-        data = await state.get_data()
-        if 'category' not in data:
-            print("[ERROR] No category in state data")
-            await message.answer(
-                "Ошибка: категория не выбрана. Начните сначала.",
-                reply_markup=product_management_kb()
-            )
-            await state.clear()
-            return
-
-        await state.update_data(name=message.text)
-        await message.answer("Введите цену товара (только число):")
-        await state.set_state(AdminStates.setting_price)
-        print(f"[DEBUG] State set to: {AdminStates.setting_price}")
-    except Exception as e:
-        print(f"[ERROR] Error in add_product_name: {str(e)}")
-        await message.answer(
-            "Произошла ошибка. Попробуйте снова.",
-            reply_markup=product_management_kb()
-        )
-        await state.clear()
 
 @router.message(AdminStates.setting_price)
 @check_admin_session
