@@ -4,6 +4,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from datetime import datetime
+import logging
 
 from database.mongodb import db
 from keyboards.user_kb import (
@@ -18,6 +19,9 @@ from keyboards.user_kb import (
 )
 from keyboards.admin_kb import order_management_kb
 from config import ADMIN_ID, ADMIN_CARD
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 router = Router()
 
@@ -223,34 +227,29 @@ async def handle_flavor_number(message: Message, state: FSMContext):
 
 @router.callback_query(F.data.startswith("select_flavor_"))
 async def select_flavor(callback: CallbackQuery, state: FSMContext):
-    print("[DEBUG] Starting select_flavor handler")
+    logger.info("Starting select_flavor handler")
     try:
         # Get the full callback data
         full_data = callback.data
-        print(f"[DEBUG] Full callback data: {full_data}")
+        logger.debug(f"Full callback data: {full_data}")
         
         # Extract product_id and flavor correctly
-        # Format is: select_flavor_PRODUCTID_FLAVOR
-        # Remove 'select_flavor_' prefix first
         data_without_prefix = full_data.replace("select_flavor_", "")
-        # Find the first underscore after product ID
         underscore_index = data_without_prefix.find("_")
         if underscore_index == -1:
-            print("[DEBUG] Invalid callback data format")
+            logger.error("Invalid callback data format")
             await callback.answer("Ошибка формата данных", show_alert=True)
             return
             
         product_id = data_without_prefix[:underscore_index]
         flavor = data_without_prefix[underscore_index + 1:]
         
-        print(f"[DEBUG] Parsed product_id: {product_id}, flavor: {flavor}")
+        logger.debug(f"Parsed product_id: {product_id}, flavor: {flavor}")
         
         # Get product first to validate it exists
         product = await db.get_product(product_id)
-        print(f"[DEBUG] Retrieved product from DB: {product}")
-        
         if not product:
-            print(f"[DEBUG] Product not found in database: {product_id}")
+            logger.warning(f"Product not found in database: {product_id}")
             await callback.answer("Товар не найден или недоступен", show_alert=True)
             return
             
@@ -265,14 +264,12 @@ async def select_flavor(callback: CallbackQuery, state: FSMContext):
                 "cart": []
             }
             user = await db.create_user(user_data)
-            print(f"[DEBUG] Created new user: {user}")
+            logger.info(f"Created new user: {callback.from_user.id}")
         
         # Initialize cart if needed
         cart = user.get('cart', [])
         if cart is None:
             cart = []
-        
-        print(f"[DEBUG] Current cart before update: {cart}")
         
         # Check if product with same flavor already in cart
         found = False
@@ -280,7 +277,6 @@ async def select_flavor(callback: CallbackQuery, state: FSMContext):
             if str(item.get('product_id')) == str(product_id) and item.get('flavor') == flavor:
                 item['quantity'] += 1
                 found = True
-                print(f"[DEBUG] Increased quantity for existing item: {item}")
                 break
         
         # Add new item if not found
@@ -293,23 +289,18 @@ async def select_flavor(callback: CallbackQuery, state: FSMContext):
                 'flavor': flavor
             }
             cart.append(new_item)
-            print(f"[DEBUG] Added new item to cart: {new_item}")
-        
-        print(f"[DEBUG] Cart after update: {cart}")
         
         # Update user's cart in database
         result = await db.update_user(callback.from_user.id, {'cart': cart})
-        print(f"[DEBUG] Database update result: {result}")
         
         if result:
             await callback.answer(f"Товар ({flavor}) добавлен в корзину!", show_alert=True)
-            # Show updated cart
             await show_cart_message(callback.message, user)
         else:
             await callback.answer("Ошибка при добавлении товара в корзину", show_alert=True)
         
     except Exception as e:
-        print(f"[ERROR] Error in select_flavor: {str(e)}")
+        logger.error(f"Error in select_flavor: {str(e)}")
         await callback.answer("Произошла ошибка при добавлении товара в корзину", show_alert=True)
 
 @router.callback_query(F.data.startswith("add_to_cart_"))

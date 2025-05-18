@@ -5,6 +5,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from datetime import datetime, timedelta
 import asyncio
+import logging
 
 from config import ADMIN_ID
 from database.mongodb import db
@@ -20,6 +21,8 @@ from keyboards.user_kb import main_menu
 from utils.security import security_manager
 
 router = Router()
+
+logger = logging.getLogger(__name__)
 
 class AdminStates(StatesGroup):
     waiting_password = State()
@@ -48,22 +51,20 @@ def check_admin_session(func):
         # Получаем event из первого аргумента (Message или CallbackQuery)
         event = args[0] if args else None
         if not event:
-            print("[DEBUG] check_admin_session - No event object found")
+            logger.warning("check_admin_session - No event object found")
             return
         
         user_id = event.from_user.id
-        print(f"[DEBUG] check_admin_session - User ID: {user_id}")
-        print(f"[DEBUG] check_admin_session - Is admin: {user_id == ADMIN_ID}")
-        print(f"[DEBUG] check_admin_session - Session valid: {security_manager.is_admin_session_valid(user_id)}")
+        logger.debug(f"Admin session check for user {user_id}")
         
         if user_id != ADMIN_ID or not security_manager.is_admin_session_valid(user_id):
-            print("[DEBUG] check_admin_session - Access denied")
+            logger.warning(f"Admin access denied for user {user_id}")
             if isinstance(event, Message):
                 await event.answer("Необходима авторизация. Используйте /admin")
             elif isinstance(event, CallbackQuery):
                 await event.answer("Необходима авторизация", show_alert=True)
             return
-        print("[DEBUG] check_admin_session - Access granted")
+        logger.debug(f"Admin access granted for user {user_id}")
         
         # Удаляем dispatcher из kwargs если он есть
         kwargs.pop('dispatcher', None)
@@ -73,19 +74,18 @@ def check_admin_session(func):
 @router.message(Command("admin"))
 async def admin_start(message: Message, state: FSMContext):
     user_id = message.from_user.id
-    print(f"[DEBUG] admin_start - User ID: {user_id}")
-    print(f"[DEBUG] admin_start - ADMIN_ID: {ADMIN_ID}")
+    logger.debug(f"Admin command received from user {user_id}")
     
     # Проверяем, является ли пользователь администратором
     if user_id != ADMIN_ID:
-        print("[DEBUG] admin_start - Not an admin")
+        logger.warning(f"Unauthorized admin access attempt from user {user_id}")
         await message.answer("У вас нет прав администратора.")
         return
 
     # Проверяем, не заблокирован ли пользователь
     if not security_manager.check_failed_attempts(user_id):
-        print("[DEBUG] admin_start - User is blocked")
         remaining_time = security_manager.get_block_time_remaining(user_id)
+        logger.warning(f"Blocked admin access attempt from user {user_id}")
         await message.answer(
             f"Слишком много неудачных попыток. Попробуйте снова через {remaining_time.seconds // 60} минут."
         )
@@ -93,34 +93,33 @@ async def admin_start(message: Message, state: FSMContext):
 
     # Если сессия уже активна, показываем меню админа
     if security_manager.is_admin_session_valid(user_id):
-        print("[DEBUG] admin_start - Session is valid, showing menu")
+        logger.info(f"Admin session active for user {user_id}")
         await message.answer("Панель администратора", reply_markup=admin_main_menu())
         return
 
     # Запрашиваем пароль
-    print("[DEBUG] admin_start - Requesting password")
+    logger.debug(f"Requesting admin password from user {user_id}")
     await message.answer("Введите пароль администратора:")
     await state.set_state(AdminStates.waiting_password)
 
 @router.message(AdminStates.waiting_password)
 async def check_admin_password(message: Message, state: FSMContext):
     user_id = message.from_user.id
-    print(f"[DEBUG] check_admin_password - User ID: {user_id}")
+    logger.debug(f"Checking admin password for user {user_id}")
     
     if user_id != ADMIN_ID:
-        print("[DEBUG] check_admin_password - Not an admin")
+        logger.warning(f"Unauthorized password attempt from user {user_id}")
         return
 
     # Проверяем пароль
-    print("[DEBUG] check_admin_password - Verifying password")
     if security_manager.verify_password(message.text):
-        print("[DEBUG] check_admin_password - Password correct")
+        logger.info(f"Successful admin login for user {user_id}")
         security_manager.create_admin_session(user_id)
         security_manager.reset_attempts(user_id)
         await message.answer("Доступ разрешен.", reply_markup=admin_main_menu())
         await state.clear()
     else:
-        print("[DEBUG] check_admin_password - Password incorrect")
+        logger.warning(f"Failed admin login attempt from user {user_id}")
         security_manager.add_failed_attempt(user_id)
         attempts_left = security_manager.max_attempts - security_manager.failed_attempts.get(user_id, 0)
         
