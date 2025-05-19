@@ -2620,3 +2620,10 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there
 2025-05-19 17:58:16,215 - aiogram.dispatcher - INFO - Polling stopped
 2025-05-19 17:58:16,477 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
 2025-05-19 17:58:16,479 - root - INFO - Bot stopped
+2025-05-19 17:58:24,325 - __main__ - INFO - Starting bot...
+2025-05-19 17:58:24,326 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 17:58:24,790 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 17:58:24,938 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 17:58:29,185 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 17:58:29,465 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 17:58:30,239 - aiogram.event - INFO - Update id=142691361 is handled. Duration 5301 ms by bot id=7498826228
