@@ -2644,3 +2644,23 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there
 2025-05-19 17:59:09,825 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': '������', 'category': '����������', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': '�����', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
 2025-05-19 17:59:09,826 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
 2025-05-19 17:59:10,146 - aiogram.event - INFO - Update id=142691371 is handled. Duration 609 ms by bot id=7498826228
+2025-05-19 18:43:56,826 - __main__ - INFO - Starting bot...
+2025-05-19 18:43:56,826 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 18:43:57,435 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:43:57,605 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:43:59,503 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:44:03,512 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:44:03,623 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:44:03,773 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:44:07,343 - aiogram.event - INFO - Update id=142691416 is handled. Duration 2685 ms by bot id=7498826228
+2025-05-19 18:44:07,726 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:44:08,024 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:44:08,542 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:44:08,582 - aiogram.event - INFO - Update id=142691415 is handled. Duration 4959 ms by bot id=7498826228
+2025-05-19 18:44:08,814 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:44:09,023 - aiogram.event - INFO - Update id=142691414 is handled. Duration 9521 ms by bot id=7498826228
+2025-05-19 18:44:09,258 - aiogram.event - INFO - Update id=142691413 is handled. Duration 11653 ms by bot id=7498826228
+2025-05-19 18:44:27,212 - aiogram.event - INFO - Update id=142691417 is handled. Duration 506 ms by bot id=7498826228
+2025-05-19 18:44:31,789 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-05-19 18:44:31,789 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:44:31,790 - aiogram.dispatcher - INFO - Polling stopped
