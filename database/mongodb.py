@@ -23,25 +23,34 @@ class MongoDB:
 
     @property
     def products(self):
-        return self.db.products if self.db else None
+        if self._db is None:
+            raise ConnectionError("Database connection not established")
+        return self._db.products
 
     @property
     def orders(self):
-        return self.db.orders if self.db else None
+        if self._db is None:
+            raise ConnectionError("Database connection not established")
+        return self._db.orders
 
     @property
     def users(self):
-        return self.db.users if self.db else None
+        if self._db is None:
+            raise ConnectionError("Database connection not established")
+        return self._db.users
 
     @property
     def settings(self):
-        return self.db.settings if self.db else None
+        if self._db is None:
+            raise ConnectionError("Database connection not established")
+        return self._db.settings
 
     async def ensure_connected(self):
         """Ensure database connection is established"""
-        if not self._connected:
+        if not self._connected or self._db is None:
             await self.connect()
-        return self._connected
+        if self._db is None:
+            raise ConnectionError("Database connection not established")
 
     async def connect(self):
         """Connect to MongoDB and initialize collections"""
@@ -68,15 +77,38 @@ class MongoDB:
         except (ServerSelectionTimeoutError, ConnectionFailure) as e:
             logger.error("Failed to connect to MongoDB: %s", str(e))
             self._connected = False
+            self._db = None
+            self._client = None
             raise
         except Exception as e:
             logger.error("Unexpected error connecting to MongoDB: %s", str(e))
             self._connected = False
+            self._db = None
+            self._client = None
+            raise
+
+    async def _create_indexes(self):
+        """Create necessary database indexes"""
+        try:
+            if self._db is None:
+                logger.error("Database connection not established")
+                return
+                
+            await self.products.create_index("name")
+            await self.orders.create_index("user_id")
+            await self.users.create_index("user_id", unique=True)
+            logger.info("Database indexes created successfully")
+        except Exception as e:
+            logger.error("Failed to create indexes: %s", str(e))
             raise
 
     async def _init_settings(self):
         """Initialize settings collection with default values if empty"""
         try:
+            if self._db is None:
+                logger.error("Database connection not established")
+                return
+                
             # Check if sleep_mode setting exists
             sleep_mode = await self.settings.find_one({"setting": "sleep_mode"})
             if not sleep_mode:
@@ -89,17 +121,6 @@ class MongoDB:
                 logger.info("Initialized default sleep mode settings")
         except Exception as e:
             logger.error("Error initializing settings: %s", str(e))
-            raise
-
-    async def _create_indexes(self):
-        """Create necessary database indexes"""
-        try:
-            await self.products.create_index("name")
-            await self.orders.create_index("user_id")
-            await self.users.create_index("user_id", unique=True)
-            logger.info("Database indexes created successfully")
-        except Exception as e:
-            logger.error("Failed to create indexes: %s", str(e))
             raise
 
     async def close(self):
@@ -292,7 +313,11 @@ class MongoDB:
         """Get sleep mode status and end time"""
         try:
             await self.ensure_connected()
-            settings = await self.settings.find_one({"setting": "sleep_mode"})
+            if self._db is None:
+                logger.error("Database connection not established")
+                return {"enabled": False, "end_time": None}
+                
+            settings = await self._db.settings.find_one({"setting": "sleep_mode"})
             if not settings:
                 # If settings don't exist, create default and return
                 await self._init_settings()
@@ -309,7 +334,11 @@ class MongoDB:
         """Set sleep mode status and end time"""
         try:
             await self.ensure_connected()
-            await self.settings.update_one(
+            if self._db is None:
+                logger.error("Database connection not established")
+                return
+                
+            await self._db.settings.update_one(
                 {"setting": "sleep_mode"},
                 {"$set": {
                     "enabled": enabled,

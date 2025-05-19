@@ -26,21 +26,31 @@ def product_actions_kb(product_id: str, in_cart: bool = False, flavors: list = N
         # Add flavor selection buttons in rows of 3
         row = []
         for i, flavor in enumerate(flavors, 1):
-            callback_data = f"select_flavor_{product_id}_{flavor}"
-            print(f"[DEBUG] Creating flavor button with callback_data: {callback_data}")
-            row.append(InlineKeyboardButton(
-                text=f"{i}. {flavor}",
-                callback_data=callback_data
-            ))
+            flavor_name = flavor.get('name', '') if isinstance(flavor, dict) else flavor
+            flavor_quantity = flavor.get('quantity', 0) if isinstance(flavor, dict) else 0
             
-            # Create new row after every 3 buttons
-            if len(row) == 3:
-                buttons.append(row)
-                row = []
+            if flavor_quantity > 0:  # Only show flavors that are in stock
+                callback_data = f"select_flavor_{product_id}_{flavor_name}"
+                print(f"[DEBUG] Creating flavor button with callback_data: {callback_data}")
+                row.append(InlineKeyboardButton(
+                    text=f"{i}. {flavor_name} ({flavor_quantity} шт.)",
+                    callback_data=callback_data
+                ))
+                
+                # Create new row after every 3 buttons
+                if len(row) == 3:
+                    buttons.append(row)
+                    row = []
         
         # Add remaining buttons if any
         if row:
             buttons.append(row)
+            
+        if not any(buttons):  # If no flavors are in stock
+            buttons.append([InlineKeyboardButton(
+                text="❌ Нет доступных вкусов",
+                callback_data="no_flavors"
+            )])
     elif not in_cart:
         callback_data = f"add_to_cart_{product_id}"
         print(f"[DEBUG] Creating add to cart button with callback_data: {callback_data}")
