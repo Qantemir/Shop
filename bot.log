@@ -2627,3 +2627,20 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there
 2025-05-19 17:58:29,185 - database.mongodb - INFO - Database indexes created successfully
 2025-05-19 17:58:29,465 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
 2025-05-19 17:58:30,239 - aiogram.event - INFO - Update id=142691361 is handled. Duration 5301 ms by bot id=7498826228
+2025-05-19 17:58:40,546 - aiogram.event - INFO - Update id=142691362 is not handled. Duration 10 ms by bot id=7498826228
+2025-05-19 17:58:45,639 - aiogram.event - INFO - Update id=142691363 is not handled. Duration 12 ms by bot id=7498826228
+2025-05-19 17:58:50,447 - aiogram.event - INFO - Update id=142691364 is handled. Duration 171 ms by bot id=7498826228
+2025-05-19 17:58:53,730 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-19 17:58:53,940 - aiogram.event - INFO - Update id=142691365 is handled. Duration 216 ms by bot id=7498826228
+2025-05-19 17:58:55,852 - aiogram.event - INFO - Update id=142691366 is handled. Duration 251 ms by bot id=7498826228
+2025-05-19 17:59:01,289 - aiogram.event - INFO - Update id=142691367 is handled. Duration 774 ms by bot id=7498826228
+2025-05-19 17:59:02,239 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682b2817ca68159e633a7337
+2025-05-19 17:59:02,523 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': 'Дрипка', 'category': 'Аксессуары', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
+2025-05-19 17:59:02,525 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
+2025-05-19 17:59:02,912 - aiogram.event - INFO - Update id=142691368 is handled. Duration 681 ms by bot id=7498826228
+2025-05-19 17:59:06,840 - aiogram.event - INFO - Update id=142691369 is handled. Duration 319 ms by bot id=7498826228
+2025-05-19 17:59:08,386 - aiogram.event - INFO - Update id=142691370 is handled. Duration 590 ms by bot id=7498826228
+2025-05-19 17:59:09,548 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682b2817ca68159e633a7337
+2025-05-19 17:59:09,825 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': 'Дрипка', 'category': 'Аксессуары', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
+2025-05-19 17:59:09,826 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
+2025-05-19 17:59:10,146 - aiogram.event - INFO - Update id=142691371 is handled. Duration 609 ms by bot id=7498826228
