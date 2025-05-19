@@ -5,11 +5,11 @@ load_dotenv()
 
 # Bot Configuration
 BOT_TOKEN: str = os.getenv("BOT_TOKEN")
-ADMIN_ID: int = int(os.getenv("ADMIN_ID", "1088067370"))
+ADMIN_ID: int = int(os.getenv("ADMIN_ID"))
 ADMIN_CARD: str = os.getenv("ADMIN_CARD", "")  # Card number for payments
 
 # MongoDB Configuration
-MONGODB_URI: str = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
+MONGODB_URI: str = os.getenv("MONGODB_URI")
 DB_NAME: str = os.getenv("DB_NAME", "vapeshop_db")
 
 # Shop Configuration
