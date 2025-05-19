@@ -2644,3 +2644,109 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there
 2025-05-19 17:59:09,825 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': '������', 'category': '����������', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': '�����', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
 2025-05-19 17:59:09,826 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
 2025-05-19 17:59:10,146 - aiogram.event - INFO - Update id=142691371 is handled. Duration 609 ms by bot id=7498826228
+2025-05-19 18:14:51,643 - __main__ - INFO - Starting bot...
+2025-05-19 18:14:51,645 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 18:14:52,246 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:14:52,518 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-05-19 18:14:52,518 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7498826228)
+2025-05-19 18:14:57,954 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-05-19 18:14:57,955 - aiogram.dispatcher - WARNING - Sleep for 1.345849 seconds and try again... (tryings = 1, bot id = 7498826228)
+2025-05-19 18:15:09,529 - aiogram.dispatcher - INFO - Connection established (tryings = 2, bot id = 7498826228)
+2025-05-19 18:15:19,221 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:15:23,943 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:15:24,269 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:15:25,160 - aiogram.event - INFO - Update id=142691372 is handled. Duration 5941 ms by bot id=7498826228
+2025-05-19 18:15:27,996 - database.mongodb - INFO - [DEBUG] Getting products for category: Снюс
+2025-05-19 18:15:28,259 - database.mongodb - INFO - [DEBUG] Found 1 products in category Снюс
+2025-05-19 18:15:28,840 - aiogram.event - INFO - Update id=142691373 is handled. Duration 844 ms by bot id=7498826228
+2025-05-19 18:15:31,671 - aiogram.event - INFO - Update id=142691374 is handled. Duration 443 ms by bot id=7498826228
+2025-05-19 18:15:32,828 - database.mongodb - INFO - [DEBUG] Getting products for category: Снюс
+2025-05-19 18:15:33,088 - database.mongodb - INFO - [DEBUG] Found 1 products in category Снюс
+2025-05-19 18:15:33,596 - aiogram.event - INFO - Update id=142691375 is handled. Duration 769 ms by bot id=7498826228
+2025-05-19 18:15:34,997 - aiogram.event - INFO - Update id=142691376 is handled. Duration 456 ms by bot id=7498826228
+2025-05-19 18:15:36,049 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-19 18:15:36,326 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-19 18:15:36,786 - aiogram.event - INFO - Update id=142691377 is handled. Duration 737 ms by bot id=7498826228
+2025-05-19 18:15:38,312 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-19 18:15:38,312 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682af42033472bc085f40fb5
+2025-05-19 18:15:38,588 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682af42033472bc085f40fb5'), 'name': 'Waka', 'category': 'Одноразовые устройства', 'price': 5000, 'description': '-', 'photo': 'AgACAgIAAxkBAAIMF2gq3Ei4ZvKfyh6t03kmumxMVVYWAAKc8jEb3RBZSWmny-lKhEwpAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Яблоко', 'quantity': 20}]}
+2025-05-19 18:15:38,589 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682af42033472bc085f40fb5
+2025-05-19 18:15:39,471 - aiogram.event - INFO - Update id=142691378 is handled. Duration 1160 ms by bot id=7498826228
+2025-05-19 18:15:41,756 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682af42033472bc085f40fb5
+2025-05-19 18:15:42,094 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682af42033472bc085f40fb5'), 'name': 'Waka', 'category': 'Одноразовые устройства', 'price': 5000, 'description': '-', 'photo': 'AgACAgIAAxkBAAIMF2gq3Ei4ZvKfyh6t03kmumxMVVYWAAKc8jEb3RBZSWmny-lKhEwpAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Яблоко', 'quantity': 20}]}
+2025-05-19 18:15:42,094 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682af42033472bc085f40fb5
+2025-05-19 18:15:42,773 - aiogram.event - INFO - Update id=142691379 is handled. Duration 1288 ms by bot id=7498826228
+2025-05-19 18:15:44,375 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682af42033472bc085f40fb5
+2025-05-19 18:15:44,749 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682af42033472bc085f40fb5'), 'name': 'Waka', 'category': 'Одноразовые устройства', 'price': 5000, 'description': '-', 'photo': 'AgACAgIAAxkBAAIMF2gq3Ei4ZvKfyh6t03kmumxMVVYWAAKc8jEb3RBZSWmny-lKhEwpAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Яблоко', 'quantity': 20}]}
+2025-05-19 18:15:44,749 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682af42033472bc085f40fb5
+2025-05-19 18:15:45,079 - aiogram.event - INFO - Update id=142691380 is handled. Duration 1250 ms by bot id=7498826228
+2025-05-19 18:16:01,828 - aiogram.event - INFO - Update id=142691381 is handled. Duration 214 ms by bot id=7498826228
+2025-05-19 18:16:08,520 - aiogram.event - INFO - Update id=142691382 is handled. Duration 421 ms by bot id=7498826228
+2025-05-19 18:16:16,216 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682af42033472bc085f40fb5
+2025-05-19 18:16:16,595 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682af42033472bc085f40fb5'), 'name': 'Waka', 'category': 'Одноразовые устройства', 'price': 5000, 'description': '-', 'photo': 'AgACAgIAAxkBAAIMF2gq3Ei4ZvKfyh6t03kmumxMVVYWAAKc8jEb3RBZSWmny-lKhEwpAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Яблоко', 'quantity': 20}]}
+2025-05-19 18:16:16,596 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682af42033472bc085f40fb5
+2025-05-19 18:16:17,753 - aiogram.event - INFO - Update id=142691383 is handled. Duration 2076 ms by bot id=7498826228
+2025-05-19 18:18:56,355 - aiogram.event - INFO - Update id=142691384 is handled. Duration 467 ms by bot id=7498826228
+2025-05-19 18:18:58,320 - database.mongodb - INFO - [DEBUG] Getting products for category: Аксессуары
+2025-05-19 18:18:58,584 - database.mongodb - INFO - [DEBUG] Found 1 products in category Аксессуары
+2025-05-19 18:18:58,978 - aiogram.event - INFO - Update id=142691385 is handled. Duration 658 ms by bot id=7498826228
+2025-05-19 18:18:59,892 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-19 18:18:59,892 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682b2817ca68159e633a7337
+2025-05-19 18:19:00,153 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': 'Дрипка', 'category': 'Аксессуары', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
+2025-05-19 18:19:00,154 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
+2025-05-19 18:19:01,141 - aiogram.event - INFO - Update id=142691386 is handled. Duration 1250 ms by bot id=7498826228
+2025-05-19 18:19:03,629 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682b2817ca68159e633a7337
+2025-05-19 18:19:03,924 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': 'Дрипка', 'category': 'Аксессуары', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
+2025-05-19 18:19:03,924 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
+2025-05-19 18:19:04,244 - aiogram.event - INFO - Update id=142691387 is handled. Duration 1144 ms by bot id=7498826228
+2025-05-19 18:19:14,319 - aiogram.event - INFO - Update id=142691388 is handled. Duration 161 ms by bot id=7498826228
+2025-05-19 18:19:17,348 - aiogram.event - INFO - Update id=142691389 is handled. Duration 424 ms by bot id=7498826228
+2025-05-19 18:19:27,939 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-05-19 18:19:27,941 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:19:27,942 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-19 18:19:43,105 - __main__ - INFO - Starting bot...
+2025-05-19 18:19:43,107 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 18:19:43,709 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:19:43,850 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:19:48,562 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:19:48,870 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:19:49,738 - aiogram.event - INFO - Update id=142691390 is handled. Duration 5888 ms by bot id=7498826228
+2025-05-19 18:19:53,044 - aiogram.event - INFO - Update id=142691391 is handled. Duration 486 ms by bot id=7498826228
+2025-05-19 18:19:54,614 - aiogram.event - INFO - Update id=142691392 is handled. Duration 771 ms by bot id=7498826228
+2025-05-19 18:19:57,778 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682b2817ca68159e633a7337
+2025-05-19 18:19:58,048 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': 'Дрипка', 'category': 'Аксессуары', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
+2025-05-19 18:19:58,048 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
+2025-05-19 18:19:58,471 - aiogram.event - INFO - Update id=142691393 is handled. Duration 1264 ms by bot id=7498826228
+2025-05-19 18:20:09,757 - aiogram.event - INFO - Update id=142691394 is handled. Duration 200 ms by bot id=7498826228
+2025-05-19 18:20:12,512 - aiogram.event - INFO - Update id=142691395 is handled. Duration 505 ms by bot id=7498826228
+2025-05-19 18:22:53,570 - aiogram.event - INFO - Update id=142691396 is handled. Duration 432 ms by bot id=7498826228
+2025-05-19 18:23:13,613 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-05-19 18:23:13,615 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:23:13,615 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-19 18:23:36,802 - __main__ - INFO - Starting bot...
+2025-05-19 18:23:36,803 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 18:23:37,398 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:23:46,273 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:23:50,896 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:23:51,154 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:23:52,060 - aiogram.event - INFO - Update id=142691397 is handled. Duration 5787 ms by bot id=7498826228
+2025-05-19 18:23:59,980 - handlers.admin_handlers - WARNING - Unauthorized admin access attempt from user 531632690
+2025-05-19 18:24:00,143 - aiogram.event - INFO - Update id=142691398 is handled. Duration 166 ms by bot id=7498826228
+2025-05-19 18:24:18,518 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-05-19 18:24:18,519 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:24:18,519 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-19 18:24:59,784 - __main__ - INFO - Starting bot...
+2025-05-19 18:24:59,785 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 18:25:00,359 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:25:01,292 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:25:05,733 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:25:06,104 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:25:07,111 - aiogram.event - INFO - Update id=142691399 is handled. Duration 5819 ms by bot id=7498826228
+2025-05-19 18:25:09,291 - aiogram.event - INFO - Update id=142691400 is handled. Duration 204 ms by bot id=7498826228
+2025-05-19 18:25:16,147 - handlers.admin_handlers - INFO - Successful admin login for user 531632690
+2025-05-19 18:25:16,387 - aiogram.event - INFO - Update id=142691401 is handled. Duration 243 ms by bot id=7498826228
+2025-05-19 18:25:31,183 - aiogram.event - INFO - Update id=142691402 is handled. Duration 193 ms by bot id=7498826228
+2025-05-19 18:25:38,050 - aiogram.event - INFO - Update id=142691403 is handled. Duration 178 ms by bot id=7498826228
+2025-05-19 18:25:43,301 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-05-19 18:25:43,303 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:25:43,303 - aiogram.dispatcher - INFO - Polling stopped
