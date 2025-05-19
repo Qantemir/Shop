@@ -2644,3 +2644,32 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there
 2025-05-19 17:59:09,825 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': '������', 'category': '����������', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': '�����', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
 2025-05-19 17:59:09,826 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
 2025-05-19 17:59:10,146 - aiogram.event - INFO - Update id=142691371 is handled. Duration 609 ms by bot id=7498826228
+2025-05-19 18:44:40,730 - __main__ - INFO - Starting bot...
+2025-05-19 18:44:40,732 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 18:44:41,186 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:44:52,658 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:44:56,267 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:44:56,525 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:44:57,201 - aiogram.event - INFO - Update id=142691418 is handled. Duration 4543 ms by bot id=7498826228
+2025-05-19 18:45:53,573 - aiogram.event - INFO - Update id=142691419 is handled. Duration 169 ms by bot id=7498826228
+2025-05-19 18:47:38,969 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-19 18:47:39,231 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:47:39,233 - root - INFO - Bot stopped
+2025-05-19 18:47:47,189 - __main__ - INFO - Starting bot...
+2025-05-19 18:47:47,192 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 18:47:47,637 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:47:48,401 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-19 18:47:52,325 - database.mongodb - INFO - Database indexes created successfully
+2025-05-19 18:47:52,587 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-19 18:47:53,369 - aiogram.event - INFO - Update id=142691420 is handled. Duration 4968 ms by bot id=7498826228
+2025-05-19 18:51:51,717 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-19 18:51:51,727 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 1] [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2775)
+2025-05-19 18:51:51,728 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7498826228)
+2025-05-19 18:51:51,971 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:51:51,973 - root - INFO - Bot stopped
+2025-05-19 18:52:11,434 - __main__ - INFO - Starting bot...
+2025-05-19 18:52:11,435 - aiogram.dispatcher - INFO - Start polling
+2025-05-19 18:52:12,017 - aiogram.dispatcher - INFO - Run polling for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:52:33,630 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-19 18:52:33,897 - aiogram.dispatcher - INFO - Polling stopped for bot @pvl_smoke_shop_snus_bot id=7498826228 - 'pvl_smoke_snus'
+2025-05-19 18:52:33,899 - root - INFO - Bot stopped
