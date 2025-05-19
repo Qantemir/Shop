@@ -771,7 +771,7 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
     
     # Ask for phone number
     await callback.message.answer(
-        "Для оформления заказа, пожалуйста, отправьте ваш номер телефона в формате +7XXXXXXXXXX"
+        "Для оформления заказа, пожалуйста, отправьте ваш номер телефона в формате 8XXXXXXXXXX"
     )
     await state.set_state(OrderStates.waiting_phone)
     await callback.answer()
@@ -780,8 +780,8 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
 async def process_phone(message: Message, state: FSMContext):
     # Validate phone number format
     phone = message.text.strip()
-    if not phone.startswith('+') or not phone[1:].isdigit() or len(phone) < 10:
-        await message.answer("Пожалуйста, введите корректный номер телефона в формате +7XXXXXXXXXX")
+    if not  phone.startswith('8') or not phone[1:].isdigit() or len(phone) != 11:
+        await message.answer("Пожалуйста, введите корректный номер телефона в формате 8XXXXXXXXXX")
         return
     
     # Save phone and ask for address
