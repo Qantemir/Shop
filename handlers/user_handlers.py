@@ -139,7 +139,7 @@ async def show_category(callback: CallbackQuery, state: FSMContext):
                 # Add flavors to caption if they exist
                 flavors = product.get('flavors', [])
                 if flavors:
-                    caption += "🌈 Доступные вкусы:\n"
+                    caption += "🌈 Доступно:\n"
                     for flavor in flavors:
                         flavor_name = flavor.get('name', '') if isinstance(flavor, dict) else flavor
                         flavor_quantity = flavor.get('quantity', 0) if isinstance(flavor, dict) else 0
@@ -1001,62 +1001,14 @@ async def show_payment_info(callback: CallbackQuery):
 
 @router.callback_query(F.data == "help_delivery")
 async def show_delivery_info(callback: CallbackQuery):
-    text = """🚚 Информация о доставке:
-
-📦 О доставки:
-- Доставка курьером по городу(Только в черте города Павлодар)
-
-⏱ Сроки доставки:
--В течении дня
-
-💰 Стоимость доставки:
--Яндекс.Курьером(Стоимость рассчитывается индивидуально)"""
-    
-    await callback.message.edit_text(text, reply_markup=help_menu())
-    await callback.answer()
-
-@router.callback_query(F.data.startswith("admin_confirm_"))
-async def admin_confirm_order(callback: CallbackQuery):
-    try:
-        order_id = callback.data.replace("admin_confirm_", "")
-        order = await db.get_order(order_id)
-        
-        if not order:
-            await callback.answer("Заказ не найден")
-            return
-            
-        # Update order status
-        await db.update_order_status(order_id, "confirmed")
-        
-        # Notify user about confirmation
-        user_notification = (
-            "✅ Ваш заказ подтвержден!\n\n"
-            "🚚 Доставка будет осуществляться Яндекс.Доставкой в течение часа.(Доставка на месте)\n"
-            "📱 Курьер свяжется с вами перед доставкой.\n\n"
-            "Спасибо за ваш заказ! 🙏"
-        )
-        
-        try:
-            await callback.bot.send_message(
-                chat_id=order['user_id'],
-                text=user_notification
-            )
-        except Exception as e:
-            print(f"[ERROR] Failed to notify user about order confirmation: {str(e)}")
-        
-        # Delete the original message
-        await callback.message.delete()
-        
-        # Send confirmation to admin
-        await callback.message.answer(
-            f"✅ Заказ #{order_id} подтвержден и передан в доставку"
-        )
-        
-        await callback.answer("Заказ подтвержден и передан в доставку")
-        
-    except Exception as e:
-        print(f"[ERROR] Error in admin_confirm_order: {str(e)}")
-        await callback.answer("Произошла ошибка при подтверждении заказа")
+    await callback.message.edit_text(
+        "🚚 Информация о доставке:\n\n"
+        "• Доставка осуществляется в течение 1-2 часов\n"
+        "• Курьер свяжется с вами перед доставкой\n"
+        "• Пожалуйста, подготовьте документ, удостоверяющий личность\n\n"
+        "По всем вопросам обращайтесь к администратору.",
+        reply_markup=help_menu()
+    )
 
 @router.callback_query(F.data.startswith("admin_cancel_"))
 async def admin_start_cancel_order(callback: CallbackQuery, state: FSMContext):
@@ -1099,6 +1051,30 @@ async def admin_finish_cancel_order(message: Message, state: FSMContext):
             await message.answer("Ошибка: заказ не найден")
             await state.clear()
             return
+            
+        # Check if order is already cancelled
+        if order.get('status') == 'cancelled':
+            await message.answer("Заказ уже отменен")
+            await state.clear()
+            return
+            
+        # Check if order is confirmed - only return flavors if order was confirmed
+        if order.get('status') == 'confirmed':
+            # Return flavors to inventory
+            for item in order['items']:
+                product = await db.get_product(item['product_id'])
+                if product and 'flavor' in item:
+                    flavors = product.get('flavors', [])
+                    flavor = next((f for f in flavors if f.get('name') == item['flavor']), None)
+                    if flavor:
+                        try:
+                            flavor['quantity'] += item['quantity']
+                            await db.update_product(item['product_id'], {'flavors': flavors})
+                        except Exception as e:
+                            print(f"[ERROR] Failed to return flavor to inventory: {str(e)}")
+                            await message.answer("Ошибка при возврате вкусов в инвентарь")
+                            await state.clear()
+                            return
         
         # Update order status and save cancellation reason
         await db.update_order(order_id, {

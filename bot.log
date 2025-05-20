@@ -3350,3 +3350,1416 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there
 2025-05-20 18:59:24,179 - aiogram.dispatcher - INFO - Polling stopped
 2025-05-20 18:59:24,434 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
 2025-05-20 18:59:24,435 - root - INFO - Bot stopped
+2025-05-21 01:03:29,876 - __main__ - INFO - Starting bot...
+2025-05-21 01:03:29,878 - aiogram.dispatcher - INFO - Start polling
+2025-05-21 01:03:30,336 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:03:30,484 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:03:33,714 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:03:33,918 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:03:34,550 - aiogram.event - INFO - Update id=762234248 is handled. Duration 4066 ms by bot id=7849840849
+2025-05-21 01:03:37,362 - aiogram.event - INFO - Update id=762234249 is handled. Duration 404 ms by bot id=7849840849
+2025-05-21 01:03:38,292 - aiogram.event - INFO - Update id=762234250 is handled. Duration 437 ms by bot id=7849840849
+2025-05-21 01:03:38,570 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:03:38,781 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:03:39,358 - aiogram.event - INFO - Update id=762234251 is handled. Duration 788 ms by bot id=7849840849
+2025-05-21 01:03:40,246 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:03:40,246 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:03:40,461 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:03:40,462 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:03:41,282 - aiogram.event - INFO - Update id=762234252 is handled. Duration 1037 ms by bot id=7849840849
+2025-05-21 01:03:47,381 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:03:47,591 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:03:47,592 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:03:47,950 - aiogram.event - INFO - Update id=762234253 is handled. Duration 986 ms by bot id=7849840849
+2025-05-21 01:03:55,174 - aiogram.event - INFO - Update id=762234254 is handled. Duration 154 ms by bot id=7849840849
+2025-05-21 01:03:57,833 - aiogram.event - INFO - Update id=762234255 is handled. Duration 400 ms by bot id=7849840849
+2025-05-21 01:04:02,495 - aiogram.event - INFO - Update id=762234256 is handled. Duration 1135 ms by bot id=7849840849
+2025-05-21 01:04:04,313 - aiogram.event - INFO - Update id=762234257 is handled. Duration 369 ms by bot id=7849840849
+2025-05-21 01:04:05,920 - aiogram.event - INFO - Update id=762234258 is handled. Duration 1066 ms by bot id=7849840849
+2025-05-21 01:04:07,280 - aiogram.event - INFO - Update id=762234259 is handled. Duration 374 ms by bot id=7849840849
+2025-05-21 01:04:08,433 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:04:08,652 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:04:09,222 - aiogram.event - INFO - Update id=762234260 is handled. Duration 789 ms by bot id=7849840849
+2025-05-21 01:04:21,403 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:04:21,404 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:04:21,613 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:04:21,614 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:04:22,402 - aiogram.event - INFO - Update id=762234261 is handled. Duration 999 ms by bot id=7849840849
+2025-05-21 01:04:24,281 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:04:24,485 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:04:24,486 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:04:24,923 - aiogram.event - INFO - Update id=762234262 is handled. Duration 1059 ms by bot id=7849840849
+2025-05-21 01:04:30,993 - aiogram.event - INFO - Update id=762234263 is handled. Duration 208 ms by bot id=7849840849
+2025-05-21 01:04:33,366 - aiogram.event - INFO - Update id=762234264 is handled. Duration 363 ms by bot id=7849840849
+2025-05-21 01:04:40,034 - aiogram.event - INFO - Update id=762234265 is handled. Duration 1120 ms by bot id=7849840849
+2025-05-21 01:04:42,038 - aiogram.event - INFO - Update id=762234266 is handled. Duration 305 ms by bot id=7849840849
+2025-05-21 01:04:49,775 - aiogram.event - INFO - Update id=762234267 is handled. Duration 882 ms by bot id=7849840849
+2025-05-21 01:04:51,698 - aiogram.event - INFO - Update id=762234268 is handled. Duration 358 ms by bot id=7849840849
+2025-05-21 01:04:52,824 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:04:53,034 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:04:53,515 - aiogram.event - INFO - Update id=762234269 is handled. Duration 690 ms by bot id=7849840849
+2025-05-21 01:07:23,705 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:07:23,706 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:23,914 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:23,915 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:24,682 - aiogram.event - INFO - Update id=762234270 is handled. Duration 977 ms by bot id=7849840849
+2025-05-21 01:07:28,030 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:07:28,031 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:28,249 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:28,250 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:28,980 - aiogram.event - INFO - Update id=762234271 is handled. Duration 950 ms by bot id=7849840849
+2025-05-21 01:07:30,548 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:07:30,549 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:30,752 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:30,754 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:31,521 - aiogram.event - INFO - Update id=762234272 is handled. Duration 973 ms by bot id=7849840849
+2025-05-21 01:07:32,902 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:07:32,903 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:33,112 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:33,113 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:33,971 - aiogram.event - INFO - Update id=762234273 is handled. Duration 1069 ms by bot id=7849840849
+2025-05-21 01:07:35,412 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:07:35,412 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:35,620 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:35,621 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:36,396 - aiogram.event - INFO - Update id=762234274 is handled. Duration 984 ms by bot id=7849840849
+2025-05-21 01:07:37,676 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:07:37,676 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:37,884 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:37,885 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:38,670 - aiogram.event - INFO - Update id=762234275 is handled. Duration 995 ms by bot id=7849840849
+2025-05-21 01:07:40,158 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:07:40,159 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:40,366 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:40,367 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:41,209 - aiogram.event - INFO - Update id=762234276 is handled. Duration 1052 ms by bot id=7849840849
+2025-05-21 01:07:47,064 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:47,272 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:47,273 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:47,274 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:47,479 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:47,481 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:47,481 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:47,700 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:47,701 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:47,702 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:47,912 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:47,913 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:47,914 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:48,118 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:48,119 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:48,120 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:48,323 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:48,325 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:48,325 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:48,530 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:07:48,532 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:07:48,828 - aiogram.event - INFO - Update id=762234277 is handled. Duration 2184 ms by bot id=7849840849
+2025-05-21 01:12:00,322 - __main__ - INFO - Starting bot...
+2025-05-21 01:12:00,323 - aiogram.dispatcher - INFO - Start polling
+2025-05-21 01:12:00,825 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:12:00,965 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:12:00,996 - aiogram.event - INFO - Update id=762234278 is not handled. Duration 31 ms by bot id=7849840849
+2025-05-21 01:12:04,428 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:12:04,656 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:12:05,313 - aiogram.event - INFO - Update id=762234279 is handled. Duration 4347 ms by bot id=7849840849
+2025-05-21 01:12:06,987 - aiogram.event - INFO - Update id=762234280 is handled. Duration 414 ms by bot id=7849840849
+2025-05-21 01:12:08,065 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:12:08,239 - aiogram.event - INFO - Update id=762234281 is handled. Duration 1538 ms by bot id=7849840849
+2025-05-21 01:12:08,294 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:12:08,829 - aiogram.event - INFO - Update id=762234282 is handled. Duration 764 ms by bot id=7849840849
+2025-05-21 01:12:09,941 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:12:09,942 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:12:10,177 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:12:10,178 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:12:10,917 - aiogram.event - INFO - Update id=762234283 is handled. Duration 976 ms by bot id=7849840849
+2025-05-21 01:12:13,758 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:13,986 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:12:13,988 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:13,989 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:14,217 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:12:14,219 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:14,220 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:14,447 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:12:14,449 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:14,449 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:14,678 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:12:14,680 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:14,681 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:14,916 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:12:14,918 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:14,919 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:15,147 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:12:15,149 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:15,150 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:15,381 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:12:15,383 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:12:15,384 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:12:15,610 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:12:15,611 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:12:16,110 - aiogram.event - INFO - Update id=762234284 is handled. Duration 2808 ms by bot id=7849840849
+2025-05-21 01:12:19,769 - aiogram.event - INFO - Update id=762234285 is handled. Duration 258 ms by bot id=7849840849
+2025-05-21 01:12:26,828 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-21 01:12:27,344 - aiogram.event - INFO - Update id=762234286 is handled. Duration 519 ms by bot id=7849840849
+2025-05-21 01:12:27,946 - aiogram.event - INFO - Update id=762234287 is handled. Duration 716 ms by bot id=7849840849
+2025-05-21 01:12:30,064 - aiogram.event - INFO - Update id=762234288 is handled. Duration 912 ms by bot id=7849840849
+2025-05-21 01:12:34,934 - aiogram.event - INFO - Update id=762234289 is handled. Duration 2157 ms by bot id=7849840849
+2025-05-21 01:12:39,416 - aiogram.event - INFO - Update id=762234290 is handled. Duration 2767 ms by bot id=7849840849
+2025-05-21 01:12:40,855 - aiogram.event - INFO - Update id=762234291 is handled. Duration 854 ms by bot id=7849840849
+2025-05-21 01:12:42,143 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:12:42,562 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:12:43,666 - aiogram.event - INFO - Update id=762234292 is handled. Duration 1522 ms by bot id=7849840849
+2025-05-21 01:16:04,110 - aiogram.event - INFO - Update id=762234293 is handled. Duration 374 ms by bot id=7849840849
+2025-05-21 01:16:04,926 - aiogram.event - INFO - Update id=762234294 is handled. Duration 464 ms by bot id=7849840849
+2025-05-21 01:16:22,371 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-21 01:16:22,628 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:16:22,630 - root - INFO - Bot stopped
+2025-05-21 01:16:29,174 - __main__ - INFO - Starting bot...
+2025-05-21 01:16:29,175 - aiogram.dispatcher - INFO - Start polling
+2025-05-21 01:16:29,594 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:16:29,733 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:16:29,749 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:16:33,180 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:16:33,385 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:16:34,146 - aiogram.event - INFO - Update id=762234296 is handled. Duration 4414 ms by bot id=7849840849
+2025-05-21 01:16:34,564 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:16:34,789 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:16:35,168 - aiogram.event - INFO - Update id=762234295 is handled. Duration 5436 ms by bot id=7849840849
+2025-05-21 01:16:37,252 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:16:37,488 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:16:38,061 - aiogram.event - INFO - Update id=762234297 is handled. Duration 809 ms by bot id=7849840849
+2025-05-21 01:16:39,188 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:16:39,188 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:16:39,419 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:16:39,420 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:16:40,184 - aiogram.event - INFO - Update id=762234298 is handled. Duration 997 ms by bot id=7849840849
+2025-05-21 01:16:43,090 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:16:43,090 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:43,325 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:43,327 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:43,937 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:16:43,938 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:44,168 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:44,170 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:44,211 - aiogram.event - INFO - Update id=762234299 is handled. Duration 1122 ms by bot id=7849840849
+2025-05-21 01:16:44,229 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:16:44,230 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:44,442 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:44,444 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:44,890 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:16:44,891 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:44,984 - aiogram.event - INFO - Update id=762234300 is handled. Duration 1047 ms by bot id=7849840849
+2025-05-21 01:16:45,096 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:45,098 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:45,145 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:16:45,145 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:45,377 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:45,379 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:45,568 - aiogram.event - INFO - Update id=762234301 is handled. Duration 1340 ms by bot id=7849840849
+2025-05-21 01:16:45,842 - aiogram.event - INFO - Update id=762234302 is handled. Duration 951 ms by bot id=7849840849
+2025-05-21 01:16:46,270 - aiogram.event - INFO - Update id=762234303 is handled. Duration 1125 ms by bot id=7849840849
+2025-05-21 01:16:49,422 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:16:49,423 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:49,649 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:49,651 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:50,446 - aiogram.event - INFO - Update id=762234304 is handled. Duration 1024 ms by bot id=7849840849
+2025-05-21 01:16:53,955 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:16:54,185 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:16:54,186 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:16:54,187 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:54,414 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:54,417 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:54,417 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:54,644 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:54,646 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:54,647 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:54,875 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:54,877 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:54,877 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:55,104 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:55,106 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:55,107 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:55,334 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:55,336 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:55,336 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:55,563 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:16:55,565 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:16:55,850 - aiogram.event - INFO - Update id=762234305 is handled. Duration 2355 ms by bot id=7849840849
+2025-05-21 01:17:02,618 - aiogram.event - INFO - Update id=762234306 is handled. Duration 154 ms by bot id=7849840849
+2025-05-21 01:17:05,303 - aiogram.event - INFO - Update id=762234307 is handled. Duration 446 ms by bot id=7849840849
+2025-05-21 01:17:09,369 - aiogram.event - INFO - Update id=762234308 is handled. Duration 1175 ms by bot id=7849840849
+2025-05-21 01:17:12,890 - aiogram.event - INFO - Update id=762234309 is handled. Duration 1219 ms by bot id=7849840849
+2025-05-21 01:17:14,232 - aiogram.event - INFO - Update id=762234310 is handled. Duration 383 ms by bot id=7849840849
+2025-05-21 01:17:15,469 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:17:15,699 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:17:16,297 - aiogram.event - INFO - Update id=762234311 is handled. Duration 828 ms by bot id=7849840849
+2025-05-21 01:17:54,325 - aiogram.event - INFO - Update id=762234312 is handled. Duration 231 ms by bot id=7849840849
+2025-05-21 01:18:00,507 - handlers.admin_handlers - WARNING - Failed admin login attempt from user 1088067370
+2025-05-21 01:18:00,508 - aiogram.event - INFO - Update id=762234313 is not handled. Duration 4 ms by bot id=7849840849
+2025-05-21 01:18:00,508 - aiogram.event - ERROR - Cause exception while process update id=762234313 by bot id=7849840849
+AttributeError: 'SecurityManager' object has no attribute 'failed_attempts'
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 125, in check_admin_password
+    attempts_left = security_manager.max_attempts - security_manager.failed_attempts.get(user_id, 0)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SecurityManager' object has no attribute 'failed_attempts'. Did you mean: 'add_failed_attempt'?
+2025-05-21 01:18:06,125 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-21 01:18:06,374 - aiogram.event - INFO - Update id=762234314 is handled. Duration 252 ms by bot id=7849840849
+2025-05-21 01:18:08,536 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:18:08,537 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:18:08,766 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:18:08,767 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:18:09,582 - aiogram.event - INFO - Update id=762234315 is handled. Duration 1046 ms by bot id=7849840849
+2025-05-21 01:18:12,378 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:18:12,604 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:18:12,605 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:18:12,924 - aiogram.event - INFO - Update id=762234316 is handled. Duration 997 ms by bot id=7849840849
+2025-05-21 01:18:21,205 - aiogram.event - INFO - Update id=762234317 is handled. Duration 204 ms by bot id=7849840849
+2025-05-21 01:18:25,203 - aiogram.event - INFO - Update id=762234318 is handled. Duration 378 ms by bot id=7849840849
+2025-05-21 01:18:31,711 - aiogram.event - INFO - Update id=762234319 is handled. Duration 1406 ms by bot id=7849840849
+2025-05-21 01:18:34,537 - aiogram.event - INFO - Update id=762234320 is handled. Duration 1278 ms by bot id=7849840849
+2025-05-21 01:18:36,727 - aiogram.event - INFO - Update id=762234321 is handled. Duration 490 ms by bot id=7849840849
+2025-05-21 01:18:38,126 - database.mongodb - INFO - [DEBUG] Getting products for category: Жидкости
+2025-05-21 01:18:38,356 - database.mongodb - INFO - [DEBUG] Found 0 products in category Жидкости
+2025-05-21 01:18:38,509 - aiogram.event - INFO - Update id=762234322 is handled. Duration 382 ms by bot id=7849840849
+2025-05-21 01:18:39,686 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:18:39,917 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:18:40,490 - aiogram.event - INFO - Update id=762234323 is handled. Duration 804 ms by bot id=7849840849
+2025-05-21 01:21:16,131 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-21 01:21:16,388 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:21:16,390 - root - INFO - Bot stopped
+2025-05-21 01:21:34,061 - __main__ - INFO - Starting bot...
+2025-05-21 01:21:34,063 - aiogram.dispatcher - INFO - Start polling
+2025-05-21 01:21:34,494 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:21:38,462 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:21:38,612 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:21:41,942 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:21:42,152 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:21:42,807 - aiogram.event - INFO - Update id=762234325 is handled. Duration 4194 ms by bot id=7849840849
+2025-05-21 01:21:43,094 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:21:43,306 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:21:43,763 - aiogram.event - INFO - Update id=762234324 is handled. Duration 5300 ms by bot id=7849840849
+2025-05-21 01:21:45,918 - aiogram.event - INFO - Update id=762234326 is handled. Duration 437 ms by bot id=7849840849
+2025-05-21 01:21:46,908 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:21:47,122 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:21:47,686 - aiogram.event - INFO - Update id=762234327 is handled. Duration 779 ms by bot id=7849840849
+2025-05-21 01:21:49,136 - aiogram.event - INFO - Update id=762234328 is handled. Duration 535 ms by bot id=7849840849
+2025-05-21 01:21:51,287 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:21:51,502 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:21:51,983 - aiogram.event - INFO - Update id=762234329 is handled. Duration 696 ms by bot id=7849840849
+2025-05-21 01:21:53,045 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:21:53,046 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:21:53,264 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:21:53,266 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:21:54,104 - aiogram.event - INFO - Update id=762234330 is handled. Duration 1059 ms by bot id=7849840849
+2025-05-21 01:21:56,635 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:21:56,852 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:21:56,854 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:21:57,202 - aiogram.event - INFO - Update id=762234331 is handled. Duration 994 ms by bot id=7849840849
+2025-05-21 01:22:07,229 - aiogram.event - INFO - Update id=762234332 is handled. Duration 164 ms by bot id=7849840849
+2025-05-21 01:22:10,128 - aiogram.event - INFO - Update id=762234333 is handled. Duration 365 ms by bot id=7849840849
+2025-05-21 01:22:14,755 - aiogram.event - INFO - Update id=762234334 is handled. Duration 162 ms by bot id=7849840849
+2025-05-21 01:22:21,900 - aiogram.event - INFO - Update id=762234335 is handled. Duration 1155 ms by bot id=7849840849
+2025-05-21 01:22:23,484 - aiogram.event - INFO - Update id=762234336 is handled. Duration 439 ms by bot id=7849840849
+2025-05-21 01:22:25,563 - aiogram.event - INFO - Update id=762234337 is handled. Duration 462 ms by bot id=7849840849
+2025-05-21 01:22:28,091 - aiogram.event - INFO - Update id=762234338 is handled. Duration 1307 ms by bot id=7849840849
+2025-05-21 01:22:31,408 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:22:31,624 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:22:32,193 - aiogram.event - INFO - Update id=762234339 is handled. Duration 784 ms by bot id=7849840849
+2025-05-21 01:22:38,785 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:22:38,786 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:22:39,013 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:22:39,015 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:22:39,825 - aiogram.event - INFO - Update id=762234340 is handled. Duration 1042 ms by bot id=7849840849
+2025-05-21 01:25:24,798 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-21 01:25:25,063 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:25:25,065 - root - INFO - Bot stopped
+2025-05-21 01:25:30,936 - __main__ - INFO - Starting bot...
+2025-05-21 01:25:30,938 - aiogram.dispatcher - INFO - Start polling
+2025-05-21 01:25:31,346 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:25:31,479 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:25:32,100 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:25:35,120 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:25:35,340 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:25:35,973 - aiogram.event - INFO - Update id=762234342 is handled. Duration 3873 ms by bot id=7849840849
+2025-05-21 01:25:36,054 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:25:36,271 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:25:36,641 - aiogram.event - INFO - Update id=762234341 is handled. Duration 5162 ms by bot id=7849840849
+2025-05-21 01:25:40,949 - aiogram.event - INFO - Update id=762234343 is handled. Duration 362 ms by bot id=7849840849
+2025-05-21 01:25:42,413 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:25:42,632 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:25:43,313 - aiogram.event - INFO - Update id=762234344 is handled. Duration 900 ms by bot id=7849840849
+2025-05-21 01:25:44,149 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:25:44,150 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:25:44,371 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:25:44,377 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:25:45,144 - aiogram.event - INFO - Update id=762234345 is handled. Duration 995 ms by bot id=7849840849
+2025-05-21 01:25:53,327 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:25:53,542 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:25:53,544 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:25:53,545 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:25:53,761 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:25:53,762 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:25:54,136 - aiogram.event - INFO - Update id=762234346 is handled. Duration 1241 ms by bot id=7849840849
+2025-05-21 01:26:01,634 - aiogram.event - INFO - Update id=762234347 is handled. Duration 223 ms by bot id=7849840849
+2025-05-21 01:26:07,767 - aiogram.event - INFO - Update id=762234348 is handled. Duration 383 ms by bot id=7849840849
+2025-05-21 01:26:14,691 - aiogram.event - INFO - Update id=762234349 is handled. Duration 1149 ms by bot id=7849840849
+2025-05-21 01:26:16,256 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:26:16,472 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:26:16,474 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:26:16,693 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:26:16,910 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 1}]}
+2025-05-21 01:26:16,911 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:26:17,132 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:26:17,352 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:26:17,354 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:26:17,355 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682cca7f54afbc0c03d6c188
+2025-05-21 01:26:17,579 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682cca7f54afbc0c03d6c188'), 'name': '[eq', 'category': 'Одноразовые устройства', 'price': 8520, 'description': 'dsf', 'photo': 'AgACAgIAAxkBAAIBgWgsyn5uR6G0mnWM9MD7NmS897HBAAKB8zEb2gxgSQ34v1TD5Ep2AQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'sdf', 'quantity': 0}]}
+2025-05-21 01:26:17,581 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682cca7f54afbc0c03d6c188
+2025-05-21 01:26:18,707 - aiogram.event - INFO - Update id=762234350 is handled. Duration 2675 ms by bot id=7849840849
+2025-05-21 01:26:23,733 - aiogram.event - INFO - Update id=762234351 is handled. Duration 416 ms by bot id=7849840849
+2025-05-21 01:26:24,995 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:26:25,207 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-21 01:26:25,538 - aiogram.event - INFO - Update id=762234352 is handled. Duration 544 ms by bot id=7849840849
+2025-05-21 01:26:34,838 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:26:34,839 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:26:35,052 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:26:35,055 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:26:35,876 - aiogram.event - INFO - Update id=762234353 is handled. Duration 1038 ms by bot id=7849840849
+2025-05-21 01:26:38,456 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:26:38,672 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:26:38,674 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:26:38,964 - aiogram.event - INFO - Update id=762234354 is handled. Duration 942 ms by bot id=7849840849
+2025-05-21 01:26:47,000 - aiogram.event - INFO - Update id=762234355 is handled. Duration 227 ms by bot id=7849840849
+2025-05-21 01:26:50,656 - aiogram.event - INFO - Update id=762234356 is handled. Duration 376 ms by bot id=7849840849
+2025-05-21 01:26:54,801 - aiogram.event - INFO - Update id=762234357 is handled. Duration 1116 ms by bot id=7849840849
+2025-05-21 01:26:56,412 - aiogram.event - INFO - Update id=762234358 is handled. Duration 370 ms by bot id=7849840849
+2025-05-21 01:27:00,104 - aiogram.event - INFO - Update id=762234359 is handled. Duration 918 ms by bot id=7849840849
+2025-05-21 01:27:02,278 - aiogram.event - INFO - Update id=762234360 is handled. Duration 373 ms by bot id=7849840849
+2025-05-21 01:27:03,311 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:27:03,530 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-21 01:27:03,911 - aiogram.event - INFO - Update id=762234361 is handled. Duration 600 ms by bot id=7849840849
+2025-05-21 01:27:10,794 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:27:10,795 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:11,021 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:11,023 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:11,746 - aiogram.event - INFO - Update id=762234362 is handled. Duration 952 ms by bot id=7849840849
+2025-05-21 01:27:14,233 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:14,450 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:14,452 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:14,786 - aiogram.event - INFO - Update id=762234363 is handled. Duration 982 ms by bot id=7849840849
+2025-05-21 01:27:22,362 - aiogram.event - INFO - Update id=762234364 is handled. Duration 239 ms by bot id=7849840849
+2025-05-21 01:27:24,586 - aiogram.event - INFO - Update id=762234365 is handled. Duration 475 ms by bot id=7849840849
+2025-05-21 01:27:29,577 - aiogram.event - INFO - Update id=762234366 is handled. Duration 1254 ms by bot id=7849840849
+2025-05-21 01:27:31,641 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:31,859 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:31,861 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:32,080 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:32,293 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:32,295 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:33,177 - aiogram.event - INFO - Update id=762234367 is handled. Duration 1756 ms by bot id=7849840849
+2025-05-21 01:27:35,658 - aiogram.event - INFO - Update id=762234368 is handled. Duration 367 ms by bot id=7849840849
+2025-05-21 01:27:36,523 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:27:36,739 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-21 01:27:37,052 - aiogram.event - INFO - Update id=762234369 is handled. Duration 529 ms by bot id=7849840849
+2025-05-21 01:27:46,473 - aiogram.event - INFO - Update id=762234370 is handled. Duration 592 ms by bot id=7849840849
+2025-05-21 01:27:48,202 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:27:48,203 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:48,421 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:48,423 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:49,158 - aiogram.event - INFO - Update id=762234371 is handled. Duration 956 ms by bot id=7849840849
+2025-05-21 01:27:51,132 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:27:51,132 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:51,359 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:51,361 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:52,209 - aiogram.event - INFO - Update id=762234372 is handled. Duration 1078 ms by bot id=7849840849
+2025-05-21 01:27:52,459 - aiogram.event - INFO - Update id=762234373 is handled. Duration 240 ms by bot id=7849840849
+2025-05-21 01:27:55,499 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:55,733 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:55,735 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:55,797 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-21 01:27:55,901 - aiogram.event - INFO - Update id=762234374 is handled. Duration 647 ms by bot id=7849840849
+2025-05-21 01:27:56,191 - aiogram.event - INFO - Update id=762234375 is handled. Duration 396 ms by bot id=7849840849
+2025-05-21 01:27:57,672 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:57,889 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:57,891 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:58,058 - aiogram.event - INFO - Update id=762234376 is handled. Duration 606 ms by bot id=7849840849
+2025-05-21 01:27:59,082 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:59,304 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:27:59,306 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:27:59,476 - aiogram.event - INFO - Update id=762234378 is handled. Duration 613 ms by bot id=7849840849
+2025-05-21 01:28:01,762 - aiogram.event - INFO - Update id=762234379 is handled. Duration 729 ms by bot id=7849840849
+2025-05-21 01:28:03,642 - aiogram.event - INFO - Update id=762234380 is handled. Duration 431 ms by bot id=7849840849
+2025-05-21 01:28:04,310 - aiogram.event - INFO - Update id=762234377 is handled. Duration 6632 ms by bot id=7849840849
+2025-05-21 01:28:07,252 - aiogram.event - INFO - Update id=762234382 is handled. Duration 811 ms by bot id=7849840849
+2025-05-21 01:28:07,953 - aiogram.event - INFO - Update id=762234381 is handled. Duration 2324 ms by bot id=7849840849
+2025-05-21 01:28:09,373 - aiogram.event - INFO - Update id=762234383 is handled. Duration 912 ms by bot id=7849840849
+2025-05-21 01:28:09,632 - aiogram.event - INFO - Update id=762234384 is handled. Duration 158 ms by bot id=7849840849
+2025-05-21 01:28:11,349 - aiogram.event - INFO - Update id=762234385 is handled. Duration 367 ms by bot id=7849840849
+2025-05-21 01:28:12,874 - aiogram.event - INFO - Update id=762234386 is handled. Duration 371 ms by bot id=7849840849
+2025-05-21 01:28:16,060 - aiogram.event - INFO - Update id=762234387 is handled. Duration 166 ms by bot id=7849840849
+2025-05-21 01:28:17,521 - aiogram.event - INFO - Update id=762234388 is handled. Duration 170 ms by bot id=7849840849
+2025-05-21 01:28:21,565 - aiogram.event - INFO - Update id=762234390 is handled. Duration 166 ms by bot id=7849840849
+2025-05-21 01:28:21,574 - aiogram.event - INFO - Update id=762234389 is handled. Duration 311 ms by bot id=7849840849
+2025-05-21 01:28:22,977 - aiogram.event - INFO - Update id=762234391 is handled. Duration 165 ms by bot id=7849840849
+2025-05-21 01:28:28,085 - aiogram.event - INFO - Update id=762234392 is handled. Duration 184 ms by bot id=7849840849
+2025-05-21 01:28:29,515 - aiogram.event - INFO - Update id=762234393 is handled. Duration 295 ms by bot id=7849840849
+2025-05-21 01:28:31,179 - aiogram.event - INFO - Update id=762234394 is handled. Duration 337 ms by bot id=7849840849
+2025-05-21 01:28:34,170 - aiogram.event - INFO - Update id=762234395 is handled. Duration 161 ms by bot id=7849840849
+2025-05-21 01:28:36,823 - aiogram.event - INFO - Update id=762234396 is handled. Duration 231 ms by bot id=7849840849
+2025-05-21 01:28:38,494 - aiogram.event - INFO - Update id=762234397 is handled. Duration 153 ms by bot id=7849840849
+2025-05-21 01:28:51,290 - aiogram.event - INFO - Update id=762234398 is handled. Duration 248 ms by bot id=7849840849
+2025-05-21 01:28:54,827 - aiogram.event - INFO - Update id=762234399 is handled. Duration 155 ms by bot id=7849840849
+2025-05-21 01:28:59,633 - aiogram.event - INFO - Update id=762234400 is handled. Duration 183 ms by bot id=7849840849
+2025-05-21 01:29:08,143 - aiogram.event - INFO - Update id=762234401 is handled. Duration 435 ms by bot id=7849840849
+2025-05-21 01:29:12,709 - aiogram.event - INFO - Update id=762234402 is handled. Duration 158 ms by bot id=7849840849
+2025-05-21 01:29:15,259 - aiogram.event - INFO - Update id=762234403 is handled. Duration 199 ms by bot id=7849840849
+2025-05-21 01:29:17,481 - aiogram.event - INFO - Update id=762234404 is handled. Duration 651 ms by bot id=7849840849
+2025-05-21 01:29:19,070 - aiogram.event - INFO - Update id=762234405 is handled. Duration 193 ms by bot id=7849840849
+2025-05-21 01:29:21,991 - aiogram.event - INFO - Update id=762234406 is handled. Duration 520 ms by bot id=7849840849
+2025-05-21 01:29:23,832 - aiogram.event - INFO - Update id=762234407 is handled. Duration 549 ms by bot id=7849840849
+2025-05-21 01:29:26,629 - aiogram.event - INFO - Update id=762234408 is handled. Duration 649 ms by bot id=7849840849
+2025-05-21 01:29:28,398 - aiogram.event - INFO - Update id=762234409 is handled. Duration 306 ms by bot id=7849840849
+2025-05-21 01:29:30,667 - aiogram.event - INFO - Update id=762234410 is handled. Duration 597 ms by bot id=7849840849
+2025-05-21 01:29:31,746 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:31,968 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:29:31,970 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:32,416 - aiogram.event - INFO - Update id=762234411 is handled. Duration 675 ms by bot id=7849840849
+2025-05-21 01:29:33,411 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:33,630 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:29:33,632 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:34,060 - aiogram.event - INFO - Update id=762234412 is handled. Duration 656 ms by bot id=7849840849
+2025-05-21 01:29:37,879 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:38,099 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:29:38,101 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:38,258 - aiogram.event - INFO - Update id=762234413 is handled. Duration 614 ms by bot id=7849840849
+2025-05-21 01:29:45,989 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:46,208 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:29:46,210 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:46,524 - aiogram.event - INFO - Update id=762234414 is handled. Duration 542 ms by bot id=7849840849
+2025-05-21 01:29:49,948 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:50,168 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:29:50,170 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:50,343 - aiogram.event - INFO - Update id=762234415 is handled. Duration 635 ms by bot id=7849840849
+2025-05-21 01:29:53,927 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:54,158 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:29:54,160 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:29:54,463 - aiogram.event - INFO - Update id=762234416 is handled. Duration 543 ms by bot id=7849840849
+2025-05-21 01:30:00,195 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:00,418 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:30:00,420 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:00,593 - aiogram.event - INFO - Update id=762234417 is handled. Duration 638 ms by bot id=7849840849
+2025-05-21 01:30:03,833 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:04,052 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:30:04,054 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:04,598 - aiogram.event - INFO - Update id=762234418 is handled. Duration 772 ms by bot id=7849840849
+2025-05-21 01:30:09,514 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:09,733 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:30:09,735 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:09,893 - aiogram.event - INFO - Update id=762234419 is handled. Duration 612 ms by bot id=7849840849
+2025-05-21 01:30:13,730 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:13,979 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:30:13,981 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:14,322 - aiogram.event - INFO - Update id=762234420 is handled. Duration 599 ms by bot id=7849840849
+2025-05-21 01:30:18,950 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:19,169 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:30:19,171 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:30:19,508 - aiogram.event - INFO - Update id=762234421 is handled. Duration 565 ms by bot id=7849840849
+2025-05-21 01:30:22,413 - aiogram.event - INFO - Update id=762234422 is not handled. Duration 148 ms by bot id=7849840849
+2025-05-21 01:30:22,413 - aiogram.event - ERROR - Cause exception while process update id=762234422 by bot id=7849840849
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 72, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 190, in back_to_product_management
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+2025-05-21 01:30:25,241 - aiogram.event - INFO - Update id=762234423 is not handled. Duration 140 ms by bot id=7849840849
+2025-05-21 01:30:25,241 - aiogram.event - ERROR - Cause exception while process update id=762234423 by bot id=7849840849
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 72, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 190, in back_to_product_management
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+2025-05-21 01:30:27,754 - aiogram.event - INFO - Update id=762234424 is not handled. Duration 155 ms by bot id=7849840849
+2025-05-21 01:30:27,755 - aiogram.event - ERROR - Cause exception while process update id=762234424 by bot id=7849840849
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 72, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 190, in back_to_product_management
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+2025-05-21 01:30:30,760 - aiogram.event - INFO - Update id=762234425 is not handled. Duration 137 ms by bot id=7849840849
+2025-05-21 01:30:30,761 - aiogram.event - ERROR - Cause exception while process update id=762234425 by bot id=7849840849
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 72, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 190, in back_to_product_management
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+2025-05-21 01:30:32,126 - aiogram.event - INFO - Update id=762234426 is not handled. Duration 143 ms by bot id=7849840849
+2025-05-21 01:30:32,126 - aiogram.event - ERROR - Cause exception while process update id=762234426 by bot id=7849840849
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 72, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 190, in back_to_product_management
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+2025-05-21 01:30:33,163 - aiogram.event - INFO - Update id=762234427 is not handled. Duration 140 ms by bot id=7849840849
+2025-05-21 01:30:33,163 - aiogram.event - ERROR - Cause exception while process update id=762234427 by bot id=7849840849
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 72, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 190, in back_to_product_management
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+2025-05-21 01:31:05,115 - aiogram.event - INFO - Update id=762234428 is not handled. Duration 144 ms by bot id=7849840849
+2025-05-21 01:31:05,116 - aiogram.event - ERROR - Cause exception while process update id=762234428 by bot id=7849840849
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 72, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 190, in back_to_product_management
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+2025-05-21 01:31:07,679 - aiogram.event - INFO - Update id=762234429 is not handled. Duration 139 ms by bot id=7849840849
+2025-05-21 01:31:07,680 - aiogram.event - ERROR - Cause exception while process update id=762234429 by bot id=7849840849
+TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 72, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\Desktop\Vape_shop_dimas\handlers\admin_handlers.py", line 190, in back_to_product_management
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\bot.py", line 478, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\r-keeper\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there is no text in the message to edit
+2025-05-21 01:31:08,154 - aiogram.event - INFO - Update id=762234430 is handled. Duration 174 ms by bot id=7849840849
+2025-05-21 01:31:11,687 - aiogram.event - INFO - Update id=762234431 is handled. Duration 502 ms by bot id=7849840849
+2025-05-21 01:32:59,415 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-21 01:32:59,680 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:32:59,682 - root - INFO - Bot stopped
+2025-05-21 01:33:05,685 - __main__ - INFO - Starting bot...
+2025-05-21 01:33:05,688 - aiogram.dispatcher - INFO - Start polling
+2025-05-21 01:33:06,110 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-21 01:33:15,822 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:33:18,337 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-21 01:33:21,558 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:33:21,767 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:33:22,389 - aiogram.event - INFO - Update id=762234432 is handled. Duration 6567 ms by bot id=7849840849
+2025-05-21 01:33:22,936 - database.mongodb - INFO - Database indexes created successfully
+2025-05-21 01:33:23,157 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-21 01:33:23,536 - aiogram.event - INFO - Update id=762234433 is handled. Duration 5200 ms by bot id=7849840849
+2025-05-21 01:33:29,304 - aiogram.event - INFO - Update id=762234434 is handled. Duration 156 ms by bot id=7849840849
+2025-05-21 01:33:32,228 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-21 01:33:32,438 - aiogram.event - INFO - Update id=762234435 is handled. Duration 212 ms by bot id=7849840849
+2025-05-21 01:33:34,801 - aiogram.event - INFO - Update id=762234436 is handled. Duration 182 ms by bot id=7849840849
+2025-05-21 01:33:36,290 - aiogram.event - INFO - Update id=762234437 is handled. Duration 339 ms by bot id=7849840849
+2025-05-21 01:33:37,797 - aiogram.event - INFO - Update id=762234438 is handled. Duration 309 ms by bot id=7849840849
+2025-05-21 01:33:39,301 - aiogram.event - INFO - Update id=762234439 is handled. Duration 541 ms by bot id=7849840849
+2025-05-21 01:33:41,064 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:41,277 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:33:41,279 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:41,750 - aiogram.event - INFO - Update id=762234440 is handled. Duration 692 ms by bot id=7849840849
+2025-05-21 01:33:42,768 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:42,988 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:33:42,990 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:43,319 - aiogram.event - INFO - Update id=762234441 is handled. Duration 559 ms by bot id=7849840849
+2025-05-21 01:33:48,079 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:48,298 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-21 01:33:48,300 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:48,872 - aiogram.event - INFO - Update id=762234442 is handled. Duration 799 ms by bot id=7849840849
+2025-05-21 01:33:51,346 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:51,566 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}]}
+2025-05-21 01:33:51,568 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:51,869 - aiogram.event - INFO - Update id=762234443 is handled. Duration 530 ms by bot id=7849840849
+2025-05-21 01:33:52,414 - aiogram.event - INFO - Update id=762234444 is handled. Duration 376 ms by bot id=7849840849
+2025-05-21 01:33:53,868 - database.mongodb - INFO - [DEBUG] Getting products for category: Жидкости
+2025-05-21 01:33:54,086 - database.mongodb - INFO - [DEBUG] Found 0 products in category Жидкости
+2025-05-21 01:33:54,233 - aiogram.event - INFO - Update id=762234445 is handled. Duration 365 ms by bot id=7849840849
+2025-05-21 01:33:55,096 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:55,312 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}]}
+2025-05-21 01:33:55,313 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:33:55,332 - database.mongodb - INFO - [DEBUG] Getting products for category: Снюс
+2025-05-21 01:33:55,543 - database.mongodb - INFO - [DEBUG] Found 0 products in category Снюс
+2025-05-21 01:33:55,774 - aiogram.event - INFO - Update id=762234446 is handled. Duration 686 ms by bot id=7849840849
+2025-05-21 01:33:55,946 - aiogram.event - INFO - Update id=762234447 is handled. Duration 614 ms by bot id=7849840849
+2025-05-21 01:33:56,964 - aiogram.event - INFO - Update id=762234448 is handled. Duration 577 ms by bot id=7849840849
+2025-05-21 01:33:58,109 - aiogram.event - INFO - Update id=762234449 is handled. Duration 180 ms by bot id=7849840849
+2025-05-21 01:34:00,893 - aiogram.event - INFO - Update id=762234450 is handled. Duration 357 ms by bot id=7849840849
+2025-05-21 01:34:02,007 - aiogram.event - INFO - Update id=762234451 is handled. Duration 165 ms by bot id=7849840849
+2025-05-21 01:34:02,127 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:34:02,337 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-21 01:34:02,625 - aiogram.event - INFO - Update id=762234452 is handled. Duration 498 ms by bot id=7849840849
+2025-05-21 01:34:03,750 - aiogram.event - INFO - Update id=762234453 is handled. Duration 360 ms by bot id=7849840849
+2025-05-21 01:34:04,413 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:34:04,413 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:04,627 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 3}]}
+2025-05-21 01:34:04,628 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:05,340 - aiogram.event - INFO - Update id=762234454 is handled. Duration 928 ms by bot id=7849840849
+2025-05-21 01:34:05,842 - aiogram.event - INFO - Update id=762234455 is handled. Duration 333 ms by bot id=7849840849
+2025-05-21 01:34:11,143 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:11,330 - aiogram.event - INFO - Update id=762234457 is handled. Duration 225 ms by bot id=7849840849
+2025-05-21 01:34:11,353 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 3}]}
+2025-05-21 01:34:11,354 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:11,665 - aiogram.event - INFO - Update id=762234456 is handled. Duration 947 ms by bot id=7849840849
+2025-05-21 01:34:14,251 - aiogram.event - INFO - Update id=762234458 is handled. Duration 289 ms by bot id=7849840849
+2025-05-21 01:34:17,870 - aiogram.event - INFO - Update id=762234459 is handled. Duration 149 ms by bot id=7849840849
+2025-05-21 01:34:18,968 - aiogram.event - INFO - Update id=762234460 is handled. Duration 169 ms by bot id=7849840849
+2025-05-21 01:34:19,950 - aiogram.event - INFO - Update id=762234461 is handled. Duration 413 ms by bot id=7849840849
+2025-05-21 01:34:23,063 - aiogram.event - INFO - Update id=762234462 is handled. Duration 372 ms by bot id=7849840849
+2025-05-21 01:34:24,357 - aiogram.event - INFO - Update id=762234463 is handled. Duration 1189 ms by bot id=7849840849
+2025-05-21 01:34:26,447 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:26,657 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 3}]}
+2025-05-21 01:34:26,659 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:26,875 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:27,086 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 0}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 3}]}
+2025-05-21 01:34:27,088 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:27,952 - aiogram.event - INFO - Update id=762234464 is handled. Duration 1725 ms by bot id=7849840849
+2025-05-21 01:34:28,840 - aiogram.event - INFO - Update id=762234465 is handled. Duration 363 ms by bot id=7849840849
+2025-05-21 01:34:29,931 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:34:30,145 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:34:30,715 - aiogram.event - INFO - Update id=762234466 is handled. Duration 784 ms by bot id=7849840849
+2025-05-21 01:34:31,863 - aiogram.event - INFO - Update id=762234467 is handled. Duration 545 ms by bot id=7849840849
+2025-05-21 01:34:32,508 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-21 01:34:32,508 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:32,722 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 0}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 3}]}
+2025-05-21 01:34:32,724 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:33,482 - aiogram.event - INFO - Update id=762234468 is handled. Duration 975 ms by bot id=7849840849
+2025-05-21 01:34:35,882 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682ce74e4e930de2c48832c2
+2025-05-21 01:34:36,013 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:36,095 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682ce74e4e930de2c48832c2'), 'name': 'Максим', 'category': 'Одноразовые устройства', 'price': 5000, 'description': 'Хуй', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True}
+2025-05-21 01:34:36,096 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682ce74e4e930de2c48832c2
+2025-05-21 01:34:36,226 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Пенис', 'category': 'Одноразовые устройства', 'price': 1000, 'description': 'Красивый', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая кола', 'quantity': 0}, {'name': 'Клубника Виноград', 'quantity': 0}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 3}]}
+2025-05-21 01:34:36,227 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-21 01:34:36,453 - aiogram.event - INFO - Update id=762234470 is handled. Duration 576 ms by bot id=7849840849
+2025-05-21 01:34:36,520 - aiogram.event - INFO - Update id=762234469 is handled. Duration 935 ms by bot id=7849840849
+2025-05-21 01:34:37,735 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682ce74e4e930de2c48832c2
+2025-05-21 01:34:37,947 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682ce74e4e930de2c48832c2'), 'name': 'Максим', 'category': 'Одноразовые устройства', 'price': 5000, 'description': 'Хуй', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True}
+2025-05-21 01:34:37,949 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682ce74e4e930de2c48832c2
+2025-05-21 01:34:38,261 - aiogram.event - INFO - Update id=762234471 is handled. Duration 534 ms by bot id=7849840849
+2025-05-21 01:34:39,425 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682ce74e4e930de2c48832c2
+2025-05-21 01:34:39,635 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682ce74e4e930de2c48832c2'), 'name': 'Максим', 'category': 'Одноразовые устройства', 'price': 5000, 'description': 'Хуй', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True}
+2025-05-21 01:34:39,637 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682ce74e4e930de2c48832c2
+2025-05-21 01:34:39,946 - aiogram.event - INFO - Update id=762234472 is handled. Duration 529 ms by bot id=7849840849
+2025-05-21 01:34:42,058 - aiogram.event - INFO - Update id=762234473 is handled. Duration 161 ms by bot id=7849840849
+2025-05-21 01:34:43,240 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682ce74e4e930de2c48832c2
+2025-05-21 01:34:43,462 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682ce74e4e930de2c48832c2'), 'name': 'Максим', 'category': 'Одноразовые устройства', 'price': 5000, 'description': 'Хуй', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True}
+2025-05-21 01:34:43,464 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682ce74e4e930de2c48832c2
+2025-05-21 01:34:43,737 - aiogram.event - INFO - Update id=762234475 is handled. Duration 371 ms by bot id=7849840849
+2025-05-21 01:34:43,882 - aiogram.event - INFO - Update id=762234474 is handled. Duration 650 ms by bot id=7849840849
+2025-05-21 01:34:47,816 - aiogram.event - INFO - Update id=762234476 is handled. Duration 1127 ms by bot id=7849840849
+2025-05-21 01:34:51,956 - aiogram.event - INFO - Update id=762234478 is handled. Duration 736 ms by bot id=7849840849
+2025-05-21 01:34:54,023 - aiogram.event - INFO - Update id=762234477 is handled. Duration 6635 ms by bot id=7849840849
+2025-05-21 01:34:57,865 - aiogram.event - INFO - Update id=762234479 is handled. Duration 378 ms by bot id=7849840849
+2025-05-21 01:35:04,739 - aiogram.event - INFO - Update id=762234480 is handled. Duration 1007 ms by bot id=7849840849
+2025-05-21 01:35:06,106 - aiogram.event - INFO - Update id=762234481 is handled. Duration 408 ms by bot id=7849840849
+2025-05-21 01:35:07,217 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:35:07,437 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:35:07,965 - aiogram.event - INFO - Update id=762234482 is handled. Duration 748 ms by bot id=7849840849
+2025-05-21 01:35:09,016 - aiogram.event - INFO - Update id=762234483 is handled. Duration 699 ms by bot id=7849840849
+2025-05-21 01:35:10,834 - aiogram.event - INFO - Update id=762234484 is handled. Duration 744 ms by bot id=7849840849
+2025-05-21 01:35:12,644 - aiogram.event - INFO - Update id=762234485 is handled. Duration 717 ms by bot id=7849840849
+2025-05-21 01:35:14,462 - aiogram.event - INFO - Update id=762234486 is handled. Duration 833 ms by bot id=7849840849
+2025-05-21 01:35:17,948 - aiogram.event - INFO - Update id=762234487 is handled. Duration 711 ms by bot id=7849840849
+2025-05-21 01:35:23,290 - aiogram.event - INFO - Update id=762234488 is handled. Duration 691 ms by bot id=7849840849
+2025-05-21 01:35:36,013 - aiogram.event - INFO - Update id=762234489 is handled. Duration 180 ms by bot id=7849840849
+2025-05-21 01:35:42,203 - aiogram.event - INFO - Update id=762234490 is handled. Duration 586 ms by bot id=7849840849
+2025-05-21 01:35:43,056 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682ce74e4e930de2c48832c2
+2025-05-21 01:35:43,265 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682ce74e4e930de2c48832c2'), 'name': 'Максим', 'category': 'Одноразовые устройства', 'price': 5000, 'description': 'Хуй', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 0}]}
+2025-05-21 01:35:43,266 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682ce74e4e930de2c48832c2
+2025-05-21 01:35:43,636 - aiogram.event - INFO - Update id=762234491 is handled. Duration 586 ms by bot id=7849840849
+2025-05-21 01:35:46,885 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682ce74e4e930de2c48832c2
+2025-05-21 01:35:47,092 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682ce74e4e930de2c48832c2'), 'name': 'Максим', 'category': 'Одноразовые устройства', 'price': 5000, 'description': 'Хуй', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 0}]}
+2025-05-21 01:35:47,093 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682ce74e4e930de2c48832c2
+2025-05-21 01:35:47,438 - aiogram.event - INFO - Update id=762234492 is handled. Duration 560 ms by bot id=7849840849
+2025-05-21 01:35:48,724 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682ce74e4e930de2c48832c2
+2025-05-21 01:35:48,935 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682ce74e4e930de2c48832c2'), 'name': 'Максим', 'category': 'Одноразовые устройства', 'price': 5000, 'description': 'Хуй', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 0}]}
+2025-05-21 01:35:48,936 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682ce74e4e930de2c48832c2
+2025-05-21 01:35:49,238 - aiogram.event - INFO - Update id=762234493 is handled. Duration 521 ms by bot id=7849840849
+2025-05-21 01:35:52,154 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682ce74e4e930de2c48832c2
+2025-05-21 01:35:52,368 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682ce74e4e930de2c48832c2'), 'name': 'Максим', 'category': 'Одноразовые устройства', 'price': 5000, 'description': 'Хуй', 'photo': 'AgACAgIAAxkBAAIFD2gs5lAik8KwySt_xFhAVP9YRIUjAAKy9DEb2gxgSWYJE0t4FhV6AQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Пенис', 'quantity': 0}]}
+2025-05-21 01:35:52,369 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682ce74e4e930de2c48832c2
+2025-05-21 01:35:52,376 - aiogram.event - INFO - Update id=762234494 is handled. Duration 359 ms by bot id=7849840849
+2025-05-21 01:35:52,759 - aiogram.event - INFO - Update id=762234495 is handled. Duration 610 ms by bot id=7849840849
+2025-05-21 01:35:53,557 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-21 01:35:53,778 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-21 01:35:54,434 - aiogram.event - INFO - Update id=762234496 is handled. Duration 877 ms by bot id=7849840849

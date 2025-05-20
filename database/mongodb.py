@@ -4,6 +4,7 @@ from bson import ObjectId
 import logging
 from config import MONGODB_URI, DB_NAME
 from contextlib import asynccontextmanager
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -322,6 +323,15 @@ class MongoDB:
                 # If settings don't exist, create default and return
                 await self._init_settings()
                 return {"enabled": False, "end_time": None}
+
+            # Check if sleep mode should be automatically disabled
+            if settings.get("enabled", False) and settings.get("end_time"):
+                current_time = datetime.now().strftime("%H:%M")
+                if current_time >= settings.get("end_time"):
+                    # Automatically disable sleep mode if end time has passed
+                    await self.set_sleep_mode(False, None)
+                    return {"enabled": False, "end_time": None}
+
             return {
                 "enabled": settings.get("enabled", False),
                 "end_time": settings.get("end_time")
