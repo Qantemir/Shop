@@ -798,9 +798,9 @@ async def process_address(message: Message, state: FSMContext):
     data = await state.get_data()
     user = await db.get_user(message.from_user.id)
     
-    # Create 2GIS link from address
+    # Создание ссылки на 2GIS
     address = message.text.strip()
-    address_for_link = address.replace(' ', '%20')  # Replace spaces with %20 for URL
+    address_for_link = address.replace(' ', '%20').replace('/', '%2F') # Замена пробелов и слэшей на ЮТФ симолов для коректного отоброжения
     gis_link = f"https://2gis.kz/pavlodarr/search/{address_for_link}"
     
     # Save both original address and 2GIS link

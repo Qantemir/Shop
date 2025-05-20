@@ -3290,3 +3290,35 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there
 2025-05-20 14:07:12,277 - aiogram.dispatcher - INFO - Polling stopped
 2025-05-20 14:07:12,542 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
 2025-05-20 14:07:12,544 - root - INFO - Bot stopped
+2025-05-20 18:44:37,165 - __main__ - INFO - Starting bot...
+2025-05-20 18:44:37,169 - aiogram.dispatcher - INFO - Start polling
+2025-05-20 18:44:37,665 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 18:44:37,827 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-20 18:44:38,300 - aiogram.event - INFO - Update id=762233856 is handled. Duration 474 ms by bot id=7849840849
+2025-05-20 18:44:41,486 - database.mongodb - INFO - Database indexes created successfully
+2025-05-20 18:44:41,745 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-20 18:44:42,139 - aiogram.event - INFO - Update id=762233857 is handled. Duration 4312 ms by bot id=7849840849
+2025-05-20 18:45:21,224 - aiogram.event - INFO - Update id=762233858 is handled. Duration 3539 ms by bot id=7849840849
+2025-05-20 18:45:40,100 - aiogram.event - INFO - Update id=762233859 is handled. Duration 520 ms by bot id=7849840849
+2025-05-20 18:45:41,327 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 18:45:41,550 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 18:45:42,062 - aiogram.event - INFO - Update id=762233860 is handled. Duration 736 ms by bot id=7849840849
+2025-05-20 18:46:04,365 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-20 18:46:04,367 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 18:46:05,655 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 18:46:05,658 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 18:46:06,148 - aiogram.event - INFO - Update id=762233863 is handled. Duration 1652 ms by bot id=7849840849
+2025-05-20 18:46:06,730 - aiogram.event - INFO - Update id=762233862 is handled. Duration 2365 ms by bot id=7849840849
+2025-05-20 18:46:08,324 - aiogram.event - INFO - Update id=762233861 is handled. Duration 15394 ms by bot id=7849840849
+2025-05-20 18:46:13,042 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 18:46:13,261 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 18:46:13,262 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 18:46:13,631 - aiogram.event - INFO - Update id=762233864 is handled. Duration 1044 ms by bot id=7849840849
+2025-05-20 18:46:22,530 - aiogram.event - INFO - Update id=762233865 is handled. Duration 239 ms by bot id=7849840849
+2025-05-20 18:46:29,147 - aiogram.event - INFO - Update id=762233866 is handled. Duration 444 ms by bot id=7849840849
+2025-05-20 18:46:35,261 - aiogram.event - INFO - Update id=762233867 is handled. Duration 1571 ms by bot id=7849840849
+2025-05-20 18:46:41,669 - aiogram.event - INFO - Update id=762233868 is handled. Duration 308 ms by bot id=7849840849
+2025-05-20 18:46:48,548 - aiogram.event - INFO - Update id=762233869 is handled. Duration 1043 ms by bot id=7849840849
+2025-05-20 18:54:25,109 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-20 18:54:25,378 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 18:54:25,380 - root - INFO - Bot stopped
