@@ -1810,6 +1810,20 @@ async def admin_confirm_order(callback: CallbackQuery):
             await callback.answer("Заказ не найден")
             return
             
+        # Update product quantities
+        for item in order['items']:
+            product = await db.get_product(item['product_id'])
+            if product and 'flavor' in item:
+                flavors = product.get('flavors', [])
+                flavor = next((f for f in flavors if f.get('name') == item['flavor']), None)
+                if flavor:
+                    # Check if we have enough quantity
+                    if flavor.get('quantity', 0) < item['quantity']:
+                        await callback.answer("Недостаточно товара на складе", show_alert=True)
+                        return
+                    flavor['quantity'] -= item['quantity']
+                    await db.update_product(item['product_id'], {'flavors': flavors})
+            
         # Update order status
         await db.update_order_status(order_id, "confirmed")
         

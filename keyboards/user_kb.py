@@ -30,7 +30,8 @@ def product_actions_kb(product_id: str, in_cart: bool = False, flavors: list = N
             flavor_quantity = flavor.get('quantity', 0) if isinstance(flavor, dict) else 0
             
             if flavor_quantity > 0:  # Only show flavors that are in stock
-                callback_data = f"select_flavor_{product_id}_{flavor_name}"
+                # Use shorter format for callback_data: sf_pid_flavor
+                callback_data = f"sf_{product_id}_{i}"  # Using index instead of full flavor name
                 print(f"[DEBUG] Creating flavor button with callback_data: {callback_data}")
                 row.append(InlineKeyboardButton(
                     text=f"{i}. {flavor_name} ({flavor_quantity} шт.)",

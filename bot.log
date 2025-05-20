@@ -2644,3 +2644,634 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: there
 2025-05-19 17:59:09,825 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682b2817ca68159e633a7337'), 'name': 'пїЅпїЅпїЅпїЅпїЅпїЅ', 'category': 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ', 'price': 6000, 'description': '0', 'photo': 'AgACAgIAAxkBAAIOkGgrKHPpq4-0zVObBsZSp6kdNdDuAAIB9TEb3RBZSRmZdL796nziAQADAgADeAADNgQ', 'available': True, 'flavors': [{'name': 'пїЅпїЅпїЅпїЅпїЅ', 'quantity': 5}, {'name': '5', 'quantity': 0}]}
 2025-05-19 17:59:09,826 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682b2817ca68159e633a7337
 2025-05-19 17:59:10,146 - aiogram.event - INFO - Update id=142691371 is handled. Duration 609 ms by bot id=7498826228
+2025-05-20 13:23:19,870 - __main__ - INFO - Starting bot...
+2025-05-20 13:23:19,873 - aiogram.dispatcher - INFO - Start polling
+2025-05-20 13:23:23,400 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:23:52,532 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:80GzjNw6M5QNrmZU@tgbot.wxvogfb.mongodb.net/?retryWrites=true&w=majority&appName=tgbot
+2025-05-20 13:23:57,490 - database.mongodb - INFO - Database indexes created successfully
+2025-05-20 13:23:57,778 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-20 13:23:58,618 - aiogram.event - INFO - Update id=762233613 is handled. Duration 6087 ms by bot id=7849840849
+2025-05-20 13:24:02,123 - aiogram.event - INFO - Update id=762233614 is handled. Duration 450 ms by bot id=7849840849
+2025-05-20 13:24:03,864 - aiogram.event - INFO - Update id=762233615 is handled. Duration 565 ms by bot id=7849840849
+2025-05-20 13:24:04,936 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:24:05,230 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-20 13:24:06,189 - aiogram.event - INFO - Update id=762233616 is handled. Duration 1255 ms by bot id=7849840849
+2025-05-20 13:24:16,668 - aiogram.event - INFO - Update id=762233617 is handled. Duration 440 ms by bot id=7849840849
+2025-05-20 13:24:29,257 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:24:29,545 - database.mongodb - INFO - [DEBUG] Found 2 products in category Одноразовые устройства
+2025-05-20 13:24:30,309 - aiogram.event - INFO - Update id=762233618 is handled. Duration 1052 ms by bot id=7849840849
+2025-05-20 13:24:44,033 - database.mongodb - INFO - [DEBUG] Getting products for category: Аксессуары
+2025-05-20 13:24:44,325 - database.mongodb - INFO - [DEBUG] Found 4 products in category Аксессуары
+2025-05-20 13:24:46,163 - aiogram.event - INFO - Update id=762233619 is handled. Duration 2130 ms by bot id=7849840849
+2025-05-20 13:25:27,895 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-20 13:25:28,157 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:25:28,159 - root - INFO - Bot stopped
+2025-05-20 13:25:35,008 - __main__ - INFO - Starting bot...
+2025-05-20 13:25:35,010 - aiogram.dispatcher - INFO - Start polling
+2025-05-20 13:25:35,425 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:25:35,566 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-20 13:25:39,177 - database.mongodb - INFO - Database indexes created successfully
+2025-05-20 13:25:39,619 - database.mongodb - INFO - Initialized default sleep mode settings
+2025-05-20 13:25:39,620 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-20 13:25:40,292 - aiogram.event - INFO - Update id=762233620 is handled. Duration 4726 ms by bot id=7849840849
+2025-05-20 13:25:40,674 - aiogram.event - INFO - Update id=762233621 is handled. Duration 396 ms by bot id=7849840849
+2025-05-20 13:25:43,587 - aiogram.event - INFO - Update id=762233622 is handled. Duration 395 ms by bot id=7849840849
+2025-05-20 13:25:44,128 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:25:44,353 - database.mongodb - INFO - [DEBUG] Found 0 products in category Одноразовые устройства
+2025-05-20 13:25:44,515 - aiogram.event - INFO - Update id=762233623 is handled. Duration 388 ms by bot id=7849840849
+2025-05-20 13:25:44,607 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:25:44,825 - database.mongodb - INFO - [DEBUG] Found 0 products in category Одноразовые устройства
+2025-05-20 13:25:44,993 - aiogram.event - INFO - Update id=762233624 is handled. Duration 387 ms by bot id=7849840849
+2025-05-20 13:25:46,364 - database.mongodb - INFO - [DEBUG] Getting products for category: Жидкости
+2025-05-20 13:25:46,576 - database.mongodb - INFO - [DEBUG] Found 0 products in category Жидкости
+2025-05-20 13:25:46,777 - aiogram.event - INFO - Update id=762233625 is handled. Duration 412 ms by bot id=7849840849
+2025-05-20 13:25:46,992 - database.mongodb - INFO - [DEBUG] Getting products for category: Снюс
+2025-05-20 13:25:47,208 - database.mongodb - INFO - [DEBUG] Found 0 products in category Снюс
+2025-05-20 13:25:47,454 - aiogram.event - INFO - Update id=762233626 is handled. Duration 462 ms by bot id=7849840849
+2025-05-20 13:25:47,705 - database.mongodb - INFO - [DEBUG] Getting products for category: Аксессуары
+2025-05-20 13:25:47,924 - database.mongodb - INFO - [DEBUG] Found 0 products in category Аксессуары
+2025-05-20 13:25:48,167 - aiogram.event - INFO - Update id=762233627 is handled. Duration 462 ms by bot id=7849840849
+2025-05-20 13:26:02,081 - aiogram.event - INFO - Update id=762233628 is handled. Duration 230 ms by bot id=7849840849
+2025-05-20 13:26:08,823 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-20 13:26:09,025 - aiogram.event - INFO - Update id=762233629 is handled. Duration 206 ms by bot id=7849840849
+2025-05-20 13:26:11,713 - aiogram.event - INFO - Update id=762233630 is handled. Duration 236 ms by bot id=7849840849
+2025-05-20 13:26:13,324 - aiogram.event - INFO - Update id=762233631 is handled. Duration 416 ms by bot id=7849840849
+2025-05-20 13:26:14,549 - aiogram.event - INFO - Update id=762233632 is handled. Duration 463 ms by bot id=7849840849
+2025-05-20 13:26:22,452 - aiogram.event - INFO - Update id=762233633 is handled. Duration 174 ms by bot id=7849840849
+2025-05-20 13:26:27,569 - aiogram.event - INFO - Update id=762233634 is handled. Duration 189 ms by bot id=7849840849
+2025-05-20 13:26:29,280 - aiogram.event - INFO - Update id=762233635 is handled. Duration 417 ms by bot id=7849840849
+2025-05-20 13:26:30,774 - aiogram.event - INFO - Update id=762233636 is handled. Duration 391 ms by bot id=7849840849
+2025-05-20 13:26:35,538 - aiogram.event - INFO - Update id=762233637 is handled. Duration 164 ms by bot id=7849840849
+2025-05-20 13:26:39,945 - aiogram.event - INFO - Update id=762233638 is handled. Duration 166 ms by bot id=7849840849
+2025-05-20 13:26:42,658 - aiogram.event - INFO - Update id=762233639 is handled. Duration 187 ms by bot id=7849840849
+2025-05-20 13:26:55,477 - aiogram.event - INFO - Update id=762233640 is handled. Duration 395 ms by bot id=7849840849
+2025-05-20 13:27:04,774 - aiogram.event - INFO - Update id=762233641 is handled. Duration 559 ms by bot id=7849840849
+2025-05-20 13:27:06,259 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:06,472 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True}
+2025-05-20 13:27:06,473 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:06,768 - aiogram.event - INFO - Update id=762233642 is handled. Duration 520 ms by bot id=7849840849
+2025-05-20 13:27:07,429 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:07,644 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True}
+2025-05-20 13:27:07,645 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:08,084 - aiogram.event - INFO - Update id=762233643 is handled. Duration 665 ms by bot id=7849840849
+2025-05-20 13:27:32,181 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:32,392 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True}
+2025-05-20 13:27:32,393 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:32,756 - aiogram.event - INFO - Update id=762233644 is handled. Duration 607 ms by bot id=7849840849
+2025-05-20 13:27:34,479 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:34,684 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 0}]}
+2025-05-20 13:27:34,686 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:35,207 - aiogram.event - INFO - Update id=762233645 is handled. Duration 735 ms by bot id=7849840849
+2025-05-20 13:27:39,710 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:39,923 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': []}
+2025-05-20 13:27:39,924 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:40,259 - aiogram.event - INFO - Update id=762233646 is handled. Duration 557 ms by bot id=7849840849
+2025-05-20 13:27:45,775 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:45,989 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': []}
+2025-05-20 13:27:45,990 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:46,406 - aiogram.event - INFO - Update id=762233647 is handled. Duration 638 ms by bot id=7849840849
+2025-05-20 13:27:48,161 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:48,403 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 0}]}
+2025-05-20 13:27:48,404 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:48,705 - aiogram.event - INFO - Update id=762233648 is handled. Duration 551 ms by bot id=7849840849
+2025-05-20 13:27:53,599 - aiogram.event - INFO - Update id=762233649 is handled. Duration 180 ms by bot id=7849840849
+2025-05-20 13:27:59,253 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:59,465 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 0}]}
+2025-05-20 13:27:59,466 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:27:59,872 - aiogram.event - INFO - Update id=762233650 is handled. Duration 629 ms by bot id=7849840849
+2025-05-20 13:28:02,233 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:02,447 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}]}
+2025-05-20 13:28:02,448 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:02,760 - aiogram.event - INFO - Update id=762233651 is handled. Duration 537 ms by bot id=7849840849
+2025-05-20 13:28:09,003 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:28:09,154 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:09,225 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:28:09,706 - aiogram.event - INFO - Update id=762233652 is handled. Duration 703 ms by bot id=7849840849
+2025-05-20 13:28:10,602 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}]}
+2025-05-20 13:28:10,603 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:11,057 - aiogram.event - INFO - Update id=762233653 is handled. Duration 1910 ms by bot id=7849840849
+2025-05-20 13:28:12,484 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:12,717 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}]}
+2025-05-20 13:28:12,718 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:13,276 - aiogram.event - INFO - Update id=762233654 is handled. Duration 802 ms by bot id=7849840849
+2025-05-20 13:28:14,558 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:14,790 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}]}
+2025-05-20 13:28:14,791 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:15,218 - aiogram.event - INFO - Update id=762233655 is handled. Duration 670 ms by bot id=7849840849
+2025-05-20 13:28:17,070 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:17,295 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': '1', 'quantity': 0}]}
+2025-05-20 13:28:17,297 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:17,676 - aiogram.event - INFO - Update id=762233656 is handled. Duration 618 ms by bot id=7849840849
+2025-05-20 13:28:18,708 - aiogram.event - INFO - Update id=762233657 is handled. Duration 492 ms by bot id=7849840849
+2025-05-20 13:28:19,867 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:28:20,096 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:28:20,415 - aiogram.event - INFO - Update id=762233658 is handled. Duration 548 ms by bot id=7849840849
+2025-05-20 13:28:25,268 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:25,505 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': '1', 'quantity': 0}]}
+2025-05-20 13:28:25,506 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:25,953 - aiogram.event - INFO - Update id=762233659 is handled. Duration 696 ms by bot id=7849840849
+2025-05-20 13:28:27,642 - aiogram.event - INFO - Update id=762233660 is handled. Duration 404 ms by bot id=7849840849
+2025-05-20 13:28:27,731 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:27,964 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': '1', 'quantity': 0}, {'name': 'Малиновая колла', 'quantity': 0}]}
+2025-05-20 13:28:27,965 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:28,316 - aiogram.event - INFO - Update id=762233661 is handled. Duration 595 ms by bot id=7849840849
+2025-05-20 13:28:29,237 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:28:29,473 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:28:29,769 - aiogram.event - INFO - Update id=762233662 is handled. Duration 532 ms by bot id=7849840849
+2025-05-20 13:28:30,080 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:30,312 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': '1', 'quantity': 0}, {'name': 'Малиновая колла', 'quantity': 0}]}
+2025-05-20 13:28:30,314 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:30,474 - aiogram.event - INFO - Update id=762233663 is handled. Duration 405 ms by bot id=7849840849
+2025-05-20 13:28:32,033 - aiogram.event - INFO - Update id=762233664 is handled. Duration 492 ms by bot id=7849840849
+2025-05-20 13:28:39,094 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:39,333 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': '1', 'quantity': 0}, {'name': 'Малиновая колла', 'quantity': 0}]}
+2025-05-20 13:28:39,335 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:39,752 - aiogram.event - INFO - Update id=762233665 is handled. Duration 667 ms by bot id=7849840849
+2025-05-20 13:28:51,783 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:52,013 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': '1', 'quantity': 0}, {'name': 'Малиновая колла', 'quantity': 0}]}
+2025-05-20 13:28:52,015 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:52,561 - aiogram.event - INFO - Update id=762233666 is handled. Duration 786 ms by bot id=7849840849
+2025-05-20 13:28:57,790 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:58,023 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая колла', 'quantity': 0}]}
+2025-05-20 13:28:58,024 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:28:58,484 - aiogram.event - INFO - Update id=762233667 is handled. Duration 704 ms by bot id=7849840849
+2025-05-20 13:29:00,511 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:00,746 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}, {'name': 'Малиновая колла', 'quantity': 0}]}
+2025-05-20 13:29:00,747 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:01,259 - aiogram.event - INFO - Update id=762233668 is handled. Duration 764 ms by bot id=7849840849
+2025-05-20 13:29:04,125 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:04,354 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 0}]}
+2025-05-20 13:29:04,356 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:04,716 - aiogram.event - INFO - Update id=762233669 is handled. Duration 601 ms by bot id=7849840849
+2025-05-20 13:29:05,860 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:06,094 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 0}]}
+2025-05-20 13:29:06,095 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:06,569 - aiogram.event - INFO - Update id=762233670 is handled. Duration 720 ms by bot id=7849840849
+2025-05-20 13:29:09,128 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:09,363 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}]}
+2025-05-20 13:29:09,364 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:09,682 - aiogram.event - INFO - Update id=762233671 is handled. Duration 562 ms by bot id=7849840849
+2025-05-20 13:29:17,525 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:17,763 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}]}
+2025-05-20 13:29:17,765 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:18,189 - aiogram.event - INFO - Update id=762233672 is handled. Duration 675 ms by bot id=7849840849
+2025-05-20 13:29:20,557 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:20,794 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}, {'name': 'Клубника виногдар', 'quantity': 0}]}
+2025-05-20 13:29:20,796 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:21,164 - aiogram.event - INFO - Update id=762233673 is handled. Duration 616 ms by bot id=7849840849
+2025-05-20 13:29:22,325 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:22,555 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}, {'name': 'Клубника виногдар', 'quantity': 0}]}
+2025-05-20 13:29:22,557 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:23,111 - aiogram.event - INFO - Update id=762233674 is handled. Duration 792 ms by bot id=7849840849
+2025-05-20 13:29:24,381 - aiogram.event - INFO - Update id=762233675 is handled. Duration 396 ms by bot id=7849840849
+2025-05-20 13:29:24,394 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:24,630 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}, {'name': 'Клубника виногдар', 'quantity': 1}]}
+2025-05-20 13:29:24,632 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:24,933 - aiogram.event - INFO - Update id=762233676 is handled. Duration 547 ms by bot id=7849840849
+2025-05-20 13:29:25,838 - aiogram.event - INFO - Update id=762233677 is handled. Duration 383 ms by bot id=7849840849
+2025-05-20 13:29:26,954 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:29:27,198 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:29:27,656 - aiogram.event - INFO - Update id=762233678 is handled. Duration 702 ms by bot id=7849840849
+2025-05-20 13:29:45,894 - aiogram.event - INFO - Update id=762233679 is handled. Duration 312 ms by bot id=7849840849
+2025-05-20 13:29:48,604 - aiogram.event - INFO - Update id=762233680 is handled. Duration 539 ms by bot id=7849840849
+2025-05-20 13:29:49,824 - aiogram.event - INFO - Update id=762233681 is handled. Duration 363 ms by bot id=7849840849
+2025-05-20 13:29:50,929 - aiogram.event - INFO - Update id=762233682 is handled. Duration 632 ms by bot id=7849840849
+2025-05-20 13:29:52,058 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:52,292 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}, {'name': 'Клубника виногдар', 'quantity': 1}]}
+2025-05-20 13:29:52,294 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:52,758 - aiogram.event - INFO - Update id=762233683 is handled. Duration 708 ms by bot id=7849840849
+2025-05-20 13:29:53,836 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:54,066 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Капучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}, {'name': 'Клубника виногдар', 'quantity': 1}]}
+2025-05-20 13:29:54,068 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:29:54,613 - aiogram.event - INFO - Update id=762233684 is handled. Duration 786 ms by bot id=7849840849
+2025-05-20 13:29:56,807 - aiogram.event - INFO - Update id=762233685 is handled. Duration 390 ms by bot id=7849840849
+2025-05-20 13:29:58,675 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:29:58,912 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:29:59,490 - aiogram.event - INFO - Update id=762233686 is handled. Duration 814 ms by bot id=7849840849
+2025-05-20 13:30:06,993 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:07,232 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}, {'name': 'Клубника виногдар', 'quantity': 1}]}
+2025-05-20 13:30:07,234 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:07,785 - aiogram.event - INFO - Update id=762233687 is handled. Duration 800 ms by bot id=7849840849
+2025-05-20 13:30:10,758 - aiogram.event - INFO - Update id=762233688 is handled. Duration 396 ms by bot id=7849840849
+2025-05-20 13:30:11,881 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:30:12,117 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:30:12,904 - aiogram.event - INFO - Update id=762233689 is handled. Duration 1023 ms by bot id=7849840849
+2025-05-20 13:30:17,114 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:17,344 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая колла', 'quantity': 1}]}
+2025-05-20 13:30:17,345 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:17,929 - aiogram.event - INFO - Update id=762233690 is handled. Duration 825 ms by bot id=7849840849
+2025-05-20 13:30:22,475 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:22,706 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Тройная ягода', 'quantity': 1}]}
+2025-05-20 13:30:22,707 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:23,456 - aiogram.event - INFO - Update id=762233691 is handled. Duration 990 ms by bot id=7849840849
+2025-05-20 13:30:31,034 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:31,272 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': []}
+2025-05-20 13:30:31,273 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:31,624 - aiogram.event - INFO - Update id=762233692 is handled. Duration 599 ms by bot id=7849840849
+2025-05-20 13:30:36,736 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:36,973 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': []}
+2025-05-20 13:30:36,974 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:37,388 - aiogram.event - INFO - Update id=762233693 is handled. Duration 658 ms by bot id=7849840849
+2025-05-20 13:30:40,584 - aiogram.event - INFO - Update id=762233694 is handled. Duration 462 ms by bot id=7849840849
+2025-05-20 13:30:41,822 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:30:42,056 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:30:42,656 - aiogram.event - INFO - Update id=762233695 is handled. Duration 834 ms by bot id=7849840849
+2025-05-20 13:30:44,342 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:44,575 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}]}
+2025-05-20 13:30:44,576 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:45,197 - aiogram.event - INFO - Update id=762233696 is handled. Duration 864 ms by bot id=7849840849
+2025-05-20 13:30:46,894 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:47,126 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}]}
+2025-05-20 13:30:47,128 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:47,428 - aiogram.event - INFO - Update id=762233698 is handled. Duration 409 ms by bot id=7849840849
+2025-05-20 13:30:47,795 - aiogram.event - INFO - Update id=762233697 is handled. Duration 911 ms by bot id=7849840849
+2025-05-20 13:30:48,548 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:30:48,782 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:30:49,164 - aiogram.event - INFO - Update id=762233699 is handled. Duration 617 ms by bot id=7849840849
+2025-05-20 13:30:52,310 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:52,543 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}]}
+2025-05-20 13:30:52,545 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:30:52,863 - aiogram.event - INFO - Update id=762233701 is handled. Duration 430 ms by bot id=7849840849
+2025-05-20 13:30:52,955 - aiogram.event - INFO - Update id=762233700 is handled. Duration 654 ms by bot id=7849840849
+2025-05-20 13:31:05,327 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:31:05,541 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:31:05,912 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:31:06,027 - aiogram.event - INFO - Update id=762233702 is handled. Duration 700 ms by bot id=7849840849
+2025-05-20 13:31:06,127 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}]}
+2025-05-20 13:31:06,129 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:31:06,575 - aiogram.event - INFO - Update id=762233703 is handled. Duration 671 ms by bot id=7849840849
+2025-05-20 13:31:06,692 - aiogram.event - INFO - Update id=762233704 is handled. Duration 420 ms by bot id=7849840849
+2025-05-20 13:31:08,024 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:31:08,262 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:31:08,565 - aiogram.event - INFO - Update id=762233705 is handled. Duration 541 ms by bot id=7849840849
+2025-05-20 13:31:09,387 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:31:09,621 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}]}
+2025-05-20 13:31:09,622 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:31:09,968 - aiogram.event - INFO - Update id=762233706 is handled. Duration 592 ms by bot id=7849840849
+2025-05-20 13:31:10,782 - aiogram.event - INFO - Update id=762233707 is handled. Duration 446 ms by bot id=7849840849
+2025-05-20 13:31:11,443 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:31:11,670 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 0}]}
+2025-05-20 13:31:11,671 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:31:12,104 - aiogram.event - INFO - Update id=762233708 is handled. Duration 670 ms by bot id=7849840849
+2025-05-20 13:31:12,184 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:31:12,431 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:31:12,790 - aiogram.event - INFO - Update id=762233709 is handled. Duration 606 ms by bot id=7849840849
+2025-05-20 13:31:17,044 - aiogram.event - INFO - Update id=762233710 is handled. Duration 447 ms by bot id=7849840849
+2025-05-20 13:31:18,376 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:31:18,611 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:31:19,086 - aiogram.event - INFO - Update id=762233711 is handled. Duration 711 ms by bot id=7849840849
+2025-05-20 13:31:52,151 - aiogram.event - INFO - Update id=762233712 is handled. Duration 439 ms by bot id=7849840849
+2025-05-20 13:32:28,326 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:28,561 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}]}
+2025-05-20 13:32:28,562 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:28,847 - aiogram.event - INFO - Update id=762233713 is handled. Duration 531 ms by bot id=7849840849
+2025-05-20 13:32:31,384 - aiogram.event - INFO - Update id=762233714 is handled. Duration 403 ms by bot id=7849840849
+2025-05-20 13:32:32,337 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:32:32,570 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:32:32,962 - aiogram.event - INFO - Update id=762233715 is handled. Duration 625 ms by bot id=7849840849
+2025-05-20 13:32:34,428 - aiogram.event - INFO - Update id=762233716 is handled. Duration 435 ms by bot id=7849840849
+2025-05-20 13:32:35,049 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:35,284 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}]}
+2025-05-20 13:32:35,286 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:35,599 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:32:35,704 - aiogram.event - INFO - Update id=762233717 is handled. Duration 663 ms by bot id=7849840849
+2025-05-20 13:32:35,828 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:32:36,154 - aiogram.event - INFO - Update id=762233718 is handled. Duration 555 ms by bot id=7849840849
+2025-05-20 13:32:37,326 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:37,553 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 0}]}
+2025-05-20 13:32:37,554 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:37,632 - aiogram.event - INFO - Update id=762233719 is handled. Duration 458 ms by bot id=7849840849
+2025-05-20 13:32:38,096 - aiogram.event - INFO - Update id=762233720 is handled. Duration 782 ms by bot id=7849840849
+2025-05-20 13:32:38,763 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:32:38,977 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:32:39,317 - aiogram.event - INFO - Update id=762233721 is handled. Duration 555 ms by bot id=7849840849
+2025-05-20 13:32:40,524 - aiogram.event - INFO - Update id=762233722 is handled. Duration 213 ms by bot id=7849840849
+2025-05-20 13:32:42,044 - aiogram.event - INFO - Update id=762233723 is handled. Duration 620 ms by bot id=7849840849
+2025-05-20 13:32:42,899 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:43,108 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 0}]}
+2025-05-20 13:32:43,110 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:43,399 - aiogram.event - INFO - Update id=762233724 is handled. Duration 507 ms by bot id=7849840849
+2025-05-20 13:32:44,168 - aiogram.event - INFO - Update id=762233725 is handled. Duration 449 ms by bot id=7849840849
+2025-05-20 13:32:45,305 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:32:45,526 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:32:45,887 - aiogram.event - INFO - Update id=762233726 is handled. Duration 583 ms by bot id=7849840849
+2025-05-20 13:32:46,573 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:46,786 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 0}]}
+2025-05-20 13:32:46,788 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:47,111 - aiogram.event - INFO - Update id=762233727 is handled. Duration 549 ms by bot id=7849840849
+2025-05-20 13:32:47,764 - aiogram.event - INFO - Update id=762233728 is handled. Duration 379 ms by bot id=7849840849
+2025-05-20 13:32:48,824 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:32:48,961 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:49,040 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:32:49,195 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 0}]}
+2025-05-20 13:32:49,196 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:32:49,458 - aiogram.event - INFO - Update id=762233729 is handled. Duration 635 ms by bot id=7849840849
+2025-05-20 13:32:49,691 - aiogram.event - INFO - Update id=762233730 is handled. Duration 737 ms by bot id=7849840849
+2025-05-20 13:32:50,814 - aiogram.event - INFO - Update id=762233731 is handled. Duration 390 ms by bot id=7849840849
+2025-05-20 13:32:51,925 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:32:52,155 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:32:52,596 - aiogram.event - INFO - Update id=762233732 is handled. Duration 672 ms by bot id=7849840849
+2025-05-20 13:33:16,475 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:33:16,721 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:33:17,192 - aiogram.event - INFO - Update id=762233733 is handled. Duration 718 ms by bot id=7849840849
+2025-05-20 13:33:27,880 - aiogram.event - INFO - Update id=762233734 is handled. Duration 429 ms by bot id=7849840849
+2025-05-20 13:34:13,504 - aiogram.event - INFO - Update id=762233735 is handled. Duration 398 ms by bot id=7849840849
+2025-05-20 13:34:56,326 - aiogram.event - INFO - Update id=762233736 is handled. Duration 388 ms by bot id=7849840849
+2025-05-20 13:34:58,354 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:34:58,589 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:34:59,022 - aiogram.event - INFO - Update id=762233737 is handled. Duration 667 ms by bot id=7849840849
+2025-05-20 13:38:26,475 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-20 13:38:26,741 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:38:26,743 - root - INFO - Bot stopped
+2025-05-20 13:38:34,194 - __main__ - INFO - Starting bot...
+2025-05-20 13:38:34,199 - aiogram.dispatcher - INFO - Start polling
+2025-05-20 13:38:34,632 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:39:04,189 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-20 13:39:07,767 - database.mongodb - INFO - Database indexes created successfully
+2025-05-20 13:39:07,967 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-20 13:39:08,639 - aiogram.event - INFO - Update id=762233738 is handled. Duration 4451 ms by bot id=7849840849
+2025-05-20 13:39:10,304 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:39:10,510 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:39:10,924 - aiogram.event - INFO - Update id=762233739 is handled. Duration 620 ms by bot id=7849840849
+2025-05-20 13:39:15,985 - aiogram.event - INFO - Update id=762233740 is handled. Duration 460 ms by bot id=7849840849
+2025-05-20 13:39:17,449 - database.mongodb - INFO - [DEBUG] Getting products for category: Снюс
+2025-05-20 13:39:17,648 - database.mongodb - INFO - [DEBUG] Found 0 products in category Снюс
+2025-05-20 13:39:17,801 - aiogram.event - INFO - Update id=762233741 is handled. Duration 352 ms by bot id=7849840849
+2025-05-20 13:39:20,660 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:39:20,861 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:39:21,185 - aiogram.event - INFO - Update id=762233742 is handled. Duration 525 ms by bot id=7849840849
+2025-05-20 13:39:22,158 - handlers.admin_handlers - WARNING - Admin access denied for user 1088067370
+2025-05-20 13:39:22,294 - aiogram.event - INFO - Update id=762233743 is handled. Duration 145 ms by bot id=7849840849
+2025-05-20 13:39:30,171 - handlers.admin_handlers - WARNING - Admin access denied for user 1088067370
+2025-05-20 13:39:30,375 - aiogram.event - INFO - Update id=762233744 is handled. Duration 214 ms by bot id=7849840849
+2025-05-20 13:39:41,426 - aiogram.event - INFO - Update id=762233745 is handled. Duration 225 ms by bot id=7849840849
+2025-05-20 13:39:45,400 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-20 13:39:45,573 - aiogram.event - INFO - Update id=762233746 is handled. Duration 176 ms by bot id=7849840849
+2025-05-20 13:39:48,666 - aiogram.event - INFO - Update id=762233747 is handled. Duration 201 ms by bot id=7849840849
+2025-05-20 13:39:50,814 - aiogram.event - INFO - Update id=762233748 is handled. Duration 574 ms by bot id=7849840849
+2025-05-20 13:39:51,887 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:39:52,087 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}]}
+2025-05-20 13:39:52,088 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:39:52,477 - aiogram.event - INFO - Update id=762233749 is handled. Duration 599 ms by bot id=7849840849
+2025-05-20 13:40:16,571 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:16,770 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}]}
+2025-05-20 13:40:16,772 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:17,112 - aiogram.event - INFO - Update id=762233750 is handled. Duration 555 ms by bot id=7849840849
+2025-05-20 13:40:19,604 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:19,804 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}]}
+2025-05-20 13:40:19,806 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:20,252 - aiogram.event - INFO - Update id=762233751 is handled. Duration 676 ms by bot id=7849840849
+2025-05-20 13:40:21,582 - aiogram.event - INFO - Update id=762233752 is handled. Duration 425 ms by bot id=7849840849
+2025-05-20 13:40:22,901 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:40:23,100 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:40:23,448 - aiogram.event - INFO - Update id=762233753 is handled. Duration 547 ms by bot id=7849840849
+2025-05-20 13:40:23,589 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:23,787 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}]}
+2025-05-20 13:40:23,789 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:24,176 - aiogram.event - INFO - Update id=762233754 is handled. Duration 597 ms by bot id=7849840849
+2025-05-20 13:40:24,922 - aiogram.event - INFO - Update id=762233755 is handled. Duration 362 ms by bot id=7849840849
+2025-05-20 13:40:25,864 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:26,075 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 0}]}
+2025-05-20 13:40:26,077 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:26,115 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:40:26,493 - aiogram.event - INFO - Update id=762233756 is handled. Duration 646 ms by bot id=7849840849
+2025-05-20 13:40:27,524 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:40:27,912 - aiogram.event - INFO - Update id=762233757 is handled. Duration 1798 ms by bot id=7849840849
+2025-05-20 13:40:54,810 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:55,028 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}]}
+2025-05-20 13:40:55,030 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:55,358 - aiogram.event - INFO - Update id=762233758 is handled. Duration 559 ms by bot id=7849840849
+2025-05-20 13:40:57,217 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:57,448 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}]}
+2025-05-20 13:40:57,449 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:40:57,864 - aiogram.event - INFO - Update id=762233759 is handled. Duration 661 ms by bot id=7849840849
+2025-05-20 13:40:59,096 - aiogram.event - INFO - Update id=762233760 is handled. Duration 1231 ms by bot id=7849840849
+2025-05-20 13:41:00,012 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:41:00,246 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:41:00,545 - aiogram.event - INFO - Update id=762233761 is handled. Duration 532 ms by bot id=7849840849
+2025-05-20 13:41:00,572 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:00,792 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 0}]}
+2025-05-20 13:41:00,797 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:01,162 - aiogram.event - INFO - Update id=762233762 is handled. Duration 601 ms by bot id=7849840849
+2025-05-20 13:41:03,294 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:03,516 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 0}]}
+2025-05-20 13:41:03,517 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:03,976 - aiogram.event - INFO - Update id=762233763 is handled. Duration 732 ms by bot id=7849840849
+2025-05-20 13:41:05,837 - aiogram.event - INFO - Update id=762233764 is handled. Duration 435 ms by bot id=7849840849
+2025-05-20 13:41:08,033 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:41:08,254 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:41:08,687 - aiogram.event - INFO - Update id=762233765 is handled. Duration 655 ms by bot id=7849840849
+2025-05-20 13:41:32,891 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:33,113 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}]}
+2025-05-20 13:41:33,115 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:33,467 - aiogram.event - INFO - Update id=762233766 is handled. Duration 584 ms by bot id=7849840849
+2025-05-20 13:41:35,641 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:35,865 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}]}
+2025-05-20 13:41:35,867 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:36,274 - aiogram.event - INFO - Update id=762233767 is handled. Duration 640 ms by bot id=7849840849
+2025-05-20 13:41:39,207 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:39,440 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 0}]}
+2025-05-20 13:41:39,442 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:39,799 - aiogram.event - INFO - Update id=762233768 is handled. Duration 599 ms by bot id=7849840849
+2025-05-20 13:41:41,404 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:41,621 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 0}]}
+2025-05-20 13:41:41,623 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:41:42,035 - aiogram.event - INFO - Update id=762233769 is handled. Duration 642 ms by bot id=7849840849
+2025-05-20 13:41:56,552 - aiogram.event - INFO - Update id=762233770 is handled. Duration 369 ms by bot id=7849840849
+2025-05-20 13:41:57,669 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:41:57,899 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:41:58,301 - aiogram.event - INFO - Update id=762233771 is handled. Duration 632 ms by bot id=7849840849
+2025-05-20 13:42:08,728 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:08,943 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}]}
+2025-05-20 13:42:08,945 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:09,280 - aiogram.event - INFO - Update id=762233772 is handled. Duration 562 ms by bot id=7849840849
+2025-05-20 13:42:30,925 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:31,145 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}]}
+2025-05-20 13:42:31,147 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:31,537 - aiogram.event - INFO - Update id=762233773 is handled. Duration 621 ms by bot id=7849840849
+2025-05-20 13:42:33,719 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:33,942 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 0}]}
+2025-05-20 13:42:33,943 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:34,302 - aiogram.event - INFO - Update id=762233774 is handled. Duration 591 ms by bot id=7849840849
+2025-05-20 13:42:35,570 - aiogram.event - INFO - Update id=762233775 is handled. Duration 421 ms by bot id=7849840849
+2025-05-20 13:42:35,820 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:36,046 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 0}]}
+2025-05-20 13:42:36,048 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:36,490 - aiogram.event - INFO - Update id=762233776 is handled. Duration 689 ms by bot id=7849840849
+2025-05-20 13:42:37,209 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:42:37,435 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:42:37,745 - aiogram.event - INFO - Update id=762233777 is handled. Duration 536 ms by bot id=7849840849
+2025-05-20 13:42:40,508 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:40,729 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}]}
+2025-05-20 13:42:40,731 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:41,105 - aiogram.event - INFO - Update id=762233778 is handled. Duration 607 ms by bot id=7849840849
+2025-05-20 13:42:44,736 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:44,965 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}]}
+2025-05-20 13:42:44,966 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:45,398 - aiogram.event - INFO - Update id=762233779 is handled. Duration 679 ms by bot id=7849840849
+2025-05-20 13:42:49,329 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:49,551 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 0}]}
+2025-05-20 13:42:49,555 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:49,920 - aiogram.event - INFO - Update id=762233780 is handled. Duration 599 ms by bot id=7849840849
+2025-05-20 13:42:52,563 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:52,793 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 0}]}
+2025-05-20 13:42:52,795 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:42:53,288 - aiogram.event - INFO - Update id=762233781 is handled. Duration 733 ms by bot id=7849840849
+2025-05-20 13:42:54,362 - aiogram.event - INFO - Update id=762233782 is handled. Duration 399 ms by bot id=7849840849
+2025-05-20 13:42:55,358 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:42:55,606 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:42:55,977 - aiogram.event - INFO - Update id=762233783 is handled. Duration 619 ms by bot id=7849840849
+2025-05-20 13:43:00,578 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-20 13:43:00,578 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:00,805 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:43:00,807 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:01,251 - handlers.user_handlers - INFO - Created new user: 531632690
+2025-05-20 13:43:01,913 - aiogram.event - INFO - Update id=762233784 is handled. Duration 1336 ms by bot id=7849840849
+2025-05-20 13:43:05,660 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:05,892 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:43:05,894 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:06,087 - aiogram.event - INFO - Update id=762233785 is handled. Duration 660 ms by bot id=7849840849
+2025-05-20 13:43:08,304 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:08,525 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:43:08,527 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:08,718 - aiogram.event - INFO - Update id=762233786 is handled. Duration 641 ms by bot id=7849840849
+2025-05-20 13:43:10,010 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:10,235 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:43:10,237 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:10,574 - aiogram.event - INFO - Update id=762233787 is handled. Duration 1015 ms by bot id=7849840849
+2025-05-20 13:43:19,435 - aiogram.event - INFO - Update id=762233788 is handled. Duration 159 ms by bot id=7849840849
+2025-05-20 13:43:40,262 - aiogram.event - INFO - Update id=762233789 is handled. Duration 305 ms by bot id=7849840849
+2025-05-20 13:43:42,858 - aiogram.event - INFO - Update id=762233790 is handled. Duration 501 ms by bot id=7849840849
+2025-05-20 13:43:49,386 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:49,605 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 1}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:43:49,607 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:43:50,617 - aiogram.event - INFO - Update id=762233791 is handled. Duration 1693 ms by bot id=7849840849
+2025-05-20 13:43:55,843 - aiogram.event - INFO - Update id=762233792 is handled. Duration 429 ms by bot id=7849840849
+2025-05-20 13:44:02,597 - aiogram.event - INFO - Update id=762233793 is handled. Duration 1102 ms by bot id=7849840849
+2025-05-20 13:44:05,332 - aiogram.event - INFO - Update id=762233794 is handled. Duration 430 ms by bot id=7849840849
+2025-05-20 13:44:06,776 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:44:07,004 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:44:07,540 - aiogram.event - INFO - Update id=762233795 is handled. Duration 764 ms by bot id=7849840849
+2025-05-20 13:44:57,400 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-20 13:44:57,400 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:44:57,624 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:44:57,626 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:44:58,392 - aiogram.event - INFO - Update id=762233796 is handled. Duration 993 ms by bot id=7849840849
+2025-05-20 13:45:06,059 - aiogram.event - INFO - Update id=762233797 is handled. Duration 764 ms by bot id=7849840849
+2025-05-20 13:45:09,306 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-20 13:45:09,307 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:45:09,526 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:45:09,528 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:45:10,485 - aiogram.event - INFO - Update id=762233798 is handled. Duration 1179 ms by bot id=7849840849
+2025-05-20 13:45:17,324 - aiogram.event - INFO - Update id=762233799 is handled. Duration 637 ms by bot id=7849840849
+2025-05-20 13:45:21,844 - aiogram.event - INFO - Update id=762233800 is handled. Duration 2499 ms by bot id=7849840849
+2025-05-20 13:48:24,112 - aiogram.event - INFO - Update id=762233801 is handled. Duration 382 ms by bot id=7849840849
+2025-05-20 13:48:25,477 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:48:25,696 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:48:26,279 - aiogram.event - INFO - Update id=762233802 is handled. Duration 803 ms by bot id=7849840849
+2025-05-20 13:48:46,544 - aiogram.event - INFO - Update id=762233803 is handled. Duration 172 ms by bot id=7849840849
+2025-05-20 13:48:50,718 - aiogram.event - INFO - Update id=762233804 is handled. Duration 188 ms by bot id=7849840849
+2025-05-20 13:48:54,757 - aiogram.event - INFO - Update id=762233805 is handled. Duration 777 ms by bot id=7849840849
+2025-05-20 13:48:58,456 - aiogram.event - INFO - Update id=762233806 is handled. Duration 194 ms by bot id=7849840849
+2025-05-20 13:49:15,024 - aiogram.event - INFO - Update id=762233807 is handled. Duration 275 ms by bot id=7849840849
+2025-05-20 13:49:17,134 - aiogram.event - INFO - Update id=762233808 is handled. Duration 765 ms by bot id=7849840849
+2025-05-20 13:49:17,775 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-20 13:49:18,033 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:49:18,036 - root - INFO - Bot stopped
+2025-05-20 13:49:24,825 - __main__ - INFO - Starting bot...
+2025-05-20 13:49:24,826 - aiogram.dispatcher - INFO - Start polling
+2025-05-20 13:49:25,266 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:50:04,503 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-20 13:50:07,905 - database.mongodb - INFO - Database indexes created successfully
+2025-05-20 13:50:08,144 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-20 13:50:08,829 - aiogram.event - INFO - Update id=762233809 is handled. Duration 4326 ms by bot id=7849840849
+2025-05-20 13:50:10,149 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:50:10,379 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:50:10,705 - aiogram.event - INFO - Update id=762233810 is handled. Duration 557 ms by bot id=7849840849
+2025-05-20 13:50:13,234 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-20 13:50:13,234 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:50:13,471 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:50:13,473 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:50:14,460 - aiogram.event - INFO - Update id=762233811 is handled. Duration 1227 ms by bot id=7849840849
+2025-05-20 13:50:18,963 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:50:19,190 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:50:19,193 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:50:19,355 - aiogram.event - INFO - Update id=762233812 is handled. Duration 620 ms by bot id=7849840849
+2025-05-20 13:50:23,681 - aiogram.event - INFO - Update id=762233813 is handled. Duration 859 ms by bot id=7849840849
+2025-05-20 13:50:26,564 - aiogram.event - INFO - Update id=762233814 is handled. Duration 377 ms by bot id=7849840849
+2025-05-20 13:50:27,707 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:50:27,935 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:50:28,402 - aiogram.event - INFO - Update id=762233815 is handled. Duration 696 ms by bot id=7849840849
+2025-05-20 13:50:30,194 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-20 13:50:30,195 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:50:30,423 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:50:30,425 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:50:31,231 - aiogram.event - INFO - Update id=762233816 is handled. Duration 1038 ms by bot id=7849840849
+2025-05-20 13:50:33,509 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:50:33,738 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:50:33,741 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:50:34,062 - aiogram.event - INFO - Update id=762233817 is handled. Duration 1020 ms by bot id=7849840849
+2025-05-20 13:50:37,833 - aiogram.event - INFO - Update id=762233818 is handled. Duration 199 ms by bot id=7849840849
+2025-05-20 13:50:44,872 - aiogram.event - INFO - Update id=762233819 is handled. Duration 190 ms by bot id=7849840849
+2025-05-20 13:50:47,214 - aiogram.event - INFO - Update id=762233820 is handled. Duration 440 ms by bot id=7849840849
+2025-05-20 13:50:53,453 - aiogram.event - INFO - Update id=762233821 is handled. Duration 1418 ms by bot id=7849840849
+2025-05-20 13:51:13,722 - aiogram.event - INFO - Update id=762233822 is handled. Duration 314 ms by bot id=7849840849
+2025-05-20 13:51:15,671 - aiogram.event - INFO - Update id=762233823 is handled. Duration 949 ms by bot id=7849840849
+2025-05-20 13:51:22,659 - aiogram.event - INFO - Update id=762233824 is handled. Duration 387 ms by bot id=7849840849
+2025-05-20 13:51:23,828 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 13:51:24,058 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 13:51:24,430 - aiogram.event - INFO - Update id=762233825 is handled. Duration 602 ms by bot id=7849840849
+2025-05-20 13:51:30,321 - handlers.user_handlers - INFO - Starting select_flavor handler
+2025-05-20 13:51:30,322 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:51:30,549 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:51:30,551 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:51:31,435 - aiogram.event - INFO - Update id=762233826 is handled. Duration 1114 ms by bot id=7849840849
+2025-05-20 13:51:33,460 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:51:33,735 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('682c3ccf84649b8b0ce45e44'), 'name': 'Waka 20000', 'category': 'Одноразовые устройства', 'price': 10000, 'description': '-', 'photo': 'AgACAgIAAxkBAAMtaCw8zuGsirZnEsuZMHn6FFalzHsAAkDuMRvaDGBJtMnLtdyjZ50BAAMCAANtAAM2BA', 'available': True, 'flavors': [{'name': 'Каучино', 'quantity': 0}, {'name': 'Тройная ягода', 'quantity': 1}, {'name': 'Малиновая кола', 'quantity': 1}, {'name': 'Клубника Виноград', 'quantity': 1}, {'name': 'Киви Маракуйя Гуава', 'quantity': 1}, {'name': 'Клубника Киви', 'quantity': 1}, {'name': 'Яблоко маракуя вишня', 'quantity': 1}, {'name': 'вфуыавкапрлодлжлваыффыварлодлждхэжвфывалджэдлропавыфвапарглщжэджлорпавыавпарпорол\\', 'quantity': 1}]}
+2025-05-20 13:51:33,738 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 682c3ccf84649b8b0ce45e44
+2025-05-20 13:51:34,153 - aiogram.event - INFO - Update id=762233827 is handled. Duration 1147 ms by bot id=7849840849
+2025-05-20 13:51:39,133 - aiogram.event - INFO - Update id=762233828 is handled. Duration 266 ms by bot id=7849840849
+2025-05-20 13:51:41,600 - aiogram.event - INFO - Update id=762233829 is handled. Duration 472 ms by bot id=7849840849
+2025-05-20 13:51:46,531 - aiogram.event - INFO - Update id=762233830 is handled. Duration 1319 ms by bot id=7849840849
+2025-05-20 13:51:55,348 - aiogram.event - INFO - Update id=762233831 is handled. Duration 1204 ms by bot id=7849840849
+2025-05-20 13:52:03,104 - aiogram.event - INFO - Update id=762233832 is handled. Duration 208 ms by bot id=7849840849
+2025-05-20 13:52:10,581 - handlers.admin_handlers - WARNING - Admin access denied for user 1088067370
+2025-05-20 13:52:10,767 - aiogram.event - INFO - Update id=762233833 is handled. Duration 190 ms by bot id=7849840849
+2025-05-20 13:52:11,749 - aiogram.event - INFO - Update id=762233834 is handled. Duration 334 ms by bot id=7849840849
+2025-05-20 13:52:13,252 - aiogram.event - INFO - Update id=762233835 is handled. Duration 407 ms by bot id=7849840849
+2025-05-20 13:52:14,187 - aiogram.event - INFO - Update id=762233836 is handled. Duration 216 ms by bot id=7849840849
+2025-05-20 13:52:14,731 - aiogram.event - INFO - Update id=762233837 is handled. Duration 427 ms by bot id=7849840849
+2025-05-20 13:52:15,725 - aiogram.event - INFO - Update id=762233838 is handled. Duration 359 ms by bot id=7849840849
+2025-05-20 13:52:17,600 - aiogram.event - INFO - Update id=762233839 is handled. Duration 689 ms by bot id=7849840849
+2025-05-20 13:52:21,239 - aiogram.event - INFO - Update id=762233840 is handled. Duration 218 ms by bot id=7849840849
+2025-05-20 13:52:38,357 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-20 13:52:38,517 - aiogram.event - INFO - Update id=762233841 is handled. Duration 163 ms by bot id=7849840849
+2025-05-20 13:52:41,223 - aiogram.event - INFO - Update id=762233842 is handled. Duration 215 ms by bot id=7849840849
+2025-05-20 13:54:02,473 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-20 13:54:02,728 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:54:02,730 - root - INFO - Bot stopped
+2025-05-20 13:54:08,961 - __main__ - INFO - Starting bot...
+2025-05-20 13:54:08,962 - aiogram.dispatcher - INFO - Start polling
+2025-05-20 13:54:09,603 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:54:10,281 - aiogram.event - INFO - Update id=762233843 is handled. Duration 445 ms by bot id=7849840849
+2025-05-20 13:54:16,969 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-20 13:54:17,235 - aiogram.event - INFO - Update id=762233844 is handled. Duration 270 ms by bot id=7849840849
+2025-05-20 13:54:19,708 - aiogram.event - INFO - Update id=762233845 is handled. Duration 250 ms by bot id=7849840849
+2025-05-20 13:54:55,846 - aiogram.dispatcher - INFO - Polling stopped
+2025-05-20 13:54:56,112 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:54:56,114 - root - INFO - Bot stopped
+2025-05-20 13:55:02,808 - __main__ - INFO - Starting bot...
+2025-05-20 13:55:02,810 - aiogram.dispatcher - INFO - Start polling
+2025-05-20 13:55:03,255 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-05-20 13:56:29,130 - aiogram.event - INFO - Update id=762233846 is handled. Duration 447 ms by bot id=7849840849
+2025-05-20 13:56:30,808 - aiogram.event - INFO - Update id=762233847 is handled. Duration 229 ms by bot id=7849840849
+2025-05-20 13:56:37,456 - handlers.admin_handlers - INFO - Successful admin login for user 1088067370
+2025-05-20 13:56:37,677 - aiogram.event - INFO - Update id=762233848 is handled. Duration 224 ms by bot id=7849840849
+2025-05-20 13:56:39,660 - aiogram.event - INFO - Update id=762233849 is handled. Duration 360 ms by bot id=7849840849
+2025-05-20 14:00:03,761 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-05-20 14:00:07,238 - database.mongodb - INFO - Database indexes created successfully
+2025-05-20 14:00:07,445 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-05-20 14:00:08,020 - aiogram.event - INFO - Update id=762233850 is handled. Duration 4260 ms by bot id=7849840849
+2025-05-20 14:00:09,340 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-05-20 14:00:09,549 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-05-20 14:00:09,863 - aiogram.event - INFO - Update id=762233851 is handled. Duration 523 ms by bot id=7849840849

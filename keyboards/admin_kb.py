@@ -20,11 +20,10 @@ def product_management_kb() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
         [
             InlineKeyboardButton(text="➕ Добавить товар", callback_data="add_product"),
-            InlineKeyboardButton(text="📝 Редактировать", callback_data="edit_products")
+            InlineKeyboardButton(text="❌ Удалить товар", callback_data="delete_product"),
         ],
         [
-            InlineKeyboardButton(text="❌ Удалить товар", callback_data="delete_product"),
-            InlineKeyboardButton(text="🌈 Вкусы", callback_data="manage_flavors")
+            InlineKeyboardButton(text="📝 Редактировать", callback_data="edit_products")
         ],
         [
             InlineKeyboardButton(text="📋 Список товаров", callback_data="list_products"),

@@ -258,7 +258,7 @@ async def handle_flavor_number(message: Message, state: FSMContext):
         await message.answer("Произошла ошибка при выборе вкуса")
         await state.clear()
 
-@router.callback_query(F.data.startswith("select_flavor_"))
+@router.callback_query(F.data.startswith("sf_"))
 async def select_flavor(callback: CallbackQuery, state: FSMContext):
     logger.info("Starting select_flavor handler")
     try:
@@ -266,18 +266,11 @@ async def select_flavor(callback: CallbackQuery, state: FSMContext):
         full_data = callback.data
         logger.debug(f"Full callback data: {full_data}")
         
-        # Extract product_id and flavor correctly
-        data_without_prefix = full_data.replace("select_flavor_", "")
-        underscore_index = data_without_prefix.find("_")
-        if underscore_index == -1:
-            logger.error("Invalid callback data format")
-            await callback.answer("Ошибка формата данных", show_alert=True)
-            return
-            
-        product_id = data_without_prefix[:underscore_index]
-        flavor_name = data_without_prefix[underscore_index + 1:]
+        # Extract product_id and flavor index
+        _, product_id, flavor_index = full_data.split("_")
+        flavor_index = int(flavor_index) - 1  # Convert to 0-based index
         
-        logger.debug(f"Parsed product_id: {product_id}, flavor: {flavor_name}")
+        logger.debug(f"Parsed product_id: {product_id}, flavor_index: {flavor_index}")
         
         # Get product first to validate it exists
         product = await db.get_product(product_id)
@@ -288,12 +281,13 @@ async def select_flavor(callback: CallbackQuery, state: FSMContext):
             
         # Check if flavor exists and has enough quantity
         flavors = product.get('flavors', [])
-        flavor = next((f for f in flavors if f.get('name') == flavor_name), None)
-        
-        if not flavor:
+        if flavor_index < 0 or flavor_index >= len(flavors):
             await callback.answer("Выбранный вкус недоступен", show_alert=True)
             return
             
+        flavor = flavors[flavor_index]
+        flavor_name = flavor.get('name', '')
+        
         if flavor.get('quantity', 0) <= 0:
             await callback.answer("К сожалению, этот вкус закончился", show_alert=True)
             return
@@ -347,10 +341,10 @@ async def select_flavor(callback: CallbackQuery, state: FSMContext):
             await show_cart_message(callback.message, user)
         else:
             await callback.answer("Ошибка при добавлении товара в корзину", show_alert=True)
-        
+            
     except Exception as e:
         logger.error(f"Error in select_flavor: {str(e)}")
-        await callback.answer("Произошла ошибка при добавлении товара в корзину", show_alert=True)
+        await callback.answer("Произошла ошибка при выборе вкуса", show_alert=True)
 
 @router.callback_query(F.data.startswith("add_to_cart_"))
 async def add_to_cart(callback: CallbackQuery):
@@ -901,16 +895,6 @@ async def handle_payment_proof(message: Message, state: FSMContext):
         order_result = await db.create_order(order_data)
         order_id = str(order_result.inserted_id)
         print(f"[DEBUG] Order created with ID: {order_id}")
-        
-        # Update product quantities
-        for item in cart:
-            product = await db.get_product(item['product_id'])
-            if product and 'flavor' in item:
-                flavors = product.get('flavors', [])
-                flavor = next((f for f in flavors if f.get('name') == item['flavor']), None)
-                if flavor:
-                    flavor['quantity'] -= item['quantity']
-                    await db.update_product(item['product_id'], {'flavors': flavors})
         
         # Clear user's cart
         await db.update_user(message.from_user.id, {'cart': []})
