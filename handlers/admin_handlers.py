@@ -1195,13 +1195,13 @@ async def manage_flavors(callback: CallbackQuery, state: FSMContext):
         # Show current flavors and options
         text = "🌈 Управление вкусами\n\n"
         if flavors:
-            text += "Текущие вкусы:\n"
+            text += "В наличии:\n"
             for i, flavor in enumerate(flavors, 1):
                 flavor_name = flavor.get('name', '')
                 flavor_quantity = flavor.get('quantity', 0)
                 text += f"{i}. {flavor_name} - {flavor_quantity} шт.\n"
         else:
-            text += "У товара пока нет вкусов\n"
+            text += "Товара пока нет в наличии\n"
         
         text += "\nНажмите на вкус чтобы удалить его, или добавьте новый"
         
@@ -1915,10 +1915,10 @@ async def admin_confirm_order(callback: CallbackQuery):
             
             # Send confirmation to admin
             await callback.message.answer(
-                f"✅ Заказ #{order_id} подтвержден и передан в доставку"
+                f"✅ Заказ #{order_id} подтвержден передайте заказ курьеру в течение часа"
             )
             
-            await callback.answer("Заказ подтвержден и передан в доставку")
+            await callback.answer("Заказ подтвержден передайте заказ курьеру в течение часа")
         except Exception as e:
             print(f"[ERROR] Failed to update order status: {str(e)}")
             await callback.answer("Ошибка при подтверждении заказа", show_alert=True)

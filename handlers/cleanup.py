@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 import asyncio
-from database.mongodb import db
+from aiogram import Router
+from database import db
 
 async def cleanup_old_orders():
     """

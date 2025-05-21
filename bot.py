@@ -6,8 +6,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.exceptions import TelegramAPIError
 
 import config
-from database.mongodb import db
-from handlers import user_handlers, admin_handlers  # Предполагается, что это модули с Router
+from database import db
+from handlers import user_handlers, admin_handlers, flavor_handlers, sleep_mode
 
 def setup_logging():
     """Configure logging for the bot"""
@@ -24,10 +24,6 @@ def setup_logging():
 async def on_startup(bot: Bot, logger):
     """Perform startup actions"""
     try:
-        # Connect to MongoDB
-        await db.connect()
-        logger.info("Connected to MongoDB successfully")
-        
         # Send startup notification to admin
         await bot.send_message(
             chat_id=config.ADMIN_ID,
@@ -41,10 +37,6 @@ async def on_startup(bot: Bot, logger):
 async def on_shutdown(bot: Bot, logger):
     """Perform cleanup actions"""
     try:
-        # Close MongoDB connection
-        await db.close()
-        logger.info("MongoDB connection closed")
-        
         # Send shutdown notification to admin
         try:
             await bot.send_message(
@@ -70,9 +62,11 @@ async def main():
         storage = MemoryStorage()
         dp = Dispatcher(storage=storage)
         
-        # Register handlers
+        # Register routers
         dp.include_router(user_handlers.router)
         dp.include_router(admin_handlers.router)
+        dp.include_router(flavor_handlers.router)
+        dp.include_router(sleep_mode.router)
         
         # Register startup and shutdown handlers
         dp.startup.register(lambda: on_startup(bot, logger))
@@ -84,6 +78,8 @@ async def main():
     except Exception as e:
         logger.critical(f"Critical error while running bot: {e}")
         sys.exit(1)
+    finally:
+        await bot.session.close()
 
 if __name__ == "__main__":
     try:
