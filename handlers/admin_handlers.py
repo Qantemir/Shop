@@ -39,6 +39,9 @@ class AdminStates(StatesGroup):
     setting_sleep_time = State()  # Новое состояние для времени сна
     setting_flavor_quantity = State()  # Новое состояние для количества вкуса
 
+class CancellationStates(StatesGroup):
+    waiting_for_reason = State()
+
 # Helper function to format price with decimal points
 def format_price(price):
     return f"{float(price):.2f}"
@@ -1932,23 +1935,183 @@ async def admin_confirm_order(callback: CallbackQuery):
 @check_admin_session
 async def delete_order(callback: CallbackQuery):
     try:
+        logger.info("Starting delete_order handler")
         order_id = callback.data.replace("delete_order_", "")
-        order = await db.get_order(order_id)
+        logger.info(f"Order ID to delete: {order_id}")
         
+        # Get order details
+        order = await db.get_order(order_id)
         if not order:
+            logger.error(f"Order not found: {order_id}")
             await callback.answer("Заказ не найден")
             return
             
-        # Delete the order
-        success = await db.delete_order(order_id)
+        logger.info(f"Found order: {order}")
+        logger.info(f"Order items: {order.get('items', [])}")
         
-        if success:
-            # Delete the message with order details
-            await callback.message.delete()
-            await callback.answer("Заказ успешно удален")
-        else:
+        # Return all flavors to inventory
+        for item in order.get('items', []):
+            logger.info(f"Processing item: {item}")
+            if 'flavor' in item:
+                logger.info(f"Found flavor in item: {item['flavor']}")
+                logger.info(f"Product ID: {item['product_id']}, Quantity: {item['quantity']}")
+                
+                # Get current product state
+                product = await db.get_product(item['product_id'])
+                logger.info(f"Current product state: {product}")
+                
+                if product:
+                    current_flavor = next((f for f in product.get('flavors', []) if f['name'] == item['flavor']), None)
+                    if current_flavor:
+                        logger.info(f"Current flavor quantity: {current_flavor.get('quantity', 0)}")
+                
+                success = await db.update_product_flavor_quantity(
+                    item['product_id'],
+                    item['flavor'],
+                    item['quantity']  # Return the full quantity
+                )
+                
+                if not success:
+                    logger.error(f"Failed to restore flavor quantity: product_id={item['product_id']}, flavor={item['flavor']}")
+                    await callback.answer("Ошибка при возврате товара на склад", show_alert=True)
+                    return
+                else:
+                    logger.info(f"Successfully restored flavor quantity for {item['flavor']}")
+                    
+                    # Verify the update
+                    updated_product = await db.get_product(item['product_id'])
+                    if updated_product:
+                        updated_flavor = next((f for f in updated_product.get('flavors', []) if f['name'] == item['flavor']), None)
+                        if updated_flavor:
+                            logger.info(f"Updated flavor quantity: {updated_flavor.get('quantity', 0)}")
+        
+        # Delete the order
+        logger.info("Deleting order from database")
+        delete_result = await db.delete_order(order_id)
+        if not delete_result:
+            logger.error("Failed to delete order")
             await callback.answer("Ошибка при удалении заказа")
-            
+            return
+        
+        # Notify user about order cancellation
+        try:
+            await callback.bot.send_message(
+                chat_id=order['user_id'],
+                text="❌ Ваш заказ был отменен администратором."
+            )
+            logger.info(f"Sent cancellation notification to user {order['user_id']}")
+        except Exception as e:
+            logger.error(f"Error notifying user about order cancellation: {e}")
+        
+        # Update admin message
+        await callback.message.edit_text(
+            "✅ Заказ успешно отменен\nВсе товары возвращены на склад",
+            reply_markup=order_management_kb()
+        )
+        await callback.answer("Заказ отменен")
+        logger.info("Order successfully cancelled and items restored to inventory")
+        
     except Exception as e:
-        print(f"[ERROR] Error in delete_order: {str(e)}")
-        await callback.answer("Произошла ошибка при удалении заказа")
+        logger.error(f"Error in delete_order: {str(e)}", exc_info=True)
+        await callback.answer("Произошла ошибка при отмене заказа")
+
+@router.message(CancellationStates.waiting_for_reason)
+async def admin_finish_cancel_order(message: Message, state: FSMContext):
+    try:
+        data = await state.get_data()
+        order_id = data.get('order_id')
+        original_message_id = data.get('message_id')
+        chat_id = data.get('chat_id')
+        
+        if not order_id:
+            await message.answer("Ошибка: не найден ID заказа")
+            await state.clear()
+            return
+            
+        order = await db.get_order(order_id)
+        if not order:
+            await message.answer("Ошибка: заказ не найден")
+            await state.clear()
+            return
+            
+        # Check if order is already cancelled
+        if order.get('status') == 'cancelled':
+            await message.answer("Заказ уже отменен")
+            await state.clear()
+            return
+            
+        logger.info(f"Processing order cancellation: {order}")
+        logger.info(f"Order items: {order.get('items', [])}")
+        
+        # Return all items to inventory
+        for item in order.get('items', []):
+            logger.info(f"Processing item: {item}")
+            if 'flavor' in item:
+                logger.info(f"Found flavor in item: {item['flavor']}")
+                logger.info(f"Product ID: {item['product_id']}, Quantity: {item['quantity']}")
+                
+                # Get current product state
+                product = await db.get_product(item['product_id'])
+                logger.info(f"Current product state: {product}")
+                
+                if product:
+                    current_flavor = next((f for f in product.get('flavors', []) if f['name'] == item['flavor']), None)
+                    if current_flavor:
+                        logger.info(f"Current flavor quantity: {current_flavor.get('quantity', 0)}")
+                
+                success = await db.update_product_flavor_quantity(
+                    item['product_id'],
+                    item['flavor'],
+                    item['quantity']  # Return the full quantity
+                )
+                
+                if not success:
+                    logger.error(f"Failed to restore flavor quantity: product_id={item['product_id']}, flavor={item['flavor']}")
+                    await message.answer("Ошибка при возврате товара на склад")
+                    await state.clear()
+                    return
+                else:
+                    logger.info(f"Successfully restored flavor quantity for {item['flavor']}")
+                    
+                    # Verify the update
+                    updated_product = await db.get_product(item['product_id'])
+                    if updated_product:
+                        updated_flavor = next((f for f in updated_product.get('flavors', []) if f['name'] == item['flavor']), None)
+                        if updated_flavor:
+                            logger.info(f"Updated flavor quantity: {updated_flavor.get('quantity', 0)}")
+        
+        # Update order status and save cancellation reason
+        await db.update_order(order_id, {
+            'status': 'cancelled',
+            'cancellation_reason': message.text
+        })
+        
+        # Notify user about cancellation
+        user_notification = (
+            "❌ К сожалению, ваш заказ был отменен.\n\n"
+            f"Причина: {message.text}\n\n"
+            "Если у вас есть вопросы, пожалуйста, свяжитесь с нами."
+        )
+        
+        try:
+            await message.bot.send_message(
+                chat_id=order['user_id'],
+                text=user_notification
+            )
+        except Exception as e:
+            logger.error(f"Failed to notify user about order cancellation: {e}")
+        
+        # Delete the original order message
+        try:
+            await message.bot.delete_message(chat_id, original_message_id)
+        except Exception as e:
+            logger.error(f"Failed to delete original message: {e}")
+        
+        # Confirm to admin
+        await message.answer(f"❌ Заказ #{order_id} отменен. Клиент уведомлен о причине отмены.")
+        await state.clear()
+        
+    except Exception as e:
+        logger.error(f"Error in admin_finish_cancel_order: {str(e)}", exc_info=True)
+        await message.answer("Произошла ошибка при отмене заказа")
+        await state.clear()

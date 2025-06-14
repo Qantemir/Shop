@@ -3,8 +3,24 @@ from typing import Dict, Set
 import hashlib
 import os
 from dotenv import load_dotenv
+from functools import wraps
+from aiogram.types import CallbackQuery, Message
 
 load_dotenv()
+
+def check_admin_session(func):
+    """Decorator to check if user has valid admin session"""
+    @wraps(func)
+    async def wrapper(event: CallbackQuery | Message, *args, **kwargs):
+        user_id = event.from_user.id
+        if not security_manager.is_admin_session_valid(user_id):
+            if isinstance(event, CallbackQuery):
+                await event.answer("Требуется авторизация администратора", show_alert=True)
+            else:
+                await event.answer("Требуется авторизация администратора")
+            return
+        return await func(event, *args, **kwargs)
+    return wrapper
 
 class SecurityManager:
     def __init__(self):

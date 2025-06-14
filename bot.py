@@ -8,6 +8,7 @@ from aiogram.exceptions import TelegramAPIError
 import config
 from database import db
 from handlers import user_handlers, admin_handlers, flavor_handlers, sleep_mode
+from utils.cart_expiration import start_cart_expiration_checker
 
 def setup_logging():
     """Configure logging for the bot"""
@@ -71,6 +72,9 @@ async def main():
         # Register startup and shutdown handlers
         dp.startup.register(lambda: on_startup(bot, logger))
         dp.shutdown.register(lambda: on_shutdown(bot, logger))
+        
+        # Start cart expiration checker
+        asyncio.create_task(start_cart_expiration_checker())
         
         # Start polling
         logger.info("Starting bot...")

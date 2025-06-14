@@ -51,7 +51,8 @@ async def select_flavor(callback: CallbackQuery):
                 "username": callback.from_user.username,
                 "first_name": callback.from_user.first_name,
                 "last_name": callback.from_user.last_name,
-                "cart": []
+                "cart": [],
+                "cart_expires_at": None
             }
             user = await db.create_user(user_data)
             logger.info(f"Created new user: {callback.from_user.id}")
@@ -84,19 +85,106 @@ async def select_flavor(callback: CallbackQuery):
             }
             cart.append(new_item)
         
+        # Deduct flavor quantity using atomic operation
+        success = await db.update_product_flavor_quantity(product_id, flavor_name, -1)
+        if not success:
+            await callback.answer("Ошибка при обновлении количества товара", show_alert=True)
+            return
+        
+        # Set cart expiration time if not set
+        if not user.get('cart_expires_at'):
+            from datetime import datetime, timedelta
+            user['cart_expires_at'] = (datetime.now() + timedelta(minutes=10)).isoformat()
+        
         # Update user's cart in database
-        result = await db.update_user(callback.from_user.id, {'cart': cart})
+        result = await db.update_user(callback.from_user.id, {
+            'cart': cart,
+            'cart_expires_at': user['cart_expires_at']
+        })
         
         if result:
             await callback.answer(f"Товар ({flavor_name}) добавлен в корзину!", show_alert=True)
             # Show updated cart
             await show_cart_message(callback.message, user)
         else:
+            # If cart update failed, return the flavor to inventory
+            await db.update_product_flavor_quantity(product_id, flavor_name, 1)
             await callback.answer("Ошибка при добавлении товара в корзину", show_alert=True)
             
     except Exception as e:
         logger.error(f"Error in select_flavor: {str(e)}")
         await callback.answer("Произошла ошибка при выборе вкуса", show_alert=True)
+
+@router.callback_query(F.data.startswith("decrease_"))
+async def decrease_cart_item(callback: CallbackQuery):
+    try:
+        product_id = callback.data.replace("decrease_", "")
+        user = await db.get_user(callback.from_user.id)
+        
+        if not user or not user.get('cart'):
+            await callback.answer("Корзина пуста")
+            return
+            
+        cart = user['cart']
+        item = next((item for item in cart if str(item['product_id']) == str(product_id)), None)
+        
+        if not item:
+            await callback.answer("Товар не найден в корзине")
+            return
+            
+        # Return flavor to inventory using atomic operation
+        if 'flavor' in item:
+            success = await db.update_product_flavor_quantity(product_id, item['flavor'], 1)
+            if not success:
+                await callback.answer("Ошибка при обновлении количества товара", show_alert=True)
+                return
+        
+        # Decrease quantity or remove item
+        if item['quantity'] > 1:
+            item['quantity'] -= 1
+        else:
+            cart.remove(item)
+            
+        # Update user's cart
+        await db.update_user(callback.from_user.id, {'cart': cart})
+        
+        # Show updated cart
+        await show_cart_message(callback.message, user)
+        await callback.answer("Количество уменьшено")
+        
+    except Exception as e:
+        print(f"[ERROR] Error in decrease_cart_item: {str(e)}")
+        await callback.answer("Произошла ошибка")
+
+@router.callback_query(F.data == "clear_cart")
+async def clear_cart(callback: CallbackQuery):
+    try:
+        user = await db.get_user(callback.from_user.id)
+        if not user or not user.get('cart'):
+            await callback.answer("Корзина уже пуста")
+            return
+            
+        # Return all flavors to inventory using atomic operations
+        for item in user['cart']:
+            if 'flavor' in item:
+                await db.update_product_flavor_quantity(
+                    item['product_id'],
+                    item['flavor'],
+                    item['quantity']
+                )
+        
+        # Clear cart and expiration time
+        await db.update_user(callback.from_user.id, {
+            'cart': [],
+            'cart_expires_at': None
+        })
+        
+        await callback.message.answer("Корзина очищена")
+        await callback.answer("Корзина очищена")
+        
+    except Exception as e:
+        print(f"[ERROR] Error in clear_cart: {str(e)}")
+        await callback.answer("Произошла ошибка при очистке корзины")
 
 async def show_cart_message(message, user):
     """Helper function to show cart contents"""

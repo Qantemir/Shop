@@ -1,25 +1,16 @@
 # utils/message_manager.py
 
-import sqlite3
-from config import DB_PATH
+from database import db
 
 async def store_message_id(chat_id: int, message_id: int):
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
+    try:
+        await db.db.messages.insert_one({
+            "chat_id": chat_id,
+            "message_id": message_id
+        })
+    except Exception as e:
+        print(f"Error storing message ID: {str(e)}")
 
-    cursor.execute(
-        """
-        CREATE TABLE IF NOT EXISTS messages (
-            chat_id INTEGER,
-            message_id INTEGER
-        )
-        """
-    )
-
-    cursor.execute(
-        "INSERT INTO messages (chat_id, message_id) VALUES (?, ?)",
-        (chat_id, message_id)
-    )
-
-    conn.commit()
-    conn.close()
+def format_price(price):
+    """Format price with decimal points"""
+    return f"{float(price):.2f}"

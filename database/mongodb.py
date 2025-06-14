@@ -47,6 +47,12 @@ class MongoDB:
             raise ConnectionError("Database connection not established")
         return self._db.settings
 
+    @property
+    def messages(self):
+        if self._db is None:
+            raise ConnectionError("Database connection not established")
+        return self._db.messages
+
     async def ensure_connected(self):
         """Ensure database connection is established"""
         if not self._connected or self._db is None:
@@ -187,6 +193,11 @@ class MongoDB:
 
     async def get_product(self, product_id):
         try:
+            await self.ensure_connected()
+            if self._db is None:
+                logger.error("Database connection not established")
+                return None
+                
             logger.info(f"[DEBUG] Attempting to get product with ID: {product_id}")
             # Try to convert string ID to ObjectId
             try:
@@ -226,12 +237,22 @@ class MongoDB:
             return []
 
     async def get_all_products(self):
-        cursor = self.db.products.find()
-        products = await cursor.to_list(length=None)
-        # Convert ObjectId to string
-        for product in products:
-            product['_id'] = str(product['_id'])
-        return products
+        """Get all products from the database"""
+        try:
+            await self.ensure_connected()
+            if self._db is None:
+                logger.error("Database connection not established")
+                return []
+                
+            cursor = self.db.products.find()
+            products = await cursor.to_list(length=None)
+            # Convert ObjectId to string
+            for product in products:
+                product['_id'] = str(product['_id'])
+            return products
+        except Exception as e:
+            logger.error(f"Error getting all products: {str(e)}")
+            return []
 
     async def update_product(self, product_id, update_data):
         try:
@@ -275,6 +296,11 @@ class MongoDB:
 
     async def get_order(self, order_id: str):
         try:
+            await self.ensure_connected()
+            if self._db is None:
+                logger.error("Database connection not established")
+                return None
+                
             return await self.db.orders.find_one({'_id': ObjectId(order_id)})
         except Exception as e:
             logger.error(f"[ERROR] Failed to get order: {str(e)}")
@@ -293,6 +319,11 @@ class MongoDB:
 
     async def delete_order(self, order_id: str):
         try:
+            await self.ensure_connected()
+            if self._db is None:
+                logger.error("Database connection not established")
+                return False
+                
             result = await self.db.orders.delete_one({'_id': ObjectId(order_id)})
             return result.deleted_count > 0
         except Exception as e:
@@ -353,6 +384,96 @@ class MongoDB:
         except Exception as e:
             logger.error(f"Error setting sleep mode: {str(e)}")
             raise
+
+    async def get_users_with_cart(self):
+        """Get all users who have non-empty carts"""
+        try:
+            cursor = self.db.users.find({"cart": {"$ne": []}})
+            users = await cursor.to_list(length=None)
+            # Convert ObjectId to string for each user
+            for user in users:
+                user['_id'] = str(user['_id'])
+            return users
+        except Exception as e:
+            logger.error(f"Failed to get users with cart: {str(e)}")
+            return []
+
+    async def update_product_flavor_quantity(self, product_id: str, flavor_name: str, quantity_change: int):
+        """Update flavor quantity with atomic operation"""
+        try:
+            await self.ensure_connected()
+            if self._db is None:
+                logger.error("Database connection not established")
+                return False
+                
+            logger.info(f"Attempting to update flavor quantity: product_id={product_id}, flavor={flavor_name}, change={quantity_change}")
+            
+            # Convert product_id to ObjectId
+            try:
+                obj_id = ObjectId(product_id)
+            except Exception as e:
+                logger.error(f"Invalid product_id format: {product_id}, error: {str(e)}")
+                return False
+                
+            # First check if product and flavor exist
+            product = await self.db.products.find_one({
+                "_id": obj_id,
+                "flavors.name": flavor_name
+            })
+            
+            if not product:
+                logger.error(f"Product or flavor not found: product_id={product_id}, flavor={flavor_name}")
+                return False
+                
+            # Get current flavor quantity
+            flavor = next((f for f in product['flavors'] if f['name'] == flavor_name), None)
+            if not flavor:
+                logger.error(f"Flavor not found in product: {flavor_name}")
+                return False
+                
+            current_quantity = flavor.get('quantity', 0)
+            new_quantity = current_quantity + quantity_change
+            
+            logger.info(f"Current quantity: {current_quantity}, Change: {quantity_change}, New quantity will be: {new_quantity}")
+            
+            # For negative changes (deductions), check if we have enough quantity
+            if quantity_change < 0 and new_quantity < 0:
+                logger.error(f"Not enough quantity: current={current_quantity}, change={quantity_change}")
+                return False
+                
+            # Update flavor quantity using atomic operation
+            result = await self.db.products.update_one(
+                {
+                    "_id": obj_id,
+                    "flavors.name": flavor_name
+                },
+                {
+                    "$inc": {
+                        "flavors.$.quantity": quantity_change
+                    }
+                }
+            )
+            
+            success = result.modified_count > 0
+            if success:
+                logger.info(f"Successfully updated flavor quantity: {flavor_name}, new quantity={new_quantity}")
+                
+                # Verify the update
+                updated_product = await self.db.products.find_one({
+                    "_id": obj_id,
+                    "flavors.name": flavor_name
+                })
+                if updated_product:
+                    updated_flavor = next((f for f in updated_product['flavors'] if f['name'] == flavor_name), None)
+                    if updated_flavor:
+                        logger.info(f"Verified updated quantity: {updated_flavor.get('quantity', 0)}")
+            else:
+                logger.error(f"Failed to update flavor quantity: {flavor_name}")
+            return success
+            
+        except Exception as e:
+            logger.error(f"Failed to update flavor quantity: {str(e)}", exc_info=True)
+            return False
 
 # Create a global instance
 db = MongoDB() 

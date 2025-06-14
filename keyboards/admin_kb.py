@@ -50,8 +50,13 @@ def order_management_kb(order_id: str, status: str = "pending") -> InlineKeyboar
             InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"admin_confirm_{order_id}"),
             InlineKeyboardButton(text="❌ Отменить", callback_data=f"admin_cancel_{order_id}")
         ])
+    elif status == "confirmed":
+        keyboard.append([
+            InlineKeyboardButton(text="❌ Отменить", callback_data=f"admin_cancel_{order_id}"),
+            InlineKeyboardButton(text="🗑 Удалить", callback_data=f"delete_order_{order_id}")
+        ])
     else:
-        # For completed, cancelled, or confirmed orders
+        # For completed or cancelled orders
         keyboard.append([
             InlineKeyboardButton(text="🗑 Удалить", callback_data=f"delete_order_{order_id}")
         ])
