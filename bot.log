@@ -10511,3 +10511,66 @@ AttributeError: 'NoneType' object has no attribute 'products'
 2025-06-14 11:40:22,755 - aiogram.dispatcher - INFO - Polling stopped
 2025-06-14 11:40:23,022 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
 2025-06-14 11:40:23,024 - root - INFO - Bot stopped
+2025-06-14 11:40:40,467 - __main__ - INFO - Starting bot...
+2025-06-14 11:40:40,468 - database.mongodb - ERROR - Failed to get users with cart: 'NoneType' object has no attribute 'users'
+2025-06-14 11:40:40,469 - aiogram.dispatcher - INFO - Start polling
+2025-06-14 11:40:41,250 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-14 11:41:10,070 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-14 11:41:13,745 - database.mongodb - INFO - Database indexes created successfully
+2025-06-14 11:41:13,979 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-14 11:41:14,683 - aiogram.event - INFO - Update id=762235793 is handled. Duration 4613 ms by bot id=7849840849
+2025-06-14 11:41:16,748 - database.mongodb - INFO - [DEBUG] Getting products for category: Снюс
+2025-06-14 11:41:16,979 - database.mongodb - INFO - [DEBUG] Found 1 products in category Снюс
+2025-06-14 11:41:17,296 - aiogram.event - INFO - Update id=762235794 is handled. Duration 777 ms by bot id=7849840849
+2025-06-14 11:41:19,524 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684c113e578dd097dbc0e00c_4
+2025-06-14 11:41:19,754 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684c113e578dd097dbc0e00c', '4']
+2025-06-14 11:41:19,754 - handlers.user_handlers - INFO - Product ID: 684c113e578dd097dbc0e00c, Flavor Index: 3
+2025-06-14 11:41:19,755 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684c113e578dd097dbc0e00c
+2025-06-14 11:41:19,982 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684c113e578dd097dbc0e00c'), 'name': 'Fgg', 'category': 'Снюс', 'price': 5000, 'description': '_', 'photo': 'AgACAgIAAxkBAAIJFmhMET4-A5uLd1k70ETLZWjeWkZlAAIm9DEbzHZhSi0c3TCFhncSAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Gggg', 'quantity': 5}, {'name': 'Cgg', 'quantity': 1}, {'name': 'Brhrd', 'quantity': 8}, {'name': 'Bbdhdh', 'quantity': 6}, {'name': 'Jrhrhdjd', 'quantity': 0}, {'name': 'Hrjrhdh', 'quantity': 0}, {'name': 'Hdjdhdjd', 'quantity': 0}, {'name': 'Jdjdhfjf', 'quantity': 0}, {'name': 'Rjdjdjdjdj', 'quantity': 0}]}
+2025-06-14 11:41:19,983 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684c113e578dd097dbc0e00c
+2025-06-14 11:41:19,984 - handlers.user_handlers - INFO - Found product: Fgg
+2025-06-14 11:41:19,984 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Gggg', 'quantity': 5}, {'name': 'Cgg', 'quantity': 1}, {'name': 'Brhrd', 'quantity': 8}, {'name': 'Bbdhdh', 'quantity': 6}, {'name': 'Jrhrhdjd', 'quantity': 0}, {'name': 'Hrjrhdh', 'quantity': 0}, {'name': 'Hdjdhdjd', 'quantity': 0}, {'name': 'Jdjdhfjf', 'quantity': 0}, {'name': 'Rjdjdjdjdj', 'quantity': 0}]
+2025-06-14 11:41:19,985 - handlers.user_handlers - INFO - Selected flavor: {'name': 'Bbdhdh', 'quantity': 6}
+2025-06-14 11:41:20,214 - handlers.user_handlers - INFO - User data: {'_id': '682d6a003ffb08259c3526a1', 'user_id': 1088067370, 'username': 'qantemir', 'first_name': 'Qantemir', 'last_name': '-', 'cart': [], 'cart_last_updated': None, 'cart_expires_at': '2025-06-14T11:41:17.727676'}
+2025-06-14 11:41:20,445 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: Bbdhdh
+2025-06-14 11:41:20,446 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684c113e578dd097dbc0e00c, flavor=Bbdhdh, change=-1
+2025-06-14 11:41:20,686 - database.mongodb - INFO - Current quantity: 6, Change: -1, New quantity will be: 5
+2025-06-14 11:41:20,925 - database.mongodb - INFO - Successfully updated flavor quantity: Bbdhdh, new quantity=5
+2025-06-14 11:41:21,166 - database.mongodb - INFO - Verified updated quantity: 5
+2025-06-14 11:41:21,167 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684c113e578dd097dbc0e00c', 'name': 'Fgg', 'price': 5000, 'flavor': 'Bbdhdh', 'quantity': 1}
+2025-06-14 11:41:21,167 - handlers.user_handlers - INFO - Updating user data
+2025-06-14 11:41:21,571 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-14 11:41:21,571 - aiogram.event - INFO - Update id=762235795 is handled. Duration 2048 ms by bot id=7849840849
+2025-06-14 11:41:24,186 - aiogram.event - INFO - Update id=762235796 is handled. Duration 628 ms by bot id=7849840849
+2025-06-14 11:41:26,030 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684c113e578dd097dbc0e00c
+2025-06-14 11:41:26,259 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684c113e578dd097dbc0e00c'), 'name': 'Fgg', 'category': 'Снюс', 'price': 5000, 'description': '_', 'photo': 'AgACAgIAAxkBAAIJFmhMET4-A5uLd1k70ETLZWjeWkZlAAIm9DEbzHZhSi0c3TCFhncSAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Gggg', 'quantity': 5}, {'name': 'Cgg', 'quantity': 1}, {'name': 'Brhrd', 'quantity': 8}, {'name': 'Bbdhdh', 'quantity': 5}, {'name': 'Jrhrhdjd', 'quantity': 0}, {'name': 'Hrjrhdh', 'quantity': 0}, {'name': 'Hdjdhdjd', 'quantity': 0}, {'name': 'Jdjdhfjf', 'quantity': 0}, {'name': 'Rjdjdjdjdj', 'quantity': 0}]}
+2025-06-14 11:41:26,261 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684c113e578dd097dbc0e00c
+2025-06-14 11:41:26,604 - aiogram.event - INFO - Update id=762235797 is handled. Duration 1060 ms by bot id=7849840849
+2025-06-14 11:41:34,661 - aiogram.event - INFO - Update id=762235798 is handled. Duration 399 ms by bot id=7849840849
+2025-06-14 11:41:37,853 - aiogram.event - INFO - Update id=762235799 is handled. Duration 760 ms by bot id=7849840849
+2025-06-14 11:41:45,255 - aiogram.event - INFO - Update id=762235800 is handled. Duration 1434 ms by bot id=7849840849
+2025-06-14 11:41:48,105 - aiogram.event - INFO - Update id=762235801 is handled. Duration 350 ms by bot id=7849840849
+2025-06-14 11:41:51,995 - handlers.user_handlers - INFO - Processing order cancellation: {'_id': ObjectId('684d19a8b9fea4a58cd40e47'), 'user_id': 1088067370, 'username': 'qantemir', 'phone': '87053411919', 'address': '()!', 'gis_link': 'https://2gis.kz/pavlodarr/search/()!', 'items': [{'product_id': '684c113e578dd097dbc0e00c', 'name': 'Fgg', 'price': 5000, 'flavor': 'Bbdhdh', 'quantity': 1}], 'total_amount': 5000, 'status': 'pending', 'created_at': datetime.datetime(2025, 6, 14, 11, 41, 44, 286000), 'payment_file_id': 'AgACAgIAAxkBAAIK5GhMNtvsnBmPvSVW_vngNctx-xfMAAK79zEb88hhSu4wEWnaNU6TAQADAgADeQADNgQ', 'payment_file_type': 'photo'}
+2025-06-14 11:41:51,997 - handlers.user_handlers - INFO - Order items: [{'product_id': '684c113e578dd097dbc0e00c', 'name': 'Fgg', 'price': 5000, 'flavor': 'Bbdhdh', 'quantity': 1}]
+2025-06-14 11:41:51,998 - handlers.user_handlers - INFO - Processing item: {'product_id': '684c113e578dd097dbc0e00c', 'name': 'Fgg', 'price': 5000, 'flavor': 'Bbdhdh', 'quantity': 1}
+2025-06-14 11:41:51,998 - handlers.user_handlers - INFO - Found flavor in item: Bbdhdh
+2025-06-14 11:41:51,999 - handlers.user_handlers - INFO - Product ID: 684c113e578dd097dbc0e00c, Quantity: 1
+2025-06-14 11:41:51,999 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684c113e578dd097dbc0e00c
+2025-06-14 11:41:52,236 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684c113e578dd097dbc0e00c'), 'name': 'Fgg', 'category': 'Снюс', 'price': 5000, 'description': '_', 'photo': 'AgACAgIAAxkBAAIJFmhMET4-A5uLd1k70ETLZWjeWkZlAAIm9DEbzHZhSi0c3TCFhncSAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Gggg', 'quantity': 5}, {'name': 'Cgg', 'quantity': 1}, {'name': 'Brhrd', 'quantity': 8}, {'name': 'Bbdhdh', 'quantity': 5}, {'name': 'Jrhrhdjd', 'quantity': 0}, {'name': 'Hrjrhdh', 'quantity': 0}, {'name': 'Hdjdhdjd', 'quantity': 0}, {'name': 'Jdjdhfjf', 'quantity': 0}, {'name': 'Rjdjdjdjdj', 'quantity': 0}]}
+2025-06-14 11:41:52,238 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684c113e578dd097dbc0e00c
+2025-06-14 11:41:52,238 - handlers.user_handlers - INFO - Current product state: {'_id': '684c113e578dd097dbc0e00c', 'name': 'Fgg', 'category': 'Снюс', 'price': 5000, 'description': '_', 'photo': 'AgACAgIAAxkBAAIJFmhMET4-A5uLd1k70ETLZWjeWkZlAAIm9DEbzHZhSi0c3TCFhncSAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Gggg', 'quantity': 5}, {'name': 'Cgg', 'quantity': 1}, {'name': 'Brhrd', 'quantity': 8}, {'name': 'Bbdhdh', 'quantity': 5}, {'name': 'Jrhrhdjd', 'quantity': 0}, {'name': 'Hrjrhdh', 'quantity': 0}, {'name': 'Hdjdhdjd', 'quantity': 0}, {'name': 'Jdjdhfjf', 'quantity': 0}, {'name': 'Rjdjdjdjdj', 'quantity': 0}]}
+2025-06-14 11:41:52,239 - handlers.user_handlers - INFO - Current flavor quantity: 5
+2025-06-14 11:41:52,240 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684c113e578dd097dbc0e00c, flavor=Bbdhdh, change=1
+2025-06-14 11:41:52,472 - database.mongodb - INFO - Current quantity: 5, Change: 1, New quantity will be: 6
+2025-06-14 11:41:52,702 - database.mongodb - INFO - Successfully updated flavor quantity: Bbdhdh, new quantity=6
+2025-06-14 11:41:52,930 - database.mongodb - INFO - Verified updated quantity: 6
+2025-06-14 11:41:52,931 - handlers.user_handlers - INFO - Successfully restored flavor quantity for Bbdhdh
+2025-06-14 11:41:52,931 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684c113e578dd097dbc0e00c
+2025-06-14 11:41:53,159 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684c113e578dd097dbc0e00c'), 'name': 'Fgg', 'category': 'Снюс', 'price': 5000, 'description': '_', 'photo': 'AgACAgIAAxkBAAIJFmhMET4-A5uLd1k70ETLZWjeWkZlAAIm9DEbzHZhSi0c3TCFhncSAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Gggg', 'quantity': 5}, {'name': 'Cgg', 'quantity': 1}, {'name': 'Brhrd', 'quantity': 8}, {'name': 'Bbdhdh', 'quantity': 6}, {'name': 'Jrhrhdjd', 'quantity': 0}, {'name': 'Hrjrhdh', 'quantity': 0}, {'name': 'Hdjdhdjd', 'quantity': 0}, {'name': 'Jdjdhfjf', 'quantity': 0}, {'name': 'Rjdjdjdjdj', 'quantity': 0}]}
+2025-06-14 11:41:53,161 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684c113e578dd097dbc0e00c
+2025-06-14 11:41:53,161 - handlers.user_handlers - INFO - Updated flavor quantity: 6
+2025-06-14 11:41:53,843 - aiogram.event - INFO - Update id=762235802 is handled. Duration 2086 ms by bot id=7849840849
+2025-06-14 11:41:55,959 - aiogram.event - INFO - Update id=762235803 is handled. Duration 396 ms by bot id=7849840849
+2025-06-14 11:41:57,349 - database.mongodb - INFO - [DEBUG] Getting products for category: Снюс
+2025-06-14 11:41:57,578 - database.mongodb - INFO - [DEBUG] Found 1 products in category Снюс
+2025-06-14 11:41:57,889 - aiogram.event - INFO - Update id=762235804 is handled. Duration 768 ms by bot id=7849840849
