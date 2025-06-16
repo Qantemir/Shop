@@ -658,9 +658,6 @@ async def cleanup_old_orders():
 @check_admin_session
 async def show_orders(message: Message):
     try:
-        # Ensure database connection
-        await db.ensure_connected()
-        
         # Get all orders
         orders = await db.get_all_orders()
         
@@ -710,7 +707,23 @@ async def show_orders(message: Message):
                 order.get("items", []),
                 order.get("total_amount", 0)
             )
-            await message.answer(order_text, parse_mode="HTML")
+            
+            # Add status to the order text
+            status_text = {
+                'pending': '⏳ Ожидает обработки',
+                'confirmed': '✅ Подтвержден',
+                'cancelled': '❌ Отменен',
+                'completed': '✅ Выполнен'
+            }.get(order.get('status', 'pending'), 'Статус неизвестен')
+            
+            order_text += f"\n\nСтатус: {status_text}"
+            
+            # Send order with appropriate management buttons
+            await message.answer(
+                order_text,
+                parse_mode="HTML",
+                reply_markup=order_management_kb(str(order["_id"]), order.get('status', 'pending'))
+            )
 
     except Exception as e:
         logger.error(f"Error showing orders: {str(e)}")
