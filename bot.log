@@ -10574,3 +10574,785 @@ AttributeError: 'NoneType' object has no attribute 'products'
 2025-06-14 11:41:57,349 - database.mongodb - INFO - [DEBUG] Getting products for category: ����
 2025-06-14 11:41:57,578 - database.mongodb - INFO - [DEBUG] Found 1 products in category ����
 2025-06-14 11:41:57,889 - aiogram.event - INFO - Update id=762235804 is handled. Duration 768 ms by bot id=7849840849
+2025-06-16 12:59:12,647 - __main__ - INFO - Starting bot...
+2025-06-16 12:59:12,648 - database.mongodb - ERROR - Failed to get users with cart: 'NoneType' object has no attribute 'users'
+2025-06-16 12:59:12,648 - aiogram.dispatcher - INFO - Start polling
+2025-06-16 12:59:13,270 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 12:59:13,430 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 12:59:13,466 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 12:59:13,468 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 12:59:13,470 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 12:59:13,472 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 12:59:13,473 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 12:59:13,475 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 12:59:13,481 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 12:59:14,110 - aiogram.event - INFO - Update id=762237342 is handled. Duration 642 ms by bot id=7849840849
+2025-06-16 12:59:14,120 - aiogram.event - INFO - Update id=762237339 is handled. Duration 690 ms by bot id=7849840849
+2025-06-16 12:59:18,067 - handlers.admin_handlers - INFO - Successful admin login for user 531632690
+2025-06-16 12:59:18,335 - aiogram.event - INFO - Update id=762237343 is handled. Duration 270 ms by bot id=7849840849
+2025-06-16 12:59:18,795 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 12:59:18,821 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 12:59:19,065 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 12:59:19,160 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 12:59:19,251 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 12:59:19,300 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 12:59:19,369 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 12:59:19,478 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 12:59:19,707 - aiogram.event - INFO - Update id=762237340 is handled. Duration 6276 ms by bot id=7849840849
+2025-06-16 12:59:19,708 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 12:59:19,753 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 12:59:20,108 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 12:59:20,234 - aiogram.event - INFO - Update id=762237335 is handled. Duration 6806 ms by bot id=7849840849
+2025-06-16 12:59:20,306 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 12:59:20,322 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 12:59:20,500 - aiogram.event - INFO - Update id=762237336 is handled. Duration 7072 ms by bot id=7849840849
+2025-06-16 12:59:20,523 - aiogram.event - INFO - Update id=762237334 is handled. Duration 7095 ms by bot id=7849840849
+2025-06-16 12:59:20,546 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 12:59:20,829 - aiogram.event - INFO - Update id=762237341 is handled. Duration 7363 ms by bot id=7849840849
+2025-06-16 12:59:21,237 - aiogram.event - INFO - Update id=762237337 is handled. Duration 7808 ms by bot id=7849840849
+2025-06-16 12:59:21,410 - aiogram.event - INFO - Update id=762237338 is handled. Duration 7981 ms by bot id=7849840849
+2025-06-16 12:59:22,581 - handlers.admin_handlers - INFO - Admin session active for user 531632690
+2025-06-16 12:59:22,790 - aiogram.event - INFO - Update id=762237344 is handled. Duration 213 ms by bot id=7849840849
+2025-06-16 12:59:25,024 - aiogram.event - INFO - Update id=762237345 is handled. Duration 402 ms by bot id=7849840849
+2025-06-16 12:59:29,357 - aiogram.event - INFO - Update id=762237346 is handled. Duration 186 ms by bot id=7849840849
+2025-06-16 12:59:31,007 - aiogram.event - INFO - Update id=762237347 is handled. Duration 716 ms by bot id=7849840849
+2025-06-16 12:59:36,479 - aiogram.event - INFO - Update id=762237348 is handled. Duration 688 ms by bot id=7849840849
+2025-06-16 12:59:38,624 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 12:59:38,832 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 12:59:39,187 - aiogram.event - INFO - Update id=762237349 is handled. Duration 988 ms by bot id=7849840849
+2025-06-16 12:59:40,760 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_1
+2025-06-16 12:59:40,968 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '1']
+2025-06-16 12:59:40,969 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 0
+2025-06-16 12:59:40,969 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 12:59:41,176 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 40}, {'name': 'H', 'quantity': 39}]}
+2025-06-16 12:59:41,177 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 12:59:41,177 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 12:59:41,177 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 40}, {'name': 'H', 'quantity': 39}]
+2025-06-16 12:59:41,178 - handlers.user_handlers - INFO - Selected flavor: {'name': 'Jf', 'quantity': 40}
+2025-06-16 12:59:41,390 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': None}
+2025-06-16 12:59:41,600 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: Jf
+2025-06-16 12:59:41,601 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=Jf, change=-1
+2025-06-16 12:59:41,818 - database.mongodb - INFO - Current quantity: 40, Change: -1, New quantity will be: 39
+2025-06-16 12:59:42,164 - database.mongodb - INFO - Successfully updated flavor quantity: Jf, new quantity=39
+2025-06-16 12:59:42,380 - database.mongodb - INFO - Verified updated quantity: 39
+2025-06-16 12:59:42,380 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'Jf', 'quantity': 1}
+2025-06-16 12:59:42,381 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 12:59:42,785 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 12:59:42,786 - aiogram.event - INFO - Update id=762237350 is handled. Duration 2027 ms by bot id=7849840849
+2025-06-16 12:59:46,794 - aiogram.event - INFO - Update id=762237351 is handled. Duration 815 ms by bot id=7849840849
+2025-06-16 12:59:48,645 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 12:59:48,856 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 39}, {'name': 'H', 'quantity': 39}]}
+2025-06-16 12:59:48,856 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 12:59:49,203 - aiogram.event - INFO - Update id=762237352 is handled. Duration 1175 ms by bot id=7849840849
+2025-06-16 12:59:55,682 - aiogram.event - INFO - Update id=762237353 is handled. Duration 592 ms by bot id=7849840849
+2025-06-16 12:59:58,539 - aiogram.event - INFO - Update id=762237354 is handled. Duration 918 ms by bot id=7849840849
+2025-06-16 13:00:09,266 - aiogram.event - INFO - Update id=762237355 is handled. Duration 1665 ms by bot id=7849840849
+2025-06-16 13:00:11,077 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:00:11,286 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 39}, {'name': 'H', 'quantity': 39}]}
+2025-06-16 13:00:11,286 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:00:11,553 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:00:11,770 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 39}]}
+2025-06-16 13:00:11,771 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:00:12,897 - aiogram.event - INFO - Update id=762237356 is handled. Duration 2038 ms by bot id=7849840849
+2025-06-16 13:00:16,848 - handlers.admin_handlers - ERROR - Error showing orders: 'full_name'
+2025-06-16 13:00:17,130 - aiogram.event - INFO - Update id=762237357 is handled. Duration 970 ms by bot id=7849840849
+2025-06-16 13:00:33,019 - aiogram.event - INFO - Update id=762237358 is handled. Duration 592 ms by bot id=7849840849
+2025-06-16 13:00:35,223 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 13:00:35,435 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 13:00:35,809 - aiogram.event - INFO - Update id=762237359 is handled. Duration 1008 ms by bot id=7849840849
+2025-06-16 13:00:38,182 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 13:00:38,414 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 13:00:38,415 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 13:00:38,415 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:00:38,630 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 39}]}
+2025-06-16 13:00:38,630 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:00:38,631 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 13:00:38,631 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 39}]
+2025-06-16 13:00:38,631 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 39}
+2025-06-16 13:00:38,902 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T13:09:42.381124'}
+2025-06-16 13:00:39,129 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 13:00:39,129 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 13:00:39,336 - database.mongodb - INFO - Current quantity: 39, Change: -1, New quantity will be: 38
+2025-06-16 13:00:39,548 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=38
+2025-06-16 13:00:39,772 - database.mongodb - INFO - Verified updated quantity: 38
+2025-06-16 13:00:39,772 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 13:00:39,773 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 13:00:40,233 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 13:00:40,234 - aiogram.event - INFO - Update id=762237360 is handled. Duration 2053 ms by bot id=7849840849
+2025-06-16 13:00:42,457 - aiogram.event - INFO - Update id=762237361 is handled. Duration 683 ms by bot id=7849840849
+2025-06-16 13:00:43,603 - aiogram.event - INFO - Update id=762237362 is handled. Duration 816 ms by bot id=7849840849
+2025-06-16 13:00:45,354 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:00:45,566 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 38}]}
+2025-06-16 13:00:45,567 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:00:45,974 - aiogram.event - INFO - Update id=762237363 is handled. Duration 1342 ms by bot id=7849840849
+2025-06-16 13:00:53,278 - aiogram.event - INFO - Update id=762237364 is handled. Duration 657 ms by bot id=7849840849
+2025-06-16 13:00:55,086 - aiogram.event - INFO - Update id=762237365 is handled. Duration 829 ms by bot id=7849840849
+2025-06-16 13:00:59,755 - aiogram.event - INFO - Update id=762237366 is handled. Duration 1606 ms by bot id=7849840849
+2025-06-16 13:01:01,341 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:01:01,588 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 38}]}
+2025-06-16 13:01:01,588 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:01:01,797 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:01:02,058 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 37}]}
+2025-06-16 13:01:02,059 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:01:03,234 - aiogram.event - INFO - Update id=762237367 is handled. Duration 2113 ms by bot id=7849840849
+2025-06-16 13:01:05,795 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=15:01
+2025-06-16 13:01:06,014 - handlers.admin_handlers - ERROR - Error showing orders: 'full_name'
+2025-06-16 13:01:06,192 - aiogram.event - INFO - Update id=762237368 is handled. Duration 1243 ms by bot id=7849840849
+2025-06-16 13:01:20,025 - aiogram.event - INFO - Update id=762237369 is handled. Duration 825 ms by bot id=7849840849
+2025-06-16 13:02:59,533 - __main__ - INFO - Starting bot...
+2025-06-16 13:02:59,534 - database.mongodb - ERROR - Failed to get users with cart: 'NoneType' object has no attribute 'users'
+2025-06-16 13:02:59,534 - aiogram.dispatcher - INFO - Start polling
+2025-06-16 13:03:00,150 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:03:00,309 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 13:03:00,348 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 13:03:01,065 - aiogram.event - INFO - Update id=762237371 is handled. Duration 756 ms by bot id=7849840849
+2025-06-16 13:03:04,120 - aiogram.event - INFO - Update id=762237372 is handled. Duration 238 ms by bot id=7849840849
+2025-06-16 13:03:04,507 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 13:03:04,738 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 13:03:05,719 - aiogram.event - INFO - Update id=762237370 is handled. Duration 5412 ms by bot id=7849840849
+2025-06-16 13:03:08,657 - handlers.admin_handlers - INFO - Successful admin login for user 531632690
+2025-06-16 13:03:08,929 - aiogram.event - INFO - Update id=762237373 is handled. Duration 274 ms by bot id=7849840849
+2025-06-16 13:03:10,958 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=15:03
+2025-06-16 13:03:11,149 - handlers.admin_handlers - ERROR - Error showing orders: 'full_name'
+2025-06-16 13:03:11,339 - aiogram.event - INFO - Update id=762237374 is handled. Duration 1396 ms by bot id=7849840849
+2025-06-16 13:05:24,604 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-16 13:05:24,605 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:05:24,605 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-16 13:06:02,984 - __main__ - INFO - Starting bot...
+2025-06-16 13:06:02,985 - database.mongodb - ERROR - Failed to get users with cart: 'NoneType' object has no attribute 'users'
+2025-06-16 13:06:02,985 - aiogram.dispatcher - INFO - Start polling
+2025-06-16 13:06:03,865 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:06:04,027 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 13:06:04,066 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 13:06:04,605 - aiogram.event - INFO - Update id=762237375 is handled. Duration 580 ms by bot id=7849840849
+2025-06-16 13:06:07,906 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 13:06:08,143 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 13:06:09,195 - aiogram.event - INFO - Update id=762237376 is handled. Duration 5169 ms by bot id=7849840849
+2025-06-16 13:06:17,758 - aiogram.event - INFO - Update id=762237377 is handled. Duration 224 ms by bot id=7849840849
+2025-06-16 13:07:46,715 - handlers.admin_handlers - INFO - Successful admin login for user 531632690
+2025-06-16 13:07:46,894 - aiogram.event - INFO - Update id=762237378 is handled. Duration 182 ms by bot id=7849840849
+2025-06-16 13:07:48,634 - aiogram.event - INFO - Update id=762237379 is handled. Duration 671 ms by bot id=7849840849
+2025-06-16 13:07:53,989 - aiogram.event - INFO - Update id=762237380 is handled. Duration 1017 ms by bot id=7849840849
+2025-06-16 13:12:05,316 - aiogram.event - INFO - Update id=762237381 is handled. Duration 587 ms by bot id=7849840849
+2025-06-16 13:12:09,252 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-16 13:12:09,253 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:12:09,254 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-16 13:12:19,143 - __main__ - INFO - Starting bot...
+2025-06-16 13:12:19,144 - database.mongodb - ERROR - Failed to get users with cart: 'NoneType' object has no attribute 'users'
+2025-06-16 13:12:19,144 - aiogram.dispatcher - INFO - Start polling
+2025-06-16 13:12:19,697 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:12:19,850 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 13:12:20,000 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 13:12:20,338 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 13:12:20,545 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 13:12:20,558 - aiogram.event - INFO - Update id=762237382 is handled. Duration 710 ms by bot id=7849840849
+2025-06-16 13:12:20,714 - aiogram.event - INFO - Update id=762237383 is handled. Duration 716 ms by bot id=7849840849
+2025-06-16 13:12:21,041 - aiogram.event - INFO - Update id=762237384 is handled. Duration 706 ms by bot id=7849840849
+2025-06-16 13:12:21,188 - aiogram.event - INFO - Update id=762237385 is handled. Duration 645 ms by bot id=7849840849
+2025-06-16 13:12:22,259 - aiogram.event - INFO - Update id=762237386 is handled. Duration 158 ms by bot id=7849840849
+2025-06-16 13:12:28,842 - handlers.admin_handlers - INFO - Successful admin login for user 531632690
+2025-06-16 13:12:29,041 - aiogram.event - INFO - Update id=762237387 is handled. Duration 201 ms by bot id=7849840849
+2025-06-16 13:12:30,869 - handlers.admin_handlers - ERROR - Error showing orders: 'NoneType' object has no attribute 'orders'
+2025-06-16 13:12:31,050 - aiogram.event - INFO - Update id=762237388 is handled. Duration 184 ms by bot id=7849840849
+2025-06-16 13:13:10,783 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-16 13:13:10,784 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:13:10,784 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-16 13:14:12,329 - __main__ - INFO - Starting bot...
+2025-06-16 13:14:12,330 - database.mongodb - ERROR - Failed to get users with cart: 'NoneType' object has no attribute 'users'
+2025-06-16 13:14:12,330 - aiogram.dispatcher - INFO - Start polling
+2025-06-16 13:14:12,930 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:14:14,205 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 13:14:14,977 - aiogram.event - INFO - Update id=762237389 is handled. Duration 775 ms by bot id=7849840849
+2025-06-16 13:14:16,538 - aiogram.event - INFO - Update id=762237390 is handled. Duration 168 ms by bot id=7849840849
+2025-06-16 13:14:20,868 - handlers.admin_handlers - INFO - Successful admin login for user 531632690
+2025-06-16 13:14:21,056 - aiogram.event - INFO - Update id=762237391 is handled. Duration 190 ms by bot id=7849840849
+2025-06-16 13:14:22,610 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 13:14:26,622 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 13:14:26,885 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 13:14:27,623 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=15:14
+2025-06-16 13:14:28,343 - aiogram.event - INFO - Update id=762237392 is handled. Duration 5738 ms by bot id=7849840849
+2025-06-16 13:15:01,374 - aiogram.event - INFO - Update id=762237393 is handled. Duration 933 ms by bot id=7849840849
+2025-06-16 13:15:34,490 - aiogram.event - INFO - Update id=762237394 is handled. Duration 921 ms by bot id=7849840849
+2025-06-16 13:15:45,082 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=Jf, change=1
+2025-06-16 13:15:45,342 - database.mongodb - INFO - Current quantity: 38, Change: 1, New quantity will be: 39
+2025-06-16 13:15:45,652 - database.mongodb - INFO - Successfully updated flavor quantity: Jf, new quantity=39
+2025-06-16 13:15:45,887 - database.mongodb - INFO - Verified updated quantity: 39
+2025-06-16 13:15:46,120 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=1
+2025-06-16 13:15:46,347 - database.mongodb - INFO - Current quantity: 37, Change: 1, New quantity will be: 38
+2025-06-16 13:15:46,577 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=38
+2025-06-16 13:15:46,877 - database.mongodb - INFO - Verified updated quantity: 38
+2025-06-16 13:15:47,474 - aiogram.event - INFO - Update id=762237395 is handled. Duration 2627 ms by bot id=7849840849
+2025-06-16 13:15:51,392 - aiogram.event - INFO - Update id=762237396 is handled. Duration 414 ms by bot id=7849840849
+2025-06-16 13:15:55,191 - aiogram.event - INFO - Update id=762237397 is handled. Duration 729 ms by bot id=7849840849
+2025-06-16 13:15:58,386 - aiogram.event - INFO - Update id=762237398 is handled. Duration 407 ms by bot id=7849840849
+2025-06-16 13:16:01,419 - database.mongodb - INFO - Sleep mode updated: enabled=False, end_time=None
+2025-06-16 13:16:01,764 - aiogram.event - INFO - Update id=762237399 is handled. Duration 907 ms by bot id=7849840849
+2025-06-16 13:16:08,789 - aiogram.event - INFO - Update id=762237400 is handled. Duration 752 ms by bot id=7849840849
+2025-06-16 13:16:18,850 - aiogram.event - INFO - Update id=762237401 is handled. Duration 635 ms by bot id=7849840849
+2025-06-16 13:45:20,884 - aiogram.event - INFO - Update id=762237402 is handled. Duration 1181 ms by bot id=7849840849
+2025-06-16 13:45:28,543 - aiogram.event - INFO - Update id=762237403 is handled. Duration 398 ms by bot id=7849840849
+2025-06-16 13:45:31,227 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 13:45:31,473 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 13:45:31,795 - aiogram.event - INFO - Update id=762237404 is handled. Duration 1016 ms by bot id=7849840849
+2025-06-16 13:45:33,684 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_1
+2025-06-16 13:45:33,908 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '1']
+2025-06-16 13:45:33,909 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 0
+2025-06-16 13:45:33,909 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:45:34,131 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 39}, {'name': 'H', 'quantity': 38}]}
+2025-06-16 13:45:34,131 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:45:34,132 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 13:45:34,132 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 39}, {'name': 'H', 'quantity': 38}]
+2025-06-16 13:45:34,132 - handlers.user_handlers - INFO - Selected flavor: {'name': 'Jf', 'quantity': 39}
+2025-06-16 13:45:34,354 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T13:10:39.773193'}
+2025-06-16 13:45:34,575 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: Jf
+2025-06-16 13:45:34,576 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=Jf, change=-1
+2025-06-16 13:45:34,804 - database.mongodb - INFO - Current quantity: 39, Change: -1, New quantity will be: 38
+2025-06-16 13:45:35,051 - database.mongodb - INFO - Successfully updated flavor quantity: Jf, new quantity=38
+2025-06-16 13:45:35,280 - database.mongodb - INFO - Verified updated quantity: 38
+2025-06-16 13:45:35,281 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'Jf', 'quantity': 1}
+2025-06-16 13:45:35,281 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 13:45:35,675 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 13:45:35,676 - aiogram.event - INFO - Update id=762237405 is handled. Duration 1993 ms by bot id=7849840849
+2025-06-16 13:45:42,412 - aiogram.event - INFO - Update id=762237406 is handled. Duration 902 ms by bot id=7849840849
+2025-06-16 13:45:44,579 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:45:44,804 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 38}]}
+2025-06-16 13:45:44,804 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:45:45,146 - aiogram.event - INFO - Update id=762237407 is handled. Duration 1279 ms by bot id=7849840849
+2025-06-16 13:45:54,326 - aiogram.event - INFO - Update id=762237408 is handled. Duration 742 ms by bot id=7849840849
+2025-06-16 13:45:57,177 - aiogram.event - INFO - Update id=762237409 is handled. Duration 1012 ms by bot id=7849840849
+2025-06-16 13:46:03,341 - aiogram.event - INFO - Update id=762237410 is handled. Duration 1918 ms by bot id=7849840849
+2025-06-16 13:46:05,918 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:46:06,154 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 38}]}
+2025-06-16 13:46:06,154 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:46:06,393 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:46:06,625 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 38}]}
+2025-06-16 13:46:06,625 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:46:07,591 - aiogram.event - INFO - Update id=762237411 is handled. Duration 1913 ms by bot id=7849840849
+2025-06-16 13:46:09,067 - aiogram.event - INFO - Update id=762237412 is handled. Duration 729 ms by bot id=7849840849
+2025-06-16 13:46:18,688 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-16 13:46:18,690 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:46:18,691 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-16 13:46:22,456 - __main__ - INFO - Starting bot...
+2025-06-16 13:46:22,457 - database.mongodb - ERROR - Failed to get users with cart: 'NoneType' object has no attribute 'users'
+2025-06-16 13:46:22,457 - aiogram.dispatcher - INFO - Start polling
+2025-06-16 13:46:23,144 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 13:46:24,237 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 13:46:24,841 - aiogram.event - INFO - Update id=762237413 is handled. Duration 607 ms by bot id=7849840849
+2025-06-16 13:46:25,974 - aiogram.event - INFO - Update id=762237414 is handled. Duration 184 ms by bot id=7849840849
+2025-06-16 13:46:30,241 - handlers.admin_handlers - INFO - Successful admin login for user 531632690
+2025-06-16 13:46:30,420 - aiogram.event - INFO - Update id=762237415 is handled. Duration 183 ms by bot id=7849840849
+2025-06-16 13:46:32,301 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 13:46:36,052 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 13:46:36,284 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 13:46:36,975 - aiogram.event - INFO - Update id=762237416 is handled. Duration 4676 ms by bot id=7849840849
+2025-06-16 13:46:42,635 - aiogram.event - INFO - Update id=762237417 is handled. Duration 640 ms by bot id=7849840849
+2025-06-16 13:46:44,374 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 13:46:44,604 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 13:46:44,989 - aiogram.event - INFO - Update id=762237418 is handled. Duration 1074 ms by bot id=7849840849
+2025-06-16 13:46:46,146 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 13:46:46,373 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 13:46:46,374 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 13:46:46,374 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:46:46,598 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 38}]}
+2025-06-16 13:46:46,598 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:46:46,599 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 13:46:46,599 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 38}]
+2025-06-16 13:46:46,599 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 38}
+2025-06-16 13:46:46,820 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T13:55:35.281758'}
+2025-06-16 13:46:47,037 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 13:46:47,038 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 13:46:47,263 - database.mongodb - INFO - Current quantity: 38, Change: -1, New quantity will be: 37
+2025-06-16 13:46:47,491 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=37
+2025-06-16 13:46:47,714 - database.mongodb - INFO - Verified updated quantity: 37
+2025-06-16 13:46:47,714 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 13:46:47,715 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 13:46:48,144 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 13:46:48,144 - aiogram.event - INFO - Update id=762237419 is handled. Duration 2000 ms by bot id=7849840849
+2025-06-16 13:46:53,370 - aiogram.event - INFO - Update id=762237420 is handled. Duration 945 ms by bot id=7849840849
+2025-06-16 13:46:56,121 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:46:56,361 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 37}]}
+2025-06-16 13:46:56,361 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:46:56,361 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 13:46:56,669 - database.mongodb - INFO - Current quantity: 37, Change: -1, New quantity will be: 36
+2025-06-16 13:46:56,903 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=36
+2025-06-16 13:46:57,127 - database.mongodb - INFO - Verified updated quantity: 36
+2025-06-16 13:46:57,706 - aiogram.event - INFO - Update id=762237421 is handled. Duration 2037 ms by bot id=7849840849
+2025-06-16 13:47:02,883 - aiogram.event - INFO - Update id=762237422 is handled. Duration 774 ms by bot id=7849840849
+2025-06-16 13:47:04,657 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:47:04,877 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 36}]}
+2025-06-16 13:47:04,878 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:47:05,387 - aiogram.event - INFO - Update id=762237423 is handled. Duration 1497 ms by bot id=7849840849
+2025-06-16 13:47:13,684 - aiogram.event - INFO - Update id=762237424 is handled. Duration 630 ms by bot id=7849840849
+2025-06-16 13:47:19,439 - aiogram.event - INFO - Update id=762237425 is handled. Duration 620 ms by bot id=7849840849
+2025-06-16 13:47:21,300 - aiogram.event - INFO - Update id=762237426 is handled. Duration 849 ms by bot id=7849840849
+2025-06-16 13:47:25,448 - aiogram.event - INFO - Update id=762237427 is handled. Duration 1682 ms by bot id=7849840849
+2025-06-16 13:47:28,044 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:47:28,270 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 36}]}
+2025-06-16 13:47:28,271 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:47:28,516 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:47:28,823 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 34}]}
+2025-06-16 13:47:28,824 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:47:29,939 - aiogram.event - INFO - Update id=762237428 is handled. Duration 2138 ms by bot id=7849840849
+2025-06-16 13:50:31,645 - aiogram.event - INFO - Update id=762237429 is handled. Duration 167 ms by bot id=7849840849
+2025-06-16 13:50:34,371 - aiogram.event - INFO - Update id=762237430 is handled. Duration 881 ms by bot id=7849840849
+2025-06-16 13:50:36,302 - aiogram.event - INFO - Update id=762237431 is handled. Duration 696 ms by bot id=7849840849
+2025-06-16 13:50:38,163 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 13:50:38,471 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 13:50:38,842 - aiogram.event - INFO - Update id=762237432 is handled. Duration 1187 ms by bot id=7849840849
+2025-06-16 13:50:40,011 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 13:50:40,235 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 13:50:40,235 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 13:50:40,235 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:50:40,520 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 34}]}
+2025-06-16 13:50:40,520 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:50:40,521 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 13:50:40,521 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 34}]
+2025-06-16 13:50:40,521 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 34}
+2025-06-16 13:50:40,829 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T13:56:57.127973'}
+2025-06-16 13:50:41,134 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 13:50:41,135 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 13:50:41,438 - database.mongodb - INFO - Current quantity: 34, Change: -1, New quantity will be: 33
+2025-06-16 13:50:41,747 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=33
+2025-06-16 13:50:42,052 - database.mongodb - INFO - Verified updated quantity: 33
+2025-06-16 13:50:42,053 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 13:50:42,053 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 13:50:42,443 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 13:50:42,444 - aiogram.event - INFO - Update id=762237433 is handled. Duration 2434 ms by bot id=7849840849
+2025-06-16 13:51:03,664 - aiogram.event - INFO - Update id=762237434 is handled. Duration 902 ms by bot id=7849840849
+2025-06-16 13:51:06,140 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:51:06,447 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 33}]}
+2025-06-16 13:51:06,447 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:51:06,769 - aiogram.event - INFO - Update id=762237435 is handled. Duration 1445 ms by bot id=7849840849
+2025-06-16 13:51:13,695 - aiogram.event - INFO - Update id=762237436 is handled. Duration 763 ms by bot id=7849840849
+2025-06-16 13:51:16,989 - aiogram.event - INFO - Update id=762237437 is handled. Duration 1014 ms by bot id=7849840849
+2025-06-16 13:51:21,722 - aiogram.event - INFO - Update id=762237438 is handled. Duration 2057 ms by bot id=7849840849
+2025-06-16 13:51:29,639 - aiogram.event - INFO - Update id=762237439 is handled. Duration 1459 ms by bot id=7849840849
+2025-06-16 13:51:31,282 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 13:51:31,508 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 13:51:31,831 - aiogram.event - INFO - Update id=762237440 is handled. Duration 1016 ms by bot id=7849840849
+2025-06-16 13:51:33,112 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 13:51:33,344 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 13:51:33,345 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 13:51:33,345 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:51:33,591 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 33}]}
+2025-06-16 13:51:33,592 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:51:33,592 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 13:51:33,592 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 33}]
+2025-06-16 13:51:33,592 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 33}
+2025-06-16 13:51:33,814 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T14:00:42.053661'}
+2025-06-16 13:51:34,038 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 13:51:34,039 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 13:51:34,262 - database.mongodb - INFO - Current quantity: 33, Change: -1, New quantity will be: 32
+2025-06-16 13:51:34,489 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=32
+2025-06-16 13:51:34,710 - database.mongodb - INFO - Verified updated quantity: 32
+2025-06-16 13:51:34,711 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 13:51:34,711 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 13:51:35,095 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 13:51:35,095 - aiogram.event - INFO - Update id=762237441 is handled. Duration 1984 ms by bot id=7849840849
+2025-06-16 13:51:42,182 - aiogram.event - INFO - Update id=762237442 is handled. Duration 999 ms by bot id=7849840849
+2025-06-16 13:51:44,241 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:51:44,470 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 13:51:44,471 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:51:44,798 - aiogram.event - INFO - Update id=762237443 is handled. Duration 1372 ms by bot id=7849840849
+2025-06-16 13:51:52,861 - aiogram.event - INFO - Update id=762237444 is handled. Duration 728 ms by bot id=7849840849
+2025-06-16 13:51:55,620 - aiogram.event - INFO - Update id=762237445 is handled. Duration 911 ms by bot id=7849840849
+2025-06-16 13:52:01,318 - aiogram.event - INFO - Update id=762237446 is handled. Duration 1917 ms by bot id=7849840849
+2025-06-16 13:53:37,222 - aiogram.event - INFO - Update id=762237447 is handled. Duration 642 ms by bot id=7849840849
+2025-06-16 13:57:19,179 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:57:19,401 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 13:57:19,402 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:57:19,709 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:57:20,016 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 13:57:20,017 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:57:20,904 - aiogram.event - INFO - Update id=762237448 is handled. Duration 1954 ms by bot id=7849840849
+2025-06-16 13:57:23,025 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:57:23,293 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 13:57:23,294 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:57:23,539 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 13:57:23,762 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 30}]}
+2025-06-16 13:57:23,763 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 13:57:24,685 - aiogram.event - INFO - Update id=762237449 is handled. Duration 1900 ms by bot id=7849840849
+2025-06-16 13:57:28,822 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=15:57
+2025-06-16 13:57:30,290 - aiogram.event - INFO - Update id=762237450 is handled. Duration 2258 ms by bot id=7849840849
+2025-06-16 13:57:38,364 - aiogram.event - INFO - Update id=762237451 is handled. Duration 1141 ms by bot id=7849840849
+2025-06-16 13:58:04,151 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=15:58
+2025-06-16 13:58:05,075 - aiogram.event - INFO - Update id=762237452 is handled. Duration 1637 ms by bot id=7849840849
+2025-06-16 14:02:01,482 - aiogram.event - INFO - Update id=762237453 is handled. Duration 1392 ms by bot id=7849840849
+2025-06-16 14:02:03,641 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=16:02
+2025-06-16 14:02:04,564 - aiogram.event - INFO - Update id=762237454 is handled. Duration 1558 ms by bot id=7849840849
+2025-06-16 14:02:07,337 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=Jf, change=1
+2025-06-16 14:02:07,560 - database.mongodb - INFO - Current quantity: 37, Change: 1, New quantity will be: 38
+2025-06-16 14:02:07,785 - database.mongodb - INFO - Successfully updated flavor quantity: Jf, new quantity=38
+2025-06-16 14:02:08,010 - database.mongodb - INFO - Verified updated quantity: 38
+2025-06-16 14:02:08,235 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=2
+2025-06-16 14:02:08,459 - database.mongodb - INFO - Current quantity: 30, Change: 2, New quantity will be: 32
+2025-06-16 14:02:08,684 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=32
+2025-06-16 14:02:08,911 - database.mongodb - INFO - Verified updated quantity: 32
+2025-06-16 14:02:09,136 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=1
+2025-06-16 14:02:09,359 - database.mongodb - INFO - Current quantity: 32, Change: 1, New quantity will be: 33
+2025-06-16 14:02:09,598 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=33
+2025-06-16 14:02:09,843 - database.mongodb - INFO - Verified updated quantity: 33
+2025-06-16 14:02:10,119 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=1
+2025-06-16 14:02:10,427 - database.mongodb - INFO - Current quantity: 33, Change: 1, New quantity will be: 34
+2025-06-16 14:02:10,733 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=34
+2025-06-16 14:02:10,956 - database.mongodb - INFO - Verified updated quantity: 34
+2025-06-16 14:02:11,540 - aiogram.event - INFO - Update id=762237455 is handled. Duration 4431 ms by bot id=7849840849
+2025-06-16 14:02:13,191 - aiogram.event - INFO - Update id=762237456 is handled. Duration 497 ms by bot id=7849840849
+2025-06-16 14:02:17,514 - aiogram.event - INFO - Update id=762237457 is handled. Duration 428 ms by bot id=7849840849
+2025-06-16 14:02:19,131 - database.mongodb - INFO - Sleep mode updated: enabled=False, end_time=None
+2025-06-16 14:02:20,042 - aiogram.event - INFO - Update id=762237458 is handled. Duration 1468 ms by bot id=7849840849
+2025-06-16 14:02:22,124 - aiogram.event - INFO - Update id=762237459 is handled. Duration 641 ms by bot id=7849840849
+2025-06-16 14:02:23,834 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 14:02:24,059 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 14:02:24,395 - aiogram.event - INFO - Update id=762237460 is handled. Duration 1011 ms by bot id=7849840849
+2025-06-16 14:02:39,524 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-16 14:02:39,524 - aiogram.dispatcher - INFO - Polling stopped for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 14:02:39,525 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-16 14:02:43,327 - __main__ - INFO - Starting bot...
+2025-06-16 14:02:43,328 - database.mongodb - ERROR - Failed to get users with cart: 'NoneType' object has no attribute 'users'
+2025-06-16 14:02:43,328 - aiogram.dispatcher - INFO - Start polling
+2025-06-16 14:02:47,805 - aiogram.dispatcher - INFO - Run polling for bot @teeeeeest_hoooook_bot id=7849840849 - 'Test_bot'
+2025-06-16 14:02:52,980 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 14:02:55,744 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 14:02:55,744 - database.mongodb - INFO - Attempting to connect to MongoDB at mongodb+srv://mksimantipev228:CHD5QbOKaUwhZXj1@shopbot.ozvfezb.mongodb.net/?retryWrites=true&w=majority&appName=ShopBot
+2025-06-16 14:02:58,765 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 14:02:58,806 - database.mongodb - INFO - Database indexes created successfully
+2025-06-16 14:02:58,996 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 14:02:59,015 - database.mongodb - INFO - Successfully connected to MongoDB database: vapeshop_db
+2025-06-16 14:02:59,224 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 14:02:59,225 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 14:02:59,225 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:02:59,455 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 34}]}
+2025-06-16 14:02:59,456 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:02:59,456 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 14:02:59,456 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 34}]
+2025-06-16 14:02:59,456 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 34}
+2025-06-16 14:02:59,686 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T14:01:34.711559'}
+2025-06-16 14:02:59,912 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 14:02:59,912 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 14:03:00,139 - database.mongodb - INFO - Current quantity: 34, Change: -1, New quantity will be: 33
+2025-06-16 14:03:00,367 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=33
+2025-06-16 14:03:00,593 - database.mongodb - INFO - Verified updated quantity: 33
+2025-06-16 14:03:00,593 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 14:03:00,593 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 14:03:01,505 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 14:03:01,506 - aiogram.event - INFO - Update id=762237462 is handled. Duration 5762 ms by bot id=7849840849
+2025-06-16 14:03:01,631 - aiogram.event - INFO - Update id=762237461 is handled. Duration 8652 ms by bot id=7849840849
+2025-06-16 14:03:04,404 - aiogram.event - INFO - Update id=762237463 is handled. Duration 1020 ms by bot id=7849840849
+2025-06-16 14:03:06,276 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:03:06,506 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 33}]}
+2025-06-16 14:03:06,507 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:03:06,851 - aiogram.event - INFO - Update id=762237464 is handled. Duration 1264 ms by bot id=7849840849
+2025-06-16 14:03:13,877 - aiogram.event - INFO - Update id=762237465 is handled. Duration 757 ms by bot id=7849840849
+2025-06-16 14:03:19,935 - aiogram.event - INFO - Update id=762237466 is handled. Duration 867 ms by bot id=7849840849
+2025-06-16 14:03:26,793 - aiogram.event - INFO - Update id=762237467 is handled. Duration 2797 ms by bot id=7849840849
+2025-06-16 14:03:30,051 - aiogram.event - INFO - Update id=762237468 is handled. Duration 656 ms by bot id=7849840849
+2025-06-16 14:03:33,263 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 14:03:33,492 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 14:03:34,810 - aiogram.event - INFO - Update id=762237469 is handled. Duration 2006 ms by bot id=7849840849
+2025-06-16 14:03:35,350 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 14:03:35,584 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 14:03:35,587 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 14:03:35,588 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:03:35,819 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 33}]}
+2025-06-16 14:03:35,819 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:03:35,819 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 14:03:35,819 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 33}]
+2025-06-16 14:03:35,819 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 33}
+2025-06-16 14:03:36,046 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T14:13:00.593691'}
+2025-06-16 14:03:36,272 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 14:03:36,272 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 14:03:36,501 - database.mongodb - INFO - Current quantity: 33, Change: -1, New quantity will be: 32
+2025-06-16 14:03:36,732 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=32
+2025-06-16 14:03:36,963 - database.mongodb - INFO - Verified updated quantity: 32
+2025-06-16 14:03:36,963 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 14:03:36,963 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 14:03:38,586 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 14:03:38,586 - aiogram.event - INFO - Update id=762237470 is handled. Duration 3237 ms by bot id=7849840849
+2025-06-16 14:03:41,147 - aiogram.event - INFO - Update id=762237471 is handled. Duration 1482 ms by bot id=7849840849
+2025-06-16 14:03:42,585 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:03:42,825 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 14:03:42,826 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:03:43,546 - aiogram.event - INFO - Update id=762237472 is handled. Duration 1669 ms by bot id=7849840849
+2025-06-16 14:03:52,011 - aiogram.event - INFO - Update id=762237474 is handled. Duration 1433 ms by bot id=7849840849
+2025-06-16 14:03:53,602 - handlers.user_handlers - ERROR - Error in process_phone: 'NoneType' object has no attribute 'strip'
+2025-06-16 14:03:53,833 - aiogram.event - INFO - Update id=762237475 is handled. Duration 696 ms by bot id=7849840849
+2025-06-16 14:03:59,686 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:03:59,913 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 14:03:59,913 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:04:00,143 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:04:00,382 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 14:04:00,382 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:04:00,575 - aiogram.event - INFO - Update id=762237473 is handled. Duration 12086 ms by bot id=7849840849
+2025-06-16 14:04:04,604 - aiogram.event - INFO - Update id=762237476 is handled. Duration 5156 ms by bot id=7849840849
+2025-06-16 14:04:06,643 - handlers.admin_handlers - WARNING - Admin access denied for user 531632690
+2025-06-16 14:04:06,815 - aiogram.event - INFO - Update id=762237477 is handled. Duration 174 ms by bot id=7849840849
+2025-06-16 14:04:09,557 - aiogram.event - INFO - Update id=762237478 is handled. Duration 546 ms by bot id=7849840849
+2025-06-16 14:04:17,717 - handlers.admin_handlers - INFO - Successful admin login for user 531632690
+2025-06-16 14:04:18,235 - aiogram.event - INFO - Update id=762237479 is handled. Duration 521 ms by bot id=7849840849
+2025-06-16 14:04:23,738 - aiogram.event - INFO - Update id=762237480 is handled. Duration 1167 ms by bot id=7849840849
+2025-06-16 14:04:43,805 - aiogram.event - INFO - Update id=762237481 is handled. Duration 1159 ms by bot id=7849840849
+2025-06-16 14:04:45,147 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 14:04:45,462 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 14:04:45,809 - aiogram.event - INFO - Update id=762237482 is handled. Duration 1162 ms by bot id=7849840849
+2025-06-16 14:04:52,537 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 14:04:52,766 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 14:04:52,766 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 14:04:52,766 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:04:53,038 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 14:04:53,039 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:04:53,039 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 14:04:53,039 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 31}]
+2025-06-16 14:04:53,039 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 31}
+2025-06-16 14:04:53,284 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [{'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}], 'cart_expires_at': '2025-06-16T14:13:36.963680'}
+2025-06-16 14:04:53,511 - handlers.user_handlers - INFO - Flavor already in cart
+2025-06-16 14:04:54,068 - aiogram.event - INFO - Update id=762237483 is handled. Duration 1532 ms by bot id=7849840849
+2025-06-16 14:04:57,453 - aiogram.event - INFO - Update id=762237484 is handled. Duration 931 ms by bot id=7849840849
+2025-06-16 14:04:59,464 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:04:59,693 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 14:04:59,693 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:05:00,520 - aiogram.event - INFO - Update id=762237485 is handled. Duration 1744 ms by bot id=7849840849
+2025-06-16 14:05:07,055 - aiogram.event - INFO - Update id=762237486 is handled. Duration 678 ms by bot id=7849840849
+2025-06-16 14:05:10,704 - aiogram.event - INFO - Update id=762237487 is handled. Duration 1165 ms by bot id=7849840849
+2025-06-16 14:05:17,491 - aiogram.event - INFO - Update id=762237488 is handled. Duration 2022 ms by bot id=7849840849
+2025-06-16 14:05:23,568 - aiogram.event - INFO - Update id=762237489 is handled. Duration 818 ms by bot id=7849840849
+2025-06-16 14:05:53,413 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:05:53,643 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 14:05:53,644 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:05:53,876 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:05:54,105 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 30}]}
+2025-06-16 14:05:54,105 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:05:55,115 - aiogram.event - INFO - Update id=762237490 is handled. Duration 1943 ms by bot id=7849840849
+2025-06-16 14:06:01,444 - aiogram.event - INFO - Update id=762237491 is handled. Duration 2865 ms by bot id=7849840849
+2025-06-16 14:07:44,869 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=16:07
+2025-06-16 14:07:45,267 - aiogram.event - INFO - Update id=762237492 is handled. Duration 1108 ms by bot id=7849840849
+2025-06-16 14:07:54,666 - aiogram.event - INFO - Update id=762237493 is handled. Duration 493 ms by bot id=7849840849
+2025-06-16 14:07:56,315 - database.mongodb - INFO - Sleep mode updated: enabled=False, end_time=None
+2025-06-16 14:07:56,876 - aiogram.event - INFO - Update id=762237494 is handled. Duration 1050 ms by bot id=7849840849
+2025-06-16 14:08:02,482 - aiogram.event - INFO - Update id=762237495 is handled. Duration 3164 ms by bot id=7849840849
+2025-06-16 14:08:04,735 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=16:08
+2025-06-16 14:08:05,230 - aiogram.event - INFO - Update id=762237496 is handled. Duration 1312 ms by bot id=7849840849
+2025-06-16 14:08:24,672 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=1
+2025-06-16 14:08:24,896 - database.mongodb - INFO - Current quantity: 30, Change: 1, New quantity will be: 31
+2025-06-16 14:08:25,128 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=31
+2025-06-16 14:08:25,359 - database.mongodb - INFO - Verified updated quantity: 31
+2025-06-16 14:08:25,600 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=1
+2025-06-16 14:08:25,833 - database.mongodb - INFO - Current quantity: 31, Change: 1, New quantity will be: 32
+2025-06-16 14:08:26,064 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=32
+2025-06-16 14:08:26,294 - database.mongodb - INFO - Verified updated quantity: 32
+2025-06-16 14:08:27,223 - aiogram.event - INFO - Update id=762237497 is handled. Duration 2784 ms by bot id=7849840849
+2025-06-16 14:08:30,296 - aiogram.event - INFO - Update id=762237498 is handled. Duration 457 ms by bot id=7849840849
+2025-06-16 14:08:36,579 - aiogram.event - INFO - Update id=762237499 is handled. Duration 650 ms by bot id=7849840849
+2025-06-16 14:08:39,373 - aiogram.event - INFO - Update id=762237500 is handled. Duration 495 ms by bot id=7849840849
+2025-06-16 14:08:42,177 - database.mongodb - INFO - Sleep mode updated: enabled=False, end_time=None
+2025-06-16 14:08:42,727 - aiogram.event - INFO - Update id=762237501 is handled. Duration 1021 ms by bot id=7849840849
+2025-06-16 14:08:45,082 - aiogram.event - INFO - Update id=762237502 is handled. Duration 919 ms by bot id=7849840849
+2025-06-16 14:08:47,743 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 14:08:48,050 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 14:08:48,386 - aiogram.event - INFO - Update id=762237503 is handled. Duration 1150 ms by bot id=7849840849
+2025-06-16 14:08:54,595 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_1
+2025-06-16 14:08:54,912 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '1']
+2025-06-16 14:08:54,912 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 0
+2025-06-16 14:08:54,912 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:08:55,138 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 14:08:55,139 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:08:55,139 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 14:08:55,139 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 38}, {'name': 'H', 'quantity': 32}]
+2025-06-16 14:08:55,139 - handlers.user_handlers - INFO - Selected flavor: {'name': 'Jf', 'quantity': 38}
+2025-06-16 14:08:55,423 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T14:13:36.963680'}
+2025-06-16 14:08:55,730 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: Jf
+2025-06-16 14:08:55,730 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=Jf, change=-1
+2025-06-16 14:08:56,038 - database.mongodb - INFO - Current quantity: 38, Change: -1, New quantity will be: 37
+2025-06-16 14:08:56,345 - database.mongodb - INFO - Successfully updated flavor quantity: Jf, new quantity=37
+2025-06-16 14:08:56,652 - database.mongodb - INFO - Verified updated quantity: 37
+2025-06-16 14:08:56,652 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'Jf', 'quantity': 1}
+2025-06-16 14:08:56,653 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 14:08:57,052 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 14:08:57,053 - aiogram.event - INFO - Update id=762237504 is handled. Duration 2458 ms by bot id=7849840849
+2025-06-16 14:09:00,488 - aiogram.event - INFO - Update id=762237505 is handled. Duration 946 ms by bot id=7849840849
+2025-06-16 14:09:02,592 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:09:02,899 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 14:09:02,900 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:09:03,365 - aiogram.event - INFO - Update id=762237506 is handled. Duration 1589 ms by bot id=7849840849
+2025-06-16 14:09:13,244 - aiogram.event - INFO - Update id=762237507 is handled. Duration 806 ms by bot id=7849840849
+2025-06-16 14:09:18,043 - aiogram.event - INFO - Update id=762237508 is handled. Duration 1746 ms by bot id=7849840849
+2025-06-16 14:09:21,695 - aiogram.event - INFO - Update id=762237509 is handled. Duration 1897 ms by bot id=7849840849
+2025-06-16 14:09:40,974 - aiogram.event - INFO - Update id=762237510 is handled. Duration 593 ms by bot id=7849840849
+2025-06-16 14:10:03,147 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:10:03,365 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 14:10:03,366 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:10:03,606 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:10:03,931 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 36}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 14:10:03,931 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:10:05,299 - aiogram.event - INFO - Update id=762237511 is handled. Duration 2389 ms by bot id=7849840849
+2025-06-16 14:10:09,321 - aiogram.event - INFO - Update id=762237512 is handled. Duration 636 ms by bot id=7849840849
+2025-06-16 14:10:17,067 - aiogram.event - INFO - Update id=762237513 is handled. Duration 846 ms by bot id=7849840849
+2025-06-16 14:10:19,805 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 14:10:20,110 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 14:10:20,466 - aiogram.event - INFO - Update id=762237514 is handled. Duration 1177 ms by bot id=7849840849
+2025-06-16 14:10:23,095 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 14:10:23,327 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 14:10:23,328 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 14:10:23,328 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:10:23,557 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 36}, {'name': 'H', 'quantity': 32}]}
+2025-06-16 14:10:23,557 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:10:23,557 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 14:10:23,558 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 36}, {'name': 'H', 'quantity': 32}]
+2025-06-16 14:10:23,558 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 32}
+2025-06-16 14:10:23,795 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T14:18:56.653056'}
+2025-06-16 14:10:24,106 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 14:10:24,106 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 14:10:24,334 - database.mongodb - INFO - Current quantity: 32, Change: -1, New quantity will be: 31
+2025-06-16 14:10:24,565 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=31
+2025-06-16 14:10:24,810 - database.mongodb - INFO - Verified updated quantity: 31
+2025-06-16 14:10:24,810 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 14:10:24,810 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 14:10:25,219 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 14:10:25,220 - aiogram.event - INFO - Update id=762237515 is handled. Duration 2125 ms by bot id=7849840849
+2025-06-16 14:10:27,977 - aiogram.event - INFO - Update id=762237516 is handled. Duration 895 ms by bot id=7849840849
+2025-06-16 14:10:30,188 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:10:30,422 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 36}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 14:10:30,422 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:10:30,742 - aiogram.event - INFO - Update id=762237517 is handled. Duration 1343 ms by bot id=7849840849
+2025-06-16 14:10:38,097 - aiogram.event - INFO - Update id=762237518 is handled. Duration 655 ms by bot id=7849840849
+2025-06-16 14:10:40,470 - aiogram.event - INFO - Update id=762237519 is handled. Duration 1019 ms by bot id=7849840849
+2025-06-16 14:10:43,300 - aiogram.event - INFO - Update id=762237520 is handled. Duration 1988 ms by bot id=7849840849
+2025-06-16 14:10:47,708 - aiogram.event - INFO - Update id=762237521 is handled. Duration 1720 ms by bot id=7849840849
+2025-06-16 14:10:50,066 - aiogram.event - INFO - Update id=762237522 is handled. Duration 669 ms by bot id=7849840849
+2025-06-16 14:11:01,495 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:11:01,787 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 36}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 14:11:01,787 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:11:02,036 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:11:02,299 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 36}, {'name': 'H', 'quantity': 30}]}
+2025-06-16 14:11:02,299 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:11:03,282 - aiogram.event - INFO - Update id=762237523 is handled. Duration 2023 ms by bot id=7849840849
+2025-06-16 14:11:07,830 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=16:11
+2025-06-16 14:11:08,853 - aiogram.event - INFO - Update id=762237524 is handled. Duration 1792 ms by bot id=7849840849
+2025-06-16 14:12:17,837 - aiogram.event - INFO - Update id=762237525 is handled. Duration 782 ms by bot id=7849840849
+2025-06-16 14:12:20,436 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=Jf, change=1
+2025-06-16 14:12:20,738 - database.mongodb - INFO - Current quantity: 36, Change: 1, New quantity will be: 37
+2025-06-16 14:12:21,045 - database.mongodb - INFO - Successfully updated flavor quantity: Jf, new quantity=37
+2025-06-16 14:12:21,271 - database.mongodb - INFO - Verified updated quantity: 37
+2025-06-16 14:12:21,505 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=1
+2025-06-16 14:12:21,762 - database.mongodb - INFO - Current quantity: 30, Change: 1, New quantity will be: 31
+2025-06-16 14:12:22,068 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=31
+2025-06-16 14:12:22,377 - database.mongodb - INFO - Verified updated quantity: 31
+2025-06-16 14:12:24,827 - aiogram.event - INFO - Update id=762237526 is handled. Duration 4628 ms by bot id=7849840849
+2025-06-16 14:12:29,248 - aiogram.event - INFO - Update id=762237527 is handled. Duration 416 ms by bot id=7849840849
+2025-06-16 14:12:33,161 - aiogram.event - INFO - Update id=762237528 is handled. Duration 848 ms by bot id=7849840849
+2025-06-16 14:12:36,008 - aiogram.event - INFO - Update id=762237529 is handled. Duration 419 ms by bot id=7849840849
+2025-06-16 14:12:37,695 - database.mongodb - INFO - Sleep mode updated: enabled=False, end_time=None
+2025-06-16 14:12:38,061 - aiogram.event - INFO - Update id=762237530 is handled. Duration 832 ms by bot id=7849840849
+2025-06-16 14:12:40,758 - aiogram.event - INFO - Update id=762237531 is handled. Duration 1224 ms by bot id=7849840849
+2025-06-16 14:12:44,393 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 14:12:44,700 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 14:12:45,973 - aiogram.event - INFO - Update id=762237532 is handled. Duration 2112 ms by bot id=7849840849
+2025-06-16 14:12:46,424 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 14:12:46,656 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 14:12:46,656 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 14:12:46,656 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:12:46,954 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 31}]}
+2025-06-16 14:12:46,955 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:12:46,955 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 14:12:46,955 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 31}]
+2025-06-16 14:12:46,955 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 31}
+2025-06-16 14:12:47,188 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T14:20:24.810475'}
+2025-06-16 14:12:47,415 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 14:12:47,416 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 14:12:47,641 - database.mongodb - INFO - Current quantity: 31, Change: -1, New quantity will be: 30
+2025-06-16 14:12:47,977 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=30
+2025-06-16 14:12:48,212 - database.mongodb - INFO - Verified updated quantity: 30
+2025-06-16 14:12:48,212 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 14:12:48,213 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 14:12:48,606 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 14:12:48,607 - aiogram.event - INFO - Update id=762237533 is handled. Duration 2183 ms by bot id=7849840849
+2025-06-16 14:12:51,724 - aiogram.event - INFO - Update id=762237534 is handled. Duration 867 ms by bot id=7849840849
+2025-06-16 14:12:53,608 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:12:53,915 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 30}]}
+2025-06-16 14:12:53,915 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:12:54,811 - aiogram.event - INFO - Update id=762237535 is handled. Duration 1906 ms by bot id=7849840849
+2025-06-16 14:13:02,631 - aiogram.event - INFO - Update id=762237536 is handled. Duration 724 ms by bot id=7849840849
+2025-06-16 14:13:05,151 - aiogram.event - INFO - Update id=762237537 is handled. Duration 992 ms by bot id=7849840849
+2025-06-16 14:13:11,371 - aiogram.event - INFO - Update id=762237538 is handled. Duration 1988 ms by bot id=7849840849
+2025-06-16 14:13:18,303 - aiogram.event - INFO - Update id=762237539 is handled. Duration 627 ms by bot id=7849840849
+2025-06-16 14:13:20,166 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 14:13:20,438 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 14:13:21,017 - aiogram.event - INFO - Update id=762237540 is handled. Duration 1395 ms by bot id=7849840849
+2025-06-16 14:13:22,183 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 14:13:22,409 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 14:13:22,410 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 14:13:22,410 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:13:22,691 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 30}]}
+2025-06-16 14:13:22,691 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:13:22,692 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 14:13:22,692 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 30}]
+2025-06-16 14:13:22,692 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 30}
+2025-06-16 14:13:22,995 - handlers.user_handlers - INFO - User data: {'_id': '684fc6c31a16d73950655727', 'user_id': 7737565280, 'username': None, 'cart': [], 'cart_expires_at': '2025-06-16T14:22:48.213031'}
+2025-06-16 14:13:23,219 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 14:13:23,219 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 14:13:23,460 - database.mongodb - INFO - Current quantity: 30, Change: -1, New quantity will be: 29
+2025-06-16 14:13:23,689 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=29
+2025-06-16 14:13:23,919 - database.mongodb - INFO - Verified updated quantity: 29
+2025-06-16 14:13:23,919 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 14:13:23,920 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 14:13:24,312 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 14:13:24,313 - aiogram.event - INFO - Update id=762237541 is handled. Duration 2131 ms by bot id=7849840849
+2025-06-16 14:13:30,861 - aiogram.event - INFO - Update id=762237542 is handled. Duration 880 ms by bot id=7849840849
+2025-06-16 14:13:32,236 - aiogram.event - INFO - Update id=762237543 is handled. Duration 1045 ms by bot id=7849840849
+2025-06-16 14:13:33,521 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:13:33,853 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 29}]}
+2025-06-16 14:13:33,853 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:13:34,185 - aiogram.event - INFO - Update id=762237544 is handled. Duration 1353 ms by bot id=7849840849
+2025-06-16 14:13:34,857 - aiogram.event - INFO - Update id=762237545 is handled. Duration 733 ms by bot id=7849840849
+2025-06-16 14:13:36,530 - database.mongodb - INFO - [DEBUG] Getting products for category: Одноразовые устройства
+2025-06-16 14:13:36,823 - database.mongodb - INFO - [DEBUG] Found 1 products in category Одноразовые устройства
+2025-06-16 14:13:37,334 - aiogram.event - INFO - Update id=762237546 is handled. Duration 1274 ms by bot id=7849840849
+2025-06-16 14:13:38,873 - handlers.user_handlers - INFO - Starting select_flavor handler with callback data: sf_684f296f80e47ed522bb0aa5_2
+2025-06-16 14:13:39,110 - handlers.user_handlers - INFO - Parsed callback data: ['sf', '684f296f80e47ed522bb0aa5', '2']
+2025-06-16 14:13:39,111 - handlers.user_handlers - INFO - Product ID: 684f296f80e47ed522bb0aa5, Flavor Index: 1
+2025-06-16 14:13:39,111 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:13:39,337 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 29}]}
+2025-06-16 14:13:39,337 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:13:39,337 - handlers.user_handlers - INFO - Found product: Gh
+2025-06-16 14:13:39,337 - handlers.user_handlers - INFO - Product flavors: [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 29}]
+2025-06-16 14:13:39,338 - handlers.user_handlers - INFO - Selected flavor: {'name': 'H', 'quantity': 29}
+2025-06-16 14:13:39,567 - handlers.user_handlers - INFO - User data: {'_id': '684ee2075301bc63dc01723a', 'user_id': 1088067370, 'username': 'qantemir', 'cart': [], 'cart_expires_at': None}
+2025-06-16 14:13:39,894 - handlers.user_handlers - INFO - Attempting to deduct flavor quantity: H
+2025-06-16 14:13:39,895 - database.mongodb - INFO - Attempting to update flavor quantity: product_id=684f296f80e47ed522bb0aa5, flavor=H, change=-1
+2025-06-16 14:13:40,201 - database.mongodb - INFO - Current quantity: 29, Change: -1, New quantity will be: 28
+2025-06-16 14:13:40,510 - database.mongodb - INFO - Successfully updated flavor quantity: H, new quantity=28
+2025-06-16 14:13:40,816 - database.mongodb - INFO - Verified updated quantity: 28
+2025-06-16 14:13:40,817 - handlers.user_handlers - INFO - Adding to cart: {'product_id': '684f296f80e47ed522bb0aa5', 'name': 'Gh', 'price': 5, 'flavor': 'H', 'quantity': 1}
+2025-06-16 14:13:40,817 - handlers.user_handlers - INFO - Updating user data
+2025-06-16 14:13:41,215 - handlers.user_handlers - INFO - Successfully added item to cart
+2025-06-16 14:13:41,215 - aiogram.event - INFO - Update id=762237547 is handled. Duration 2344 ms by bot id=7849840849
+2025-06-16 14:13:41,514 - aiogram.event - INFO - Update id=762237548 is handled. Duration 637 ms by bot id=7849840849
+2025-06-16 14:13:48,414 - database.mongodb - INFO - [DEBUG] Getting products for category: Жидкости
+2025-06-16 14:13:48,626 - database.mongodb - INFO - [DEBUG] Found 1 products in category Жидкости
+2025-06-16 14:13:49,116 - aiogram.event - INFO - Update id=762237549 is handled. Duration 1115 ms by bot id=7849840849
+2025-06-16 14:13:52,800 - aiogram.event - INFO - Update id=762237550 is handled. Duration 1433 ms by bot id=7849840849
+2025-06-16 14:13:57,136 - database.mongodb - INFO - [DEBUG] Attempting to get product with ID: 684f296f80e47ed522bb0aa5
+2025-06-16 14:13:57,346 - database.mongodb - INFO - [DEBUG] Found product in database: {'_id': ObjectId('684f296f80e47ed522bb0aa5'), 'name': 'Gh', 'category': 'Одноразовые устройства', 'price': 5, 'description': '-', 'photo': 'AgACAgIAAxkBAAIReWhPJueYa1YlMkQ8N2TzvEX68uT5AAJW-DEbPpZ4SgfwzBAOt2qXAQADAgADeQADNgQ', 'available': True, 'flavors': [{'name': 'Jf', 'quantity': 37}, {'name': 'H', 'quantity': 28}]}
+2025-06-16 14:13:57,347 - database.mongodb - INFO - [DEBUG] Converted product ID to string: 684f296f80e47ed522bb0aa5
+2025-06-16 14:13:57,948 - aiogram.event - INFO - Update id=762237551 is handled. Duration 1463 ms by bot id=7849840849
+2025-06-16 14:14:01,625 - aiogram.event - INFO - Update id=762237552 is handled. Duration 1004 ms by bot id=7849840849
+2025-06-16 14:14:05,080 - aiogram.event - INFO - Update id=762237553 is handled. Duration 609 ms by bot id=7849840849
+2025-06-16 14:14:08,540 - aiogram.event - INFO - Update id=762237554 is handled. Duration 903 ms by bot id=7849840849
+2025-06-16 14:14:13,826 - aiogram.event - INFO - Update id=762237555 is handled. Duration 1681 ms by bot id=7849840849
+2025-06-16 14:14:32,186 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=16:14
+2025-06-16 14:14:32,772 - aiogram.event - INFO - Update id=762237556 is handled. Duration 1217 ms by bot id=7849840849
+2025-06-16 14:15:31,452 - aiogram.event - INFO - Update id=762237561 is handled. Duration 876 ms by bot id=7849840849
+2025-06-16 14:15:31,477 - aiogram.event - INFO - Update id=762237557 is handled. Duration 1066 ms by bot id=7849840849
+2025-06-16 14:15:31,638 - aiogram.event - INFO - Update id=762237560 is handled. Duration 1220 ms by bot id=7849840849
+2025-06-16 14:15:32,788 - aiogram.event - INFO - Update id=762237559 is handled. Duration 2376 ms by bot id=7849840849
+2025-06-16 14:15:32,879 - aiogram.event - INFO - Update id=762237558 is handled. Duration 2468 ms by bot id=7849840849
+2025-06-16 14:15:41,719 - aiogram.event - INFO - Update id=762237562 is handled. Duration 422 ms by bot id=7849840849
+2025-06-16 14:15:43,449 - database.mongodb - INFO - Sleep mode updated: enabled=False, end_time=None
+2025-06-16 14:15:43,879 - aiogram.event - INFO - Update id=762237563 is handled. Duration 941 ms by bot id=7849840849
+2025-06-16 14:15:45,681 - aiogram.event - INFO - Update id=762237564 is handled. Duration 694 ms by bot id=7849840849
+2025-06-16 14:15:50,000 - database.mongodb - INFO - Sleep mode updated: enabled=True, end_time=16:15
+2025-06-16 14:15:50,556 - aiogram.event - INFO - Update id=762237565 is handled. Duration 2305 ms by bot id=7849840849
+2025-06-16 14:15:51,314 - aiogram.event - INFO - Update id=762237566 is handled. Duration 1046 ms by bot id=7849840849
+2025-06-16 14:15:53,794 - aiogram.event - INFO - Update id=762237567 is handled. Duration 558 ms by bot id=7849840849
+2025-06-16 14:17:45,824 - aiogram.event - INFO - Update id=762237568 is handled. Duration 184 ms by bot id=7849840849
+2025-06-16 14:17:47,739 - aiogram.event - INFO - Update id=762237569 is handled. Duration 647 ms by bot id=7849840849

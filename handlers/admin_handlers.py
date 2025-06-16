@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import asyncio
 import logging
 
-from config import ADMIN_ID
+from config import ADMIN_ID, ADMIN_SWITCHING
 from database.mongodb import db
 from keyboards.admin_kb import (
     admin_main_menu,
@@ -658,58 +658,147 @@ async def cleanup_old_orders():
 @check_admin_session
 async def show_orders(message: Message):
     try:
-        # Clean up old orders first
-        await cleanup_old_orders()
+        # Ensure database connection
+        await db.ensure_connected()
         
+        # Get all orders
         orders = await db.get_all_orders()
+        
         if not orders:
-            await message.answer("Заказы отсутствуют")
+            await message.answer("Нет активных заказов")
             return
+            
+        # Count active orders (pending + confirmed)
+        active_count = len([order for order in orders if order.get('status') in ['pending', 'confirmed']])
         
-        ORDER_STATUSES = {
-            'pending': '⏳ Ожидает обработки',
-            'confirmed': '✅ Подтвержден',
-            'cancelled': '❌ Отменен',
-            'completed': '✅ Выполнен'
-        }
-        
-        for order in orders:
-            status = order.get('status', 'pending')
-            status_text = ORDER_STATUSES.get(status, "Статус неизвестен")
-            
-            text = f"Заказ #{order['_id']}\n"
-            text += f"От: {order.get('username', 'Неизвестно')} ({order['user_id']})\n"
-            if order.get('phone'):
-                text += f"📱 Телефон: {order['phone']}\n"
-            if order.get('address'):
-                text += f"📍 Адрес: {order['address']}\n"
-            if order.get('gis_link'):
-                text += f"🗺 2GIS: {order['gis_link']}\n"
-            text += f"Статус: {status_text}\n\n"
-            text += "Товары:\n"
-            
-            total = 0
-            for item in order['items']:
-                subtotal = item['price'] * item['quantity']
-                text += f"- {item['name']}"
-                if 'flavor' in item:
-                    text += f" (🌈 {item['flavor']})"
-                text += f" x{item['quantity']} = {format_price(subtotal)} Tg\n"
-                total += subtotal
-            
-            text += f"\nИтого: {format_price(total)} Tg"
-            
-            # If order has cancellation reason, show it
-            if status == 'cancelled' and order.get('cancellation_reason'):
-                text += f"\n\nПричина отмены: {order['cancellation_reason']}"
-            
+        # Create keyboard with delete all orders button
+        keyboard = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="🗑 Удалить все заказы", callback_data="delete_all_orders")],
+            [InlineKeyboardButton(text="◀️ Назад", callback_data="back_to_admin_menu")]
+        ])
+
+        # Show active orders count
+        await message.answer(
+            f"📊 Статистика заказов:\n"
+            f"📦 Активных заказов: {active_count}/{ADMIN_SWITCHING}\n"
+            f"⚠️ Магазин уйдет в режим сна при достижении {ADMIN_SWITCHING} активных заказов",
+            reply_markup=keyboard
+        )
+
+        # Check if we need to enable sleep mode
+        if active_count >= ADMIN_SWITCHING:
+            # Set sleep mode for 2 hours
+            end_time = (datetime.now() + timedelta(hours=2)).strftime("%H:%M")
+            await db.set_sleep_mode(True, end_time)
             await message.answer(
-                text,
-                reply_markup=order_management_kb(str(order['_id']), status)
+                f"⚠️ Внимание! Достигнут лимит активных заказов ({active_count}).\n"
+                f"Магазин переведен в режим сна до {end_time}."
             )
+            
+        # Show orders list
+        for order in orders:
+            # Ensure we have user data
+            user_data = {
+                'full_name': order.get('username', 'Не указано'),
+                'username': order.get('username', 'Не указано')
+            }
+            
+            order_text = await format_order_notification(
+                str(order["_id"]),
+                user_data,
+                order,
+                order.get("items", []),
+                order.get("total_amount", 0)
+            )
+            await message.answer(order_text, parse_mode="HTML")
+
     except Exception as e:
-        print(f"[ERROR] Error in show_orders: {str(e)}")
-        await message.answer("Произошла ошибка при получении заказов")
+        logger.error(f"Error showing orders: {str(e)}")
+        await message.answer("Произошла ошибка при получении списка заказов.")
+
+@router.callback_query(F.data == "delete_all_orders")
+@check_admin_session
+async def delete_all_orders(callback: CallbackQuery):
+    try:
+        # Ensure database connection
+        await db.ensure_connected()
+        
+        # Get all orders
+        orders = await db.get_all_orders()
+        
+        if not orders:
+            await callback.answer("Нет заказов для удаления")
+            return
+            
+        # Delete all orders
+        for order in orders:
+            # Return items to inventory if order was confirmed
+            if order.get('status') == 'confirmed':
+                for item in order.get('items', []):
+                    if 'flavor' in item:
+                        try:
+                            await db.update_product_flavor_quantity(
+                                item['product_id'],
+                                item['flavor'],
+                                item['quantity']  # Return the full quantity
+                            )
+                        except Exception as e:
+                            logger.error(f"Error returning item to inventory: {str(e)}")
+                            continue
+            
+            try:
+                # Delete the order
+                await db.delete_order(str(order['_id']))
+            except Exception as e:
+                logger.error(f"Error deleting order {order['_id']}: {str(e)}")
+                continue
+        
+        # Notify admin
+        await callback.message.edit_text(
+            "✅ Все заказы успешно удалены",
+            reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                [InlineKeyboardButton(text="◀️ Назад", callback_data="back_to_admin_menu")]
+            ])
+        )
+        await callback.answer("Все заказы удалены")
+        
+    except Exception as e:
+        logger.error(f"Error deleting all orders: {str(e)}")
+        await callback.answer("Произошла ошибка при удалении заказов")
+
+@router.callback_query(F.data == "confirm_delete_all_orders")
+@check_admin_session
+async def confirm_delete_all_orders(callback: CallbackQuery):
+    try:
+        # Delete all orders
+        success = await db.delete_all_orders()
+        if success:
+            # Disable sleep mode since orders are cleared
+            await db.set_sleep_mode(False)
+            await callback.message.edit_text(
+                "✅ Все заказы успешно удалены.\n"
+                "Магазин снова открыт для работы."
+            )
+        else:
+            await callback.message.edit_text(
+                "❌ Произошла ошибка при удалении заказов."
+            )
+        await callback.answer()
+    except Exception as e:
+        logger.error(f"Error in confirm_delete_all_orders: {str(e)}")
+        await callback.answer("Произошла ошибка", show_alert=True)
+
+@router.callback_query(F.data == "cancel_delete_all_orders")
+@check_admin_session
+async def cancel_delete_all_orders(callback: CallbackQuery):
+    try:
+        await callback.message.edit_text(
+            "❌ Удаление заказов отменено."
+        )
+        await callback.answer()
+    except Exception as e:
+        logger.error(f"Error in cancel_delete_all_orders: {str(e)}")
+        await callback.answer("Произошла ошибка", show_alert=True)
 
 @router.callback_query(F.data.startswith("order_status_"))
 @check_admin_session
@@ -1825,12 +1914,16 @@ async def back_to_admin_menu_from_sleep(callback: CallbackQuery):
 
 async def format_order_notification(order_id: str, user_data: dict, order_data: dict, cart: list, total: float) -> str:
     """Format order notification for admin"""
+    # Safely get user data with fallbacks
+    full_name = user_data.get('full_name', 'Не указано')
+    username = user_data.get('username', 'Не указано')
+    
     text = (
         f"🆕 Новый заказ #{order_id}\n\n"
-        f"👤 От: {user_data['full_name']} (@{user_data['username']})\n"
-        f"📱 Телефон: {order_data['phone']}\n"
-        f"📍 Адрес: {order_data['address']}\n"
-        f"🗺 2GIS: {order_data['gis_link']}\n\n"
+        f"👤 От: {full_name} (@{username})\n"
+        f"📱 Телефон: {order_data.get('phone', 'Не указано')}\n"
+        f"📍 Адрес: {order_data.get('address', 'Не указано')}\n"
+        f"🗺 2GIS: {order_data.get('gis_link', 'Не указано')}\n\n"
         f"🛍 Товары:\n"
     )
     

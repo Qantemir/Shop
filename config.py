@@ -7,6 +7,7 @@ load_dotenv()
 BOT_TOKEN: str = os.getenv("BOT_TOKEN")
 ADMIN_ID: int = int(os.getenv("ADMIN_ID"))
 ADMIN_CARD: str = os.getenv("ADMIN_CARD", "")  # Card number for payments
+ADMIN_SWITCHING: int = int(os.getenv("ADMIN_SWITCHING", "2"))  # Number of approved orders before sleep mode
 
 # MongoDB Configuration
 MONGODB_URI: str = os.getenv("MONGODB_URI")

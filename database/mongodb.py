@@ -343,26 +343,48 @@ class MongoDB:
             return 0
 
     async def get_sleep_mode(self) -> dict:
-        """Get sleep mode status and end time"""
+        """Get current sleep mode settings"""
         try:
             await self.ensure_connected()
             if self._db is None:
                 logger.error("Database connection not established")
-                return {"enabled": False, "end_time": None}
+                return None
                 
-            settings = await self._db.settings.find_one({"setting": "sleep_mode"})
-            if not settings:
-                # If settings don't exist, create default and return
-                await self._init_settings()
-                return {"enabled": False, "end_time": None}
-
-            return {
-                "enabled": settings.get("enabled", False),
-                "end_time": settings.get("end_time")
-            }
+            sleep_mode = await self.settings.find_one({"setting": "sleep_mode"})
+            if sleep_mode:
+                sleep_mode.pop('_id', None)
+            return sleep_mode
         except Exception as e:
-            logger.error("Error getting sleep mode: %s", str(e))
-            return {"enabled": False, "end_time": None}
+            logger.error(f"Error getting sleep mode: {str(e)}")
+            return None
+
+    async def count_approved_orders(self) -> int:
+        """Count the number of approved orders"""
+        try:
+            await self.ensure_connected()
+            if self._db is None:
+                logger.error("Database connection not established")
+                return 0
+                
+            count = await self.orders.count_documents({"status": "confirmed"})
+            return count
+        except Exception as e:
+            logger.error(f"Error counting approved orders: {str(e)}")
+            return 0
+
+    async def delete_all_orders(self) -> bool:
+        """Delete all orders from the database"""
+        try:
+            await self.ensure_connected()
+            if self._db is None:
+                logger.error("Database connection not established")
+                return False
+                
+            result = await self.orders.delete_many({})
+            return result.deleted_count > 0
+        except Exception as e:
+            logger.error(f"Error deleting all orders: {str(e)}")
+            return False
 
     async def set_sleep_mode(self, enabled: bool, end_time: str = None) -> None:
         """Set sleep mode status and end time"""

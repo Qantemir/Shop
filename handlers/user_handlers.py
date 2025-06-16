@@ -826,7 +826,7 @@ async def process_address(message: Message, state: FSMContext):
         payment_text = (
             f"💳 Для оплаты заказа переведите {format_price(total)} Tg на карту:\n\n"
             f"<span class=\"tg-spoiler\"><code>{admin_card}</code></span>\n\n"
-            "KaspiBank(Дарья.К)\n\n"
+            "KaspiBank(Александра А.)\n\n"
             "👆 Нажмите на номер карты, чтобы скопировать\n\n"
             "После оплаты отправьте скриншот чека."
         )
