@@ -94,7 +94,7 @@ async def select_flavor(callback: CallbackQuery):
         # Set cart expiration time if not set
         if not user.get('cart_expires_at'):
             from datetime import datetime, timedelta
-            user['cart_expires_at'] = (datetime.now() + timedelta(minutes=10)).isoformat()
+            user['cart_expires_at'] = (datetime.now() + timedelta(minutes=5)).isoformat()
         
         # Update user's cart in database
         result = await db.update_user(callback.from_user.id, {

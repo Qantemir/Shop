@@ -340,7 +340,7 @@ async def select_flavor(callback: CallbackQuery):
         user['cart'].append(cart_item)
         
         # Set cart expiration time (10 minutes from now)
-        user['cart_expires_at'] = (datetime.now() + timedelta(minutes=10)).isoformat()
+        user['cart_expires_at'] = (datetime.now() + timedelta(minutes=5)).isoformat()
         
         # Update user
         logger.info("Updating user data")
