@@ -25,12 +25,7 @@ def setup_logging():
 async def on_startup(bot: Bot, logger):
     """Perform startup actions"""
     try:
-        # Send startup notification to admin
-        await bot.send_message(
-            chat_id=config.ADMIN_ID,
-            text="🟢 Бот запущен и готов к работе!"
-        )
-        logger.info("Startup notification sent to admin")
+       pass
     except Exception as e:
         logger.error(f"Error during startup: {e}")
         raise
@@ -38,18 +33,7 @@ async def on_startup(bot: Bot, logger):
 async def on_shutdown(bot: Bot, logger):
     """Perform cleanup actions"""
     try:
-        # Send shutdown notification to admin
-        try:
-            await bot.send_message(
-                chat_id=config.ADMIN_ID,
-                text="🔴 Бот остановлен!"
-            )
-        except TelegramAPIError:
-            pass  # Ignore Telegram API errors during shutdown
-            
-        # Close bot session
-        await bot.session.close()
-        logger.info("Bot session closed")
+      pass
     except Exception as e:
         logger.error(f"Error during shutdown: {e}")
 
