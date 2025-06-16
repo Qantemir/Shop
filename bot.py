@@ -16,8 +16,7 @@ def setup_logging():
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.StreamHandler(sys.stdout),
-            logging.FileHandler('bot.log')
+            logging.StreamHandler(sys.stdout)
         ]
     )
     return logging.getLogger(__name__)
@@ -25,7 +24,9 @@ def setup_logging():
 async def on_startup(bot: Bot, logger):
     """Perform startup actions"""
     try:
-       pass
+        # Initialize database connection
+        await db.connect()
+        logger.info("Database connection established")
     except Exception as e:
         logger.error(f"Error during startup: {e}")
         raise
@@ -33,7 +34,9 @@ async def on_startup(bot: Bot, logger):
 async def on_shutdown(bot: Bot, logger):
     """Perform cleanup actions"""
     try:
-      pass
+        # Close database connection
+        await db.close()
+        logger.info("Database connection closed")
     except Exception as e:
         logger.error(f"Error during shutdown: {e}")
 
