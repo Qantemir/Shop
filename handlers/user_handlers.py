@@ -724,13 +724,23 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         total = 0
         order_items = []
         
-        # Check if all items are still available
+        # Check minimum quantities for Snus and E-liquid categories
+        snus_total = 0
+        liquid_total = 0
+        
+        # Check if all items are still available and count category totals
         for item in cart:
             product = await db.get_product(item['product_id'])
             if not product:
                 await callback.message.answer(f"Товар {item['name']} больше не доступен")
                 await callback.answer()
                 return
+                
+            # Count category totals
+            if product.get('category') == 'Снюс':
+                snus_total += item['quantity']
+            elif product.get('category') == 'Жидкости':
+                liquid_total += item['quantity']
                 
             if 'flavor' in item:
                 flavors = product.get('flavors', [])
@@ -743,7 +753,24 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
                     await callback.answer()
                     return
         
-        # If all items are available, proceed with checkout
+        # Check minimum quantities
+        if snus_total > 0 and snus_total < 5:
+            await callback.message.answer(
+                "❌ Минимальный заказ для категории Снюс - 5 штук.\n"
+                f"Текущее количество: {snus_total} шт."
+            )
+            await callback.answer()
+            return
+            
+        if liquid_total > 0 and liquid_total < 5:
+            await callback.message.answer(
+                "❌ Минимальный заказ для категории Жидкости - 5 штук.\n"
+                f"Текущее количество: {liquid_total} шт."
+            )
+            await callback.answer()
+            return
+        
+        # If all items are available and quantities are valid, proceed with checkout
         for item in cart:
             subtotal = item['price'] * item['quantity']
             total += subtotal
