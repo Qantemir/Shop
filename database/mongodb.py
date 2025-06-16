@@ -359,14 +359,14 @@ class MongoDB:
             return None
 
     async def count_approved_orders(self) -> int:
-        """Count the number of approved orders"""
+        """Count the number of active orders (pending + confirmed)"""
         try:
             await self.ensure_connected()
             if self._db is None:
                 logger.error("Database connection not established")
                 return 0
                 
-            count = await self.orders.count_documents({"status": "confirmed"})
+            count = await self.orders.count_documents({"status": {"$in": ["pending", "confirmed"]}})
             return count
         except Exception as e:
             logger.error(f"Error counting approved orders: {str(e)}")
