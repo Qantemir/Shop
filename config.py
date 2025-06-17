@@ -11,12 +11,11 @@ ADMIN_SWITCHING: int = int(os.getenv("ADMIN_SWITCHING"))  # Number of approved o
 
 # MongoDB Configuration
 MONGODB_URI: str = os.getenv("MONGODB_URI")
-DB_NAME: str = os.getenv("DB_NAME", "vapeshop_db")
+DB_NAME: str = "vapeshop_db"
 
 # Shop Configuration
 SHOP_NAME: str = os.getenv("SHOP_NAME", "VapeShop")
-CURRENCY: str = os.getenv("CURRENCY", "RUB")
-
+CURRENCY: str = "RUB"
 # Product Categories
 CATEGORIES = [
     "Одноразовые устройства",

@@ -5,8 +5,12 @@ import os
 from dotenv import load_dotenv
 from functools import wraps
 from aiogram.types import CallbackQuery, Message
+import logging
+from database import db
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
 
 def check_admin_session(func):
     """Decorator to check if user has valid admin session"""
@@ -79,4 +83,31 @@ class SecurityManager:
         return timedelta(0)
 
 # Создаем глобальный экземпляр менеджера безопасности
-security_manager = SecurityManager() 
+security_manager = SecurityManager()
+
+async def return_items_to_inventory(order_items):
+    """
+    Общая функция для возврата товаров на склад
+    Returns True if successful, False if any item failed
+    """
+    try:
+        for item in order_items:
+            if 'flavor' in item:
+                logger.info(f"Returning item to inventory: product_id={item['product_id']}, flavor={item['flavor']}, quantity={item['quantity']}")
+                
+                success = await db.update_product_flavor_quantity(
+                    item['product_id'],
+                    item['flavor'],
+                    item['quantity']  # Return the full quantity
+                )
+                
+                if not success:
+                    logger.error(f"Failed to restore flavor quantity: product_id={item['product_id']}, flavor={item['flavor']}")
+                    return False
+                else:
+                    logger.info(f"Successfully restored flavor quantity for {item['flavor']}")
+        
+        return True
+    except Exception as e:
+        logger.error(f"Error returning items to inventory: {str(e)}")
+        return False 

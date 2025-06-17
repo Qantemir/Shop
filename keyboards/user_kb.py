@@ -103,7 +103,6 @@ def confirm_order_kb() -> InlineKeyboardMarkup:
 
 def help_menu() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📞 Контакты", callback_data="help_contacts")],
         [InlineKeyboardButton(text="❓ Как сделать заказ", callback_data="help_how_to_order")],
         [InlineKeyboardButton(text="💳 Оплата", callback_data="help_payment")],
         [InlineKeyboardButton(text="🚚 Доставка", callback_data="help_delivery")]

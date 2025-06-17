@@ -1,10 +1,10 @@
-from .cart_expiration import check_cart_expiration, start_cart_expiration_checker
-from .message_manager import format_price
 from .security import check_admin_session
 
+def format_price(price):
+    """Format price with decimal points"""
+    return f"{float(price):.2f}"
+
 __all__ = [
-    'check_cart_expiration',
-    'start_cart_expiration_checker',
     'format_price',
     'check_admin_session'
 ] 
