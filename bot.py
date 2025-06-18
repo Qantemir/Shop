@@ -7,7 +7,7 @@ from aiogram.exceptions import TelegramAPIError
 
 import config
 from database import db
-from handlers import user_handlers, admin_handlers, flavor_handlers, sleep_mode
+from handlers import user_handlers, admin_handlers, sleep_mode
 
 def setup_logging():
     """Configure logging for the bot"""
@@ -52,7 +52,6 @@ async def main():
         # Register routers
         dp.include_router(user_handlers.router)
         dp.include_router(admin_handlers.router)
-        dp.include_router(flavor_handlers.router)
         dp.include_router(sleep_mode.router)
         
         # Register startup and shutdown handlers
