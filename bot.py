@@ -54,6 +54,8 @@ async def main():
         dp.include_router(admin_handlers.router)
         dp.include_router(sleep_mode.router)
         
+        # Запуск периодической очистки rate limit и корзин
+        await user_handlers.init_rate_limit_cleanup(bot)
         # Register startup and shutdown handlers
         dp.startup.register(lambda: on_startup(bot, logger))
         dp.shutdown.register(lambda: on_shutdown(bot, logger))

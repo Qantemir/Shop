@@ -15,7 +15,8 @@ from keyboards.user_kb import (
     product_actions_kb,
     cart_actions_kb,
     help_menu,
-    cart_full_kb
+    cart_full_kb,
+    help_button_kb
 )
 from keyboards.admin_kb import order_management_kb
 from config import ADMIN_ID, ADMIN_CARD,ADMIN_SWITCHING, CATEGORIES
@@ -45,8 +46,7 @@ async def check_rate_limit(user_id: int, callback_data: str) -> bool:
     user_last_click[user_id][callback_data] = current_time
     return True  # Можно нажимать
 
-async def cleanup_old_rate_limits():
-    """Очищает старые записи rate limiting для экономии памяти"""
+async def cleanup_old_rate_limits():#авототчистка старых записаей антиспама
     current_time = datetime.now()
     cleanup_threshold = 3600  # 1 час
     
@@ -57,19 +57,15 @@ async def cleanup_old_rate_limits():
             if (current_time - last_click_time).total_seconds() > cleanup_threshold:
                 del user_clicks[callback_data]
         
-        # Удаляем пользователя, если у него нет активных записей
         if not user_clicks:
             del user_last_click[user_id]
 
-# Запускаем периодическую очистку каждые 30 минут
-async def start_rate_limit_cleanup():
-    """Запускает периодическую очистку старых записей rate limiting"""
+async def start_rate_limit_cleanup():# Запускаем периодическую очистку каждые 30 минут
     while True:
         await asyncio.sleep(1800)  # 30 минут
         await cleanup_old_rate_limits()
 
-def rate_limit_protected(func):
-    """Декоратор для автоматической защиты от спама"""
+def rate_limit_protected(func):#Декоратор для автоматической защиты от спама
     async def wrapper(callback: CallbackQuery, *args, **kwargs):
         if not await check_rate_limit(callback.from_user.id, callback.data):
             await callback.answer("⚠️ Подождите немного перед следующим нажатием", show_alert=True)
@@ -77,8 +73,7 @@ def rate_limit_protected(func):
         return await func(callback, *args, **kwargs)
     return wrapper
 
-async def init_rate_limit_cleanup(bot=None):
-    """Инициализирует периодическую очистку rate limiting и корзин"""
+async def init_rate_limit_cleanup(bot=None):#Инициализирует периодическую очистку rate limiting и корзин
     asyncio.create_task(start_rate_limit_cleanup())
     asyncio.create_task(start_cart_cleanup(bot))
     user_log.info("Rate limit and cart cleanup tasks started")
@@ -106,9 +101,7 @@ async def cmd_start(message: Message, state: FSMContext):
         sleep_data = await db.get_sleep_mode()
         if sleep_data and sleep_data.get("enabled", False):
             end_time = sleep_data.get("end_time", "Не указано")
-            help_button = InlineKeyboardMarkup(inline_keyboard=[[
-                InlineKeyboardButton(text="ℹ️ Помощь", callback_data="show_help")
-            ]])
+            help_button = help_button_kb()
             welcome_msg = await message.answer(
                 f"😴 Магазин временно не работает.\n"
                 f"Работа возобновится в {end_time}.\n"
@@ -118,16 +111,12 @@ async def cmd_start(message: Message, state: FSMContext):
                 f"Просим отнестись с пониманием в это непростое время.",
                 reply_markup=help_button
             )
-            # Сохраняем ID сообщения в состоянии
             await state.update_data(welcome_message_id=welcome_msg.message_id)
             return
     except Exception as e:
         user_log.error(f"Ошибка при проверке режима сна: {e}")
 
-    # Общий ответ (всегда отправляется, если нет режима сна)
-    help_button = InlineKeyboardMarkup(inline_keyboard=[[
-        InlineKeyboardButton(text="ℹ️ Помощь", callback_data="show_help")
-    ]])
+    help_button = help_button_kb()
     welcome_msg = await message.answer(
         "Добро пожаловать в магазин!\n\n"
         "👇Нажмите на ℹ️ Помощь, чтобы узнать подробнее👇",
@@ -139,7 +128,7 @@ async def cmd_start(message: Message, state: FSMContext):
 @router.message(F.text == "🛍 Каталог")#Обработка для клавиатурной кнопки каталог
 async def show_catalog(message: Message, state: FSMContext):
     try:
-        await delete_welcome_message(message, state)
+        await safe_delete_message(message.bot, message.chat.id, message.message_id)
 
         if await check_sleep_mode(message):
             return
@@ -152,26 +141,13 @@ async def show_catalog(message: Message, state: FSMContext):
         # Удаляем предыдущее сообщение каталога
         catalog_message_id = data.get('catalog_message_id')
         if catalog_message_id:
-            try:
-                await message.bot.delete_message(
-                    chat_id=message.chat.id,
-                    message_id=catalog_message_id
-                )
-                user_log.info(f"Deleted previous catalog message: {catalog_message_id}")
-            except Exception as e:
-                user_log.error(f"Ошибка при удалении предыдущего сообщения каталога {catalog_message_id}: {e}")
+            await safe_delete_message(message.bot, message.chat.id, catalog_message_id)
         
         # Удаляем карточки товаров
         product_message_ids = data.get('product_message_ids', [])
         if product_message_ids:
             for message_id in product_message_ids:
-                try:
-                    await message.bot.delete_message(
-                        chat_id=message.chat.id,
-                        message_id=message_id
-                    )
-                except Exception as e:
-                    user_log.error(f"Ошибка при удалении карточки товара {message_id}: {e}")
+                await safe_delete_message(message.bot, message.chat.id, message_id)
             
             # Очищаем список ID карточек товаров
             await state.update_data(product_message_ids=[])
@@ -179,26 +155,12 @@ async def show_catalog(message: Message, state: FSMContext):
         # Удаляем сообщения корзины
         cart_message_id = data.get('cart_message_id')
         if cart_message_id:
-            try:
-                await message.bot.delete_message(
-                    chat_id=message.chat.id,
-                    message_id=cart_message_id
-                )
-                user_log.info(f"Deleted cart message: {cart_message_id}")
-            except Exception as e:
-                user_log.error(f"Ошибка при удалении сообщения корзины {cart_message_id}: {e}")
+            await safe_delete_message(message.bot, message.chat.id, cart_message_id)
         
         # Удаляем сообщения помощи
         help_message_id = data.get('help_message_id')
         if help_message_id:
-            try:
-                await message.bot.delete_message(
-                    chat_id=message.chat.id,
-                    message_id=help_message_id
-                )
-                user_log.info(f"Deleted help message: {help_message_id}")
-            except Exception as e:
-                user_log.error(f"Ошибка при удалении сообщения помощи {help_message_id}: {e}")
+            await safe_delete_message(message.bot, message.chat.id, help_message_id)
     except Exception as e:
         user_log.error(f"Ошибка при удалении предыдущих сообщений: {e}")
 
@@ -360,7 +322,7 @@ async def back_to_catalog_handler(callback: CallbackQuery, state: FSMContext):
         try:
             await callback.message.delete()
         except Exception as e:
-            user_log.warning(f"Не удалось удалить сообщение: {e}")
+            user_log.error(f"Не удалось удалить сообщение: {e}")
 
         keyboard = catalog_menu()
         if not keyboard.inline_keyboard:
@@ -385,7 +347,7 @@ async def back_to_catalog_handler(callback: CallbackQuery, state: FSMContext):
 async def show_cart(message: Message, state: FSMContext):
     try:
         # Удаляем приветственное сообщение
-        await delete_welcome_message(message, state)
+        await safe_delete_message(message.bot, message.chat.id, message.message_id)
 
         if await check_sleep_mode(message):
             return
@@ -397,41 +359,18 @@ async def show_cart(message: Message, state: FSMContext):
             # Удаляем сообщение каталога
             catalog_message_id = data.get('catalog_message_id')
             if catalog_message_id:
-                try:
-                    await message.bot.delete_message(
-                        chat_id=message.chat.id,
-                        message_id=catalog_message_id
-                    )
-                    user_log.info(f"Deleted catalog message: {catalog_message_id}")
-                except Exception as e:
-                    user_log.error(f"Ошибка при удалении сообщения каталога {catalog_message_id}: {e}")
+                await safe_delete_message(message.bot, message.chat.id, catalog_message_id)
             
             # Удаляем карточки товаров
             product_message_ids = data.get('product_message_ids', [])
             if product_message_ids:
                 for message_id in product_message_ids:
-                    try:
-                        await message.bot.delete_message(
-                            chat_id=message.chat.id,
-                            message_id=message_id
-                        )
-                    except Exception as e:
-                        user_log.error(f"Ошибка при удалении карточки товара {message_id}: {e}")
-                
-                # Очищаем список ID карточек товаров
-                await state.update_data(product_message_ids=[])
+                    await safe_delete_message(message.bot, message.chat.id, message_id)
             
             # Удаляем сообщения помощи
             help_message_id = data.get('help_message_id')
             if help_message_id:
-                try:
-                    await message.bot.delete_message(
-                        chat_id=message.chat.id,
-                        message_id=help_message_id
-                    )
-                    user_log.info(f"Deleted help message: {help_message_id}")
-                except Exception as e:
-                    user_log.error(f"Ошибка при удалении сообщения помощи {help_message_id}: {e}")
+                await safe_delete_message(message.bot, message.chat.id, help_message_id)
         except Exception as e:
             user_log.error(f"Ошибка при удалении предыдущих сообщений: {e}")
 
@@ -1003,7 +942,7 @@ async def start_order(callback: CallbackQuery, state: FSMContext):
 @router.message(F.text == "ℹ️ Помощь") #Обработчик калвиатурной кнопки кнопки Помошь
 async def show_help_menu(message: Message, state: FSMContext):
     # Удаляем приветственное сообщение
-    await delete_welcome_message(message, state)
+    await safe_delete_message(message.bot, message.chat.id, message.message_id)
     
     # Удаляем другие сообщения
     try:
@@ -1012,26 +951,13 @@ async def show_help_menu(message: Message, state: FSMContext):
         # Удаляем сообщение каталога
         catalog_message_id = data.get('catalog_message_id')
         if catalog_message_id:
-            try:
-                await message.bot.delete_message(
-                    chat_id=message.chat.id,
-                    message_id=catalog_message_id
-                )
-                user_log.info(f"Deleted catalog message: {catalog_message_id}")
-            except Exception as e:
-                user_log.error(f"Ошибка при удалении сообщения каталога {catalog_message_id}: {e}")
+            await safe_delete_message(message.bot, message.chat.id, catalog_message_id)
         
         # Удаляем карточки товаров
         product_message_ids = data.get('product_message_ids', [])
         if product_message_ids:
             for message_id in product_message_ids:
-                try:
-                    await message.bot.delete_message(
-                        chat_id=message.chat.id,
-                        message_id=message_id
-                    )
-                except Exception as e:
-                    user_log.error(f"Ошибка при удалении карточки товара {message_id}: {e}")
+                await safe_delete_message(message.bot, message.chat.id, message_id)
             
             # Очищаем список ID карточек товаров
             await state.update_data(product_message_ids=[])
@@ -1039,14 +965,7 @@ async def show_help_menu(message: Message, state: FSMContext):
         # Удаляем сообщения корзины
         cart_message_id = data.get('cart_message_id')
         if cart_message_id:
-            try:
-                await message.bot.delete_message(
-                    chat_id=message.chat.id,
-                    message_id=cart_message_id
-                )
-                user_log.info(f"Deleted cart message: {cart_message_id}")
-            except Exception as e:
-                user_log.error(f"Ошибка при удалении сообщения корзины {cart_message_id}: {e}")
+            await safe_delete_message(message.bot, message.chat.id, cart_message_id)
     except Exception as e:
         user_log.error(f"Ошибка при удалении предыдущих сообщений: {e}")
     
@@ -1056,7 +975,7 @@ async def show_help_menu(message: Message, state: FSMContext):
 async def show_help_from_button(callback: CallbackQuery, state: FSMContext):
     try:
         # Удаляем приветственное сообщение
-        await delete_welcome_message(callback.message, state)
+        await safe_delete_message(callback.message.bot, callback.message.chat.id, callback.message.message_id)
         await callback.message.delete()
     except Exception:
         pass
@@ -1154,6 +1073,15 @@ async def show_delivery_info(callback: CallbackQuery, state: FSMContext):
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
+async def safe_delete_message(bot, chat_id, message_id, context=None):
+    try:
+        await bot.delete_message(chat_id=chat_id, message_id=message_id)
+    except Exception as e:
+        msg = f"Ошибка при удалении сообщения {message_id}"
+        if context:
+            msg += f" ({context})"
+        user_log.error(f"{msg}: {e}")
+
 async def delete_welcome_message(message: Message, state: FSMContext):
     """Удаляет приветственное сообщение пользователя"""
     try:
@@ -1161,15 +1089,7 @@ async def delete_welcome_message(message: Message, state: FSMContext):
         welcome_message_id = data.get('welcome_message_id')
         
         if welcome_message_id:
-            try:
-                await message.bot.delete_message(
-                    chat_id=message.chat.id,
-                    message_id=welcome_message_id
-                )
-                # Очищаем ID сообщения из состояния
-                await state.update_data(welcome_message_id=None)
-            except Exception as e:
-                user_log.error(f"Ошибка при удалении приветственного сообщения: {e}")
+            await safe_delete_message(message.bot, message.chat.id, welcome_message_id)
     except Exception as e:
         user_log.error(f"Ошибка в delete_welcome_message: {e}")
 
@@ -1180,16 +1100,7 @@ async def delete_previous_messages(message: Message, state: FSMContext, message_
         previous_message_id = data.get(f'{message_type}_message_id')
         
         if previous_message_id:
-            try:
-                await message.bot.delete_message(
-                    chat_id=message.chat.id,
-                    message_id=previous_message_id
-                )
-            except Exception as e:
-                user_log.error(f"Ошибка при удалении предыдущего сообщения {message_type}: {e}")
-        
-        # Сохраняем ID текущего сообщения
-        await state.update_data({f'{message_type}_message_id': message.message_id})
+            await safe_delete_message(message.bot, message.chat.id, previous_message_id)
     except Exception as e:
         user_log.error(f"Ошибка в delete_previous_messages: {e}")
 
@@ -1200,13 +1111,7 @@ async def delete_previous_callback_messages(callback: CallbackQuery, state: FSMC
         previous_message_id = data.get(f'{message_type}_message_id')
         
         if previous_message_id:
-            try:
-                await callback.message.bot.delete_message(
-                    chat_id=callback.message.chat.id,
-                    message_id=previous_message_id
-                )
-            except Exception as e:
-                user_log.error(f"Ошибка при удалении предыдущего сообщения {message_type}: {e}")
+            await safe_delete_message(callback.message.bot, callback.message.chat.id, previous_message_id)
     except Exception as e:
         user_log.error(f"Ошибка в delete_previous_callback_messages: {e}")
 
@@ -1218,13 +1123,7 @@ async def delete_product_cards(callback: CallbackQuery, state: FSMContext):
         
         if product_message_ids:
             for message_id in product_message_ids:
-                try:
-                    await callback.message.bot.delete_message(
-                        chat_id=callback.message.chat.id,
-                        message_id=message_id
-                    )
-                except Exception as e:
-                    user_log.error(f"Ошибка при удалении карточки товара {message_id}: {e}")
+                await safe_delete_message(callback.message.bot, callback.message.chat.id, message_id)
             
             # Очищаем список ID карточек товаров
             await state.update_data(product_message_ids=[])
@@ -1347,7 +1246,7 @@ async def show_main_menu(callback: CallbackQuery, state: FSMContext):
         try:
             await callback.message.delete()
         except Exception as e:
-            user_log.warning(f"Не удалось удалить сообщение: {e}")
+            user_log.error(f"Не удалось удалить сообщение: {e}")
 
         # Отправляем приветственное сообщение с основными кнопками
         welcome_msg = await callback.bot.send_message(
