@@ -14,7 +14,7 @@ MONGODB_URI: str = os.getenv("MONGODB_URI")
 DB_NAME: str = "vapeshop_db"
 
 # Shop Configuration
-SHOP_NAME: str = os.getenv("SHOP_NAME", "VapeShop")
+SHOP_NAME: str ="VapeShop"
 CURRENCY: str = "RUB"
 # Product Categories
 CATEGORIES = [

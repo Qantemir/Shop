@@ -22,6 +22,7 @@ from keyboards.admin_kb import order_management_kb
 from config import ADMIN_ID, ADMIN_CARD,ADMIN_SWITCHING, CATEGORIES
 from handlers.admin_handlers import format_order_notification
 from handlers.sleep_mode import check_sleep_mode, check_sleep_mode_callback
+from utils.message_utils import safe_delete_message
 
 user_log = logging.getLogger(__name__)#Инициализация логера
 
@@ -319,10 +320,7 @@ async def back_to_catalog_handler(callback: CallbackQuery, state: FSMContext):
         await delete_product_cards(callback, state)
         await delete_previous_callback_messages(callback, state, "cart")
 
-        try:
-            await callback.message.delete()
-        except Exception as e:
-            user_log.error(f"Не удалось удалить сообщение: {e}")
+        await safe_delete_message(callback.message)
 
         keyboard = catalog_menu()
         if not keyboard.inline_keyboard:
@@ -976,7 +974,7 @@ async def show_help_from_button(callback: CallbackQuery, state: FSMContext):
     try:
         # Удаляем приветственное сообщение
         await safe_delete_message(callback.message.bot, callback.message.chat.id, callback.message.message_id)
-        await callback.message.delete()
+        await safe_delete_message(callback.message)
     except Exception:
         pass
 
@@ -1018,7 +1016,7 @@ async def show_how_to_order(callback: CallbackQuery, state: FSMContext):
 
     После оформления заказа ожидайте подтверждения менеджера"""
     
-    await callback.message.delete()
+    await safe_delete_message(callback.message)
     help_msg = await callback.message.answer(text, reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
@@ -1041,7 +1039,7 @@ async def show_payment_info(callback: CallbackQuery, state: FSMContext):
     • Убедитесь, что вы будете находиться по указанному адресу в течение 2-3 часов
     • Встречайте курьера лично - возврат средств за неполученный заказ не производится"""
     
-    await callback.message.delete()
+    await safe_delete_message(callback.message)
     help_msg = await callback.message.answer(text, reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
@@ -1068,19 +1066,10 @@ async def show_delivery_info(callback: CallbackQuery, state: FSMContext):
 
     Просим отнестись с пониманием в это непростое время."""
 
-    await callback.message.delete()
+    await safe_delete_message(callback.message)
     help_msg = await callback.message.answer(text, reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
-
-async def safe_delete_message(bot, chat_id, message_id, context=None):
-    try:
-        await bot.delete_message(chat_id=chat_id, message_id=message_id)
-    except Exception as e:
-        msg = f"Ошибка при удалении сообщения {message_id}"
-        if context:
-            msg += f" ({context})"
-        user_log.error(f"{msg}: {e}")
 
 async def delete_welcome_message(message: Message, state: FSMContext):
     """Удаляет приветственное сообщение пользователя"""
@@ -1243,11 +1232,8 @@ async def show_main_menu(callback: CallbackQuery, state: FSMContext):
         # Удаляем карточки товаров
         await delete_product_cards(callback, state)
         
-        try:
-            await callback.message.delete()
-        except Exception as e:
-            user_log.error(f"Не удалось удалить сообщение: {e}")
-
+        await safe_delete_message(callback.message)
+        
         # Отправляем приветственное сообщение с основными кнопками
         welcome_msg = await callback.bot.send_message(
             chat_id=callback.message.chat.id,

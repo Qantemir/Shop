@@ -21,6 +21,7 @@ from keyboards.admin_kb import (
 from keyboards.user_kb import main_menu
 from utils.security import security_manager, check_admin_session, return_items_to_inventory
 from handlers.sleep_mode import check_sleep_mode, check_sleep_mode_callback
+from utils.message_utils import safe_delete_message
 
 router = Router()
 
@@ -1988,7 +1989,7 @@ async def admin_confirm_order(callback: CallbackQuery):
                 print(f"[ERROR] Failed to notify user about order confirmation: {str(e)}")
             
             # Delete the original message
-            await callback.message.delete()
+            await safe_delete_message(callback.message)
             
             # Send confirmation to admin
             await callback.message.answer(
@@ -2154,7 +2155,7 @@ async def admin_finish_cancel_order(message: Message, state: FSMContext):
         
         # Delete the original order message
         try:
-            await message.bot.delete_message(chat_id, original_message_id)
+            await safe_delete_message(message.bot, chat_id, original_message_id)
         except Exception as e:
             logger.error(f"Failed to delete original message: {e}")
         
@@ -2345,7 +2346,7 @@ async def admin_finish_cancel_order(message: Message, state: FSMContext):
         
         # Delete the original order message
         try:
-            await message.bot.delete_message(chat_id, original_message_id)
+            await safe_delete_message(message.bot, chat_id, original_message_id)
         except Exception as e:
             logger.error(f"Failed to delete original message: {e}")
         
