@@ -8,7 +8,7 @@ BOT_TOKEN: str = os.getenv("BOT_TOKEN")
 ADMIN_ID: int = int(os.getenv("ADMIN_ID"))
 ADMIN_CARD: str = os.getenv("ADMIN_CARD", "")  # Card number for payments
 ADMIN_SWITCHING: int = int(os.getenv("ADMIN_SWITCHING"))  # Number of approved orders before sleep mode
-
+ADMIN_CARD_NAME: str = os.getenv("ADMIN_CARD_NAME", "")  # Card name for payments
 # MongoDB Configuration
 MONGODB_URI: str = os.getenv("MONGODB_URI")
 DB_NAME: str = "vapeshop_db"

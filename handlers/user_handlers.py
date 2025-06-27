@@ -19,9 +19,9 @@ from keyboards.user_kb import (
     help_button_kb
 )
 from keyboards.admin_kb import order_management_kb
-from config import ADMIN_ID, ADMIN_CARD,ADMIN_SWITCHING, CATEGORIES
+from config import ADMIN_ID, ADMIN_CARD,ADMIN_SWITCHING, CATEGORIES, ADMIN_CARD_NAME
 from handlers.admin_handlers import format_order_notification
-from handlers.sleep_mode import check_sleep_mode, check_sleep_mode_callback
+from utils.sleep_mode import check_sleep_mode, check_sleep_mode_callback
 from utils.message_utils import safe_delete_message
 
 user_log = logging.getLogger(__name__)#Инициализация логера
@@ -762,11 +762,12 @@ async def process_address(message: Message, state: FSMContext):
         
         # Get admin card from config
         admin_card = ADMIN_CARD
+        admin_card_name = ADMIN_CARD_NAME
         
         payment_text = (
             f"💳 Для оплаты заказа переведите {format_price(total)} Tg на карту:\n\n"
             f"<span class=\"tg-spoiler\"><code>{admin_card}</code></span>\n\n"
-            f"KaspiBank(Александра А.)\n\n"
+            f"{admin_card_name}\n"
             "👆 Нажмите на номер карты, чтобы скопировать\n\n"
             "⚠️ ВАЖНО:\n"
             "• Стоимость доставки: 1000 Tg (оплачивается курьеру при получении)\n"
