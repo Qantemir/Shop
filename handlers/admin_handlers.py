@@ -20,7 +20,7 @@ from keyboards.admin_kb import (
 )
 from keyboards.user_kb import main_menu
 from utils.security import security_manager, check_admin_session, return_items_to_inventory
-from utils.sleep_mode import check_sleep_mode, check_sleep_mode_callback
+from utils.sleep_mode import check_sleep_mode
 from utils.message_utils import safe_delete_message
 
 router = Router()

@@ -21,7 +21,7 @@ from keyboards.user_kb import (
 from keyboards.admin_kb import order_management_kb
 from config import ADMIN_ID, ADMIN_CARD,ADMIN_SWITCHING, CATEGORIES, ADMIN_CARD_NAME
 from handlers.admin_handlers import format_order_notification
-from utils.sleep_mode import check_sleep_mode, check_sleep_mode_callback
+from utils.sleep_mode import check_sleep_mode
 from utils.message_utils import safe_delete_message
 
 user_log = logging.getLogger(__name__)#Инициализация логера
@@ -99,20 +99,7 @@ def format_price(price):#Маска для суммы
 @router.message(Command("start"))#Обработчик /start
 async def cmd_start(message: Message, state: FSMContext):
     try:
-        sleep_data = await db.get_sleep_mode()
-        if sleep_data and sleep_data.get("enabled", False):
-            end_time = sleep_data.get("end_time", "Не указано")
-            help_button = help_button_kb()
-            welcome_msg = await message.answer(
-                f"😴 Магазин временно не работает.\n"
-                f"Работа возобновится в {end_time}.\n"
-                f"Пожалуйста, используйте /start когда время придет.\n\n"
-                f"⚠️ Внимание: Магазин автоматически уходит в сон при достижении {ADMIN_SWITCHING} заказов. "
-                f"Это сделано для обеспечения качественной доставки каждого заказа. "
-                f"Просим отнестись с пониманием в это непростое время.",
-                reply_markup=help_button
-            )
-            await state.update_data(welcome_message_id=welcome_msg.message_id)
+        if await check_sleep_mode(message):
             return
     except Exception as e:
         user_log.error(f"Ошибка при проверке режима сна: {e}")
@@ -174,7 +161,7 @@ async def show_catalog(message: Message, state: FSMContext):
 @router.callback_query(F.data.startswith("category_"))#создание категорий
 async def show_category(callback: CallbackQuery, state: FSMContext):
     try:
-        if await check_sleep_mode_callback(callback):
+        if await check_sleep_mode(callback):
             return
             
         category = callback.data.replace("category_", "")
@@ -243,8 +230,7 @@ async def select_flavor(callback: CallbackQuery, *args, **kwargs):
         user_log.info(f"select_flavor callback: {callback.data}")
         
         # Check sleep mode
-        if (await db.get_sleep_mode()).get("enabled", False):
-            await callback.answer("Магазин сейчас закрыт. Попробуйте позже.", show_alert=True)
+        if await check_sleep_mode(callback):
             return
         
         parts = callback.data.split("_")
@@ -632,7 +618,7 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         # Удаляем предыдущие сообщения корзины
         await delete_previous_callback_messages(callback, state, "cart")
         
-        if await check_sleep_mode_callback(callback):
+        if await check_sleep_mode(callback):
             return
     
         user = await db.get_user(callback.from_user.id)
@@ -916,20 +902,7 @@ async def handle_payment_proof(message: Message, state: FSMContext):
 async def start_order(callback: CallbackQuery, state: FSMContext):
     try:
         # Проверяем режим сна
-        sleep_data = await db.get_sleep_mode()
-        if sleep_data is None:
-            # Если не удалось получить статус режима сна, продолжаем работу
-            # ... остальной код функции ...
-            return
-            
-        if sleep_data["enabled"]:
-            end_time = sleep_data.get("end_time", "Не указано")
-            await callback.message.answer(
-                f"😴 Магазин временно не работает.\n"
-                f"Работа возобновится в {end_time}.\n"
-                f"Пожалуйста, используйте /start когда время придет."
-            )
-            await callback.answer()
+        if await check_sleep_mode(callback):
             return
             
         # ... остальной код функции ...

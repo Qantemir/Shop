@@ -8,7 +8,6 @@ from aiogram.exceptions import TelegramAPIError
 import config
 from database import db
 from handlers import user_handlers, admin_handlers
-from utils import sleep_mode
 
 def setup_logging():
     """Configure logging for the bot"""
@@ -21,24 +20,24 @@ def setup_logging():
     )
     return logging.getLogger(__name__)
 
-async def on_startup(bot: Bot, logger):
+async def on_startup():
     """Perform startup actions"""
     try:
         # Initialize database connection
         await db.connect()
-        logger.info("Database connection established")
+        logging.info("Database connection established")
     except Exception as e:
-        logger.error(f"Error during startup: {e}")
+        logging.error(f"Error during startup: {e}")
         raise
 
-async def on_shutdown(bot: Bot, logger):
+async def on_shutdown():
     """Perform cleanup actions"""
     try:
         # Close database connection
         await db.close()
-        logger.info("Database connection closed")
+        logging.info("Database connection closed")
     except Exception as e:
-        logger.error(f"Error during shutdown: {e}")
+        logging.error(f"Error during shutdown: {e}")
 
 async def main():
     # Setup logging
@@ -53,13 +52,12 @@ async def main():
         # Register routers
         dp.include_router(user_handlers.router)
         dp.include_router(admin_handlers.router)
-        dp.include_router(sleep_mode.router)
         
         # Запуск периодической очистки rate limit и корзин
         await user_handlers.init_rate_limit_cleanup(bot)
         # Register startup and shutdown handlers
-        dp.startup.register(lambda: on_startup(bot, logger))
-        dp.shutdown.register(lambda: on_shutdown(bot, logger))
+        dp.startup.register(on_startup)
+        dp.shutdown.register(on_shutdown)
         
         # Start polling
         logger.info("Starting bot...")

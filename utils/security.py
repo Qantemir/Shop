@@ -10,19 +10,31 @@ from database import db
 
 load_dotenv()
 
-logger = logging.getLogger(__name__)
+security_log = logging.getLogger(__name__)
 
 def check_admin_session(func):
     """Decorator to check if user has valid admin session"""
     @wraps(func)
     async def wrapper(event: CallbackQuery | Message, *args, **kwargs):
-        user_id = event.from_user.id
+        from_user = getattr(event, "from_user", None)
+
+        if from_user is None:
+            logging.warning("from_user is None. Возможно, событие не поддерживает пользователя.")
+            if isinstance(event, CallbackQuery):
+                await event.answer("❌ Невозможно определить пользователя", show_alert=True)
+            elif isinstance(event, Message):
+                await event.answer("❌ Невозможно определить пользователя")
+            return
+
+        user_id = from_user.id
+
         if not security_manager.is_admin_session_valid(user_id):
             if isinstance(event, CallbackQuery):
                 await event.answer("Требуется авторизация администратора", show_alert=True)
             else:
                 await event.answer("Требуется авторизация администратора")
             return
+
         return await func(event, *args, **kwargs)
     return wrapper
 
@@ -93,7 +105,7 @@ async def return_items_to_inventory(order_items):
     try:
         for item in order_items:
             if 'flavor' in item:
-                logger.info(f"Returning item to inventory: product_id={item['product_id']}, flavor={item['flavor']}, quantity={item['quantity']}")
+                security_log.info(f"Returning item to inventory: product_id={item['product_id']}, flavor={item['flavor']}, quantity={item['quantity']}")
                 
                 success = await db.update_product_flavor_quantity(
                     item['product_id'],
@@ -102,12 +114,12 @@ async def return_items_to_inventory(order_items):
                 )
                 
                 if not success:
-                    logger.error(f"Failed to restore flavor quantity: product_id={item['product_id']}, flavor={item['flavor']}")
+                    security_log.error(f"Failed to restore flavor quantity: product_id={item['product_id']}, flavor={item['flavor']}")
                     return False
                 else:
-                    logger.info(f"Successfully restored flavor quantity for {item['flavor']}")
+                    security_log.info(f"Successfully restored flavor quantity for {item['flavor']}")
         
         return True
     except Exception as e:
-        logger.error(f"Error returning items to inventory: {str(e)}")
+        security_log.error(f"Error returning items to inventory: {str(e)}")
         return False 
