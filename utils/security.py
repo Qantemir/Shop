@@ -94,6 +94,59 @@ class SecurityManager:
             return self._blocked_until[user_id] - datetime.now()
         return timedelta(0)
 
+    def try_admin_login(self, user_id: int, password: str):
+        """
+        Пытается выполнить вход администратора. Возвращает dict с результатом:
+        {
+            'success': bool,  # Вход выполнен
+            'blocked': bool,  # Пользователь заблокирован
+            'block_time': int,  # Минут до разблокировки
+            'attempts_left': int  # Осталось попыток
+        }
+        """
+        # Проверка блокировки
+        if user_id in self._blocked_until:
+            remaining = self._blocked_until[user_id] - datetime.now()
+            if remaining.total_seconds() > 0:
+                return {
+                    'success': False,
+                    'blocked': True,
+                    'block_time': max(1, int(remaining.total_seconds() // 60)),
+                    'attempts_left': 0
+                }
+            else:
+                del self._blocked_until[user_id]
+                self._failed_attempts[user_id] = 0
+        
+        # Проверка пароля
+        if self.verify_password(password):
+            self.create_admin_session(user_id)
+            self.reset_attempts(user_id)
+            return {
+                'success': True,
+                'blocked': False,
+                'block_time': 0,
+                'attempts_left': self.max_attempts
+            }
+        else:
+            self.add_failed_attempt(user_id)
+            attempts_left = self.max_attempts - self._failed_attempts.get(user_id, 0)
+            if attempts_left <= 0:
+                block_time = self.block_time.seconds // 60
+                return {
+                    'success': False,
+                    'blocked': True,
+                    'block_time': block_time,
+                    'attempts_left': 0
+                }
+            else:
+                return {
+                    'success': False,
+                    'blocked': False,
+                    'block_time': 0,
+                    'attempts_left': attempts_left
+                }
+
 # Создаем глобальный экземпляр менеджера безопасности
 security_manager = SecurityManager()
 

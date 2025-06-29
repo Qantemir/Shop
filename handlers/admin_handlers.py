@@ -1,26 +1,23 @@
 from aiogram import Router, F
-from aiogram.filters import Command, StateFilter
+from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from datetime import datetime, timedelta
 import asyncio
 import logging
-from functools import wraps
 
-from config import ADMIN_ID, ADMIN_SWITCHING, ADMIN_CARD
+from config import ADMIN_ID, ADMIN_SWITCHING
 from database.mongodb import db
 from keyboards.admin_kb import (
     admin_main_menu,
     product_management_kb,
     categories_kb,
     order_management_kb,
-    confirm_action_kb,
     sleep_mode_kb
 )
 from keyboards.user_kb import main_menu
 from utils.security import security_manager, check_admin_session, return_items_to_inventory
-from utils.sleep_mode import check_sleep_mode
 from utils.message_utils import safe_delete_message
 
 router = Router()
@@ -49,82 +46,71 @@ class CancellationStates(StatesGroup):
 def format_price(price):
     return f"{float(price):.2f}"
 
-@router.message(Command("admin"))
+@router.message(Command("admin"))#Обработка команды /admin/
 async def admin_start(message: Message, state: FSMContext):
     user_id = message.from_user.id
-    logger.debug(f"Admin command received from user {user_id}")
-    
-    # Проверяем, является ли пользователь администратором
+
     if user_id != ADMIN_ID:
-        logger.warning(f"Unauthorized admin access attempt from user {user_id}")
+        logger.warning(f"Unauthorized /admin access by user {user_id}")
         await message.answer("У вас нет прав администратора.")
         return
 
-    # Проверяем, не заблокирован ли пользователь
     if not security_manager.check_failed_attempts(user_id):
-        remaining_time = security_manager.get_block_time_remaining(user_id)
-        logger.warning(f"Blocked admin access attempt from user {user_id}")
-        await message.answer(
-            f"Слишком много неудачных попыток. Попробуйте снова через {remaining_time.seconds // 60} минут."
-        )
+        minutes = security_manager.get_block_time_remaining(user_id).seconds // 60
+        logger.info(f"Blocked admin access for {user_id}. Wait {minutes} min")
+        await message.answer(f"Слишком много неудачных попыток. Попробуйте снова через {minutes} минут.")
         return
 
-    # Если сессия уже активна, показываем меню админа
     if security_manager.is_admin_session_valid(user_id):
-        logger.info(f"Admin session active for user {user_id}")
-        await message.answer("Панель администратора", reply_markup=admin_main_menu())
+        await message.answer("Добро пожаловать в админ-панель", reply_markup=admin_main_menu())
         return
 
-    # Запрашиваем пароль
-    logger.debug(f"Requesting admin password from user {user_id}")
     await message.answer("Введите пароль администратора:")
     await state.set_state(AdminStates.waiting_password)
 
-@router.message(AdminStates.waiting_password)
+@router.message(AdminStates.waiting_password)#Ожидание пароля
 async def check_admin_password(message: Message, state: FSMContext):
     user_id = message.from_user.id
-    logger.debug(f"Checking admin password for user {user_id}")
-    
+
     if user_id != ADMIN_ID:
         logger.warning(f"Unauthorized password attempt from user {user_id}")
         return
 
-    # Проверяем пароль
-    if security_manager.verify_password(message.text):
-        logger.info(f"Successful admin login for user {user_id}")
-        security_manager.create_admin_session(user_id)
-        security_manager.reset_attempts(user_id)
+    result = security_manager.try_admin_login(user_id, message.text or "")
+    
+    if result['success']:
+        logger.info(f"Admin login success for {user_id}")
         await message.answer("Доступ разрешен.", reply_markup=admin_main_menu())
         await state.clear()
+    elif result['blocked']:
+        logger.warning(f"Admin access temporarily blocked for {user_id}")
+        await message.answer(f"Доступ заблокирован на {result['block_time']} минут.")
+        await state.clear()
     else:
-        logger.warning(f"Failed admin login attempt from user {user_id}")
-        security_manager.add_failed_attempt(user_id)
-        attempts_left = security_manager.max_attempts - security_manager.failed_attempts.get(user_id, 0)
-        
-        if attempts_left > 0:
-            await message.answer(f"Неверный пароль. Осталось попыток: {attempts_left}")
-        else:
-            block_time = security_manager.block_time.seconds // 60
-            await message.answer(f"Доступ заблокирован на {block_time} минут.")
-            await state.clear()
+        logger.warning(f"Incorrect password for {user_id}. Attempts left: {result['attempts_left']}")
+        await message.answer(f"Неверный пароль. Осталось попыток: {result['attempts_left']}")
 
-@router.message(Command("logout"))
+@router.message(Command("logout"))#Обработка команды /logout
 @check_admin_session
 async def admin_logout(message: Message):
+    user_id = message.from_user.id
+
     try:
-        user_id = message.from_user.id
         security_manager.remove_admin_session(user_id)
-        await message.answer(
-            "✅ Вы успешно вышли из панели администратора.\n"
-            "Для повторного входа используйте /admin",
-            reply_markup=main_menu()
-        )
     except Exception as e:
-        print(f"[ERROR] Error in admin_logout: {str(e)}")
+        logger.error(f"Ошибка при выходе администратора {user_id}: {e}")
         await message.answer(
-            "Произошла ошибка при выходе из панели администратора",
+            "Произошла ошибка при выходе из панели администратора.",
             reply_markup=main_menu()
         )
+        return
+
+    await message.answer(
+        "✅ Вы успешно вышли из панели администратора.\n"
+        "Для повторного входа используйте /admin",
+        reply_markup=main_menu()
+    )
+
 
 @router.message(F.text == "📦 Управление товарами")
 async def product_management(message: Message, **kwargs):
@@ -2097,76 +2083,6 @@ async def admin_cancel_order(callback: CallbackQuery, state: FSMContext):
     except Exception as e:
         logger.error(f"Error in admin_cancel_order: {str(e)}")
         await callback.answer("Произошла ошибка при отмене заказа", show_alert=True)
-
-@router.message(CancellationStates.waiting_for_reason)
-async def admin_finish_cancel_order(message: Message, state: FSMContext):
-    try:
-        data = await state.get_data()
-        order_id = data.get('order_id')
-        original_message_id = data.get('message_id')
-        chat_id = data.get('chat_id')
-        
-        if not order_id:
-            await message.answer("Ошибка: не найден ID заказа")
-            await state.clear()
-            return
-            
-        order = await db.get_order(order_id)
-        if not order:
-            await message.answer("Ошибка: заказ не найден")
-            await state.clear()
-            return
-            
-        # Check if order is already cancelled
-        if order.get('status') == 'cancelled':
-            await message.answer("Заказ уже отменен")
-            await state.clear()
-            return
-            
-        logger.info(f"Processing order cancellation: {order}")
-        
-        # Return all items to inventory using common function
-        success = await return_items_to_inventory(order.get('items', []))
-        if not success:
-            await message.answer("Ошибка при возврате товара на склад")
-            await state.clear()
-            return
-        
-        # Update order status and save cancellation reason
-        await db.update_order(order_id, {
-            'status': 'cancelled',
-            'cancellation_reason': message.text
-        })
-        
-        # Notify user about cancellation
-        user_notification = (
-            "❌ К сожалению, ваш заказ был отменен.\n\n"
-            f"Причина: {message.text}\n\n"
-            "Если у вас есть вопросы, пожалуйста, свяжитесь с нами."
-        )
-        
-        try:
-            await message.bot.send_message(
-                chat_id=order['user_id'],
-                text=user_notification
-            )
-        except Exception as e:
-            logger.error(f"Failed to notify user about order cancellation: {e}")
-        
-        # Delete the original order message
-        try:
-            await safe_delete_message(message.bot, chat_id, original_message_id)
-        except Exception as e:
-            logger.error(f"Failed to delete original message: {e}")
-        
-        # Confirm to admin
-        await message.answer(f"❌ Заказ #{order_id} отменен. Клиент уведомлен о причине отмены.")
-        await state.clear()
-        
-    except Exception as e:
-        logger.error(f"Error in admin_finish_cancel_order: {str(e)}", exc_info=True)
-        await message.answer("Произошла ошибка при отмене заказа")
-        await state.clear()
 
 @router.message(Command("admin_help"))
 async def show_admin_help(message: Message):
