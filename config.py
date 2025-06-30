@@ -23,8 +23,6 @@ DB_NAME: str = "vapeshop_db"
 
 # Shop Configuration
 SHOP_NAME: str = "VapeShop"
-CURRENCY: str = "RUB"
-
 # Product Categories
 CATEGORIES = [
     "Одноразовые устройства",

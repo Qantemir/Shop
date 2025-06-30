@@ -23,11 +23,8 @@ def product_management_kb() -> InlineKeyboardMarkup:
             InlineKeyboardButton(text="❌ Удалить товар", callback_data="delete_product"),
         ],
         [
-            InlineKeyboardButton(text="📝 Редактировать", callback_data="edit_products")
-        ],
-        [
-            InlineKeyboardButton(text="📋 Список товаров", callback_data="list_products"),
-            InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_admin_menu")
+            InlineKeyboardButton(text="📝 Редактировать", callback_data="edit_products"),
+            InlineKeyboardButton(text="📋 Список товаров", callback_data="list_products")
         ]
     ])
 
@@ -77,6 +74,5 @@ def sleep_mode_kb(is_enabled: bool) -> InlineKeyboardMarkup:
     
     keyboard = [
         [InlineKeyboardButton(text=button_text, callback_data="toggle_sleep_mode")],
-        [InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_admin_menu")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=keyboard)

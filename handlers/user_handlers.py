@@ -203,7 +203,7 @@ async def show_category(callback: CallbackQuery, state: FSMContext):
 
 def build_product_caption(product: dict) -> str:#вывод карточки товара
     caption = f"📦 {product['name']}\n"
-    caption += f"💰 {format_price(product['price'])} Tg\n"
+    caption += f"💰 {format_price(product['price'])} ₸\n"
     caption += f"📝 {product['description']}\n\n"
 
     flavors = product.get('flavors', [])
@@ -400,12 +400,12 @@ async def show_cart_message(message: Message, user: dict, state: FSMContext = No
         text += f"📦 {name}"
         if flavor:
             text += f" (🌈 {flavor})"
-        text += f"\n💰 {format_price(price)} Tg x {quantity} = {format_price(subtotal)} Tg\n"
+        text += f"\n💰 {format_price(price)} ₸ x {quantity} = {format_price(subtotal)} ₸\n"
         text += "➖➖➖➖➖➖➖➖\n\n"
 
         total += subtotal
 
-    text += f"💎 <b>Итого:</b> {format_price(total)} Tg"
+    text += f"💎 <b>Итого:</b> {format_price(total)} ₸"
 
     keyboard = cart_full_kb(cart)
     cart_msg = await message.answer(text, reply_markup=keyboard, parse_mode="HTML")
@@ -751,12 +751,12 @@ async def process_address(message: Message, state: FSMContext):
         admin_card_name = ADMIN_CARD_NAME
         
         payment_text = (
-            f"💳 Для оплаты заказа переведите {format_price(total)} Tg на карту:\n\n"
+            f"💳 Для оплаты заказа переведите {format_price(total)} ₸ на карту:\n\n"
             f"<span class=\"tg-spoiler\"><code>{admin_card}</code></span>\n\n"
             f"{admin_card_name}\n"
             "👆 Нажмите на номер карты, чтобы скопировать\n\n"
             "⚠️ ВАЖНО:\n"
-            "• Стоимость доставки: 1000 Tg (оплачивается курьеру при получении)\n"
+            "• Стоимость доставки: 1000 ₸ (оплачивается курьеру при получении)\n"
             "• После оплаты отправьте скриншот чека\n"
             "• Убедитесь, что вы будете находиться по указанному адресу в течение 2-3 часов\n"
             "• Встречайте курьера лично - возврат средств за неполученный заказ не производится\n"
@@ -1006,7 +1006,7 @@ async def show_payment_info(callback: CallbackQuery, state: FSMContext):
     text = """💳 Способы оплаты:
 
     • Онлайн-оплата (переводом на карту)
-    • Стоимость доставки: 1000 Tg (оплачивается курьеру при получении)
+    • Стоимость доставки: 1000 ₸ (оплачивается курьеру при получении)
 
     ⚠️ ВАЖНО:
     • После оплаты отправьте скриншот чека
@@ -1028,7 +1028,7 @@ async def show_delivery_info(callback: CallbackQuery, state: FSMContext):
     
     text="""🚚 Информация о доставке:
     • Доставка осуществляется в течение 2-3 часов
-    • Стоимость доставки: 1000 Tg (оплачивается курьеру при получении)
+    • Стоимость доставки: 1000 ₸ (оплачивается курьеру при получении)
     • Курьер свяжется с вами перед доставкой
     • После отправки заказа вы получите номер для отслеживания в Яндекс.Go
     • Заказы отправляются пачками для оптимизации доставки
@@ -1108,7 +1108,7 @@ async def cancel_clear_cart(callback: CallbackQuery, state: FSMContext):
         else:
             total = sum(item['price'] * item['quantity'] for item in user['cart'])
             await callback.message.edit_text(
-                f"💵 Итого: {format_price(total)} Tg",
+                f"💵 Итого: {format_price(total)} ₸",
                 reply_markup=cart_actions_kb()
             )
         await callback.answer("Очистка корзины отменена")
