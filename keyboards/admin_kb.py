@@ -76,3 +76,13 @@ def sleep_mode_kb(is_enabled: bool) -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text=button_text, callback_data="toggle_sleep_mode")],
     ]
     return InlineKeyboardMarkup(inline_keyboard=keyboard)
+
+def product_edit_kb(product_id):
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="✏️ Изменить название", callback_data=f"edit_name_{product_id}")],
+        [InlineKeyboardButton(text="💰 Изменить цену", callback_data=f"edit_price_{product_id}")],
+        [InlineKeyboardButton(text="📝 Изменить описание", callback_data=f"edit_description_{product_id}")],
+        [InlineKeyboardButton(text="🖼 Изменить фото", callback_data=f"edit_photo_{product_id}")],
+        [InlineKeyboardButton(text="🌈 Управление вкусами", callback_data=f"manage_flavors_{product_id}")],
+        [InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_product_management")]
+    ])
