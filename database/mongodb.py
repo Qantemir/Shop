@@ -410,5 +410,14 @@ class MongoDB:
             logger.error(f"❌ Failed to get users with cart: {str(e)}")
             return []
 
+    async def delete_user(self, user_id):
+        """Удалить пользователя по user_id"""
+        try:
+            result = await self.db.users.delete_one({"user_id": user_id})
+            return result.deleted_count > 0
+        except Exception as e:
+            logger.error(f"❌ Error deleting user {user_id}: {str(e)}")
+            return False
+
 # Create a global instance
 db = MongoDB() 

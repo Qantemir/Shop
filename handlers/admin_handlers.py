@@ -572,7 +572,7 @@ async def process_edit_photo(message: Message, state: FSMContext):
 
 @router.message(F.text == "📊 Заказы")#Обработка кнопки заказы
 @check_admin_session
-async def show_orders(message: Message):
+async def show_orders(message: Message, state: FSMContext):
     try:
         await db.ensure_connected()
         orders = await db.get_all_orders()
@@ -590,6 +590,7 @@ async def show_orders(message: Message):
             [InlineKeyboardButton(text="🗑 Очистить заказы", callback_data="delete_all_orders")]
         ])
 
+        sent_message_ids = []
         # Отображение каждого заказа
         for order in orders:
             order_id = str(order.get("_id", ""))
@@ -609,26 +610,31 @@ async def show_orders(message: Message):
             status = order.get("status", "pending")
             status_text = {
                 "pending": "⏳ Ожидает обработки",
-                "confirmed": "✅ Подтверждён",
-                "cancelled": "❌ Отменён",
+                "confirmed": "✅ Подтвержден",
+                "cancelled": "❌ Отменен",
                 "completed": "✅ Выполнен"
             }.get(status, "Статус неизвестен")
 
             order_text += f"\n\nСтатус: {status_text}"
 
-            await message.answer(
+            msg = await message.answer(
                 order_text,
                 parse_mode="HTML",
                 reply_markup=order_management_kb(order_id, status)
             )
+            sent_message_ids.append(msg.message_id)
 
         # После всех заказов — статистика и кнопки
-        await message.answer(
+        stat_msg = await message.answer(
             f"📊 Статистика заказов:\n"
             f"📦 Заказов: {active_count}/{ADMIN_SWITCHING}\n"
             f"⚠️ Магазин уйдёт в режим сна при достижении {ADMIN_SWITCHING} активных заказов\n",
             reply_markup=keyboard
         )
+        sent_message_ids.append(stat_msg.message_id)
+
+        # Сохраняем id сообщений в state
+        await state.update_data(order_message_ids=sent_message_ids)
 
         # Автопереход в спящий режим
         if active_count >= ADMIN_SWITCHING:
@@ -643,477 +649,378 @@ async def show_orders(message: Message):
         logger.error(f"Ошибка при отображении заказов: {e}")
         await message.answer("❌ Произошла ошибка при получении заказов.")
 
-@router.callback_query(F.data == "delete_all_orders")
+@router.callback_query(F.data == "delete_all_orders")#Обработка кнопки удалить все заказы
 @check_admin_session
-async def delete_all_orders(callback: CallbackQuery):
+async def delete_all_orders(callback: CallbackQuery, state: FSMContext):
     try:
-        # Ensure database connection
-        await db.ensure_connected()
-        
-        # Get all orders
         orders = await db.get_all_orders()
-        
+
         if not orders:
-            await callback.answer("Нет заказов для удаления")
+            await callback.answer("❗ Нет заказов для удаления.")
             return
-            
-        # Delete all orders
+
         for order in orders:
-            # Return items to inventory if order was confirmed
-            if order.get('status') == 'confirmed':
-                for item in order.get('items', []):
-                    if 'flavor' in item:
+            order_id = str(order.get("_id"))
+            status = order.get("status")
+            items = order.get("items", [])
+
+            if status == "pending":
+                for item in items:
+                    product_id = item.get("product_id")
+                    flavor = item.get("flavor")
+                    quantity = item.get("quantity", 0)
+
+                    if product_id and flavor:
                         try:
-                            await db.update_product_flavor_quantity(
-                                item['product_id'],
-                                item['flavor'],
-                                item['quantity']  # Return the full quantity
-                            )
+                            await db.update_product_flavor_quantity(product_id, flavor, quantity)
                         except Exception as e:
-                            logger.error(f"Error returning item to inventory: {str(e)}")
-                            continue
-            
+                            logger.exception(f"Ошибка при возврате на склад: {e}")
+
             try:
-                # Delete the order
-                await db.delete_order(str(order['_id']))
+                await db.delete_order(order_id)
             except Exception as e:
-                logger.error(f"Error deleting order {order['_id']}: {str(e)}")
-                continue
-        
-        # Notify admin
-        await callback.message.edit_text(
-            "✅ Все заказы успешно удалены",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-                [InlineKeyboardButton(text="◀️ Назад", callback_data="back_to_admin_menu")]
-            ])
-        )
-        await callback.answer("Все заказы удалены")
-        
-    except Exception as e:
-        logger.error(f"Error deleting all orders: {str(e)}")
-        await callback.answer("Произошла ошибка при удалении заказов")
+                logger.exception(f"Ошибка при удалении заказа {order_id}: {e}")
 
-@router.callback_query(F.data == "confirm_delete_all_orders")
-@check_admin_session
-async def confirm_delete_all_orders(callback: CallbackQuery):
-    try:
-        # Delete all orders
-        success = await db.delete_all_orders()
-        if success:
-            # Disable sleep mode since orders are cleared
-            await db.set_sleep_mode(False)
-            await callback.message.edit_text(
-                "✅ Все заказы успешно удалены.\n"
-                "Магазин снова открыт для работы."
-            )
-        else:
-            await callback.message.edit_text(
-                "❌ Произошла ошибка при удалении заказов."
-            )
-        await callback.answer()
-    except Exception as e:
-        logger.error(f"Error in confirm_delete_all_orders: {str(e)}")
-        await callback.answer("Произошла ошибка", show_alert=True)
-
-@router.callback_query(F.data == "cancel_delete_all_orders")
-@check_admin_session
-async def cancel_delete_all_orders(callback: CallbackQuery):
-    try:
-        await callback.message.edit_text(
-            "❌ Удаление заказов отменено."
-        )
-        await callback.answer()
-    except Exception as e:
-        logger.error(f"Error in cancel_delete_all_orders: {str(e)}")
-        await callback.answer("Произошла ошибка", show_alert=True)
-    try:
-        _, order_id, new_status = callback.data.split("_")
-        order = await db.get_order(order_id)
-        
-        if not order:
-            await callback.answer("Заказ не найден")
-            return
-            
-        # Check if order is already cancelled
-        if order.get('status') == 'cancelled':
-            await callback.answer("Нельзя изменить статус отмененного заказа", show_alert=True)
-            return
-            
-        # Handle flavor quantities based on status change
-        if new_status == 'confirmed' and order.get('status') != 'confirmed':
-            # Deduct flavors from inventory
-            for item in order['items']:
-                product = await db.get_product(item['product_id'])
-                if product and 'flavor' in item:
-                    flavors = product.get('flavors', [])
-                    flavor = next((f for f in flavors if f.get('name') == item['flavor']), None)
-                    if flavor:
-                        # Check if we have enough quantity
-                        if flavor.get('quantity', 0) < item['quantity']:
-                            await callback.answer("Недостаточно товара на складе", show_alert=True)
-                            return
-                        try:
-                            flavor['quantity'] -= item['quantity']
-                            await db.update_product(item['product_id'], {'flavors': flavors})
-                        except Exception as e:
-                            print(f"[ERROR] Failed to update flavor quantity: {str(e)}")
-                            await callback.answer("Ошибка при обновлении количества товара", show_alert=True)
-                            return
-        elif new_status == 'cancelled' and order.get('status') == 'confirmed':
-            # Return flavors to inventory
-            for item in order['items']:
-                product = await db.get_product(item['product_id'])
-                if product and 'flavor' in item:
-                    flavors = product.get('flavors', [])
-                    flavor = next((f for f in flavors if f.get('name') == item['flavor']), None)
-                    if flavor:
-                        try:
-                            flavor['quantity'] += item['quantity']
-                            await db.update_product(item['product_id'], {'flavors': flavors})
-                        except Exception as e:
-                            print(f"[ERROR] Failed to return flavor to inventory: {str(e)}")
-                            await callback.answer("Ошибка при возврате вкусов в инвентарь", show_alert=True)
-                            return
-        
-        # Update order status
-        await db.update_order(order_id, {'status': new_status})
-        
-        # Notify user about status change
-        status_messages = {
-            "paid": (
-                "💰 Оплата подтверждена!\n\n"
-                "Ваш заказ передан в обработку. "
-                "Ожидайте подтверждения от администратора."
-            ),
-            "confirmed": (
-                "✅ Ваш заказ подтвержден и будет отправлен в течение 1-2 часов!\n\n"
-                "Спасибо за ваш заказ. Мы отправим вам уведомление, "
-                "как только заказ будет передан в доставку."
-            ),
-            "cancelled": (
-                "❌ К сожалению, ваш заказ был отменен.\n"
-                "Пожалуйста, свяжитесь с администратором для уточнения деталей."
-            ),
-            "completed": (
-                "🎉 Ваш заказ выполнен и передан в доставку!\n"
-                "Спасибо за покупку в нашем магазине!"
-            )
-        }
-        
-        if new_status in status_messages:
+        # Удаляем все сообщения с заказами и статистикой
+        data = await state.get_data()
+        order_message_ids = data.get("order_message_ids", [])
+        for msg_id in order_message_ids:
             try:
-                # Send status update to user
-                await callback.bot.send_message(
-                    chat_id=order['user_id'],
-                    text=f"📦 Обновление статуса заказа #{order_id}:\n\n{status_messages[new_status]}"
-                )
-                
-                # If order is confirmed, send additional delivery info
-                if new_status == "confirmed":
-                    delivery_info = (
-                        "🚚 Информация о доставке:\n\n"
-                        "• Доставка осуществляется в течение 1-2 часов\n"
-                        "• Курьер свяжется с вами перед доставкой\n"
-                        "• Пожалуйста, подготовьте документ, удостоверяющий личность\n\n"
-                        "По всем вопросам обращайтесь к администратору."
-                    )
-                    await callback.bot.send_message(
-                        chat_id=order['user_id'],
-                        text=delivery_info
-                    )
+                await callback.bot.delete_message(callback.message.chat.id, msg_id)
             except Exception as e:
-                print(f"[ERROR] Failed to notify user about order status: {str(e)}")
-        
-        # Update admin's message
-        ORDER_STATUSES = {
-            'pending': '⏳ Ожидает обработки',
-            'confirmed': '✅ Подтвержден',
-            'cancelled': '❌ Отменен',
-            'completed': '✅ Выполнен'
-        }
-        status_text = ORDER_STATUSES.get(new_status, "Статус неизвестен")
-        await callback.message.edit_text(
-            f"{callback.message.text.split('Статус:')[0]}\nСтатус: {status_text}",
-            reply_markup=order_management_kb(order_id)
-        )
-        await callback.answer(f"Статус заказа обновлен: {status_text}")
-        
-    except Exception as e:
-        print(f"[ERROR] Error in update_order_status: {str(e)}")
-        await callback.answer("Произошла ошибка при обновлении статуса")
+                logger.exception(f"Ошибка при удалении сообщения заказа: {e}")
 
-@router.message(F.text == "📢 Рассылка")
+        # Ответ админу (короткое подтверждение)
+        await callback.message.answer("✅ Все заказы и сообщения удалены.")
+        await state.clear()
+        await callback.answer()
+
+    except Exception as e:
+        logger.exception(f"Ошибка при массовом удалении заказов: {e}")
+        await callback.answer("❌ Произошла ошибка при удалении заказов.")
+
+@router.message(F.text == "📢 Рассылка")#Обработка кнопки рассылка
 @check_admin_session
 async def broadcast_start(message: Message, state: FSMContext):
+    await state.clear()
     await message.answer(
-        "Введите текст рассылки или отправьте /cancel для отмены:"
+        "📢 Введите текст рассылки или отправьте /cancel для отмены:"
     )
     await state.set_state(AdminStates.broadcasting)
+    logger.info(f"Админ {message.from_user.id} начал рассылку")
 
-@router.message(Command("cancel"))
+@router.message(Command("cancel"))#Обработка команды отмена
 @check_admin_session
-async def cancel_broadcast(message: Message, state: FSMContext):
+async def cancel_any_state(message: Message, state: FSMContext):
     current_state = await state.get_state()
-    if current_state == AdminStates.broadcasting:
+
+    if current_state:
         await state.clear()
         await message.answer(
-            "Рассылка отменена.",
+            "❌ Действие отменено.",
             reply_markup=admin_main_menu()
         )
-
-@router.message(AdminStates.broadcasting)
-@check_admin_session
-async def prepare_broadcast(message: Message, state: FSMContext):
-    await state.update_data(broadcast_text=message.text)
-    await message.answer(
-        f"Подтвердите отправку сообщения:\n\n{message.text}\n\n"
-        "Отправить? (да/нет)"
-    )
-    await state.set_state(AdminStates.confirm_broadcast)
-
-@router.message(AdminStates.confirm_broadcast)
-@check_admin_session
-async def confirm_broadcast(message: Message, state: FSMContext):
-    if message.text.lower() == "да":
-        data = await state.get_data()
-        broadcast_text = data.get("broadcast_text")
-        
-        if not broadcast_text:
-            await message.answer("Ошибка: текст рассылки не найден")
-            await state.clear()
-            return
-        
-        users = await db.get_all_users()
-        sent_count = 0
-        failed_count = 0
-        
-        for user in users:
-            try:
-                await message.bot.send_message(
-                    chat_id=user['user_id'],
-                    text=broadcast_text
-                )
-                sent_count += 1
-                await asyncio.sleep(0.05)  # Небольшая задержка между отправками
-            except Exception as e:
-                print(f"[ERROR] Failed to send broadcast to user {user['user_id']}: {str(e)}")
-                failed_count += 1
-                continue
-        
-        status_text = f"✅ Рассылка завершена!\n\n"
-        status_text += f"📨 Отправлено: {sent_count}\n"
-        if failed_count > 0:
-            status_text += f"❌ Не доставлено: {failed_count}\n"
-        
-        await message.answer(
-            status_text,
-            reply_markup=admin_main_menu()
-        )
+        logger.info(f"Админ {message.from_user.id} отменил состояние {current_state}")
     else:
         await message.answer(
-            "Рассылка отменена.",
+            "Нет активного действия для отмены.",
             reply_markup=admin_main_menu()
         )
-    
-    await state.clear()
 
-@router.callback_query(F.data.startswith("add_to_"))
+@router.message(AdminStates.broadcasting)#Обработка ввода текста рассылки
+@check_admin_session
+async def prepare_broadcast(message: Message, state: FSMContext):
+    text = message.text.strip()
+
+    if not text:
+        await message.answer("⚠️ Сообщение не может быть пустым. Попробуйте снова.")
+        return
+
+    # Сохраняем текст в состояние
+    await state.update_data(broadcast_text=text)
+
+    # Кнопки подтверждения
+    keyboard = InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="✅ Отправить", callback_data="confirm_broadcast"),
+            InlineKeyboardButton(text="❌ Отменить", callback_data="cancel_broadcast")
+        ]
+    ])
+
+    await message.answer(
+        f"📢 Подтвердите отправку сообщения:\n\n{text}",
+        reply_markup=keyboard
+    )
+
+    await state.set_state(AdminStates.confirm_broadcast)
+
+SEND_DELAY = 0.05
+
+@router.callback_query(F.data == "confirm_broadcast")
+@check_admin_session
+async def handle_confirm_broadcast(callback: CallbackQuery, state: FSMContext):
+    data = await state.get_data()
+    broadcast_text = data.get("broadcast_text")
+
+    if not broadcast_text:
+        await callback.answer("❌ Ошибка: текст не найден")
+        await state.clear()
+        return
+
+    users = await db.get_all_users()
+    if not users:
+        await callback.message.edit_text("⚠️ Пользователи не найдены.")
+        await state.clear()
+        return
+
+    sent_count = 0
+    failed_count = 0
+
+    for user in users:
+        try:
+            await callback.bot.send_message(
+                chat_id=user['user_id'],
+                text=broadcast_text
+            )
+            sent_count += 1
+            await asyncio.sleep(SEND_DELAY)
+        except Exception as e:
+            error_text = str(e).lower()
+            logger.error(f"Не удалось отправить сообщение пользователю {user['user_id']}: {e}")
+            failed_count += 1
+            if 'chat not found' in error_text or 'bot was blocked by the user' in error_text:
+                try:
+                    await db.delete_user(user['user_id'])
+                    logger.info(f"Пользователь {user['user_id']} удалён из базы (chat not found или bot was blocked)")
+                except Exception as del_e:
+                    logger.error(f"Ошибка при удалении пользователя {user['user_id']}: {del_e}")
+            continue
+
+    summary = (
+        f"✅ Рассылка завершена!\n\n"
+        f"📨 Отправлено: {sent_count}\n"
+        f"{'❌ Не доставлено: ' + str(failed_count) if failed_count else ''}"
+    )
+
+    await callback.message.edit_text(summary)
+    await callback.message.answer("Главное меню", reply_markup=admin_main_menu())
+    await callback.answer()
+
+    logger.info(f"Рассылка завершена: отправлено {sent_count}, не доставлено {failed_count}")
+
+
+@router.callback_query(F.data == "cancel_broadcast")#Обработка кнопки отмены рассылки
+@check_admin_session
+async def handle_cancel_broadcast(callback: CallbackQuery, state: FSMContext):
+    await state.clear()
+    await callback.message.edit_text("🚫 Рассылка отменена.")
+    await callback.message.answer("Главное меню", reply_markup=admin_main_menu())
+    await callback.answer()
+
+@router.callback_query(F.data.startswith("add_to_"))#Обработка кнопки добавить категорию товара
 @check_admin_session
 async def add_product_category(callback: CallbackQuery, state: FSMContext):
-    print("[DEBUG] Entering add_product_category handler")
-    print(f"[DEBUG] Callback data: {callback.data}")
     try:
-        await state.clear()  # Очищаем состояние перед началом
-        category = callback.data.replace("add_to_", "")
+        await callback.answer()  # Отвечаем как можно раньше
+        await state.clear()
 
-        print(f"[DEBUG] Selected category: {category}")
-        
-        # Сохраняем категорию и переходим к вводу названия
-        await state.update_data(category=category, is_adding_product=True)  # Добавляем флаг
-        await callback.message.edit_text(
-            "Введите название товара:",
-            reply_markup=None  # Убираем клавиатуру для ввода текста
-        )
+        category = callback.data.replace("add_to_", "")
+        await state.update_data(category=category, is_adding_product=True)
+
+        await callback.message.edit_text("Введите название товара:")
         await state.set_state(AdminStates.setting_name)
-        print(f"[DEBUG] State set to: {AdminStates.setting_name}")
-        await callback.answer()
+
     except Exception as e:
-        print(f"[ERROR] Error in add_product_category: {str(e)}")
+        logger.error(f"Ошибка в add_product_category: {e}")
         await callback.message.edit_text(
             "Произошла ошибка. Попробуйте снова.",
             reply_markup=product_management_kb()
         )
 
-# Добавляем обработчик для отмены операции
-@router.message(Command("cancel"))
-@check_admin_session
-async def cancel_operation(message: Message, state: FSMContext):
-    current_state = await state.get_state()
-    if current_state is not None:
-        await state.clear()
-        await message.answer(
-            "Операция отменена. Возвращаемся в меню управления товарами.",
-            reply_markup=product_management_kb()
-        )
-
-@router.callback_query(F.data.startswith("edit_name_"))
+@router.callback_query(F.data.startswith("edit_name_"))#Обработка кнопки редактирования названия товара
 @check_admin_session
 async def start_edit_name(callback: CallbackQuery, state: FSMContext):
     try:
+        await callback.answer()  # Быстрое закрытие "часиков"
+        
         product_id = callback.data.replace("edit_name_", "")
         product = await db.get_product(product_id)
         
         if not product:
-            await callback.answer("Товар не найден")
+            await callback.message.answer("❌ Товар не найден.")
             return
-            
-        await state.update_data(editing_product_id=product_id)
-        await callback.message.edit_text(
-            f"Текущее название: {product['name']}\n\n"
-            "Введите новое название товара:",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                InlineKeyboardButton(text="🔙 Отмена", callback_data=f"edit_product_{product_id}")
-            ]])
-        )
-        await state.set_state(AdminStates.setting_name)
-        await callback.answer()
-    except Exception as e:
-        print(f"[ERROR] Error in start_edit_name: {str(e)}")
-        await callback.answer("Произошла ошибка")
 
-@router.callback_query(F.data.startswith("edit_price_"))
+        await state.update_data(editing_product_id=product_id)
+
+        cancel_kb = InlineKeyboardMarkup(inline_keyboard=[[
+            InlineKeyboardButton(text="🔙 Отмена", callback_data=f"edit_product_{product_id}")
+        ]])
+
+        await callback.message.edit_text(
+            f"Текущее название: <b>{product['name']}</b>\n\n"
+            "Введите новое название товара:",
+            reply_markup=cancel_kb,
+            parse_mode="HTML"
+        )
+
+        await state.set_state(AdminStates.setting_name)
+
+    except Exception as e:
+        logger.error(f"Ошибка в start_edit_name: {e}")
+        await callback.message.answer("⚠️ Произошла ошибка. Попробуйте позже.")
+
+@router.callback_query(F.data.startswith("edit_price_"))#Обработка кнопки редактирования цены товара
 @check_admin_session
 async def start_edit_price(callback: CallbackQuery, state: FSMContext):
     try:
+        await callback.answer()  # Закрываем "часики"
+
         product_id = callback.data.replace("edit_price_", "")
         product = await db.get_product(product_id)
         
         if not product:
-            await callback.answer("Товар не найден")
+            await callback.message.answer("❌ Товар не найден.")
             return
-            
-        await state.update_data(editing_product_id=product_id)
-        await callback.message.edit_text(
-            f"Текущая цена: {format_price(product['price'])} ₸\n\n"
-            "Введите новую цену товара (только число):",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                InlineKeyboardButton(text="🔙 Отмена", callback_data=f"edit_product_{product_id}")
-            ]])
-        )
-        await state.set_state(AdminStates.setting_price)
-        await callback.answer()
-    except Exception as e:
-        print(f"[ERROR] Error in start_edit_price: {str(e)}")
-        await callback.answer("Произошла ошибка")
 
-@router.callback_query(F.data.startswith("edit_description_"))
+        await state.update_data(editing_product_id=product_id)
+
+        cancel_kb = InlineKeyboardMarkup(inline_keyboard=[[
+            InlineKeyboardButton(text="🔙 Отмена", callback_data=f"edit_product_{product_id}")
+        ]])
+
+        await callback.message.edit_text(
+            f"Текущая цена: <b>{format_price(product['price'])} ₸</b>\n\n"
+            "Введите новую цену товара (только число):",
+            reply_markup=cancel_kb,
+            parse_mode="HTML"
+        )
+
+        await state.set_state(AdminStates.setting_price)
+
+    except Exception as e:
+        logger.error(f"Ошибка в start_edit_price: {e}")
+        await callback.message.answer("⚠️ Произошла ошибка. Попробуйте позже.")
+
+@router.callback_query(F.data.startswith("edit_description_"))#Обработка кнопки редактирования описания товара
 @check_admin_session
 async def start_edit_description(callback: CallbackQuery, state: FSMContext):
     try:
+        await callback.answer()  # Гасим "часики" сразу
+
         product_id = callback.data.replace("edit_description_", "")
         product = await db.get_product(product_id)
-        
-        if not product:
-            await callback.answer("Товар не найден")
-            return
-            
-        await state.update_data(editing_product_id=product_id)
-        await callback.message.edit_text(
-            f"Текущее описание: {product['description']}\n\n"
-            "Введите новое описание товара:",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                InlineKeyboardButton(text="🔙 Отмена", callback_data=f"edit_product_{product_id}")
-            ]])
-        )
-        await state.set_state(AdminStates.setting_description)
-        await callback.answer()
-    except Exception as e:
-        print(f"[ERROR] Error in start_edit_description: {str(e)}")
-        await callback.answer("Произошла ошибка")
 
-@router.callback_query(F.data.startswith("edit_photo_"))
+        if not product:
+            await callback.message.answer("❌ Товар не найден.")
+            return
+
+        await state.update_data(editing_product_id=product_id)
+
+        cancel_kb = InlineKeyboardMarkup(inline_keyboard=[[
+            InlineKeyboardButton(text="🔙 Отмена", callback_data=f"edit_product_{product_id}")
+        ]])
+
+        await callback.message.edit_text(
+            f"Текущее описание:\n<blockquote>{product['description']}</blockquote>\n"
+            "Введите новое описание товара:",
+            reply_markup=cancel_kb,
+            parse_mode="HTML"
+        )
+
+        await state.set_state(AdminStates.setting_description)
+
+    except Exception as e:
+        logger.error(f"Ошибка в start_edit_description: {e}")
+        await callback.message.answer("⚠️ Произошла ошибка. Попробуйте позже.")
+
+@router.callback_query(F.data.startswith("edit_photo_"))#Обработка кнопки редактирования фото товара
 @check_admin_session
 async def start_edit_photo(callback: CallbackQuery, state: FSMContext):
     try:
+        await callback.answer()  # Закрываем "часики"
+
         product_id = callback.data.replace("edit_photo_", "")
         product = await db.get_product(product_id)
-        
-        if not product:
-            await callback.answer("Товар не найден")
-            return
-            
-        await state.update_data(editing_product_id=product_id)
-        await callback.message.edit_text(
-            "Отправьте новую фотографию товара:",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                InlineKeyboardButton(text="🔙 Отмена", callback_data=f"edit_product_{product_id}")
-            ]])
-        )
-        await state.set_state(AdminStates.setting_image)
-        await callback.answer()
-    except Exception as e:
-        print(f"[ERROR] Error in start_edit_photo: {str(e)}")
-        await callback.answer("Произошла ошибка")
 
-@router.callback_query(F.data.startswith("manage_flavors_"))
+        if not product:
+            await callback.message.answer("❌ Товар не найден.")
+            return
+
+        await state.update_data(editing_product_id=product_id)
+
+        cancel_kb = InlineKeyboardMarkup(inline_keyboard=[[
+            InlineKeyboardButton(text="🔙 Отмена", callback_data=f"edit_product_{product_id}")
+        ]])
+
+        await callback.message.edit_text(
+            "📸 Отправьте новое фото товара одним сообщением:",
+            reply_markup=cancel_kb
+        )
+
+        await state.set_state(AdminStates.setting_image)
+
+    except Exception as e:
+        logger.error(f"Ошибка в start_edit_photo: {e}")
+        await callback.message.answer("⚠️ Произошла ошибка. Попробуйте позже.")
+
+@router.callback_query(F.data.startswith("manage_flavors_"))#Обработка кнопки управления вкусами
 @check_admin_session
 async def manage_flavors(callback: CallbackQuery, state: FSMContext):
     try:
+        await callback.answer()  # Сразу убираем "часики"
+
         product_id = callback.data.replace("manage_flavors_", "")
         product = await db.get_product(product_id)
-        
+
         if not product:
-            await callback.answer("Товар не найден")
+            await callback.message.answer("❌ Товар не найден.")
             return
-            
-        # Save product ID in state
+
         await state.update_data(editing_product_id=product_id)
-        
-        # Create keyboard for flavor management
-        keyboard = []
+
         flavors = product.get('flavors', [])
-        
-        # Add button for each flavor with delete option
+        keyboard = []
+
         for i, flavor in enumerate(flavors):
-            flavor_name = flavor.get('name', '')
-            flavor_quantity = flavor.get('quantity', 0)
+            name = flavor.get('name', 'Без названия')
+            qty = flavor.get('quantity', 0)
+
             keyboard.append([
                 InlineKeyboardButton(
-                    text=f"❌ {flavor_name} ({flavor_quantity} шт.)",
+                    text=f"❌ {name} ({qty} шт.)",
                     callback_data=f"delete_flavor_{product_id}_{i}"
                 )
             ])
             keyboard.append([
                 InlineKeyboardButton(
-                    text=f"➕ Добавить количество для {flavor_name}",
+                    text=f"➕ Добавить для {name}",
                     callback_data=f"add_flavor_quantity_{product_id}_{i}"
                 )
             ])
-        
-        # Add buttons for adding new flavor and going back
-        keyboard.extend([
-            [InlineKeyboardButton(text="➕ Добавить вкус", callback_data=f"add_flavor_{product_id}")],
-            [InlineKeyboardButton(text="🔙 Назад", callback_data=f"edit_product_{product_id}")]
-        ])
-        
-        markup = InlineKeyboardMarkup(inline_keyboard=keyboard)
-        
-        # Show current flavors and options
-        text = "🌈 Управление вкусами\n\n"
+
+        # Дополнительные кнопки
+        keyboard.append([InlineKeyboardButton(text="➕ Добавить вкус", callback_data=f"add_flavor_{product_id}")])
+        keyboard.append([InlineKeyboardButton(text="🔙 Назад", callback_data=f"edit_product_{product_id}")])
+
+        # Формируем текст
+        text = "🌈 <b>Управление вкусами</b>\n\n"
         if flavors:
             text += "В наличии:\n"
             for i, flavor in enumerate(flavors, 1):
-                flavor_name = flavor.get('name', '')
-                flavor_quantity = flavor.get('quantity', 0)
-                text += f"{i}. {flavor_name} - {flavor_quantity} шт.\n"
+                name = flavor.get('name', '')
+                qty = flavor.get('quantity', 0)
+                text += f"{i}. {name} — {qty} шт.\n"
         else:
-            text += "Товара пока нет в наличии\n"
-        
-        text += "\nНажмите на вкус чтобы удалить его, или добавьте новый"
-        
-        await callback.message.edit_text(text, reply_markup=markup)
-        await callback.answer()
-        
+            text += "Пока не добавлено ни одного вкуса.\n"
+
+        text += "\nНажмите на вкус, чтобы удалить, или добавьте новый."
+
+        await callback.message.edit_text(
+            text,
+            reply_markup=InlineKeyboardMarkup(inline_keyboard=keyboard),
+            parse_mode="HTML"
+        )
+
     except Exception as e:
         print(f"[ERROR] Error in manage_flavors: {str(e)}")
         await callback.answer("Произошла ошибка при управлении вкусами")
