@@ -15,7 +15,8 @@ from keyboards.admin_kb import (
     categories_kb,
     order_management_kb,
     sleep_mode_kb,
-    product_edit_kb  # добавлен импорт
+    product_edit_kb,  # добавлен импорт
+    build_flavor_editor  # импорт функции для управления вкусами
 )
 from keyboards.user_kb import main_menu
 from utils.security import security_manager, check_admin_session, return_items_to_inventory
@@ -979,158 +980,122 @@ async def manage_flavors(callback: CallbackQuery, state: FSMContext):
         await state.update_data(editing_product_id=product_id)
 
         flavors = product.get('flavors', [])
-        keyboard = []
-
-        for i, flavor in enumerate(flavors):
-            name = flavor.get('name', 'Без названия')
-            qty = flavor.get('quantity', 0)
-
-            keyboard.append([
-                InlineKeyboardButton(
-                    text=f"❌ {name} ({qty} шт.)",
-                    callback_data=f"delete_flavor_{product_id}_{i}"
-                )
-            ])
-            keyboard.append([
-                InlineKeyboardButton(
-                    text=f"➕ Добавить для {name}",
-                    callback_data=f"add_flavor_quantity_{product_id}_{i}"
-                )
-            ])
-
-        # Дополнительные кнопки
-        keyboard.append([InlineKeyboardButton(text="➕ Добавить вкус", callback_data=f"add_flavor_{product_id}")])
-        keyboard.append([InlineKeyboardButton(text="🔙 Назад", callback_data=f"edit_product_{product_id}")])
-
-        # Формируем текст
-        text = "🌈 <b>Управление вкусами</b>\n\n"
-        if flavors:
-            text += "В наличии:\n"
-            for i, flavor in enumerate(flavors, 1):
-                name = flavor.get('name', '')
-                qty = flavor.get('quantity', 0)
-                text += f"{i}. {name} — {qty} шт.\n"
-        else:
-            text += "Пока не добавлено ни одного вкуса.\n"
-
-        text += "\nНажмите на вкус, чтобы удалить, или добавьте новый."
-
-        await callback.message.edit_text(
-            text,
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=keyboard),
-            parse_mode="HTML"
-        )
+        text, markup = build_flavor_editor(product_id, flavors)
+        await callback.message.edit_text(text, reply_markup=markup)
 
     except Exception as e:
-        print(f"[ERROR] Error in manage_flavors: {str(e)}")
+        logger.exception("Ошибка в manage_flavors")
         await callback.answer("Произошла ошибка при управлении вкусами")
 
-@router.callback_query(F.data.startswith("delete_flavor_"))
+@router.callback_query(F.data.startswith("delete_flavor_"))#Обработка кнопки удаления вкуса
 @check_admin_session
 async def delete_flavor(callback: CallbackQuery):
     try:
-        # Format: delete_flavor_PRODUCTID_INDEX
         _, product_id, index = callback.data.rsplit("_", 2)
         index = int(index)
-        
-        # Get product
+
         product = await db.get_product(product_id)
         if not product:
-            await callback.answer("Товар не найден")
-            return
-            
-        # Remove flavor
+            return await callback.answer("Товар не найден")
+
         flavors = product.get('flavors', [])
-        if 0 <= index < len(flavors):
-            removed_flavor = flavors[index].get('name', '')
-            flavors.pop(index)
-            await db.update_product(product_id, {'flavors': flavors})
-            
-            # Update keyboard
-            keyboard = []
-            for i, flavor in enumerate(flavors):
-                flavor_name = flavor.get('name', '')
-                flavor_quantity = flavor.get('quantity', 0)
-                keyboard.append([
-                    InlineKeyboardButton(
-                        text=f"❌ {flavor_name} ({flavor_quantity} шт.)",
-                        callback_data=f"delete_flavor_{product_id}_{i}"
-                    )
-                ])
-                keyboard.append([
-                    InlineKeyboardButton(
-                        text=f"➕ Добавить количество для {flavor_name}",
-                        callback_data=f"add_flavor_quantity_{product_id}_{i}"
-                    )
-                ])
-            keyboard.extend([
-                [InlineKeyboardButton(text="➕ Добавить вкус", callback_data=f"add_flavor_{product_id}")],
-                [InlineKeyboardButton(text="🔙 Назад", callback_data=f"edit_product_{product_id}")]
-            ])
-            
-            markup = InlineKeyboardMarkup(inline_keyboard=keyboard)
-            
-            # Update message
-            text = "🌈 Управление вкусами\n\n"
-            if flavors:
-                text += "Текущие вкусы:\n"
-                for i, flavor in enumerate(flavors, 1):
-                    flavor_name = flavor.get('name', '')
-                    flavor_quantity = flavor.get('quantity', 0)
-                    text += f"{i}. {flavor_name} - {flavor_quantity} шт.\n"
-            else:
-                text += "У товара пока нет вкусов\n"
-            
-            text += "\nНажмите на вкус чтобы удалить его, или добавьте новый"
-            
-            await callback.message.edit_text(text, reply_markup=markup)
-            await callback.answer(f"Вкус {removed_flavor} удален")
-        else:
-            await callback.answer("Вкус не найден")
-            
+        if not (0 <= index < len(flavors)):
+            return await callback.answer("Вкус не найден")
+
+        removed_flavor = flavors[index].get('name', '')
+        flavors.pop(index)
+        await db.update_product(product_id, {'flavors': flavors})
+
+        text, markup = build_flavor_editor(product_id, flavors)
+
+        await callback.message.edit_text(text, reply_markup=markup)
+        await callback.answer(f"Вкус {removed_flavor} удалён")
+
     except Exception as e:
-        print(f"[ERROR] Error in delete_flavor: {str(e)}")
+        logger.exception("Ошибка при удалении вкуса")  # Используй loguru
         await callback.answer("Произошла ошибка при удалении вкуса")
 
-@router.callback_query(F.data.startswith("add_flavor_quantity_"))
+@router.callback_query(F.data.startswith("add_flavor_quantity_"))#Обработка кнопки добавления количества вкуса
 @check_admin_session
 async def start_add_flavor_quantity(callback: CallbackQuery, state: FSMContext):
     try:
-        # Format: add_flavor_quantity_PRODUCTID_INDEX
         _, product_id, index = callback.data.rsplit("_", 2)
         index = int(index)
-        
-        # Get product
+
         product = await db.get_product(product_id)
         if not product:
-            await callback.answer("Товар не найден")
-            return
-            
+            return await callback.answer("Товар не найден")
+
         flavors = product.get('flavors', [])
-        if 0 <= index < len(flavors):
-            flavor = flavors[index]
-            await state.update_data(
-                editing_product_id=product_id,
-                editing_flavor_index=index
-            )
-            
-            await callback.message.edit_text(
-                f"Текущее количество для вкуса '{flavor.get('name')}': {flavor.get('quantity', 0)} шт.\n\n"
-                "Введите новое количество (только число):",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                    InlineKeyboardButton(text="🔙 Отмена", callback_data=f"manage_flavors_{product_id}")
-                ]])
-            )
-            await state.set_state(AdminStates.setting_flavor_quantity)
-            await callback.answer()
-        else:
-            await callback.answer("Вкус не найден")
-            
-    except Exception as e:
-        print(f"[ERROR] Error in start_add_flavor_quantity: {str(e)}")
+        if not (0 <= index < len(flavors)):
+            return await callback.answer("Вкус не найден")
+
+        flavor = flavors[index]
+        await state.update_data({
+            'editing_product_id': product_id,
+            'editing_flavor_index': index
+        })
+
+        flavor_name = flavor.get('name', 'неизвестно')
+        quantity = flavor.get('quantity', 0)
+
+        text = (
+            f"Текущее количество для вкуса «{flavor_name}»: {quantity} шт.\n\n"
+            "Введите новое количество (только число):"
+        )
+        markup = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="🔙 Отмена", callback_data=f"manage_flavors_{product_id}")]])
+
+        await callback.message.edit_text(text, reply_markup=markup)
+        await state.set_state(AdminStates.setting_flavor_quantity)
+        await callback.answer()
+
+    except Exception:
+        logger.exception("Ошибка в start_add_flavor_quantity")
         await callback.answer("Произошла ошибка")
 
-@router.message(AdminStates.setting_flavor_quantity)
+@router.message(AdminStates.adding_flavor)#Обработка ввода названия нового вкуса
+@check_admin_session
+async def process_add_flavor(message: Message, state: FSMContext):
+    try:
+        data = await state.get_data()
+        product_id = data.get('editing_product_id')
+
+        if not product_id:
+            await message.answer("Ошибка: товар не найден")
+            return await state.clear()
+
+        product = await db.get_product(product_id)
+        if not product:
+            await message.answer("Товар не найден")
+            return await state.clear()
+
+        flavors = product.get('flavors', [])
+        new_flavor = message.text.strip()
+
+        if any(flavor.get('name') == new_flavor for flavor in flavors):
+            markup = InlineKeyboardMarkup(inline_keyboard=[[
+                InlineKeyboardButton("🔙 Отмена", callback_data=f"manage_flavors_{product_id}")
+            ]])
+            await message.answer(
+                "Такой вкус уже существует!\n"
+                "Введите другой вкус или нажмите Отмена для возврата.",
+                reply_markup=markup
+            )
+            return
+
+        flavors.append({'name': new_flavor, 'quantity': 0})
+        await db.update_product(product_id, {'flavors': flavors})
+
+        text, markup = build_flavor_editor(product_id, flavors)
+        await message.answer(text, reply_markup=markup)
+        await state.clear()
+
+    except Exception:
+        logger.exception("Ошибка в process_add_flavor")
+        await message.answer("Произошла ошибка при добавлении вкуса")
+        await state.clear()
+
+@router.message(AdminStates.setting_flavor_quantity)#Обработка ввода количества вкуса
 @check_admin_session
 async def process_flavor_quantity(message: Message, state: FSMContext):
     try:
@@ -1159,44 +1124,7 @@ async def process_flavor_quantity(message: Message, state: FSMContext):
         if 0 <= flavor_index < len(flavors):
             flavors[flavor_index]['quantity'] = quantity
             await db.update_product(product_id, {'flavors': flavors})
-            
-            # Create keyboard for flavor management
-            keyboard = []
-            for i, flavor in enumerate(flavors):
-                flavor_name = flavor.get('name', '')
-                flavor_quantity = flavor.get('quantity', 0)
-                keyboard.append([
-                    InlineKeyboardButton(
-                        text=f"❌ {flavor_name} ({flavor_quantity} шт.)",
-                        callback_data=f"delete_flavor_{product_id}_{i}"
-                    )
-                ])
-                keyboard.append([
-                    InlineKeyboardButton(
-                        text=f"➕ Добавить количество для {flavor_name}",
-                        callback_data=f"add_flavor_quantity_{product_id}_{i}"
-                    )
-                ])
-            keyboard.extend([
-                [InlineKeyboardButton(text="➕ Добавить вкус", callback_data=f"add_flavor_{product_id}")],
-                [InlineKeyboardButton(text="🔙 Назад", callback_data=f"edit_product_{product_id}")]
-            ])
-            
-            markup = InlineKeyboardMarkup(inline_keyboard=keyboard)
-            
-            # Show current flavors and options
-            text = "🌈 Управление вкусами\n\n"
-            if flavors:
-                text += "Текущие вкусы:\n"
-                for i, flavor in enumerate(flavors, 1):
-                    flavor_name = flavor.get('name', '')
-                    flavor_quantity = flavor.get('quantity', 0)
-                    text += f"{i}. {flavor_name} - {flavor_quantity} шт.\n"
-            else:
-                text += "У товара пока нет вкусов\n"
-            
-            text += "\nНажмите на вкус чтобы удалить его, или добавьте новый"
-            
+            text, markup = build_flavor_editor(product_id, flavors)
             await message.answer(text, reply_markup=markup)
         else:
             await message.answer("Вкус не найден")
@@ -1204,162 +1132,68 @@ async def process_flavor_quantity(message: Message, state: FSMContext):
         await state.clear()
         
     except Exception as e:
-        print(f"[ERROR] Error in process_flavor_quantity: {str(e)}")
+        logger.exception("Ошибка в process_flavor_quantity")
         await message.answer("Произошла ошибка при обновлении количества")
         await state.clear()
 
-@router.callback_query(F.data.startswith("add_flavor_"))
+@router.callback_query(F.data.startswith("add_flavor_"))#Обработка кнопки добавления вкуса
 @check_admin_session
 async def start_add_flavor(callback: CallbackQuery, state: FSMContext):
     try:
         product_id = callback.data.replace("add_flavor_", "")
         product = await db.get_product(product_id)
-        
+
         if not product:
-            await callback.answer("Товар не найден")
-            return
-            
+            return await callback.answer("Товар не найден")
+
         await state.update_data(editing_product_id=product_id)
-        await callback.message.edit_text(
-            "Введите название нового вкуса:",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                InlineKeyboardButton(text="🔙 Отмена", callback_data=f"manage_flavors_{product_id}")
-            ]])
-        )
+
+        text = "Введите название нового вкуса:"
+        markup = InlineKeyboardMarkup(inline_keyboard=[[
+            InlineKeyboardButton(text="🔙 Отмена", callback_data=f"manage_flavors_{product_id}")
+        ]])
+
+        await callback.message.edit_text(text, reply_markup=markup)
         await state.set_state(AdminStates.adding_flavor)
         await callback.answer()
-    except Exception as e:
-        print(f"[ERROR] Error in start_add_flavor: {str(e)}")
+
+    except Exception:
+        logger.exception("Ошибка в start_add_flavor")
         await callback.answer("Произошла ошибка")
 
-@router.message(AdminStates.adding_flavor)
-@check_admin_session
-async def process_add_flavor(message: Message, state: FSMContext):
-    try:
-        data = await state.get_data()
-        product_id = data.get('editing_product_id')
-        
-        if not product_id:
-            await message.answer("Ошибка: товар не найден")
-            await state.clear()
-            return
-            
-        # Get current product
-        product = await db.get_product(product_id)
-        if not product:
-            await message.answer("Товар не найден")
-            await state.clear()
-            return
-            
-        # Add new flavor
-        flavors = product.get('flavors', [])
-        new_flavor = message.text.strip()
-        
-        # Check if flavor name already exists
-        if any(flavor.get('name') == new_flavor for flavor in flavors):
-            await message.answer(
-                "Такой вкус уже существует!\n"
-                "Введите другой вкус или нажмите Отмена для возврата.",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                    InlineKeyboardButton(text="🔙 Отмена", callback_data=f"manage_flavors_{product_id}")
-                ]])
-            )
-            return
-            
-        # Add new flavor with initial quantity 0
-        flavors.append({
-            'name': new_flavor,
-            'quantity': 0
-        })
-        
-        # Update product with new flavor
-        await db.update_product(product_id, {'flavors': flavors})
-        
-        # Create keyboard for flavor management
-        keyboard = []
-        for i, flavor in enumerate(flavors):
-            flavor_name = flavor.get('name', '')
-            flavor_quantity = flavor.get('quantity', 0)
-            keyboard.append([
-                InlineKeyboardButton(
-                    text=f"❌ {flavor_name} ({flavor_quantity} шт.)",
-                    callback_data=f"delete_flavor_{product_id}_{i}"
-                )
-            ])
-            keyboard.append([
-                InlineKeyboardButton(
-                    text=f"➕ Добавить количество для {flavor_name}",
-                    callback_data=f"add_flavor_quantity_{product_id}_{i}"
-                )
-            ])
-        keyboard.extend([
-            [InlineKeyboardButton(text="➕ Добавить вкус", callback_data=f"add_flavor_{product_id}")],
-            [InlineKeyboardButton(text="🔙 Назад", callback_data=f"edit_product_{product_id}")]
-        ])
-        
-        markup = InlineKeyboardMarkup(inline_keyboard=keyboard)
-        
-        # Show current flavors and options
-        text = "🌈 Управление вкусами\n\n"
-        if flavors:
-            text += "Текущие вкусы:\n"
-            for i, flavor in enumerate(flavors, 1):
-                flavor_name = flavor.get('name', '')
-                flavor_quantity = flavor.get('quantity', 0)
-                text += f"{i}. {flavor_name} - {flavor_quantity} шт.\n"
-        else:
-            text += "У товара пока нет вкусов\n"
-        
-        text += "\nНажмите на вкус чтобы удалить его, или добавьте новый"
-        
-        await message.answer(text, reply_markup=markup)
-        await state.clear()
-        
-    except Exception as e:
-        print(f"[ERROR] Error in process_add_flavor: {str(e)}")
-        await message.answer("Произошла ошибка при добавлении вкуса")
-        await state.clear()
-
-@router.callback_query(F.data == "manage_flavors")
+@router.callback_query(F.data == "manage_flavors")#Обработка кнопки управления вкусами
 @check_admin_session
 async def show_products_for_flavors(callback: CallbackQuery):
     try:
-        # Get all products
         products = await db.get_all_products()
-        
+
         if not products:
-            await callback.answer("Нет доступных товаров")
-            return
-            
-        # Create keyboard with product list
-        keyboard = []
-        for product in products:
-            flavor_count = len(product.get('flavors', []))
-            keyboard.append([
-                InlineKeyboardButton(
-                    text=f"{product['name']} ({flavor_count} вкусов)",
-                    callback_data=f"manage_flavors_{str(product['_id'])}"
-                )
-            ])
-        
-        # Add back button
+            return await callback.answer("Нет доступных товаров")
+
+        keyboard = [
+            [InlineKeyboardButton(
+                text=f"{product['name']} ({len(product.get('flavors', []))} вкусов)",
+                callback_data=f"manage_flavors_{product['_id']}"
+            )] for product in products
+        ]
+
         keyboard.append([
             InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_product_management")
         ])
-        
+
         markup = InlineKeyboardMarkup(inline_keyboard=keyboard)
-        
+
         await callback.message.edit_text(
             "Выберите товар для управления вкусами:",
             reply_markup=markup
         )
         await callback.answer()
-        
-    except Exception as e:
-        print(f"[ERROR] Error in show_products_for_flavors: {str(e)}")
+
+    except Exception:
+        logger.exception("Ошибка в show_products_for_flavors")
         await callback.answer("Произошла ошибка при загрузке списка товаров")
 
-@router.message(F.text == "❓ Помощь")
+@router.message(F.text == "❓ Помощь")#Обработка кнопки помощи
 @check_admin_session
 async def show_admin_help(message: Message):
     help_text = """
@@ -1434,117 +1268,106 @@ async def show_admin_help(message: Message):
         reply_markup=admin_main_menu()
     )
 
-@router.message(F.text == "😴 Режим сна")
+@router.message(F.text == "😴 Режим сна")#Обработка кнопки режима сна
 @check_admin_session
 async def sleep_mode_menu(message: Message):
     try:
-        # Получаем текущий статус режима сна
         sleep_data = await db.get_sleep_mode()
-        if sleep_data is None:
-            await message.answer("❌ Ошибка при получении статуса режима сна")
-            return
-            
-        status = "✅ Включен" if sleep_data["enabled"] else "❌ Выключен"
-        end_time = sleep_data.get("end_time", "Не указано")
-        
-        text = f"🌙 Режим сна магазина\n\n"
-        text += f"Текущий статус: {status}\n"
-        if sleep_data["enabled"] and end_time:
-            text += f"Время работы возобновится: {end_time}\n"
-        text += f"\nВ режиме сна пользователи не смогут делать заказы."
-        
+        if not sleep_data:
+            return await message.answer("❌ Ошибка при получении статуса режима сна")
+
+        is_enabled = sleep_data.get("enabled", False)
+        end_time = sleep_data.get("end_time")
+
+        lines = [
+            "🌙 Режим сна магазина",
+            "",
+            f"Текущий статус: {'✅ Включен' if is_enabled else '❌ Выключен'}"
+        ]
+        if is_enabled and end_time:
+            lines.append(f"Время работы возобновится: {end_time}")
+
+        lines.append("\nВ режиме сна пользователи не смогут делать заказы.")
+
         await message.answer(
-            text,
-            reply_markup=sleep_mode_kb(sleep_data["enabled"])
+            "\n".join(lines),
+            reply_markup=sleep_mode_kb(is_enabled)
         )
-    except Exception as e:
-        logger.error(f"Error in sleep_mode_menu: {str(e)}")
+
+    except Exception:
+        logger.exception("Ошибка в sleep_mode_menu")
         await message.answer("❌ Произошла ошибка при получении статуса режима сна")
 
-@router.callback_query(F.data == "toggle_sleep_mode")
+@router.callback_query(F.data == "toggle_sleep_mode")#Обработка кнопки переключения режима сна
 @check_admin_session
 async def toggle_sleep_mode(callback: CallbackQuery, state: FSMContext):
     try:
-        # Получаем текущий статус
         sleep_data = await db.get_sleep_mode()
-        if sleep_data is None:
+        if not sleep_data:
             await callback.message.edit_text("❌ Ошибка при получении статуса режима сна")
-            await callback.answer()
-            return
-            
-        current_mode = sleep_data["enabled"]
-        
-        if not current_mode:  # Если включаем режим сна
-            await callback.message.edit_text(
+            return await callback.answer()
+
+        is_enabled = sleep_data.get("enabled", False)
+
+        if not is_enabled:
+            text = (
                 "🕒 Введите время, до которого магазин будет закрыт\n"
                 "❗❗МАГАЗИН НЕ ВЫХОДИТ ИЗ РЕЖИМА СНА АВТОМАТИЧЕСКИ❗❗\n"
-                "Формат: ЧЧ:ММ (например, 10:00)",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                    InlineKeyboardButton(text="🔙 Отмена", callback_data="back_to_admin_menu")
-                ]])
+                "Формат: ЧЧ:ММ (например, 10:00)"
             )
+            markup = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="🔙 Отмена", callback_data="back_to_admin_menu")]])
+            await callback.message.edit_text(text, reply_markup=markup)
             await state.set_state(AdminStates.setting_sleep_time)
-        else:  # Если выключаем режим сна
-            try:
-                await db.set_sleep_mode(False, None)
-                await callback.message.edit_text(
-                    "🌙 Режим сна магазина\n\n"
-                    "Текущий статус: ❌ Выключен\n\n"
-                    "В режиме сна пользователи не смогут делать заказы.",
-                    reply_markup=sleep_mode_kb(False)
-                )
-            except Exception as e:
-                logger.error(f"Error setting sleep mode: {str(e)}")
-                await callback.message.edit_text("❌ Ошибка при выключении режима сна")
-        
+
+        else:
+            await db.set_sleep_mode(False, None)
+            await callback.message.edit_text(
+                "🌙 Режим сна магазина\n\n"
+                "Текущий статус: ❌ Выключен\n\n"
+                "В режиме сна пользователи не смогут делать заказы.",
+                reply_markup=sleep_mode_kb(False)
+            )
+
         await callback.answer()
-        
-    except Exception as e:
-        logger.error(f"Error in toggle_sleep_mode: {str(e)}")
+
+    except Exception:
+        logger.exception("Ошибка при переключении режима сна")
         await callback.answer("❌ Произошла ошибка при изменении режима сна")
 
-@router.message(AdminStates.setting_sleep_time)
+@router.message(AdminStates.setting_sleep_time)#Обработка ввода времени режима сна
 @check_admin_session
 async def process_sleep_time(message: Message, state: FSMContext):
     try:
-        # Проверяем формат времени
         time_text = message.text.strip()
-        if not time_text or len(time_text.split(':')) != 2:
-            await message.answer(
-                "❌ Неверный формат времени. Пожалуйста, используйте формат ЧЧ:ММ (например, 10:00)"
+
+        # Валидация формата ЧЧ:ММ
+        try:
+            hours, minutes = map(int, time_text.split(":"))
+        except Exception:
+            return await message.answer(
+                "❌ Неверный формат времени. Используйте формат ЧЧ:ММ (например, 10:00)"
             )
-            return
-            
-        hours, minutes = map(int, time_text.split(':'))
+
         if not (0 <= hours <= 23 and 0 <= minutes <= 59):
-            await message.answer(
+            return await message.answer(
                 "❌ Неверное время. Часы должны быть от 0 до 23, минуты от 0 до 59"
             )
-            return
-            
-        # Включаем режим сна с указанным временем
-        try:
-            await db.set_sleep_mode(True, time_text)
-            await message.answer(
-                f"🌙 Режим сна включен!\n\n"
-                f"Магазин будет закрыт до {time_text}\n"
-                f"Текущий статус: ✅ Включен",
-                reply_markup=sleep_mode_kb(True)
-            )
-        except Exception as e:
-            logger.error(f"Error setting sleep mode: {str(e)}")
-            await message.answer("❌ Ошибка при включении режима сна")
-            
-        await state.clear()
-        
-    except ValueError:
+
+        # Запись режима сна
+        await db.set_sleep_mode(True, time_text)
         await message.answer(
-            "❌ Неверный формат времени. Пожалуйста, используйте формат ЧЧ:ММ (например, 10:00)"
+            f"🌙 Режим сна включён!\n\n"
+            f"Магазин будет закрыт до {time_text}\n"
+            f"Текущий статус: ✅ Включен",
+            reply_markup=sleep_mode_kb(True)
         )
-    except Exception as e:
-        logger.error(f"Error in process_sleep_time: {str(e)}")
-        await message.answer("❌ Произошла ошибка при установке времени режима сна")
         await state.clear()
+
+    except Exception:
+        logger.exception("Ошибка при установке времени режима сна")
+        await message.answer("❌ Произошла ошибка при установке времени")
+        await state.clear()
+
 
 async def format_order_notification(order_id: str, user_data: dict, order_data: dict, cart: list, total: float) -> str:
     """Format order notification for admin"""

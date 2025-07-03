@@ -86,3 +86,32 @@ def product_edit_kb(product_id):
         [InlineKeyboardButton(text="🌈 Управление вкусами", callback_data=f"manage_flavors_{product_id}")],
         [InlineKeyboardButton(text="🔙 Назад", callback_data="back_to_product_management")]
     ])
+
+def build_flavor_editor(product_id: str, flavors: list) -> tuple[str, InlineKeyboardMarkup]:
+    keyboard = []
+    text = "🌈 Управление вкусами\n\n"
+
+    if flavors:
+        text += "Текущие вкусы:\n"
+        for i, flavor in enumerate(flavors, 1):
+            name = flavor.get('name', '')
+            qty = flavor.get('quantity', 0)
+            text += f"{i}. {name} - {qty} шт.\n"
+            keyboard.extend([
+                [
+                    InlineKeyboardButton(text=f"❌ {name} ({qty} шт.)", callback_data=f"delete_flavor_{product_id}_{i-1}"),
+                ],
+                [
+                    InlineKeyboardButton(text=f"➕ Изменить количество- {name}", callback_data=f"add_flavor_quantity_{product_id}_{i-1}")
+                ]
+            ])
+    else:
+        text += "У товара пока нет вкусов\n"
+
+    text += "\nНажмите на вкус, чтобы удалить его, или добавьте новый"
+    keyboard.extend([
+        [InlineKeyboardButton(text="➕ Добавить вкус", callback_data=f"add_flavor_{product_id}")],
+        [InlineKeyboardButton(text="🔙 Назад", callback_data=f"edit_product_{product_id}")]
+    ])
+
+    return text, InlineKeyboardMarkup(inline_keyboard=keyboard)

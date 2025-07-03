@@ -27,8 +27,7 @@ SHOP_NAME: str = "VapeShop"
 CATEGORIES = [
     "Одноразовые устройства",
     "Жидкости",
-    "Снюс",
-    "Аксессуары"
+    "Снюс"
 ]
 
 # Order Statuses
