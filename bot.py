@@ -9,6 +9,8 @@ import config
 from database import db
 from handlers import user_handlers, admin_handlers
 
+logging.getLogger("aiogram").setLevel(logging.WARNING)
+
 def setup_logging():
     """Configure logging for the bot"""
     logging.basicConfig(

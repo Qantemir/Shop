@@ -227,8 +227,6 @@ def build_product_caption(product: dict) -> str:#вывод карточки т�
 @rate_limit_protected
 async def select_flavor(callback: CallbackQuery, *args, **kwargs):
     try:
-        user_log.info(f"select_flavor callback: {callback.data}")
-        
         # Check sleep mode
         if await check_sleep_mode(callback):
             return
@@ -855,7 +853,7 @@ async def handle_payment_proof(message: Message, state: FSMContext):
         }
         
         # Format and send admin notification
-        admin_text = await format_order_notification(
+        admin_text = format_order_notification(
             order_id=order_id,
             user_data=user_data,
             order_data=data,
