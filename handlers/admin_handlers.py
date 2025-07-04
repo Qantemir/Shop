@@ -771,6 +771,7 @@ async def handle_confirm_broadcast(callback: CallbackQuery, state: FSMContext):
 
     sent_count = 0
     failed_count = 0
+    users_to_delete = []
 
     for user in users:
         try:
@@ -786,11 +787,23 @@ async def handle_confirm_broadcast(callback: CallbackQuery, state: FSMContext):
             failed_count += 1
             if 'chat not found' in error_text or 'bot was blocked by the user' in error_text:
                 try:
-                    await db.delete_user(user['user_id'])
-                    logger.info(f"Пользователь {user['user_id']} удалён из базы (chat not found или bot was blocked)")
+                    user_data = await db.get_user(user['user_id'])
+                    cart = user_data.get('cart', []) if user_data else []
+                    if not cart:
+                        users_to_delete.append(user['user_id'])
+                    else:
+                        logger.info(f"Пользователь {user['user_id']} не удалён: корзина не пуста.")
                 except Exception as del_e:
-                    logger.error(f"Ошибка при удалении пользователя {user['user_id']}: {del_e}")
+                    logger.error(f"Ошибка при проверке пользователя {user['user_id']}: {del_e}")
             continue
+
+    # Массовое удаление пользователей после рассылки
+    if users_to_delete:
+        try:
+            deleted_count = await db.delete_users_bulk(users_to_delete)
+            logger.info(f"Массово удалено пользователей: {deleted_count}")
+        except Exception as e:
+            logger.error(f"Ошибка при массовом удалении пользователей: {e}")
 
     summary = (
         f"✅ Рассылка завершена!\n\n"

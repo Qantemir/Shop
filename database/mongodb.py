@@ -419,5 +419,15 @@ class MongoDB:
             logger.error(f"❌ Error deleting user {user_id}: {str(e)}")
             return False
 
+    async def delete_users_bulk(self, user_ids: list):
+        """Массовое удаление пользователей по списку user_id"""
+        try:
+            result = await self.db.users.delete_many({"user_id": {"$in": user_ids}})
+            logger.info(f"Bulk deleted {result.deleted_count} users: {user_ids}")
+            return result.deleted_count
+        except Exception as e:
+            logger.error(f"❌ Error bulk deleting users: {str(e)}")
+            return 0
+
 # Create a global instance
 db = MongoDB() 
