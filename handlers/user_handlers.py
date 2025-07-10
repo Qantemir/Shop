@@ -649,9 +649,9 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
                 liquid_total += item['quantity']
         
         # Check minimum quantities
-        if snus_total > 0 and snus_total < 3:
+        if snus_total > 0 and snus_total < 1:
             await callback.message.answer(
-                "❌ Минимальный заказ для категории Снюс - 3 штук.\n"
+                "❌ Минимальный заказ для категории Снюс - 1 штук.\n"
                 f"Текущее количество: {snus_total} шт."
             )
             await callback.answer()
@@ -659,7 +659,7 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
             
         if liquid_total > 0 and liquid_total < 3:
             await callback.message.answer(
-                "❌ Минимальный заказ для категории Жидкости - 3 штук.\n"
+                "❌ Минимальный заказ для категории Жидкости - 1 штук.\n"
                 f"Текущее количество: {liquid_total} шт."
             )
             await callback.answer()
