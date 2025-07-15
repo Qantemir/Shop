@@ -1,6 +1,7 @@
+from cgitb import text
 from aiogram.types import (
     InlineKeyboardMarkup, InlineKeyboardButton,
-    ReplyKeyboardMarkup, KeyboardButton
+    ReplyKeyboardMarkup, KeyboardButton, keyboard_button
 )
 from config import CATEGORIES
 
@@ -71,8 +72,9 @@ def help_menu() -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="❓ Как сделать заказ", callback_data="help_how_to_order")],
         [InlineKeyboardButton(text="💳 Оплата", callback_data="help_payment")],
         [InlineKeyboardButton(text="🚚 Доставка", callback_data="help_delivery")],
+        [InlineKeyboardButton(text="🤙Контакты", callback_data="help_contact")],
         main_menu_button()
-    ])
+        ])
 
 # 🔹 Кнопки управления товарами в корзине
 def cart_full_kb(cart_items: list) -> InlineKeyboardMarkup:
