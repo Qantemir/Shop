@@ -915,6 +915,7 @@ async def start_order(callback: CallbackQuery, state: FSMContext):
 async def show_help_menu(message: Message, state: FSMContext):
     # Удаляем приветственное сообщение
     await safe_delete_message(message.bot, message.chat.id, message.message_id)
+    await state.clear() 
     
     # Удаляем другие сообщения
     try:
