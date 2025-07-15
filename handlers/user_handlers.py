@@ -750,7 +750,7 @@ async def process_address(message: Message, state: FSMContext):
         
       payment_text = (
     f"💳 Для оплаты заказа переведите {format_price(total)} ₸ на карту:\n\n"
-    f'<a href="https://t.me/share/url?url={admin_card}">{admin_card}</a>\n\n'
+    f'<a>{admin_card}</a>\n\n'
     f"{admin_card_name}\n"
     "👆 Нажмите на номер карты, чтобы скопировать\n\n"
     "⚠️ ВАЖНО:\n"
