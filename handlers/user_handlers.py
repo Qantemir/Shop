@@ -913,9 +913,9 @@ async def start_order(callback: CallbackQuery, state: FSMContext):
 
 @router.message(F.text == "ℹ️ Помощь") #Обработчик калвиатурной кнопки кнопки Помошь
 async def show_help_menu(message: Message, state: FSMContext):
-    # Удаляем приветственное сообщение
-    await safe_delete_message(message.bot, message.chat.id, message.message_id)
     await state.clear() 
+    # Удаляем приветственное сообщение
+    await safe_delete_message(message.bot, message.chat.id, message.message_id) 
     
     # Удаляем другие сообщения
     try:
