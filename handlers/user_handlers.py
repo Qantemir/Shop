@@ -875,14 +875,14 @@ async def handle_payment_proof(message: Message, state: FSMContext):
                 await message.bot.send_photo(
                     chat_id=ADMIN_ID,
                     photo=file_id,
-                    caption=f"💳 Скриншот оплаты для заказа #{order_id}",
+                    caption=f"💳 Скриншот оплаты для заказа#{order_id}",
                     reply_markup=order_management_kb(order_id)
                 )
             else:
                 await message.bot.send_document(
                     chat_id=ADMIN_ID,
                     document=file_id,
-                    caption=f"💳 Чек оплаты для заказа #{order_id}",
+                    caption=f"💳 Чек оплаты для заказа#{order_id}",
                     reply_markup=order_management_kb(order_id)
                 )
         except Exception as e:
