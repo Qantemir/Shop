@@ -1,3 +1,5 @@
+from cgitb import text
+import stat
 from aiogram import Router, F
 from aiogram.filters import Command, StateFilter
 from aiogram.fsm.context import FSMContext
@@ -749,13 +751,14 @@ async def process_address(message: Message, state: FSMContext):
         admin_card_name = ADMIN_CARD_NAME
         
         payment_text = (
+
             f"💳 Для оплаты заказа переведите {format_price(total)} ₸ на карту:\n\n"
-           f'<a href="{admin_card}">Перейти к оплате</a>\n'
+           f'<a href="{admin_card}">Перейти к оплате</a>\n
             f"{admin_card_name}\n"
-           "👆 Нажмите, чтобы оплатить заказ\n\n"
+            "👆 Для оплаты пройдите по ссылке\n\n"
             "⚠️ ВАЖНО:\n"
             "• Стоимость доставки: до 1000 ₸ (оплачивается курьеру при получении)\n"
-            "• После оплаты отправьте скриншот чека\n"
+            "• После оплаты отправьте чек\n"
             "• Убедитесь, что вы будете находиться по указанному адресу в течение 2-3 часов\n"
             "• Встречайте курьера лично - возврат средств за неполученный заказ не производится\n"
             "• После отправки заказа вы получите номер для отслеживания в Яндекс.Go\n"
@@ -873,14 +876,14 @@ async def handle_payment_proof(message: Message, state: FSMContext):
                 await message.bot.send_photo(
                     chat_id=ADMIN_ID,
                     photo=file_id,
-                    caption=f"💳 Скриншот оплаты для заказа #{order_id}",
+                    caption=f"💳 Скриншот оплаты для заказа#{order_id}",
                     reply_markup=order_management_kb(order_id)
                 )
             else:
                 await message.bot.send_document(
                     chat_id=ADMIN_ID,
                     document=file_id,
-                    caption=f"💳 Чек оплаты для заказа #{order_id}",
+                    caption=f"💳 Чек оплаты для заказа#{order_id}",
                     reply_markup=order_management_kb(order_id)
                 )
         except Exception as e:
@@ -911,8 +914,9 @@ async def start_order(callback: CallbackQuery, state: FSMContext):
 
 @router.message(F.text == "ℹ️ Помощь") #Обработчик калвиатурной кнопки кнопки Помошь
 async def show_help_menu(message: Message, state: FSMContext):
+    await state.clear() 
     # Удаляем приветственное сообщение
-    await safe_delete_message(message.bot, message.chat.id, message.message_id)
+    await safe_delete_message(message.bot, message.chat.id, message.message_id) 
     
     # Удаляем другие сообщения
     try:
@@ -1003,11 +1007,11 @@ async def show_payment_info(callback: CallbackQuery, state: FSMContext):
     
     text = """💳 Способы оплаты:
 
-    • Онлайн-оплата (переводом на карту)
+    • Онлайн-оплата через каспи
     • Стоимость доставки: до 1000 ₸ (оплачивается курьеру при получении)
 
     ⚠️ ВАЖНО:
-    • После оплаты отправьте скриншот чека
+    • После оплаты отправьте чек
     • Убедитесь, что вы будете находиться по указанному адресу в течение 2-3 часов
     • Встречайте курьера лично - возврат средств за неполученный заказ не производится"""
     
@@ -1038,6 +1042,22 @@ async def show_delivery_info(callback: CallbackQuery, state: FSMContext):
 
     Просим отнестись с пониманием в это непростое время."""
 
+    await safe_delete_message(callback.message)
+    help_msg = await callback.message.answer(text, reply_markup=help_menu())
+    await state.update_data(help_message_id=help_msg.message_id)
+    await callback.answer()
+
+@router.callback_query(F.data == "help_contact")
+async def show_contact_help(callback: CallbackQuery, state: FSMContext):
+    try:
+        await delete_previous_callback_messages(callback, state, "help")
+    except Exception as e:
+        user_log.error(f"Произошла ошибка при удалении придыдуших сообшений: {e}")
+    
+    text="""🤙Контакты
+    ⬇️Telegram для связи⬇️
+        @tikto7182
+    """
     await safe_delete_message(callback.message)
     help_msg = await callback.message.answer(text, reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
