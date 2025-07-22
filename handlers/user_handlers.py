@@ -1043,6 +1043,24 @@ async def show_delivery_info(callback: CallbackQuery, state: FSMContext):
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
+router.callback_query(F.data == "help_contact")
+async def show_contact_help(callback: CallbackQuery, state: FSMContext):
+    try:
+        await delete_previous_callback_messages(callback, state, "help")
+    except Exception as e:
+        user_log.error(f"Произошла ошибка при удалении придыдуших сообшений: {e}")
+    
+    text="""🤙Контакты
+    ⬇️Telegram для связи⬇️
+        @tikto7182
+    """
+    await safe_delete_message(callback.message)
+    help_msg = await callback.message.answer(text, reply_markup=help_menu())
+    await state.update_data(help_message_id=help_msg.message_id)
+    await callback.answer()
+
+
+
 async def delete_welcome_message(message: Message, state: FSMContext):
     """Удаляет приветственное сообщение пользователя"""
     try:

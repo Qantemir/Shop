@@ -72,7 +72,7 @@ def help_menu() -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="❓ Как сделать заказ", callback_data="help_how_to_order")],
         [InlineKeyboardButton(text="💳 Оплата", callback_data="help_payment")],
         [InlineKeyboardButton(text="🚚 Доставка", callback_data="help_delivery")],
-        [InlineKeyboardButton(text="🤙Контакты", callback_data="help_contact")],
+        [InlineKeyboardButton(text="🤙Поддержка", callback_data="help_contact")],
         main_menu_button()
         ])
 
