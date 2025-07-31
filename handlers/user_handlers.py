@@ -23,6 +23,7 @@ from config import ADMIN_ID, ADMIN_CARD,ADMIN_SWITCHING, CATEGORIES, ADMIN_CARD_
 from handlers.admin_handlers import format_order_notification
 from utils.sleep_mode import check_sleep_mode
 from utils.message_utils import safe_delete_message
+from texts import *
 
 user_log = logging.getLogger(__name__)#Инициализация логера
 
@@ -69,7 +70,7 @@ async def start_rate_limit_cleanup():# Запускаем периодическ
 def rate_limit_protected(func):#Декоратор для автоматической защиты от спама
     async def wrapper(callback: CallbackQuery, *args, **kwargs):
         if not await check_rate_limit(callback.from_user.id, callback.data):
-            await callback.answer("⚠️ Подождите немного перед следующим нажатием", show_alert=True)
+            await callback.answer(RATE_LIMIT_WARNING, show_alert=True)
             return
         return await func(callback, *args, **kwargs)
     return wrapper
@@ -93,8 +94,7 @@ class CancellationStates(StatesGroup):#для ожидания причины о
 class WelcomeMessageState(StatesGroup):#для хранения ID приветственного сообщения
     message_id = State()
 
-def format_price(price):#Маска для суммы
-    return f"{float(price):.2f}"
+# Удаляем функцию format_price, так как она теперь в texts.py
 
 @router.message(Command("start"))#Обработчик /start
 async def cmd_start(message: Message, state: FSMContext):
@@ -106,8 +106,7 @@ async def cmd_start(message: Message, state: FSMContext):
 
     help_button = help_button_kb()
     welcome_msg = await message.answer(
-        "Добро пожаловать в магазин!\n\n"
-        "👇Нажмите на ℹ️ Помощь, чтобы узнать подробнее👇",
+        WELCOME_MESSAGE,
           reply_markup=main_menu()
     )
     # Сохраняем ID сообщения в состоянии
@@ -169,7 +168,7 @@ async def show_category(callback: CallbackQuery, state: FSMContext):
         
         if not products:
             await callback.answer(
-                text="❗️В данной категории нет товаров",
+                text=CATEGORY_EMPTY,
                 show_alert=True 
             )
             return
@@ -192,36 +191,16 @@ async def show_category(callback: CallbackQuery, state: FSMContext):
                 product_message_ids.append(product_msg.message_id)
             except Exception as e:
                 user_log.error(f"Ошибка отображения товара {product_id}: {e}")
-                await callback.message.answer(f"Ошибка при отображении товара {product.get('name', 'Неизвестно')}")
+                await callback.message.answer(PRODUCT_DISPLAY_ERROR.format(name=product.get('name', 'Неизвестно')))
 
         await state.update_data(product_message_ids=product_message_ids)
         await callback.answer()
 
     except Exception as e:
         user_log.error(f"Ошибка в show_category: {e}")
-        await callback.answer("Произошла ошибка при отображении категории")
+        await callback.answer(CATALOG_ERROR)
 
-def build_product_caption(product: dict) -> str:#вывод карточки товара
-    caption = f"📦 {product['name']}\n"
-    caption += f"💰 {format_price(product['price'])} ₸\n"
-    caption += f"📝 {product['description']}\n\n"
-
-    flavors = product.get('flavors', [])
-    available_flavors = []
-
-    for flavor in flavors:
-        if isinstance(flavor, dict):
-            name = flavor.get('name', 'Неизвестно')
-            quantity = flavor.get('quantity', 0)
-            if quantity > 0:
-                available_flavors.append(f"• {name} ({quantity} шт.)")
-
-    if available_flavors:
-        caption += "👇Чтобы добавить в корзину нажмите нужный вкус ниже👇"
-    else:
-        caption += "🚫 Нет в наличии\n"
-
-    return caption
+# Удаляем функцию build_product_caption, так как она теперь в texts.py
 
 @router.callback_query(F.data.startswith("sf_"))#создание и обработка кнопок выбора вкуса
 @rate_limit_protected
@@ -233,29 +212,29 @@ async def select_flavor(callback: CallbackQuery, *args, **kwargs):
         
         parts = callback.data.split("_")
         if len(parts) != 3:
-            await callback.answer("Ошибка в формате данных")
+            await callback.answer(CALLBACK_ERROR)
             return
 
         product_id, flavor_index = parts[1], parts[2]
         try:
             flavor_index = int(flavor_index) - 1
         except ValueError:
-            await callback.answer("Ошибка в индексе вкуса")
+            await callback.answer(FLAVOR_INDEX_ERROR)
             return
 
         product = await db.get_product(product_id)
         if not product:
-            await callback.answer("Товар не найден")
+            await callback.answer(PRODUCT_NOT_FOUND)
             return
 
         flavors = product.get("flavors", [])
         if flavor_index >= len(flavors):
-            await callback.answer("Вкус не найден")
+            await callback.answer(PRODUCT_FLAVOR_NOT_FOUND)
             return
 
         flavor = flavors[flavor_index]
         if not flavor.get("quantity", 0):
-            await callback.answer("К сожалению, этот вкус закончился")
+            await callback.answer(PRODUCT_OUT_OF_STOCK_ERROR)
             return
 
         user = await db.get_user(callback.from_user.id)
@@ -265,13 +244,13 @@ async def select_flavor(callback: CallbackQuery, *args, **kwargs):
 
         cart = user.get("cart", [])
         if any(item['product_id'] == product_id and item['flavor'] == flavor['name'] for item in cart):
-            await callback.answer("🔄 Товар уже в вашей корзине (чтобы изменить количество, перейдите в корзину)", show_alert=True)
+            await callback.answer(PRODUCT_ALREADY_IN_CART, show_alert=True)
             return
 
         # Atomic deduction
         success = await db.update_product_flavor_quantity(product_id, flavor['name'], -1)
         if not success:
-            await callback.answer("К сожалению, этот вкус закончился", show_alert=True)
+            await callback.answer(PRODUCT_OUT_OF_STOCK_ERROR, show_alert=True)
             return
 
         cart.append({
@@ -287,18 +266,18 @@ async def select_flavor(callback: CallbackQuery, *args, **kwargs):
             'cart_expires_at': (datetime.now() + timedelta(minutes=5)).isoformat()
         })
 
-        await callback.answer("✅ Товар добавлен в корзину", show_alert=True)
+        await callback.answer(PRODUCT_ADDED_TO_CART, show_alert=True)
 
     except Exception as e:
         user_log.error(f"Ошибка в select_flavor: {e}", exc_info=True)
-        await callback.answer("Произошла ошибка при добавлении товара в корзину")
+        await callback.answer(GENERAL_ERROR)
 
 @router.callback_query(F.data == "back_to_catalog")#оброботка кнопки назад в каталог
 async def back_to_catalog_handler(callback: CallbackQuery, state: FSMContext):
     try:    
         from config import CATEGORIES
         if not CATEGORIES:
-            await callback.answer("Категории не найдены", show_alert=True)
+            await callback.answer(CATEGORIES_NOT_FOUND, show_alert=True)
             return
 
         await delete_product_cards(callback, state)
@@ -309,12 +288,12 @@ async def back_to_catalog_handler(callback: CallbackQuery, state: FSMContext):
         keyboard = catalog_menu()
         if not keyboard.inline_keyboard:
             user_log.error("⚠️ Клавиатура каталога пуста!")
-            await callback.answer("Ошибка: каталог пуст", show_alert=True)
+            await callback.answer(CATALOG_EMPTY_ERROR, show_alert=True)
             return
 
         msg = await callback.bot.send_message(
             chat_id=callback.message.chat.id,
-            text="Выберите категорию:",
+            text=CATALOG_MESSAGE,
             reply_markup=keyboard
         )
 
@@ -323,7 +302,7 @@ async def back_to_catalog_handler(callback: CallbackQuery, state: FSMContext):
 
     except Exception as e:
         user_log.error(f"Ошибка в back_to_catalog_handler: {e}", exc_info=True)
-        await callback.answer("Произошла ошибка")
+        await callback.answer(GENERAL_ERROR)
 
 @router.message(F.text == "🛒 Корзина")#обработка клавиатурной кнопки корзина
 async def show_cart(message: Message, state: FSMContext):
@@ -360,7 +339,7 @@ async def show_cart(message: Message, state: FSMContext):
         await show_cart_message(message, user, state)
     except Exception as e:
         user_log.error(f"Error in show_cart: {str(e)}")
-        await message.answer("❌ Произошла ошибка при отображении корзины", reply_markup=main_menu())
+        await message.answer(CART_ERROR, reply_markup=main_menu())
 
 
 async def show_cart_message(message: Message, user: dict, state: FSMContext = None):
@@ -368,7 +347,7 @@ async def show_cart_message(message: Message, user: dict, state: FSMContext = No
     if await check_cart_expiration(user):
         await clear_expired_cart(user['user_id'])
         cart_msg = await message.answer(
-            "🛒 Ваша корзина была очищена из-за истечения времени (5 минут)",
+            CART_EXPIRED,
             reply_markup=main_menu()
         )
         if state:
@@ -377,7 +356,7 @@ async def show_cart_message(message: Message, user: dict, state: FSMContext = No
 
     if not user or not user.get('cart'):
         cart_msg = await message.answer(
-            "🛒 Ваша корзина пуста",
+            CART_EMPTY,
             reply_markup=main_menu()
         )
         if state:
@@ -385,25 +364,8 @@ async def show_cart_message(message: Message, user: dict, state: FSMContext = No
         return
 
     cart = user['cart']
-    text = "🛒 Ваша корзина:\n\n"
-    total = 0
-
-    for item in cart:
-        name = item.get('name', 'Без названия')
-        flavor = item.get('flavor')
-        price = item.get('price', 0)
-        quantity = item.get('quantity', 0)
-        subtotal = price * quantity
-
-        text += f"📦 {name}"
-        if flavor:
-            text += f" (🌈 {flavor})"
-        text += f"\n💰 {format_price(price)} ₸ x {quantity} = {format_price(subtotal)} ₸\n"
-        text += "➖➖➖➖➖➖➖➖\n\n"
-
-        total += subtotal
-
-    text += f"💎 <b>Итого:</b> {format_price(total)} ₸"
+    total = sum(item['price'] * item['quantity'] for item in cart)
+    text = build_cart_text(cart, total)
 
     keyboard = cart_full_kb(cart)
     cart_msg = await message.answer(text, reply_markup=keyboard, parse_mode="HTML")
@@ -426,7 +388,7 @@ async def increase_cart_item(callback: CallbackQuery, state: FSMContext):
     try:
         # Проверка rate limit
         if not await check_rate_limit(callback.from_user.id, callback.data):
-            await callback.answer("⚠️ Подождите немного перед следующим нажатием", show_alert=True)
+            await callback.answer(RATE_LIMIT_WARNING, show_alert=True)
             return
             
         await delete_previous_callback_messages(callback, state, "cart")
@@ -436,25 +398,25 @@ async def increase_cart_item(callback: CallbackQuery, state: FSMContext):
         # Проверяем истечение корзины
         if await check_cart_expiration(user):
             await clear_expired_cart(callback.from_user.id)
-            await callback.answer("🛒 Ваша корзина была очищена из-за истечения времени", show_alert=True)
+            await callback.answer(CART_EXPIRED, show_alert=True)
             return
 
         if not user or not item:
-            await callback.answer("Товар не найден в корзине")
+            await callback.answer(QUANTITY_ITEM_NOT_FOUND)
             return
 
         product = await db.get_product(product_id)
         if not product:
-            await callback.answer("Товар больше не доступен")
+            await callback.answer(PRODUCT_NO_LONGER_AVAILABLE)
             return
 
         if 'flavor' in item:
             flavor = next((f for f in product.get('flavors', []) if f.get('name') == item['flavor']), None)
             if not flavor or flavor.get('quantity', 0) <= 0:
-                await callback.answer("Нет в наличии")
+                await callback.answer(QUANTITY_NO_STOCK)
                 return
             if not await db.update_product_flavor_quantity(product_id, item['flavor'], -1):
-                await callback.answer("Ошибка при обновлении", show_alert=True)
+                await callback.answer(PRODUCT_UPDATE_ERROR, show_alert=True)
                 return
 
         item['quantity'] += 1
@@ -466,10 +428,10 @@ async def increase_cart_item(callback: CallbackQuery, state: FSMContext):
         })
 
         await show_cart_message(callback.message, user, state)
-        await callback.answer("✅ Количество увеличено")
+        await callback.answer(QUANTITY_INCREASED)
     except Exception as e:
         user_log.error(f"Error in increase_cart_item: {e}")
-        await callback.answer("Произошла ошибка")
+        await callback.answer(GENERAL_ERROR)
 
 
 @router.callback_query(F.data.startswith("decrease_"))#уменьшения количества вкусов в корзине
@@ -477,7 +439,7 @@ async def decrease_cart_item(callback: CallbackQuery, state: FSMContext):
     try:
         # Проверка rate limit
         if not await check_rate_limit(callback.from_user.id, callback.data):
-            await callback.answer("⚠️ Подождите немного перед следующим нажатием", show_alert=True)
+            await callback.answer(RATE_LIMIT_WARNING, show_alert=True)
             return
             
         await delete_previous_callback_messages(callback, state, "cart")
@@ -487,16 +449,16 @@ async def decrease_cart_item(callback: CallbackQuery, state: FSMContext):
         # Проверяем истечение корзины
         if await check_cart_expiration(user):
             await clear_expired_cart(callback.from_user.id)
-            await callback.answer("🛒 Ваша корзина была очищена из-за истечения времени", show_alert=True)
+            await callback.answer(CART_EXPIRED, show_alert=True)
             return
 
         if not user or not item:
-            await callback.answer("Товар не найден в корзине")
+            await callback.answer(QUANTITY_ITEM_NOT_FOUND)
             return
 
         if 'flavor' in item:
             if not await db.update_product_flavor_quantity(product_id, item['flavor'], 1):
-                await callback.answer("Ошибка при обновлении", show_alert=True)
+                await callback.answer(PRODUCT_UPDATE_ERROR, show_alert=True)
                 return
 
         if item['quantity'] > 1:
@@ -514,10 +476,10 @@ async def decrease_cart_item(callback: CallbackQuery, state: FSMContext):
         })
 
         await show_cart_message(callback.message, user, state)
-        await callback.answer("✅ Количество уменьшено")
+        await callback.answer(QUANTITY_DECREASED)
     except Exception as e:
         user_log.error(f"Error in decrease_cart_item: {e}")
-        await callback.answer("Произошла ошибка")
+        await callback.answer(GENERAL_ERROR)
 
 
 @router.callback_query(F.data == "clear_cart")
@@ -525,7 +487,7 @@ async def clear_cart(callback: CallbackQuery, state: FSMContext):
     try:
         # Проверка rate limit
         if not await check_rate_limit(callback.from_user.id, callback.data):
-            await callback.answer("⚠️ Подождите немного перед следующим нажатием", show_alert=True)
+            await callback.answer(RATE_LIMIT_WARNING, show_alert=True)
             return
             
         # Удаляем предыдущие сообщения корзины
@@ -533,7 +495,7 @@ async def clear_cart(callback: CallbackQuery, state: FSMContext):
         
         user = await db.get_user(callback.from_user.id)
         if not user or not user.get('cart'):
-            await callback.answer("Корзина уже пуста")
+            await callback.answer(CART_ALREADY_EMPTY)
             return
             
         # Return all flavors to inventory using atomic operations
@@ -551,12 +513,12 @@ async def clear_cart(callback: CallbackQuery, state: FSMContext):
             'cart_expires_at': None
         })
         
-        await callback.message.answer("Корзина очищена", reply_markup=main_menu())
-        await callback.answer("Корзина очищена")
+        await callback.message.answer(CART_CLEARED, reply_markup=main_menu())
+        await callback.answer(CART_CLEARED)
         
     except Exception as e:
         user_log.error(f"Error in clear_cart: {str(e)}")
-        await callback.answer("Произошла ошибка при очистке корзины")
+        await callback.answer(GENERAL_ERROR)
 
 @router.callback_query(F.data.startswith("remove_"))
 async def remove_item(callback: CallbackQuery, state: FSMContext):
@@ -568,7 +530,7 @@ async def remove_item(callback: CallbackQuery, state: FSMContext):
         user, item = await get_cart_item(callback.from_user.id, product_id)
         
         if not user or not item:
-            await callback.answer("Товар не найден в корзине")
+            await callback.answer(ITEM_NOT_FOUND)
             return
             
         # Return all quantity of the flavor to inventory
@@ -579,7 +541,7 @@ async def remove_item(callback: CallbackQuery, state: FSMContext):
                 item['quantity']
             )
             if not success:
-                await callback.answer("Ошибка при обновлении количества товара", show_alert=True)
+                await callback.answer(ITEM_UPDATE_ERROR, show_alert=True)
                 return
         
         # Remove item from cart
@@ -599,18 +561,18 @@ async def remove_item(callback: CallbackQuery, state: FSMContext):
         
         # Show updated cart
         await show_cart_message(callback.message, user, state)
-        await callback.answer("Товар удален из корзины")
+        await callback.answer(ITEM_REMOVED)
         
     except Exception as e:
         user_log.error(f"Error in remove_item: {str(e)}")
-        await callback.answer("Произошла ошибка")
+        await callback.answer(GENERAL_ERROR)
 
 @router.callback_query(F.data == "checkout")
 async def start_checkout(callback: CallbackQuery, state: FSMContext):
     try:
         # Проверка rate limit
         if not await check_rate_limit(callback.from_user.id, callback.data):
-            await callback.answer("⚠️ Подождите немного перед следующим нажатием", show_alert=True)
+            await callback.answer(RATE_LIMIT_WARNING, show_alert=True)
             return
             
         # Удаляем предыдущие сообщения корзины
@@ -621,7 +583,7 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
     
         user = await db.get_user(callback.from_user.id)
         if not user or not user.get('cart'):
-            await callback.message.answer("Ваша корзина пуста")
+            await callback.message.answer(CHECKOUT_EMPTY_CART)
             await callback.answer()
             return
         
@@ -638,9 +600,9 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         for item in cart:
             product = await db.get_product(item['product_id'])
             if not product:
-                await callback.message.answer(f"Товар {item['name']} больше не доступен")
-                await callback.answer()
-                return
+                            await callback.message.answer(PRODUCT_NO_LONGER_AVAILABLE_ERROR.format(name=item['name']))
+            await callback.answer()
+            return
                 
             # Count category totals
             if product.get('category') == 'Снюс':
@@ -651,16 +613,14 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         # Check minimum quantities
         if snus_total > 0 and snus_total < 1:
             await callback.message.answer(
-                "❌ Минимальный заказ для категории Снюс - 1 штук.\n"
-                f"Текущее количество: {snus_total} шт."
+                CHECKOUT_MIN_SNUS.format(quantity=snus_total)
             )
             await callback.answer()
             return
             
         if liquid_total > 0 and liquid_total < 3:
             await callback.message.answer(
-                "❌ Минимальный заказ для категории Жидкости - 1 штук.\n"
-                f"Текущее количество: {liquid_total} шт."
+                CHECKOUT_MIN_LIQUID.format(quantity=liquid_total)
             )
             await callback.answer()
             return
@@ -686,15 +646,13 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         )
         
         # Ask for phone number
-        await callback.message.answer(
-            "Для оформления заказа, пожалуйста, отправьте ваш номер телефона в формате 8XXXXXXXXXX"
-        )
+        await callback.message.answer(CHECKOUT_PHONE_REQUEST)
         await state.set_state(OrderStates.waiting_phone)
         await callback.answer()
     except Exception as e:
         user_log.error(f"Error in start_checkout: {str(e)}")
-        await callback.answer("Произошла ошибка при оформлении заказа", show_alert=True)
-        await callback.message.answer("Произошла ошибка. Попробуйте позже.", reply_markup=main_menu())
+        await callback.answer(GENERAL_ERROR, show_alert=True)
+        await callback.message.answer(TRY_AGAIN_LATER, reply_markup=main_menu())
 
 @router.message(OrderStates.waiting_phone)
 async def process_phone(message: Message, state: FSMContext):
@@ -705,19 +663,16 @@ async def process_phone(message: Message, state: FSMContext):
         # Validate phone number format
         phone = message.text.strip()
         if not phone.startswith('8') or not phone[1:].isdigit() or len(phone) != 11:
-            await message.answer("Пожалуйста, введите корректный номер телефона в формате 8XXXXXXXXXX")
+            await message.answer(CHECKOUT_PHONE_INVALID)
             return
         
         # Save phone and ask for address
         await state.update_data(phone=phone)
-        await message.answer(
-            "Теперь отправьте ваш адрес доставки.\n"
-            "Пожалуйста, укажите улицу и дом (например: ул. Ленина 123)"
-        )
+        await message.answer(CHECKOUT_ADDRESS_REQUEST)
         await state.set_state(OrderStates.waiting_address)
     except Exception as e:
         user_log.error(f"Error in process_phone: {str(e)}")
-        await message.answer("Произошла ошибка при обработке номера телефона", reply_markup=main_menu())
+        await message.answer(GENERAL_ERROR, reply_markup=main_menu())
         await state.clear()
 
 @router.message(OrderStates.waiting_address)
@@ -748,25 +703,17 @@ async def process_address(message: Message, state: FSMContext):
         admin_card = ADMIN_CARD
         admin_card_name = ADMIN_CARD_NAME
         
-        payment_text = (
-            f"💳 Для оплаты заказа переведите {format_price(total)} ₸ на карту:\n\n"
-           f'<a href="{admin_card}">Перейти к оплате</a>\n\n'
-            f"{admin_card_name}\n"
-           "👆 Нажмите, чтобы оплатить заказ\n\n"
-            "⚠️ ВАЖНО:\n"
-            "• Стоимость доставки: до 1000 ₸ (оплачивается курьеру при получении)\n"
-            "• После оплаты отправьте скриншот чека\n"
-            "• Убедитесь, что вы будете находиться по указанному адресу в течение 2-3 часов\n"
-            "• Встречайте курьера лично - возврат средств за неполученный заказ не производится\n"
-            "• После отправки заказа вы получите номер для отслеживания в Яндекс.Go\n"
-            "• Заказы отправляются пачками для оптимизации доставки"
+        payment_text = CHECKOUT_PAYMENT_REQUEST.format(
+            total=format_price(total),
+            card_link=admin_card,
+            card_name=admin_card_name
         )
         
         await message.answer(payment_text, parse_mode="HTML")
         await state.set_state(OrderStates.waiting_payment)
     except Exception as e:
         user_log.error(f"Error in process_address: {str(e)}")
-        await message.answer("Произошла ошибка при обработке адреса", reply_markup=main_menu())
+        await message.answer(GENERAL_ERROR, reply_markup=main_menu())
         await state.clear()
 
 @router.message(OrderStates.waiting_payment)
@@ -782,27 +729,19 @@ async def handle_payment_proof(message: Message, state: FSMContext):
             file_id = message.document.file_id
             file_type = 'document'
         else:
-            await message.answer(
-                "Пожалуйста, отправьте скриншот чека об оплате в виде фотографии или файла."
-            )
+            await message.answer(CHECKOUT_PAYMENT_PROOF_REQUEST)
             return
 
         # Get all order data
         data = await state.get_data()
         if not data:
-            await message.answer(
-                "Произошла ошибка при обработке заказа. Пожалуйста, начните оформление заказа заново.",
-                reply_markup=main_menu()
-            )
+            await message.answer(CHECKOUT_ORDER_ERROR, reply_markup=main_menu())
             await state.clear()
             return
 
         user = await db.get_user(message.from_user.id)
         if not user or not user.get('cart'):
-            await message.answer(
-                "Произошла ошибка при обработке заказа. Пожалуйста, начните оформление заказа заново.",
-                reply_markup=main_menu()
-            )
+            await message.answer(CHECKOUT_ORDER_ERROR, reply_markup=main_menu())
             await state.clear()
             return
 
@@ -827,10 +766,7 @@ async def handle_payment_proof(message: Message, state: FSMContext):
         # Create order in database
         order_result = await db.create_order(order_data)
         if not order_result:
-            await message.answer(
-                "Произошла ошибка при создании заказа. Пожалуйста, попробуйте позже.",
-                reply_markup=main_menu()
-            )
+            await message.answer(CHECKOUT_ORDER_CREATION_ERROR, reply_markup=main_menu())
             await state.clear()
             return
             
@@ -840,11 +776,7 @@ async def handle_payment_proof(message: Message, state: FSMContext):
         await db.update_user(message.from_user.id, {'cart': []})
         
         # Send confirmation to user
-        await message.answer(
-            "✅ Спасибо! Ваш заказ принят и ожидает подтверждения оплаты.\n"
-            "Мы уведомим вас, когда заказ будет подтвержден.",
-            reply_markup=main_menu()
-        )
+        await message.answer(CHECKOUT_ORDER_CREATED, reply_markup=main_menu())
         
         # Prepare user data for notification
         user_data = {
@@ -873,14 +805,14 @@ async def handle_payment_proof(message: Message, state: FSMContext):
                 await message.bot.send_photo(
                     chat_id=ADMIN_ID,
                     photo=file_id,
-                    caption=f"💳 Скриншот оплаты для заказа #{order_id}",
+                    caption=ADMIN_PAYMENT_PHOTO_CAPTION.format(order_id=order_id),
                     reply_markup=order_management_kb(order_id)
                 )
             else:
                 await message.bot.send_document(
                     chat_id=ADMIN_ID,
                     document=file_id,
-                    caption=f"💳 Чек оплаты для заказа #{order_id}",
+                    caption=ADMIN_PAYMENT_DOCUMENT_CAPTION.format(order_id=order_id),
                     reply_markup=order_management_kb(order_id)
                 )
         except Exception as e:
@@ -890,10 +822,7 @@ async def handle_payment_proof(message: Message, state: FSMContext):
         
     except Exception as e:
         user_log.error(f"Error in handle_payment_proof: {str(e)}")
-        await message.answer(
-            "Произошла ошибка при обработке оплаты. Пожалуйста, попробуйте позже.",
-            reply_markup=main_menu()
-        )
+        await message.answer(GENERAL_ERROR, reply_markup=main_menu())
         await state.clear()
 
 @router.callback_query(F.data == "create_order")
@@ -906,8 +835,8 @@ async def start_order(callback: CallbackQuery, state: FSMContext):
         # ... остальной код функции ...
     except Exception as e:
         user_log.error(f"Error in start_order: {str(e)}")
-        await callback.answer("❌ Произошла ошибка при создании заказа", show_alert=True)
-        await callback.message.answer("Произошла ошибка. Попробуйте позже.", reply_markup=main_menu())
+        await callback.answer(GENERAL_ERROR, show_alert=True)
+        await callback.message.answer(TRY_AGAIN_LATER, reply_markup=main_menu())
 
 @router.message(F.text == "ℹ️ Помощь") #Обработчик калвиатурной кнопки кнопки Помошь
 async def show_help_menu(message: Message, state: FSMContext):
@@ -956,7 +885,7 @@ async def show_help_from_button(callback: CallbackQuery, state: FSMContext):
 async def send_help_menu(target_message: Message, state: FSMContext = None):#Вызов меню помощи
     """Общая функция для отправки меню помощи"""
     help_msg = await target_message.answer(
-        "Выберите раздел помощи:",
+        HELP_MENU,
         reply_markup=help_menu()
     )
     if state:
@@ -970,26 +899,8 @@ async def show_how_to_order(callback: CallbackQuery, state: FSMContext):
     except Exception as e:
         user_log.error(f"Ошибка при удалении предыдущих сообщений помощи: {e}")
     
-    text = """❓ Как сделать заказ:
-
-    1️⃣ Выберите товары в каталоге
-    2️⃣ Добавьте их в корзину
-    3️⃣ Перейдите в корзину
-    4️⃣ Нажмите "Оформить заказ"
-    5️⃣ Укажите контактные данные
-    6️⃣ Произведите оплату
-
-    ⚠️ ВАЖНО:
-    • Указывайте адрес, на котором вы будете находиться в течение 2-3 часов
-    • После отправки заказа вы получите номер для отслеживания в Яндекс.Go
-    • Встречайте курьера лично - возврат средств невозможен
-    • Заказы отправляются пачками для оптимизации доставки
-    • Магазин автоматически уходит в сон при достижении 25 заказов
-
-    После оформления заказа ожидайте подтверждения менеджера"""
-    
     await safe_delete_message(callback.message)
-    help_msg = await callback.message.answer(text, reply_markup=help_menu())
+    help_msg = await callback.message.answer(HELP_HOW_TO_ORDER, reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
@@ -1001,18 +912,8 @@ async def show_payment_info(callback: CallbackQuery, state: FSMContext):
     except Exception as e:
         user_log.error(f"Ошибка при удалении предыдущих сообщений помощи: {e}")
     
-    text = """💳 Способы оплаты:
-
-    • Онлайн-оплата (переводом на карту)
-    • Стоимость доставки: до 1000 ₸ (оплачивается курьеру при получении)
-
-    ⚠️ ВАЖНО:
-    • После оплаты отправьте скриншот чека
-    • Убедитесь, что вы будете находиться по указанному адресу в течение 2-3 часов
-    • Встречайте курьера лично - возврат средств за неполученный заказ не производится"""
-    
     await safe_delete_message(callback.message)
-    help_msg = await callback.message.answer(text, reply_markup=help_menu())
+    help_msg = await callback.message.answer(HELP_PAYMENT, reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
@@ -1024,22 +925,8 @@ async def show_delivery_info(callback: CallbackQuery, state: FSMContext):
     except Exception as e:
         user_log.error(f"Ошибка при удалении предыдущих сообщений помощи: {e}")
     
-    text="""🚚 Информация о доставке:
-    • Доставка осуществляется в течение 2-3 часов
-    • Стоимость доставки: до 1000 ₸ (оплачивается курьеру при получении)
-    • Курьер свяжется с вами перед доставкой
-    • После отправки заказа вы получите номер для отслеживания в Яндекс.Go
-    • Заказы отправляются пачками для оптимизации доставки
-
-    ⚠️ ВАЖНО:
-    • Указывайте адрес, на котором вы будете находиться в течение 2-3 часов
-    • Встречайте курьера лично - возврат средств за неполученный заказ не производится
-    • Магазин автоматически уходит в сон при достижении 25 заказов
-
-    Просим отнестись с пониманием в это непростое время."""
-
     await safe_delete_message(callback.message)
-    help_msg = await callback.message.answer(text, reply_markup=help_menu())
+    help_msg = await callback.message.answer(HELP_DELIVERY, reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
@@ -1050,13 +937,8 @@ async def show_contact_help(callback: CallbackQuery, state: FSMContext):
     except Exception as e:
         user_log.error(f"Произошла ошибка при удалении придыдуших сообшений: {e}")
     
-    text="""
-    🤙Возникли проблемы?
-⬇️Telegram для связи⬇️
-            @tikto7182
-    """
     await safe_delete_message(callback.message)
-    help_msg = await callback.message.answer(text, reply_markup=help_menu())
+    help_msg = await callback.message.answer(HELP_CONTACT, reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
@@ -1119,7 +1001,7 @@ async def cancel_clear_cart(callback: CallbackQuery, state: FSMContext):
         user = await db.get_user(callback.from_user.id)
         if not user or not user.get('cart'):
             await callback.message.edit_text(
-                "Ваша корзина пуста",
+                CART_EMPTY,
                 reply_markup=main_menu()
             )
         else:
@@ -1128,11 +1010,11 @@ async def cancel_clear_cart(callback: CallbackQuery, state: FSMContext):
                 f"💵 Итого: {format_price(total)} ₸",
                 reply_markup=cart_actions_kb()
             )
-        await callback.answer("Очистка корзины отменена")
+        await callback.answer(CLEAR_CART_CANCELLED)
         
     except Exception as e:
         user_log.error(f"Error in cancel_clear_cart: {str(e)}")
-        await callback.answer("Произошла ошибка")
+        await callback.answer(GENERAL_ERROR)
 
 async def check_cart_expiration(user: dict) -> bool:
     """Проверяет, истекла ли корзина пользователя"""
@@ -1180,8 +1062,7 @@ async def notify_cart_expiration(bot, user_id: int):
     try:
         await bot.send_message(
             chat_id=user_id,
-            text="⏰ Ваша корзина была автоматически очищена из-за истечения времени (5 минут).\n"
-                 "Товары возвращены в наличие. Вы можете добавить их заново."
+            text=CART_EXPIRATION_NOTIFICATION
         )
     except Exception as e:
         user_log.error(f"Error notifying user {user_id} about cart expiration: {e}")
@@ -1228,14 +1109,13 @@ async def show_main_menu(callback: CallbackQuery, state: FSMContext):
         # Отправляем приветственное сообщение с основными кнопками
         welcome_msg = await callback.bot.send_message(
             chat_id=callback.message.chat.id,
-            text="Добро пожаловать в магазин!\n\n"
-                 "Выберите нужный раздел:",
+            text=MAIN_MENU_WELCOME,
             reply_markup=main_menu()
         )
         
         await state.update_data(welcome_message_id=welcome_msg.message_id)
-        await callback.answer("Переход в главное меню")
+        await callback.answer(MAIN_MENU_SUCCESS)
         
     except Exception as e:
         user_log.error(f"Ошибка в show_main_menu: {e}", exc_info=True)
-        await callback.answer("Произошла ошибка")
+        await callback.answer(GENERAL_ERROR)
