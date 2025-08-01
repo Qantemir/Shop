@@ -621,8 +621,7 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
             
         if liquid_total > 0 and liquid_total < 1:
             await callback.message.answer(
-                "❌ Минимальный заказ для категории Жидкости - 1 штук.\n"
-                f"Текущее количество: {liquid_total} шт."
+                CHECKOUT_MIN_LIQUID.format(quantity=liquid_total)
             )
             await callback.answer()
             return
@@ -648,15 +647,13 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         )
         
         # Ask for phone number
-        await callback.message.answer(
-            "Для оформления заказа, пожалуйста, отправьте ваш номер телефона в формате 8XXXXXXXXXX"
-        )
+        await callback.message.answer(CHECKOUT_PHONE_REQUEST)
         await state.set_state(OrderStates.waiting_phone)
         await callback.answer()
     except Exception as e:
         user_log.error(f"Error in start_checkout: {str(e)}")
-        await callback.answer("Произошла ошибка при оформлении заказа", show_alert=True)
-        await callback.message.answer("Произошла ошибка. Попробуйте позже.", reply_markup=main_menu())
+        await callback.answer(GENERAL_ERROR, show_alert=True)
+        await callback.message.answer(TRY_AGAIN_LATER, reply_markup=main_menu())
 
 @router.message(OrderStates.waiting_phone)
 async def process_phone(message: Message, state: FSMContext):

@@ -1538,14 +1538,26 @@ async def admin_cancel_order(callback: CallbackQuery, state: FSMContext):
             'chat_id': callback.message.chat.id
         })
 
-        await callback.message.edit_text(
-            f"❌ *Отмена заказа #{order_id}*\n\n"
-            "Пожалуйста, укажите причину отмены заказа:",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-                [InlineKeyboardButton(text="🔙 Отмена", callback_data=f"back_to_order_{order_id}")]
-            ]),
-            parse_mode="Markdown"
-        )
+        # Проверяем, есть ли текст в сообщении
+        if callback.message.text:
+            await callback.message.edit_text(
+                f"❌ *Отмена заказа #{order_id}*\n\n"
+                "Пожалуйста, укажите причину отмены заказа:",
+                reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                    [InlineKeyboardButton(text="🔙 Отмена", callback_data=f"back_to_order_{order_id}")]
+                ]),
+                parse_mode="Markdown"
+            )
+        else:
+            # Если сообщение не содержит текста, отправляем новое
+            await callback.message.answer(
+                f"❌ *Отмена заказа #{order_id}*\n\n"
+                "Пожалуйста, укажите причину отмены заказа:",
+                reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                    [InlineKeyboardButton(text="🔙 Отмена", callback_data=f"back_to_order_{order_id}")]
+                ]),
+                parse_mode="Markdown"
+            )
 
         await state.set_state(CancellationStates.waiting_for_reason)
         await callback.answer()
@@ -1579,11 +1591,20 @@ async def back_to_order_from_cancel(callback: CallbackQuery, state: FSMContext):
 
         order_text += f"\n\nСтатус: {ORDER_STATUSES.get(order.get('status', 'pending'), 'Статус неизвестен')}"
 
-        await callback.message.edit_text(
-            order_text,
-            parse_mode="HTML",
-            reply_markup=order_management_kb(str(order["_id"]), order.get('status', 'pending'))
-        )
+        # Проверяем, есть ли текст в сообщении
+        if callback.message.text:
+            await callback.message.edit_text(
+                order_text,
+                parse_mode="HTML",
+                reply_markup=order_management_kb(str(order["_id"]), order.get('status', 'pending'))
+            )
+        else:
+            # Если сообщение не содержит текста, отправляем новое
+            await callback.message.answer(
+                order_text,
+                parse_mode="HTML",
+                reply_markup=order_management_kb(str(order["_id"]), order.get('status', 'pending'))
+            )
 
         await state.clear()
         await callback.answer("Отмена отмены заказа")
