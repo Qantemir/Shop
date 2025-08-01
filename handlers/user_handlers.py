@@ -619,7 +619,7 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
             await callback.answer()
             return
             
-        if liquid_total > 0 and liquid_total < 3:
+        if liquid_total > 0 and liquid_total < 1:
             await callback.message.answer(
                 "❌ Минимальный заказ для категории Жидкости - 1 штук.\n"
                 f"Текущее количество: {liquid_total} шт."
