@@ -572,7 +572,7 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
     try:
         # Проверка rate limit
         if not await check_rate_limit(callback.from_user.id, callback.data):
-            await callback.answer(RATE_LIMIT_WARNING, show_alert=True)
+            await callback.answer("⚠️ Подождите немного перед следующим нажатием", show_alert=True)
             return
             
         # Удаляем предыдущие сообщения корзины
@@ -583,7 +583,7 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
     
         user = await db.get_user(callback.from_user.id)
         if not user or not user.get('cart'):
-            await callback.message.answer(CHECKOUT_EMPTY_CART)
+            await callback.message.answer("Ваша корзина пуста")
             await callback.answer()
             return
         
@@ -600,9 +600,9 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         for item in cart:
             product = await db.get_product(item['product_id'])
             if not product:
-                            await callback.message.answer(PRODUCT_NO_LONGER_AVAILABLE_ERROR.format(name=item['name']))
-            await callback.answer()
-            return
+                await callback.message.answer(f"Товар {item['name']} больше не доступен")
+                await callback.answer()
+                return
                 
             # Count category totals
             if product.get('category') == 'Снюс':
@@ -613,14 +613,16 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         # Check minimum quantities
         if snus_total > 0 and snus_total < 1:
             await callback.message.answer(
-                CHECKOUT_MIN_SNUS.format(quantity=snus_total)
+                "❌ Минимальный заказ для категории Снюс - 1 штук.\n"
+                f"Текущее количество: {snus_total} шт."
             )
             await callback.answer()
             return
             
         if liquid_total > 0 and liquid_total < 3:
             await callback.message.answer(
-                CHECKOUT_MIN_LIQUID.format(quantity=liquid_total)
+                "❌ Минимальный заказ для категории Жидкости - 1 штук.\n"
+                f"Текущее количество: {liquid_total} шт."
             )
             await callback.answer()
             return
@@ -646,13 +648,15 @@ async def start_checkout(callback: CallbackQuery, state: FSMContext):
         )
         
         # Ask for phone number
-        await callback.message.answer(CHECKOUT_PHONE_REQUEST)
+        await callback.message.answer(
+            "Для оформления заказа, пожалуйста, отправьте ваш номер телефона в формате 8XXXXXXXXXX"
+        )
         await state.set_state(OrderStates.waiting_phone)
         await callback.answer()
     except Exception as e:
         user_log.error(f"Error in start_checkout: {str(e)}")
-        await callback.answer(GENERAL_ERROR, show_alert=True)
-        await callback.message.answer(TRY_AGAIN_LATER, reply_markup=main_menu())
+        await callback.answer("Произошла ошибка при оформлении заказа", show_alert=True)
+        await callback.message.answer("Произошла ошибка. Попробуйте позже.", reply_markup=main_menu())
 
 @router.message(OrderStates.waiting_phone)
 async def process_phone(message: Message, state: FSMContext):
