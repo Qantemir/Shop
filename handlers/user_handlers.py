@@ -23,7 +23,64 @@ from config import ADMIN_ID, ADMIN_CARD,ADMIN_SWITCHING, CATEGORIES, ADMIN_CARD_
 from handlers.admin_handlers import format_order_notification
 from utils.sleep_mode import check_sleep_mode
 from utils.message_utils import safe_delete_message
-from texts import *
+from texts import (
+    CATALOG_MESSAGE,
+    CATEGORY_EMPTY,
+    CATALOG_ERROR,
+    CART_EMPTY,
+    CART_EXPIRED,
+    CART_HEADER,
+    CART_TOTAL,
+    CART_CLEARED,
+    CART_ALREADY_EMPTY,
+    CART_ERROR,
+    PRODUCT_AVAILABLE_FLAVORS,
+    PRODUCT_OUT_OF_STOCK,
+    PRODUCT_ADDED_TO_CART,
+    PRODUCT_ALREADY_IN_CART,
+    PRODUCT_OUT_OF_STOCK_ERROR,
+    PRODUCT_NOT_FOUND,
+    PRODUCT_FLAVOR_NOT_FOUND,
+    PRODUCT_UPDATE_ERROR,
+    PRODUCT_NO_LONGER_AVAILABLE,
+    QUANTITY_INCREASED,
+    QUANTITY_DECREASED,
+    QUANTITY_ITEM_NOT_FOUND,
+    QUANTITY_NO_STOCK,
+    ITEM_REMOVED,
+    ITEM_NOT_FOUND,
+    ITEM_UPDATE_ERROR,
+    CHECKOUT_EMPTY_CART,
+    CHECKOUT_MIN_SNUS,
+    CHECKOUT_MIN_LIQUID,
+    CHECKOUT_PHONE_REQUEST,
+    CHECKOUT_PHONE_INVALID,
+    CHECKOUT_ADDRESS_REQUEST,
+    CHECKOUT_PAYMENT_PROOF_REQUEST,
+    CHECKOUT_ORDER_ERROR,
+    CHECKOUT_ORDER_CREATED,
+    CHECKOUT_ORDER_CREATION_ERROR,
+    HELP_MENU,
+    RATE_LIMIT_WARNING,
+    GENERAL_ERROR,
+    CALLBACK_ERROR,
+    FLAVOR_INDEX_ERROR,
+    CLEAR_CART_CANCELLED,
+    MAIN_MENU_SUCCESS,
+    CATEGORIES_NOT_FOUND,
+    CATALOG_EMPTY_ERROR,
+    PRODUCT_DISPLAY_ERROR,
+    PRODUCT_NO_LONGER_AVAILABLE_ERROR,
+    TRY_AGAIN_LATER,
+    MAIN_MENU_WELCOME,
+    CART_EXPIRATION_NOTIFICATION,
+    ADMIN_PAYMENT_PHOTO_CAPTION,
+    ADMIN_PAYMENT_DOCUMENT_CAPTION,
+    format_price,
+    build_product_caption,
+    build_cart_text
+)
+from utils.text_manager import get_text
 
 user_log = logging.getLogger(__name__)#Инициализация логера
 
@@ -106,7 +163,7 @@ async def cmd_start(message: Message, state: FSMContext):
 
     help_button = help_button_kb()
     welcome_msg = await message.answer(
-        WELCOME_MESSAGE,
+        get_text("WELCOME_MESSAGE", "Добро пожаловать в магазин!\n\n👇Нажмите на ℹ️ Помощь, чтобы узнать подробнее👇"),
           reply_markup=main_menu()
     )
     # Сохраняем ID сообщения в состоянии
@@ -704,7 +761,7 @@ async def process_address(message: Message, state: FSMContext):
         admin_card = ADMIN_CARD
         admin_card_name = ADMIN_CARD_NAME
         
-        payment_text = CHECKOUT_PAYMENT_REQUEST.format(
+        payment_text = get_text("CHECKOUT_PAYMENT_REQUEST").format(
             total=format_price(total),
             card_link=admin_card,
             card_name=admin_card_name
@@ -901,7 +958,7 @@ async def show_how_to_order(callback: CallbackQuery, state: FSMContext):
         user_log.error(f"Ошибка при удалении предыдущих сообщений помощи: {e}")
     
     await safe_delete_message(callback.message)
-    help_msg = await callback.message.answer(HELP_HOW_TO_ORDER, reply_markup=help_menu())
+    help_msg = await callback.message.answer(get_text("HELP_HOW_TO_ORDER"), reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
@@ -914,7 +971,7 @@ async def show_payment_info(callback: CallbackQuery, state: FSMContext):
         user_log.error(f"Ошибка при удалении предыдущих сообщений помощи: {e}")
     
     await safe_delete_message(callback.message)
-    help_msg = await callback.message.answer(HELP_PAYMENT, reply_markup=help_menu())
+    help_msg = await callback.message.answer(get_text("HELP_PAYMENT"), reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
@@ -927,7 +984,7 @@ async def show_delivery_info(callback: CallbackQuery, state: FSMContext):
         user_log.error(f"Ошибка при удалении предыдущих сообщений помощи: {e}")
     
     await safe_delete_message(callback.message)
-    help_msg = await callback.message.answer(HELP_DELIVERY, reply_markup=help_menu())
+    help_msg = await callback.message.answer(get_text("HELP_DELIVERY"), reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 
@@ -939,7 +996,7 @@ async def show_contact_help(callback: CallbackQuery, state: FSMContext):
         user_log.error(f"Произошла ошибка при удалении придыдуших сообшений: {e}")
     
     await safe_delete_message(callback.message)
-    help_msg = await callback.message.answer(HELP_CONTACT, reply_markup=help_menu())
+    help_msg = await callback.message.answer(get_text("HELP_CONTACT"), reply_markup=help_menu())
     await state.update_data(help_message_id=help_msg.message_id)
     await callback.answer()
 

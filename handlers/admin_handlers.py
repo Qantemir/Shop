@@ -1201,6 +1201,27 @@ async def show_products_for_flavors(callback: CallbackQuery):
         logger.exception("Ошибка в show_products_for_flavors")
         await callback.answer("Произошла ошибка при загрузке списка товаров")
 
+@router.message(F.text == "📝 Управление текстами")
+@check_admin_session
+async def text_management(message: Message):
+    """Обработка кнопки управления текстами"""
+    try:
+        await message.answer(
+            "📝 Управление текстами\n\n"
+            "Используйте команду /texts для просмотра и редактирования текстов.\n\n"
+            "Доступные тексты:\n"
+            "• WELCOME_MESSAGE - Приветственное сообщение\n"
+            "• CHECKOUT_PAYMENT_REQUEST - Запрос оплаты\n"
+            "• HELP_HOW_TO_ORDER - Как сделать заказ\n"
+            "• HELP_PAYMENT - Способы оплаты\n"
+            "• HELP_DELIVERY - Информация о доставке\n"
+            "• HELP_CONTACT - Контактная информация",
+            reply_markup=admin_main_menu()
+        )
+    except Exception as e:
+        logger.error(f"Ошибка в text_management: {e}")
+        await message.answer("❌ Произошла ошибка при открытии управления текстами")
+
 @router.message(F.text == "❓ Помощь")#Обработка кнопки помощи
 @check_admin_session
 async def show_admin_help(message: Message):

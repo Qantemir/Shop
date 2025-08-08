@@ -7,7 +7,8 @@ from aiogram.exceptions import TelegramAPIError
 
 import config
 from database import db
-from handlers import user_handlers, admin_handlers
+from handlers import user_handlers, admin_handlers, text_handlers
+from utils.text_manager import load_texts, initialize_texts
 
 logging.getLogger("aiogram").setLevel(logging.WARNING)
 
@@ -28,6 +29,12 @@ async def on_startup():
         # Initialize database connection
         await db.connect()
         logging.info("Database connection established")
+        
+        # Initialize texts in database and load to cache
+        await initialize_texts()
+        await load_texts()
+        logging.info("Texts initialized and loaded to cache")
+        
     except Exception as e:
         logging.error(f"Error during startup: {e}")
         raise
@@ -54,6 +61,7 @@ async def main():
         # Register routers
         dp.include_router(user_handlers.router)
         dp.include_router(admin_handlers.router)
+        dp.include_router(text_handlers.router)
         
         # Запуск периодической очистки rate limit и корзин
         await user_handlers.init_rate_limit_cleanup(bot)

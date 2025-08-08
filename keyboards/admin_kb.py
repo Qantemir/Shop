@@ -12,7 +12,10 @@ def admin_main_menu() -> ReplyKeyboardMarkup:
             KeyboardButton(text="📢 Рассылка"),
             KeyboardButton(text="😴 Режим сна")
         ],
-        [KeyboardButton(text="❓ Помощь")]
+        [
+            KeyboardButton(text="📝 Управление текстами"),
+            KeyboardButton(text="❓ Помощь")
+        ]
     ]
     return ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True)
 
